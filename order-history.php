@@ -6,7 +6,7 @@ if (strlen($_SESSION['login']) == 0) {
     header('location:login.php');
 } else {
 
-?>
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,9 @@ if (strlen($_SESSION['login']) == 0) {
             600 + ',height=' + 600 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
     }
     </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -73,16 +75,6 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include('includes/menu-bar.php'); ?>
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.php" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Shopping Cart</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
 
     <div class="body-content outer-top-xs">
         <div class="container">
@@ -127,7 +119,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         <?php $query = mysqli_query($con, "select products.productImage1 as pimg1,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
                                             $cnt = 1;
                                             while ($row = mysqli_fetch_array($query)) {
-                                            ?>
+                                                ?>
                                         <tr style="border-bottom: 20px solid #fff !important; ">
                                             <td><?php echo $cnt; ?></td>
                                             <td class="cart-image"
@@ -156,13 +148,16 @@ if (strlen($_SESSION['login']) == 0) {
                                             </td>
                                             <td class="cart-product-sub-total"
                                                 style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $shippcharge = $row['shippingcharge']; ?> </td>
+                                                <?php echo $shippcharge = $row['shippingcharge']; ?>
+                                            </td>
                                             <td class="cart-product-grand-total"
                                                 style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo (($qty * $price) + $shippcharge); ?></td>
+                                                <?php echo (($qty * $price) + $shippcharge); ?>
+                                            </td>
                                             <td class="cart-product-sub-total"
                                                 style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $row['paym']; ?> </td>
+                                                <?php echo $row['paym']; ?>
+                                            </td>
                                             <td class="cart-product-sub-total"
                                                 style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
                                                 <?php echo substr(htmlentities($row['odate']), 0, 10); ?>

@@ -65,6 +65,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 </head>
 
@@ -77,6 +82,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         <?php include('includes/top-header.php'); ?>
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
+
     </header>
 
     <!-- ============================================== HEADER : END ============================================== -->
@@ -123,91 +129,125 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             z-index: 9999999999999;
                             left: -3px !important;
                         }
+
+
+                        .swiper {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                        .swiper-slide {
+                            text-align: center;
+                            font-size: 18px;
+                            width: 100%;
+                            height: 100%;
+                            background: #fff;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        .swiper-slide img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                        .swiper-button-next,
+                        .swiper-button-prev {
+                            height: 100%;
+                            color: #fff !important;
+                            top: 0;
+                            width: 30px;
+                        }
                         </style>
-                        <div id="hero" class="homepage-slider3">
-                            <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                                <div class="full-width-slider">
-                                    <div class="item" style="background-image: url(assets/images/sliders/slider1.png);">
-                                        <!-- /.container-fluid -->
-                                    </div><!-- /.item -->
-                                </div><!-- /.full-width-slider -->
 
-                                <div class="full-width-slider">
-                                    <div class="item full-width-slider"
-                                        style="background-image: url(assets/images/sliders/slider2.jpg);">
-                                    </div><!-- /.item -->
-                                </div><!-- /.full-width-slider -->
-
-                                <div class="full-width-slider">
-                                    <div class="item full-width-slider"
-                                        style="background-image: url(assets/images/sliders/slider3.jpeg);">
-                                    </div><!-- /.item -->
-                                </div><!-- /.full-width-slider -->
-
-                                <div class="full-width-slider">
-                                    <div class="item full-width-slider"
-                                        style="background-image: url(assets/images/sliders/slider4.jpeg);">
-                                    </div><!-- /.item -->
-                                </div><!-- /.full-width-slider -->
-
-                            </div><!-- /.owl-carousel -->
+                        <!-- Swiper -->
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="assets/images/sliders/slider1.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/sliders/slider.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/sliders/slider2.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/sliders/slider3.png" alt="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="assets/images/sliders/slider4.png" alt="">
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
                         </div>
-
                         <!-- ========================================= SECTION – HERO : END ========================================= -->
                         <!-- ============================================== INFO BOXES ============================================== -->
                         <div class="info-boxes wow fadeInUp">
                             <div class="info-boxes-inner">
                                 <div class="row">
-                                    <div class="col-md-6 col-sm-4 col-lg-4 ">
+                                    <div class="col-md-6 col-sm-4 col-lg-4 "
+                                        style="border: 1px solid #000;border-right : 0;   ">
                                         <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                            <div class=" row" style="text-align: left;">
-                                                <div class=" col-xs-12">
-                                                    <i class="icon fa fa-dollar" style="color: #000;"></i>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <h4 class="info-box-heading green"
-                                                        style="font-family: 'Raleway' , sans-serif !important;font-size:25px;color: #000; font-weight: 300; ">
-                                                        money
-                                                        back</h4>
+                                            <div class=" row  ">
+                                                <div class="col-lg-12"
+                                                    style="text-transform: uppercase; font-size: 13px !important ;
+                                                    font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                        #000; font-weight: 500; margin-left: 10px; display: flex;align-items: center; ">
+                                                    <i class='bx bx-rupee' style="color: #000;font-size: 18px; "> </i>
+                                                    <span style="margin-left: 10px;">money
+                                                        back</span>
                                                 </div>
                                             </div>
-                                            <h6 class="text"
-                                                style="font-family: sans-serif, 'Poppins' !important;color: #000; ">30
+                                            <h6 class="col-lg-12"
+                                                style="text-transform: uppercase; font-family: sans-serif, 'Poppins' !important;color: #000; ">
+                                                30
                                                 Day Money Back Guarantee.</h6>
                                         </div>
                                     </div><!-- .col -->
 
-                                    <div class="hidden-md col-sm-4 col-lg-4">
+                                    <div class="hidden-md col-sm-4 col-lg-4"
+                                        style="border: 1px solid #000; border-right : 0;  ">
                                         <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                            <div class="row" style="text-align: left;">
-                                                <div class="col-xs-12">
-                                                    <i class="icon fa fa-truck" style="color: #000;"></i>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <h4 class="info-box-heading orange"
-                                                        style="font-family: 'Raleway' , sans-serif !important;font-size:25px;color: #000; font-weight: 300;">
-                                                        free shipping</h4>
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-transform: uppercase; font-size: 13px !important ;
+                                                    font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 500; margin-left: 10px; display:
+                                                    flex;align-items: center; ">
+                                                    <i class="bx bxs-truck" style="color: #000;"></i>
+                                                    <span style="margin-left: 10px;">
+                                                        free shipping
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <h6 class="text" style="font-family: sans-serif, 'Poppins' !important;">
+                                            <h6 class="col-lg-12"
+                                                style="text-transform: uppercase; font-family: sans-serif, 'Poppins' !important;color: #000; ">
                                                 free ship-on oder Rs. 600.00</h6>
                                         </div>
                                     </div><!-- .col -->
 
-                                    <div class="col-md-6 col-sm-4 col-lg-4">
+                                    <div class="col-md-6 col-sm-4 col-lg-4" style="border: 1px solid #000;  ">
                                         <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                            <div class="row" style="text-align: left;">
-                                                <div class="col-xs-12">
-                                                    <i class="icon fa fa-gift" style="color: #000;"></i>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <h4 class="info-box-heading red"
-                                                        style="font-family: 'Raleway' , sans-serif !important;font-size:25px;color: #000; font-weight: 300;">
-                                                        Special Sale</h4>
+                                            <div class="row">
+                                                <div class="col-lg-12" style="text-transform: uppercase; font-size: 13px !important ;
+                                                    font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 500; margin-left: 10px; display:
+                                                    flex;align-items: center; ">
+                                                    <i class="bx bx-gift" style="color: #000;"></i>
+                                                    <span style="margin-left: 10px;">
+                                                        Special Sale
+                                                    </span>
                                                 </div>
                                             </div>
-                                            <h6 class="text" style="font-family: sans-serif, 'Poppins' !important;">
-                                                All items-sale up to 20% off </h6>
+                                            <h6 class="col-lg-12"
+                                                style="text-transform: uppercase; font-family: sans-serif, 'Poppins' !important;color: #000; ">
+                                                All items-sale up to 20% off
+                                            </h6>
                                         </div>
                                     </div><!-- .col -->
                                 </div><!-- /.row -->
@@ -222,15 +262,29 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
                 </style>
                 <!-- ============================================== SCROLL TABS ============================================== -->
-                <div id="product-tabs-slider" class="scroll-tabs inner-bottom-vs  wow fadeInUp "
-                    style="border: 0 !important ; ">
+                <div id="product-tabs-slider" class="scroll-tabs   wow fadeInUp " style="
+                border: 0 !important ; 
+                   
+                ">
                     <div class="more-info-tab clearfix"
                         style="margin-top: 40px;border : 0 !important ;display: block !important ; overflow-x: auto !important ;   ">
-                        <h3 class="new-product-title pull-left "
-                            style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border: 0 !important ;    ">
-                            Featured Products
-                        </h3>
+
                         <style>
+                        .more-info-tab {
+                            position: sticky !important;
+                            top: 0 !important;
+                            align-items: center !important;
+                            width: 100% !important;
+                            justify-content: start !important;
+                            overflow-x: scroll !important;
+                            overflow-y: hidden !important;
+                            width: 100% !important;
+                            position: sticky !important;
+                            top: 0 !important;
+                            z-index: 999 !important;
+                            background: white !important;
+                        }
+
                         .nav-tabs {
                             display: flex;
                             align-items: center;
@@ -246,9 +300,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                         }
 
                         .nav-tabs::-webkit-scrollbar {
-                            width: 10px !important;
+                            display: none !important;
+                            width: 2px !important;
                             background-color: #F5F5F5 !important;
-                            height: 5px !important;
+                            height: 1px !important;
                         }
 
                         .nav-tabs::-webkit-scrollbar-thumb {
@@ -256,42 +311,292 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             border: 2px solid #F2F3F8 !important;
                         }
 
+                        @media only screen and (max-width: 800px) {
+                            .nav-tabs::-webkit-scrollbar {
+                                display: block !important;
+                            }
+                        }
+
+
                         .nav-tabs li a {
+                            padding: 5px 10px !important;
                             border-radius: 0 !important;
                             margin: 10px !important;
+                            font-size: 10px !important;
                             text-transform: uppercase !important;
+                            font-size: 12px;
+                            font-weight: 500;
+                            font-family: 'Raleway', sans-serif !important;
+                            font-weight: 600 !important;
+                            color: #000 !important;
+                            border-color: #000 !important;
                         }
                         </style>
-                        <ul class=" nav nav-tabs  col-lg-12 col-sm-12" id="new-products-1"
+                        <ul class=" nav nav-tabs  col-lg-12 col-sm-12" id=""
                             style="width: 100% !important ;overflow-x : scroll !important  ;  text-align: center; ">
-                            <li class="active "><a href="#all" data-toggle="tab"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 ;color: #000;border-color: #000;   ">All</a>
+                            <li class="active  "><a href="#all" data-toggle="tab">All</a>
                             </li>
-                            <li><a href="#SmartPhone" data-toggle="tab"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 ;color: #000;border-color: #000;   ">SmartPhone
+                            <li><a href="#WOMAN" data-toggle="tab">WOMAN</a>
+                            </li>
+                            <li><a href="#MAN" data-toggle="tab">MAN</a>
+                            </li>
+                            <li><a href="#SmartPhone" data-toggle="tab">SmartPhone
                                 </a></li>
+                            <li style="position: absolute; right: 0;">
+                                <button onclick="openForm()" class="OPENFILTER">
+                                    <i class='bx bx-menu'></i>
+                                </button>
+                            </li>
+                            <script>
+                            document.addEventListener('DOMContentLoaded', () => {
+                                const menuButton = document.querySelector('.bx-menu, .bx-x');
+                                const card = document.getElementById('MYFILTER');
 
-                            <li><a href="#MAN" data-toggle="tab"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 ;color: #000;border-color: #000;   ">MAN</a>
-                            </li>
-                            <li><a href="#WOMAN" data-toggle="tab"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 ;color: #000;border-color: #000;   ">WOMAN</a>
-                            </li>
-                        </ul><!-- /.nav-tabs -->
+                                if (menuButton && card) {
+                                    menuButton.addEventListener('click', () => {
+                                        const isCardVisible = card.style.display === 'block';
+
+                                        // Toggle visibility of the card
+                                        if (isCardVisible) {
+                                            card.style.display = 'none';
+                                            menuButton.classList.remove('bx-x');
+                                            menuButton.classList.add('bx-menu');
+                                        } else {
+                                            card.style.display = 'block';
+                                            menuButton.classList.remove('bx-menu');
+                                            menuButton.classList.add('bx-x');
+                                        }
+                                    });
+
+                                    // Optional: Close the card if clicked outside
+                                    document.addEventListener('click', (event) => {
+                                        if (!card.contains(event.target) && !menuButton.contains(event
+                                                .target)) {
+                                            card.style.display = 'none';
+                                            menuButton.classList.remove('bx-x');
+                                            menuButton.classList.add('bx-menu');
+                                        }
+                                    });
+                                }
+                            });
+                            </script>
+                        </ul><!-- /.n av-tabs -->
+                        <style>
+                        .OPENFILTER {
+                            background: transparent !important;
+                            border: 0 !important;
+                            outline: 0 !important;
+                        }
+
+                        .OPENFILTER i {
+                            background: transparent !important;
+                            font-size: 15px;
+                        }
+
+                        .filter-menu {
+                            position: sticky;
+                            z-index: 999999;
+                            background: linear-gradient(rgba(242, 243, 248, 0.5), rgba(242, 243, 248, 0.6));
+                            width: 100% !important;
+                            height: 100% !important;
+                            right: 50px;
+                            cursor: pointer;
+                            top: 50px;
+                            border: 1px solid black;
+                            display: none;
+                            padding: 10px 20px;
+                        }
+
+                        .filter-menu li {
+                            margin-bottom: 10px;
+                            border: 1px solid black;
+                        }
+
+                        .filter-menu li a {
+                            display: flex;
+                            align-items: center;
+                            justify-content: start;
+                            padding: 8px 10px;
+                            font-size: 10px;
+                            font-weight: 500 !important;
+                        }
+
+                        .filter-menu h4 {
+                            font-size: 10px !important;
+                            font-size: 12px;
+                            font-weight: 500;
+                            font-family: 'Raleway', sans-serif !important;
+                            text-transform: uppercase;
+                            font-weight: 700;
+                            border-bottom: 3px solid black;
+                            padding-bottom: 10px;
+                        }
+                        </style>
+
                     </div>
+                    <div class="filter-menu" id="MYFILTER">
+                        <h4>Filter & Refine</h4>
+                        <div class=""
+                            style=" display: flex; align-items: baseline ;justify-content: start;  flex-wrap: wrap; ">
+                            <div class=" " style="padding: 20px; ">
+                                <h4>Sort by </h4>
+                                <ul>
+                                    <li><a href="#lowtohigh" data-toggle="tab">Price (Lowest First)</a>
+                                    </li>
+                                    <li><a href="#hightolow" data-toggle="tab">Price (Highest First)</a>
+                                    </li>
+                                    <li><a href="#AtoZ" data-toggle="tab">A to Z</a>
+                                    </li>
+                                    <li><a href="#ZtoA" data-toggle="tab">Z to A</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class=" " style="padding: 20px; ">
+                                <h4>Category by </h4>
+                                <ul>
+                                    <?php $sql = mysqli_query($con, "select id,categoryName  from category");
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
+                                    <li>
+                                        <a href="#<?php echo $row['categoryName']; ?>" data-toggle="tab">
+                                            <?php echo $row['categoryName']; ?></a>
+                                    </li>
+                                    <?php } ?>
 
+                                </ul>
+                            </div>
+
+                            <div class="" style="padding: 20px; ">
+                                <h4>Brand</h4>
+
+                                <ul>
+                                    <li><a href="#Apple" data-toggle="tab">Apple</a>
+                                    </li>
+                                    <li><a href="#Samsung" data-toggle="tab">Samsung</a>
+                                    </li>
+                                    <li><a href="#ZARA" data-toggle="tab">ZARA</a>
+                                    </li>
+                                    <li><a href="#NIKE" data-toggle="tab">NIKE</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class=" " style="padding: 20px; ">
+                                <h4>Gender</h4>
+
+                                <ul>
+                                    <li><a href="#WOMAN" data-toggle="tab">WOMAN</a>
+                                    </li>
+                                    <li><a href="#MAN" data-toggle="tab">MAN</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <style>
+                            .box {
+                                height: 12px;
+                                width: 12px;
+                                margin-right: 20px;
+                            }
+
+                            .black {
+                                margin-right: 6px;
+                                background: #000;
+                            }
+
+                            .white {
+                                border: 1px solid black;
+                                background: #fff;
+                            }
+
+                            .blue {
+                                background: blue;
+                            }
+
+                            .green {
+                                background: green;
+                            }
+
+                            .pink {
+                                background: pink;
+                            }
+
+                            .red {
+                                background: red;
+                            }
+
+                            .silver {
+                                background: #C0C0C0 !important;
+                            }
+
+                            .yellow {
+                                background: yellow;
+                            }
+                            </style>
+                            <div class=" " style="padding: 20px; ">
+                                <h4>COLOR</h4>
+                                <ul>
+                                    <li>
+                                        <a href="#blackandwhiteandGray" data-toggle="tab">
+                                            <div class='box black '></div>
+                                            <div class='box white'></div>
+                                            <span>BLACK & WHITE</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Blue" data-toggle="tab">
+                                            <div class='box blue '></div>
+                                            <span>BLUE</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Pink" data-toggle="tab">
+                                            <div class='box pink '></div>
+                                            <span>PINK</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Red" data-toggle="tab">
+                                            <div class='box red '></div>
+                                            <span>RED</span>
+
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Green" data-toggle="tab">
+                                            <div class='box green '></div>
+                                            <span>GREEN</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Silver" data-toggle="tab">
+                                            <div class='box silver '></div>
+                                            <span>SILVER</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#Yellow" data-toggle="tab">
+                                            <div class='box yellow '></div>
+                                            <span>YELLOW</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="tab-content outer-top-xs">
                         <div class="tab-pane in active" id="all">
                             <div class="product-slider">
                                 <div class="" data-item="4"
-                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    style="display: flex;align-items: center;justify-content: space-around      ; flex-wrap: wrap;   ">
                                     <?php
                                     $ret = mysqli_query($con, "select * from products order by rand() limit 16 ");
                                     while ($row = mysqli_fetch_array($ret)) {
                                         # code...
+                                    
 
-
-                                    ?>
+                                        ?>
 
                                     <style>
                                     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -300,13 +605,56 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     .products,
                                     .product {
                                         width: 250px !important;
-                                        margin-top: 50px !important;
+                                        margin-top: 10px;
+
                                     }
 
-                                    @media only screen and (max-width: 800px) {
+                                    .name a {
+                                        font-size: 12px !important;
+                                    }
+
+
+                                    @media only screen and (max-width: 450px) {
 
                                         .products,
                                         .product {
+                                            width: 140px !important;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                        }
+
+                                        .image {
+                                            width: 100% !important;
+                                            height: 100% !important;
+                                        }
+
+                                        .addtocart {
+                                            display: none !important;
+                                        }
+
+
+                                        .name {
+                                            width: 140px !important;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                        }
+
+                                        .name a {
+                                            font-size: 10px !important;
+                                        }
+                                    }
+
+
+                                    @media only screen and (max-width: 350px) {
+
+                                        .products,
+                                        .product {
+                                            width: 100% !important;
+                                        }
+
+                                        .name {
                                             width: 100% !important;
                                         }
 
@@ -317,7 +665,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     }
                                     </style>
                                     <div class=" item item-carousel">
-                                        <div class="products">
+                                        <div class="products m-t-0">
 
                                             <div class="product">
                                                 <div class="product-image" style="background:#F2F3F8 !important;">
@@ -325,9 +673,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                         style="background:transparent !important;width: 250px; height: 250px;  ">
                                                         <a
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                                width="100%" height="100%" alt=""></a>
+                                                                width=" 100%" height="100%" alt=""></a>
                                                     </div><!-- /.image -->
 
 
@@ -335,29 +683,31 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                 <div class="product-info text-left"
-                                                    style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                     <h3 class="name"><a
                                                             style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                     </h3>
 
-                                                    <div class="product-price" style="margin-top: -10px; ">
+                                                    <div class=" product-price" style="margin-top: -10px; ">
                                                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
-                                                            Rs.<?php echo htmlentities($row['productPrice']); ?> </span>
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
                                                     </div><!-- /.product-price -->
                                                     <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                     <div class="action " style="width: 100%; "><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            class="lnk btn btn-primary col-lg-12 addtocart addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                             Add </a>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class=" action" style="color:red ;width: 100%; ">
-                                                        <button class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                        <button
+                                                            class="lnk btn btn-primary col-lg-12 addtocart addtocart"
+                                                            style=" font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                             Out of Stock</button>
                                                     </div>
                                                     <?php } ?>
@@ -381,12 +731,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class=""
                                     style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
                                     <?php
-                                    $ret = mysqli_query($con, "select * from products where category=7  ORDER BY RAND() ");
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE category=11 ORDER BY productPrice ASC");
                                     while ($row = mysqli_fetch_array($ret)) {
                                         # code...
-
-
-                                    ?>
+                                        ?>
 
 
                                     <div class=" item item-carousel">
@@ -408,29 +756,30 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                 <div class="product-info text-left"
-                                                    style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                    style="width:250px !important; margin-top: 5px !important;padding: 0 !important;">
                                                     <h3 class="name"><a
                                                             style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                     </h3>
 
-                                                    <div class="product-price" style="margin-top: -10px; ">
+                                                    <div class=" product-price" style="margin-top: -10px; ">
                                                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
-                                                            Rs.<?php echo htmlentities($row['productPrice']); ?> </span>
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
                                                     </div><!-- /.product-price -->
                                                     <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                     <div class="action " style="width: 100%; "><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                             Add </a>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class=" action" style="color:red ;width: 100%; ">
-                                                        <button class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                             Out of Stock</button>
                                                     </div>
                                                     <?php } ?>
@@ -460,9 +809,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     $ret = mysqli_query($con, "select * from products where category=15");
                                     while ($row = mysqli_fetch_array($ret)) {
                                         # code...
+                                    
 
-
-                                    ?>
+                                        ?>
 
 
                                     <div class=" item item-carousel">
@@ -484,29 +833,30 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                 <div class="product-info text-left"
-                                                    style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                     <h3 class="name"><a
                                                             style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                     </h3>
 
-                                                    <div class="product-price" style="margin-top: -10px; ">
+                                                    <div class=" product-price" style="margin-top: -10px; ">
                                                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
-                                                            Rs.<?php echo htmlentities($row['productPrice']); ?> </span>
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
                                                     </div><!-- /.product-price -->
                                                     <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                     <div class="action " style="width: 100%; "><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                             Add </a>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class=" action" style="color:red ;width: 100%; ">
-                                                        <button class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                             Out of Stock</button>
                                                     </div>
                                                     <?php } ?>
@@ -527,12 +877,12 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class=""
                                     style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
                                     <?php
-                                    $ret = mysqli_query($con, "select * from products where category=18 ORDER BY RAND() ");
+                                    $ret = mysqli_query($con, "select * from products where category=10 ORDER BY RAND() ");
                                     while ($row = mysqli_fetch_array($ret)) {
                                         # code...
+                                    
 
-
-                                    ?>
+                                        ?>
 
 
                                     <div class=" item item-carousel">
@@ -554,29 +904,30 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                 <div class="product-info text-left"
-                                                    style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                     <h3 class="name"><a
                                                             style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                     </h3>
 
-                                                    <div class="product-price" style="margin-top: -10px; ">
+                                                    <div class=" product-price" style="margin-top: -10px; ">
                                                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
-                                                            Rs.<?php echo htmlentities($row['productPrice']); ?> </span>
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
                                                     </div><!-- /.product-price -->
                                                     <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                     <div class="action " style="width: 100%; "><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                             Add </a>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class=" action" style="color:red ;width: 100%; ">
-                                                        <button class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                             Out of Stock</button>
                                                     </div>
                                                     <?php } ?>
@@ -596,12 +947,12 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class=""
                                     style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
                                     <?php
-                                    $ret = mysqli_query($con, "select * from products where category=19 ORDER BY RAND() ");
+                                    $ret = mysqli_query($con, "select * from products where category=8 ORDER BY RAND() ");
                                     while ($row = mysqli_fetch_array($ret)) {
                                         # code...
+                                    
 
-
-                                    ?>
+                                        ?>
 
 
                                     <div class=" item item-carousel">
@@ -623,29 +974,1108 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                 <div class="product-info text-left"
-                                                    style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                     <h3 class="name"><a
                                                             style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                     </h3>
 
-                                                    <div class="product-price" style="margin-top: -10px; ">
+                                                    <div class=" product-price" style="margin-top: -10px; ">
                                                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
-                                                            Rs.<?php echo htmlentities($row['productPrice']); ?> </span>
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
                                                     </div><!-- /.product-price -->
                                                     <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                     <div class="action " style="width: 100%; "><a
                                                             href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                            class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                             Add </a>
                                                     </div>
                                                     <?php } else { ?>
                                                     <div class=" action" style="color:red ;width: 100%; ">
-                                                        <button class="lnk btn btn-primary col-lg-12"
-                                                            style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="lowtohigh">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY productPrice ASC");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="hightolow">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY productPrice DESC");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="AtoZ">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY productName ASC");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="ZtoA">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY productName DESC");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="ZtoA">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY productName DESC");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Apple">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'Apple'");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Samsung">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'Samsung'");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="ZARA">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'ZARA'");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="NIKE">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'NIKE'");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+
+
+
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="blackandwhiteandGray">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Black', 'Black & White', 'Black & Gray','White & Teal')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Blue">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Blue', 'Skyblue')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Pink">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Pink','Bright Pink')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Red">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Red','Dusty Rose','Copper Red')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Green">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor = 'Green'");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Silver">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Silver','Silver Shadow')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                            Out of Stock</button>
+                                                    </div>
+                                                    <?php } ?>
+                                                </div><!-- /.product-info -->
+
+                                            </div><!-- /.product -->
+
+                                        </div><!-- /.products -->
+                                    </div><!-- /.item --> <?php } ?>
+
+
+                                </div><!-- /.home-owl-carousel -->
+                            </div><!-- /.product-slider -->
+                        </div>
+                        <div class="tab-pane" id="Yellow">
+                            <div class="product-slider">
+                                <div class=""
+                                    style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                    <?php
+                                    $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Yellow','Sunshine Yellow')");
+                                    while ($row = mysqli_fetch_array($ret)) {
+                                        # code...
+                                        ?>
+                                    <div class=" item item-carousel">
+                                        <div class="products">
+
+                                            <div class="product">
+                                                <div class="product-image" style="background:#F2F3F8 !important;">
+                                                    <div class="image"
+                                                        style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <a
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                            <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                                width="100%" height="100%" alt=""></a>
+                                                    </div><!-- /.image -->
+
+
+                                                </div><!-- /.product-image -->
+
+
+                                                <div class="product-info text-left"
+                                                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                    <h3 class="name"><a
+                                                            style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                    </h3>
+
+                                                    <div class=" product-price" style="margin-top: -10px; ">
+                                                        <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                            Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </div><!-- /.product-price -->
+                                                    <?php if ($row['productAvailability'] == 'In Stock') { ?>
+                                                    <div class="action " style="width: 100%; "><a
+                                                            href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                            class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                            Add </a>
+                                                    </div>
+                                                    <?php } else { ?>
+                                                    <div class=" action" style="color:red ;width: 100%; ">
+                                                        <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                            style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                             Out of Stock</button>
                                                     </div>
                                                     <?php } ?>
@@ -667,15 +2097,15 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class="col-md-6">
                                     <section class="section">
                                         <h3 class="section-title"
-                                            style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000;    ">
+                                            style="font-family: 'Raleway' , sans-serif;font-size:13px;font-weight:600 !important ;color: #000;border-color: #000;     ">
                                             Smart Phones</h3>
                                         <div class="owl-carousel homepage-owl-carousel custom-carousel outer-top-xs owl-theme"
                                             data-item="2">
 
                                             <?php
-                                            $ret = mysqli_query($con, "SELECT * FROM products WHERE category=7  ORDER BY RAND() LIMIT 4");
+                                            $ret = mysqli_query($con, "SELECT * FROM products WHERE category=11  ORDER BY RAND() LIMIT 4");
                                             while ($row = mysqli_fetch_array($ret)) {
-                                            ?>
+                                                ?>
 
 
 
@@ -699,14 +2129,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                         <div class="product-info text-left"
-                                                            style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                            style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                             <h3 class="name"><a
                                                                     style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
 
-                                                            <div class="product-price" style="margin-top: -10px; ">
+                                                            <div class=" product-price" style="margin-top: -10px; ">
                                                                 <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
                                                                     Rs.<?php echo htmlentities($row['productPrice']); ?>
@@ -715,14 +2145,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                             <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                             <div class="action " style="width: 100%; "><a
                                                                     href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                                    class="lnk btn btn-primary col-lg-12"
-                                                                    style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                                    class="lnk btn btn-primary col-lg-12 addtocart"
+                                                                    style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                                     Add </a>
                                                             </div>
                                                             <?php } else { ?>
                                                             <div class=" action" style="color:red ;width: 100%; ">
-                                                                <button class="lnk btn btn-primary col-lg-12"
-                                                                    style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                                <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                                    style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                                     Out of Stock</button>
                                                             </div>
                                                             <?php } ?>
@@ -742,15 +2172,15 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class="col-md-6">
                                     <section class="section">
                                         <h3 class="section-title"
-                                            style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000;    ">
-                                            Smart Phones
+                                            style="font-family: 'Raleway' , sans-serif;font-size:13px;font-weight:600 !important ;color: #000;border-color: #000;       ">
+                                            Shoes
                                         </h3>
                                         <div class="owl-carousel homepage-owl-carousel custom-carousel outer-top-xs owl-theme"
                                             data-item="2">
                                             <?php
-                                            $ret = mysqli_query($con, "SELECT * FROM products WHERE category=18  ORDER BY RAND() LIMIT 4");
+                                            $ret = mysqli_query($con, "SELECT * FROM products WHERE category=10 and subcategory=21  ORDER BY RAND() LIMIT 4");
                                             while ($row = mysqli_fetch_array($ret)) {
-                                            ?>
+                                                ?>
 
 
 
@@ -774,14 +2204,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
                                                         <div class="product-info text-left"
-                                                            style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                            style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                             <h3 class="name"><a
                                                                     style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
 
-                                                            <div class="product-price" style="margin-top: -10px; ">
+                                                            <div class=" product-price" style="margin-top: -10px; ">
                                                                 <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 11px; ">MRP:
                                                                     Rs.<?php echo htmlentities($row['productPrice']); ?>
@@ -790,14 +2220,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                             <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                             <div class="action " style="width: 100%; "><a
                                                                     href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                                    class="lnk btn btn-primary col-lg-12"
-                                                                    style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
+                                                                    class="lnk btn btn-primary col-lg-12 addtocart"
+                                                                    style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                                     Add </a>
                                                             </div>
                                                             <?php } else { ?>
                                                             <div class=" action" style="color:red ;width: 100%; ">
-                                                                <button class="lnk btn btn-primary col-lg-12"
-                                                                    style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
+                                                                <button class="lnk btn btn-primary col-lg-12 addtocart"
+                                                                    style="font-size: 12px;font-weight: 500;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                                     Out of Stock</button>
                                                             </div>
                                                             <?php } ?>
@@ -824,19 +2254,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                         <section class="section featured-product inner-xs wow fadeInUp"
                             style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap;     ">
-                            <div class="">
+                            <div class="" style="width: 250px  !important ;  ">
                                 <h3 class="section-title"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
-                                    MAN
+                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
+                                    MAN'S SHIRTS
                                 </h3>
                                 <?php
-                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 18 ORDER BY RAND() LIMIT 4");
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 10 and subcategory=18 ORDER BY RAND() LIMIT 4");
                                 while ($row = mysqli_fetch_array($ret)) {
                                     # code...
-                                ?>
+                                    ?>
                                 <div class="item">
-                                    <div class="products">
-                                        <div class="product" style="margin-top: -50px !important ; ">
+                                    <div class="products" style="width: 250px !important ;  ">
+                                        <div class="product"
+                                            style="width: 250px !important ; margin-top: -50px !important ; ">
                                             <div class="product-micro">
                                                 <div class="row product-micro-row" style="height: 100px !important ;  ">
                                                     <div class="col col-xs-4 col-lg-4 col-sm-4"
@@ -857,11 +2288,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-8" style="height: 100% !important ;   ">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
+                                                            <h3 class="name" style="display: block !important ;  "><a
                                                                     style="  font-family:sans-serif, ' Poppins'; font-size: 11px !important ; color: #000;text-transform: capitalize;  "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
-                                                            <div class="product-price">
+                                                            <div class=" product-price">
                                                                 <span class="price"
                                                                     style="font-family: sans-serif, ' Poppins'!important;font-weight: normal !important ;font-size: 11px ;  ">
                                                                     MRP.
@@ -878,23 +2309,24 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </div>
                                 </div><?php } ?>
                             </div>
-                            <div class="">
+                            <div class="" style="width: 250px !important ;  ">
                                 <h3 class="section-title"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
-                                    WOMAN
+                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
+                                    WOMAN'S SHIRTS
                                 </h3>
                                 <?php
-                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 19 ORDER BY RAND() LIMIT 4");
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 8 and subcategory=15 ORDER BY RAND() LIMIT 4");
                                 while ($row = mysqli_fetch_array($ret)) {
                                     # code...
-                                ?>
+                                    ?>
                                 <div class="item">
-                                    <div class="products">
-                                        <div class="product" style="margin-top: -50px !important ; ">
+                                    <div class="products" style="width: 250px !important ;  ">
+                                        <div class="product"
+                                            style="width: 250px !important ;  margin-top: -50px !important ; ">
                                             <div class="product-micro">
                                                 <div class="row product-micro-row" style="height: 100px !important ;  ">
-                                                    <div class="col col-xs-4 col-lg-4 col-sm-4"
-                                                        style="height: 100% !important ;">
+                                                    <div class="col col-xs-4 col-lg-4
+                                                        col-sm-4" style="height: 100% !important ;">
                                                         <div class="product-image"
                                                             style="background: #F2F3F8; width: 80px; height:80px">
                                                             <div class="image"
@@ -911,11 +2343,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-8" style="height: 100% !important ;   ">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
+                                                            <h3 class="name" style="display: block !important ;  "><a
                                                                     style="  font-family:sans-serif, ' Poppins'; font-size: 11px !important ; color: #000;text-transform: capitalize;  "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
-                                                            <div class="product-price">
+                                                            <div class=" product-price">
                                                                 <span class="price"
                                                                     style="font-family: sans-serif, ' Poppins'!important;font-weight: normal !important ;font-size: 11px ;  ">
                                                                     MRP.
@@ -932,19 +2364,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </div>
                                 </div><?php } ?>
                             </div>
-                            <div class="">
+                            <div class="" style="width: 250px !important  ;  ">
                                 <h3 class="section-title"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
-                                    Smart Phones
+                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
+                                    MAN'S T-SHIRTS
                                 </h3>
                                 <?php
-                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 7 ORDER BY RAND() LIMIT 4");
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 10 and subcategory = 17 ORDER BY RAND() LIMIT 4");
                                 while ($row = mysqli_fetch_array($ret)) {
                                     # code...
-                                ?>
+                                    ?>
                                 <div class="item">
-                                    <div class="products">
-                                        <div class="product" style="margin-top: -50px !important ; ">
+                                    <div class="products" style="width: 250px !important  ;  ">
+                                        <div class="product"
+                                            style="width: 250px !important  ;margin-top: -50px !important ; ">
                                             <div class="product-micro">
                                                 <div class="row product-micro-row" style="height: 100px !important ;  ">
                                                     <div class="col col-xs-4 col-lg-4 col-sm-4"
@@ -965,11 +2398,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-8" style="height: 100% !important ;   ">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
+                                                            <h3 class="name" style="display: block !important ;  "><a
                                                                     style="  font-family:sans-serif, ' Poppins'; font-size: 11px !important ; color: #000;text-transform: capitalize;  "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
-                                                            <div class="product-price">
+                                                            <div class=" product-price">
                                                                 <span class="price"
                                                                     style="font-family: sans-serif, ' Poppins'!important;font-weight: normal !important ;font-size: 11px ;  ">
                                                                     MRP.
@@ -986,19 +2419,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </div>
                                 </div><?php } ?>
                             </div>
-                            <div class="">
+                            <div class="" style="width: 250px !important  ;  ">
                                 <h3 class="section-title"
-                                    style="font-family: 'Raleway' , sans-serif;font-size:30px;font-weight:300 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
-                                    MAN
+                                    style="font-family: 'Raleway' , sans-serif;font-size:15px;font-weight:400 !important ;color: #000;border-color: #000; margin-bottom: 100px !important ;    ">
+                                    WOMAN'S T-SHIRTS
                                 </h3>
                                 <?php
-                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 19 ORDER BY RAND() LIMIT 4");
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = 8 and subcategory = 16 ORDER BY RAND() LIMIT 4");
                                 while ($row = mysqli_fetch_array($ret)) {
                                     # code...
-                                ?>
+                                    ?>
                                 <div class="item">
-                                    <div class="products">
-                                        <div class="product" style="margin-top: -50px !important ; ">
+                                    <div class="products" style="width: 250px !important  ;  ">
+                                        <div class="product"
+                                            style="width: 250px !important  ;margin-top: -50px !important ; ">
                                             <div class="product-micro">
                                                 <div class="row product-micro-row" style="height: 100px !important ;  ">
                                                     <div class="col col-xs-4 col-lg-4 col-sm-4"
@@ -1019,11 +2453,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                     </div><!-- /.col -->
                                                     <div class="col col-xs-8" style="height: 100% !important ;   ">
                                                         <div class="product-info">
-                                                            <h3 class="name"><a
+                                                            <h3 class="name" style="display: block !important ;  "><a
                                                                     style="  font-family:sans-serif, ' Poppins'; font-size: 11px !important ; color: #000;text-transform: capitalize;  "
                                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                             </h3>
-                                                            <div class="product-price">
+                                                            <div class=" product-price">
                                                                 <span class="price"
                                                                     style="font-family: sans-serif, ' Poppins'!important;font-weight: normal !important ;font-size: 11px ;  ">
                                                                     MRP.
@@ -1087,6 +2521,30 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         });
         </script>
         <!-- For demo purposes – can be removed on production : End -->
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 30,
+            centeredSlides: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+        </script>
+
 
 
 

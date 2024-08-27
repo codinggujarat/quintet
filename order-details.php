@@ -55,7 +55,9 @@ include('includes/config.php');
             600 + ',height=' + 600 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
     }
     </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -69,16 +71,7 @@ include('includes/config.php');
         <?php include('includes/menu-bar.php'); ?>
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="#" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Shopping Cart</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
 
     <div class="body-content outer-top-xs">
         <div class="container">

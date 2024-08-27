@@ -1,4 +1,4 @@
-# The following directives force the content-type application/octet-stream
+<!-- # The following directives force the content-type application/octet-stream
 # and force browsers to display a download dialog for non-image files.
 # This prevents the execution of script files in the context of the website:
 ForceType application/octet-stream
@@ -15,4 +15,7 @@ Header set X-Content-Type-Options nosniff
 # Uncomment the following lines to prevent unauthorized download of files:
 #AuthName "Authorization required"
 #AuthType Basic
-#require valid-user
+#require valid-user -->
+
+
+ErrorDocument 404 /404.php

@@ -30,7 +30,7 @@ if (strlen($_SESSION['login']) == 0) {
         }
     }
 
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +96,9 @@ if (strlen($_SESSION['login']) == 0) {
         return true;
     }
     </script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -112,16 +114,7 @@ if (strlen($_SESSION['login']) == 0) {
 
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="#" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Checkout</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
     <style>
     .form-group input,
     .form-group textarea {
@@ -136,10 +129,10 @@ if (strlen($_SESSION['login']) == 0) {
 
     .checkout-page-button {
         background: #F2F3F8 !important;
-        width: 50% !important;
+        width: 30% !important;
         color: #000;
-        height: 50px !important;
-        font-size: 20px !important;
+        height: 30px !important;
+        font-size: 15px !important;
         border-radius: 0 !important;
         font-family: 'Raleway', sans-serif !important;
         font-weight: 400 !important;
@@ -160,38 +153,38 @@ if (strlen($_SESSION['login']) == 0) {
                             <div class="panel  checkout-step-01">
 
                                 <!-- panel-heading -->
-                                <div class="panel-heading"
-                                    style="background: transparent !important ; border-bottom: 2px solid black; ">
+                                <div class=""
+                                    style="background: transparent !important ; border-bottom:none !important  ; ">
                                     <h4 class="unicase-checkout-title">
                                         <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne"
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 25px;color: #000;text-transform: uppercase    ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;text-transform: uppercase    !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;border-bottom : 1px solid black; ">
                                             My Profile
                                             <span style="background: transparent ; "><i class='bx bx-chevron-down'
-                                                    style="font-size: 40px !important ;color: #000;  "></i></span>
+                                                    style="font-size: 20px !important ;color: #000;  "></i></span>
                                         </a>
                                     </h4>
                                 </div>
                                 <!-- panel-heading -->
 
-                                <div id="collapseOne" class="panel-collapse collapse in">
+                                <div id="collapseOne" class="panel-collapse collapse ">
 
                                     <!-- panel-body  -->
-                                    <div class="panel-body">
+                                    <div class="panel-body" style="margin: 0 !important ;padding: 0 !important ;  ">
                                         <div class="row">
-                                            <h4
-                                                style="font-family: 'Raleway',sans-serif;text-transform: uppercase; font-size: 20px; ">
-                                                Personal info</h4>
                                             <div class="col-md-12 col-sm-12 already-registered-login">
+                                                <h4
+                                                    style="font-family: 'Raleway',sans-serif;text-transform: uppercase; font-size: 15px;font-weight: 500;  color: #000; ">
+                                                    Personal info</h4>
 
                                                 <?php
                                                     $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
                                                     while ($row = mysqli_fetch_array($query)) {
-                                                    ?>
+                                                        ?>
 
                                                 <form class="register-form" role="form" method="post">
                                                     <div class="form-group">
                                                         <label class="info-title" for="name"
-                                                            style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Name<span>*</span></label>
+                                                            style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Name<span>*</span></label>
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             value="<?php echo $row['name']; ?>" id="name" name="name"
@@ -202,7 +195,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                     <div class="form-group">
                                                         <label class="info-title" for="exampleInputEmail1"
-                                                            style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Email
+                                                            style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Email
                                                             Address
                                                             <span>*</span></label>
                                                         <input type="email"
@@ -212,7 +205,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="info-title" for="Contact No."
-                                                            style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Contact
+                                                            style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Contact
                                                             No.
                                                             <span>*</span></label>
                                                         <input type="text"
@@ -236,27 +229,27 @@ if (strlen($_SESSION['login']) == 0) {
                             <!-- checkout-step-01  -->
                             <!-- checkout-step-02  -->
                             <div class="panel  checkout-step-02">
-                                <div class="panel-heading"
-                                    style="background: transparent !important ;border-bottom: 2px solid black;  ">
+                                <div class=""
+                                    style="background: transparent !important ;; border-bottom:none !important  ;  ">
                                     <h4 class="unicase-checkout-title">
                                         <a data-toggle="collapse" class="collapsed" data-parent="#accordion"
                                             href="#collapseTwo"
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px;color: #000;text-transform: capitalize   ;font-weight: light !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;text-transform: uppercase; font-weight: light !important ;display: flex;align-items: center;justify-content: space-between;; border-bottom:1px solid #000 !important  ; ">
                                             Change Password
                                             <span style="background: transparent ; "><i class='bx bx-chevron-down'
-                                                    style="font-size: 40px !important ;color: #000;  "></i></span>
+                                                    style="font-size: 20px !important ;color: #000;  "></i></span>
 
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
+                                    <div class="panel-body" style="margin: 0 !important ;padding: 0 !important ;  ">
 
                                         <form class="register-form" role="form" method="post" name="chngpwd"
                                             onSubmit="return valid();">
                                             <div class="form-group">
                                                 <label class="info-title" for="Current Password"
-                                                    style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Current
+                                                    style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Current
                                                     Password<span>*</span></label>
                                                 <input type="password"
                                                     class="form-control unicase-form-control text-input" id="cpass"
@@ -267,7 +260,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                                             <div class="form-group">
                                                 <label class="info-title" for="New Password"
-                                                    style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">New
+                                                    style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">New
                                                     Password
                                                     <span>*</span></label>
                                                 <input type="password"
@@ -276,7 +269,7 @@ if (strlen($_SESSION['login']) == 0) {
                                             </div>
                                             <div class="form-group">
                                                 <label class="info-title" for="Confirm Password"
-                                                    style="font-family: 'Raleway',sans-serif;font-size: 17px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Confirm
+                                                    style="font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;font-weight: normal !important ; text-transform: uppercase; ">Confirm
                                                     Password
                                                     <span>*</span></label>
                                                 <input type="password"

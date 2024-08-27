@@ -125,10 +125,12 @@ if (isset($_POST['shipupdate'])) {
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
-
+            <script src="assets/js/html5shiv.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -141,28 +143,24 @@ if (isset($_POST['shipupdate'])) {
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
     </header>
-    <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="#" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Shopping Cart</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
 
     <div class="body-content outer-top-xs">
         <div class="container">
             <div class="row inner-bottom-sm">
                 <div class="shopping-cart">
                     <div class="col-md-12 col-sm-12 shopping-cart-table ">
-                        <div class="table-responsive">
+                        <h1 style=" font-family: 'Raleway' ,sans-serif;font-size: 14px !important ;color:
+                                #000;text-transform: uppercase ;font-weight: 500 !important ;">
+                            shopping bag
+                            <i class='bx bx-shopping-bag'
+                                style="font-size: 15px ;color:black ;   margin-left: 10px; "></i>
+                        </h1>
+                        <div class=" table-responsive">
                             <form name="cart" method="post">
                                 <?php
                                 if (!empty($_SESSION['cart'])) {
-                                ?>
+                                    ?>
                                 <table class="table ">
                                     <thead>
                                         <style>
@@ -238,7 +236,7 @@ if (isset($_POST['shipupdate'])) {
 
                                                     array_push($pdtid, $row['id']);
                                                     //print_r($_SESSION['pid'])=$pdtid;exit;
-                                            ?>
+                                                    ?>
 
                                         <tr style="border-bottom: 20px solid #fff !important; ">
                                             <td class="romove-item"><input type="checkbox" name="remove_code[]"
@@ -255,8 +253,8 @@ if (isset($_POST['shipupdate'])) {
                                                         style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
                                                         href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
 
-                                                                                                                                                    $_SESSION['sid'] = $pd;
-                                                                                                                                                    ?></a>
+                                                                         $_SESSION['sid'] = $pd;
+                                                                         ?></a>
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-sm-4">
@@ -265,7 +263,7 @@ if (isset($_POST['shipupdate'])) {
                                                     <div class="col-sm-6">
                                                         <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
                                                                     $num = mysqli_num_rows($rt); {
-                                                                    ?>
+                                                                        ?>
                                                         <div class="reviews" style="color:black;">
                                                             ( <?php echo htmlentities($num); ?> Reviews )
                                                         </div>
@@ -343,9 +341,9 @@ if (isset($_POST['shipupdate'])) {
                                     <td>
                                         <div class="form-group">
                                             <?php
-                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                            while ($row = mysqli_fetch_array($query)) {
-                                            ?>
+                                                $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                                while ($row = mysqli_fetch_array($query)) {
+                                                    ?>
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing Address"
@@ -416,9 +414,9 @@ if (isset($_POST['shipupdate'])) {
                                     <td>
                                         <div class="form-group">
                                             <?php
-                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                            while ($row = mysqli_fetch_array($query)) {
-                                            ?>
+                                                $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                                while ($row = mysqli_fetch_array($query)) {
+                                                    ?>
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Shipping Address"
@@ -504,61 +502,61 @@ if (isset($_POST['shipupdate'])) {
                             </tbody><!-- /tbody -->
                         </table>
                         <?php } else { ?>
-                        <div style="display: flex; align-items: center;justify-content: center;height: 100%;   ">
-                            <div style="text-align: center; ">
-                                <i class='bx bxs-shopping-bag' style="font-size: 200px ;color:lightgray ; ""></i>
-                                <h4 style=" font-size: 30px;font-weight: 300 !important ;color: #000; text-transform:
-                                    uppercase; ">
-                                    Your shopping Cartm is empty
+                        <div style="height:50vh !important ; ">
+                            <div>
+
+
+                                <h4 style=" font-size: 15px;font-weight: 300 !important ;color:black; text-transform:
+                                        uppercase; ">
+                                    Your shopping basket is empty
                                 </h4>
                             </div>
                         </div>
-                        <?php   } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
             </form>
-            <?php echo include('includes/brands-slider.php'); ?>
         </div>
     </div>
     <?php include('includes/footer.php'); ?>
 
     <script src=" assets/js/jquery-1.11.1.min.js"></script>
 
-                                    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-                                    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-                                    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
 
-                                    <script src="assets/js/echo.min.js"></script>
-                                    <script src="assets/js/jquery.easing-1.3.min.js"></script>
-                                    <script src="assets/js/bootstrap-slider.min.js"></script>
-                                    <script src="assets/js/jquery.rateit.min.js"></script>
-                                    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
-                                    <script src="assets/js/bootstrap-select.min.js"></script>
-                                    <script src="assets/js/wow.min.js"></script>
-                                    <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/echo.min.js"></script>
+    <script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/bootstrap-slider.min.js"></script>
+    <script src="assets/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 
-                                    <!-- For demo purposes – can be removed on production -->
+    <!-- For demo purposes – can be removed on production -->
 
-                                    <script src="switchstylesheet/switchstylesheet.js"></script>
+    <script src="switchstylesheet/switchstylesheet.js"></script>
 
-                                    <script>
-                                    $(document).ready(function() {
-                                        $(".changecolor").switchstylesheet({
-                                            seperator: "color"
-                                        });
-                                        $('.show-theme-options').click(function() {
-                                            $(this).parent().toggleClass('open');
-                                            return false;
-                                        });
-                                    });
+    <script>
+    $(document).ready(function() {
+        $(".changecolor").switchstylesheet({
+            seperator: "color"
+        });
+        $('.show-theme-options').click(function() {
+            $(this).parent().toggleClass('open');
+            return false;
+        });
+    });
 
-                                    $(window).bind("load", function() {
-                                        $('.show-theme-options').delay(2000).trigger('click');
-                                    });
-                                    </script>
-                                    <!-- For demo purposes – can be removed on production : End -->
+    $(window).bind("load", function() {
+        $('.show-theme-options').delay(2000).trigger('click');
+    });
+    </script>
+    <!-- For demo purposes – can be removed on production : End -->
 </body>
 
 </html>

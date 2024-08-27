@@ -1,217 +1,245 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900 !important ;1,100..900&display=swap');
 
 footer {
-    width: 100%;
-    background: #fff;
+    width: 100% !important;
+    background: #fff !important;
 }
 
-footer .content {
-    max-width: 1350px;
-    margin: auto;
-    padding: 20px;
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    margin-left: 10%;
-    margin-right: 10%;
-    justify-content: space-between;
+footer .contentfooter {
+    max-width: 1350px !important;
+    margin: auto !important;
+    padding: 20px !important;
+    display: flex !important;
+    align-items: baseline !important;
+    flex-wrap: wrap !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    justify-content: space-between !important;
 }
 
-footer .content p,
+footer .contentfooter p,
 a {
-    color: #000;
+    font-size: 12px !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 300 !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
 }
 
-footer .content .box {
-    width: 33%;
-    transition: all 0.4s ease;
+footer .contentfooter .boxfooter {
+    width: 33% !important;
+    transition: all 0.4s ease !important;
 }
 
-footer .content .topic {
-    cursor: default;
-    font-size: 22px;
-    font-weight: 400;
-    color: #000;
-    margin-bottom: 16px;
-    text-transform: uppercase;
+footer .contentfooter .topicfooter {
+    cursor: default !important;
+    font-size: 14px !important;
+    color: #000 !important;
+    margin-bottom: 16px !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
+    text-transform: uppercase !important;
 
 }
 
-footer .content p {
-    text-align: justify;
+footer .contentfooter p {
+    text-align: justify !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: capitalize !important;
+
 }
 
-footer .content .lower .topic {
-    margin: 24px 0 5px 0;
+footer .contentfooter .lowerfooter .topicfooter {
+    margin: 24px 0 5px 0 !important;
 }
 
-footer .content .lower i {
-    padding-right: 16px;
+footer .contentfooter .lowerfooter i {
+    padding-right: 16px !important;
 }
 
-footer .content .middle {
-    padding-left: 80px;
+footer .contentfooter .middlefooter {
+    padding-left: 80px !important;
 }
 
-footer .content .middle a {
-    line-height: 32px;
-    font-size: 15px;
+footer .contentfooter .middlefooter a {
+    font-size: 12px !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
 }
 
-footer .content .right input[type="text"] {
-    height: 45px;
-    width: 100%;
-    outline: none;
-    color: #000;
-    background: transparent;
-    border-radius: 5px;
-    padding-left: 10px;
-    font-size: 17px;
-    border: 2px solid #000;
+footer .contentfooter .rightfooter .footerinput {
+    height: 45px !important;
+    width: 100% !important;
+    outline: none !important;
+    color: #000 !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding-left: 10px !important;
+    text-transform: uppercase !important;
+    font-size: 14px !important;
+    border: 1px solid #000 !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
 }
 
-footer .content .right input[type="text"]::placeholder {
-    color: #000;
+footer .contentfooter .rightfooter .footerinput::placeholder {
+    color: #000 !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
 }
 
-footer .content .right input[type="submit"] {
-    height: 42px;
-    width: 100%;
-    font-size: 18px;
-    color: #fff;
-    background: #000;
-    outline: none;
-    border-radius: 5px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    margin-top: 12px;
-    border: 2px solid #000;
-    transition: all 0.3s ease-in-out;
+footer .contentfooter .rightfooter .footerbtn {
+    height: 42px !important;
+    width: 100% !important;
+    font-size: 14px !important;
+    color: #000 !important;
+    background: #fff !important;
+    outline: none !important;
+    border-radius: 0 !important;
+    letter-spacing: 1px !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    margin-top: 12px !important;
+    border: 1px solid #000 !important;
+    transition: all 0.3s ease-in-out !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
 }
 
-.content .right input[type="submit"]:hover {
-    background: none;
-    color: #000;
+.contentfooter .rightfooter .footerbtn:hover {
+    background: none !important;
+    color: #000 !important;
 }
 
-footer .content .media-icons {
-    margin-top: 20px;
+footer .contentfooter .media-iconsfooter {
+    margin-top: 20px !important;
 }
 
-footer .content .media-icons a {
-    font-size: 16px;
-    height: 45px;
-    width: 45px;
-    display: inline-block;
-    text-align: center;
-    line-height: 43px;
-    border-radius: 5px;
-    border: 2px solid lightgray;
-    margin: 30px px 0 0;
-    transition: all 0.3s ease;
+footer .contentfooter .media-iconsfooter a {
+    font-size: 16px !important;
+    height: 45px !important;
+    width: 45px !important;
+    display: inline-block !important;
+    text-align: center !important;
+    line-height: 43px !important;
+    border: 2px solid lightgray !important;
+    margin: 30px px 0 0 !important;
+    transition: all 0.3s ease !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
 }
 
-.content .media-icons a:hover {
-    border-color: #000;
+.contentfooter .media-iconsfooter a:hover {
+    border-color: #000 !important;
 }
 
-footer .bottom {
-    width: 100%;
-    text-align: right;
-    color: gray;
-    padding: 0 40px 5px 0;
+footer .bottomfooter {
+    width: 100% !important;
+    text-align: right !important;
+    color: gray !important;
+    padding: 0 40px 5px 0 !important;
 }
 
-footer .bottom a {
-    color: #000;
+footer .bottomfooter a {
+    color: #000 !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
 }
 
 footer a {
-    transition: all 0.3s ease;
+    transition: all 0.3s ease !important;
+    font-family: 'Raleway', sans-serif !important;
+    font-weight: 600 !important;
+
 }
 
 footer a:hover {
-    color: #000;
+    color: #000 !important;
+}
+
+.phone a {
+    font-family: sans-serif, 'Poppins' !important;
 }
 
 @media (max-width:1100px) {
-    footer .content .middle {
-        padding-left: 50px;
+    footer .contentfooter .middlefooter {
+        padding-left: 50px !important;
     }
 }
 
 @media (max-width:950px) {
-    footer .content .box {
-        width: 50%;
+    footer .contentfooter .boxfooter {
+        width: 50% !important;
     }
 
-    .content .right {
-        margin-top: 40px;
+    .contentfooter .rightfooter {
+        margin-top: 40px !important;
     }
 }
 
 @media (max-width:560px) {
     footer {
-        position: relative;
+        position: relative !important;
     }
 
-    footer .content .box {
-        width: 100%;
-        margin-top: 30px;
+    footer .contentfooter .boxfooter {
+        width: 100% !important;
+        margin-top: 30px !important;
     }
 
-    footer .content .middle {
-        padding-left: 0;
+    footer .contentfooter .middlefooter {
+        padding-left: 0 !important;
     }
 }
 </style>
 <footer>
     <div class="">
         <div class="">
-            <div class="content">
-                <div class="left box">
-                    <div class="upper">
-                        <div class="topic">About us</div>
-                        <p>Learn more about our brand, mission, and values. Discover how we started, what drives us, and
+            <div class="contentfooter">
+                <div class="leftfooter boxfooter">
+                    <div class="upperfooter">
+                        <div class="topicfooter">About us</div>
+                        <p style="font-weight: 600 !important ; ">Learn more about our brand, mission, and values.
+                            Discover how we
+                            started, what drives us, and
                             our commitment to delivering quality products and exceptional customer experiences.</p>
                     </div>
-                    <div class="lower">
-                        <div class="topic">Contact us</div>
-                        <div style="margin-bottom: 10px;" class="phone">
+                    <div class="lowerfooter">
+                        <div class="topicfooter">Contact us</div>
+                        <div style="margin-bottom: 10px !important ;" class="phone">
                             <a href="#"
-                                style="font-size: 15px;display: flex;align-items: center  ;justify-content: start ;   "><i
-                                    class='bx bxs-phone ' style="font-size: 18px;"></i>+000 0000
+                                style="font-size: 12px !important ;display: flex !important ;align-items: center   !important ;justify-content: start  !important ;   "><i
+                                    class='bx bxs-phone ' style="font-size: 12px !important ;"></i>+000 0000
                                 0000</a>
                         </div>
-                        <div class=" email">
+                        <div class=" emailfooter">
                             <a href="#"
-                                style="font-size: 15px;display: flex;align-items: center  ;justify-content: start ; "><i
-                                    class='bx bxs-envelope ' style="font-size: 18px ;"></i>abc@gmail.com<va>
+                                style="font-size: 12px !important ;display: flex !important ;align-items: center   !important ;justify-content: start  !important ;text-transform: lowercase  !important ;"><i
+                                    class='bx bxs-envelope ' style="font-size: 12px  !important ;"></i>abc@gmail.com<va>
                         </div>
                     </div>
                 </div>
-                <div class=" middle box">
-                    <div class="topic">Customer Service</div>
+                <div class=" middlefooter boxfooter">
+                    <div class="topicfooter">Customer Service</div>
                     <div><a href="#">Shipping & Delivery</a></div>
                     <div><a href="track-orders.php">Order Status</a></div>
-                    <div><a href="#">Contact Us</a></div>
+                    <div><a href="ContactUs.php">Contact Us</a></div>
                 </div>
-                <div class="right box">
-                    <div class="topic">Subscribe us</div>
+                <div class="rightfooter boxfooter">
+                    <div class="topicfooter">Subscribe us</div>
                     <form action="#">
-                        <input type="text" placeholder="Enter email address">
-                        <input type="submit" name="" value="Send">
-                        <div class="media-icons">
-                            <div class="topic">Follow Us</div>
+                        <input type="text" class="footerinput" placeholder="Enter email address">
+                        <input type="submit" name="" class="footerbtn" value="Send">
+                        <div class="media-iconsfooter">
+                            <div class="topicfooter">Follow Us</div>
                             <a href="#"><i class='bx bxl-facebook'></i></a>
                             <a href="#"><i class='bx bxl-instagram'></i></a>
                             <a href="#"><i class='bx bxl-twitter'></i></a>
@@ -222,8 +250,8 @@ footer a:hover {
 
                 </div>
             </div>
-            <div class="bottom">
-                <p>Copyright © 2020 <a href="#">Letscodeweb</a> All rights reserved</p>
+            <div class="bottomfooter">
+                <p>Copyright © 2024 <a href="#">Quintet</a> All rights reserved</p>
             </div>
         </div><!-- /.container -->
     </div><!-- /.links-social -->

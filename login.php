@@ -39,8 +39,8 @@ if (isset($_POST['login'])) {
         $uip = $_SERVER['REMOTE_ADDR'];
         $status = 0;
         $log = mysqli_query($con, "insert into userlog(userEmail,userip,status) values('$email','$uip','$status')");
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         header("location:http://$host$uri/$extra");
         $_SESSION['errmsg'] = "Invalid email id or Password";
         exit();
@@ -128,7 +128,9 @@ if (isset($_POST['login'])) {
     </script>
 
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -149,16 +151,7 @@ if (isset($_POST['login'])) {
     </header>
 
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.php" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Authentication</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
     <style>
     .form-group input {
         border: 2px solid gray;

@@ -9,7 +9,7 @@
 .top-bar {
     background: white;
     width: 100%;
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 999;
     background: #F2F3F8 !important;
@@ -22,32 +22,41 @@
 .list-unstyled li a span {
     font-family: 'Raleway', sans-serif !important;
     text-transform: uppercase !important;
-    font-weight: 500;
+    font-weight: 600 !important;
 }
 
 .list-unstyled li {
     border: 0 !important;
 }
 
-.list-unstyled li a,
-.list-unstyled li a .bx {
-    color: #000 !important;
-    font-size: 12px !important;
+.list-unstyled li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border: 2px solid #000 !important;
+
 }
 
-.list-unstyled li a .bx {
-    font-size: 15px !important;
+.list-unstyled li a,
+.list-unstyled li a .fa {
+    color: #000 !important;
+    font-size: 11px !important;
+    padding: 5px 10px !important;
+}
+
+.list-unstyled li a .fa {
+    font-size: 10px !important;
 }
 </style>
 <div class="top-bar animate-dropdown">
     <div class="container">
-        <div class="header-top-inner">
+        <div class="header-top-inner" style="overflow-x :auto !important   ;">
             <div class="cnt-account">
                 <ul class="list-unstyled ">
-                    <?php if (strlen($_SESSION['login'])) {   ?>
+                    <?php if (strlen($_SESSION['login'])) { ?>
                     <li>
                         <a href="#">
-                            <i class='bx bx-user'></i>
+                            <i class="fa-regular fa-user"></i>
                             <span>Welcome - </span>
                             <span style="font-weight: bold; "><?php echo htmlentities($_SESSION['username']); ?></span>
                         </a>
@@ -56,22 +65,22 @@
 
                     <li>
                         <a href="my-account.php">
-                            <i class='bx bx-user-circle'></i>
+                            <i class="fa-regular fa-circle-user"></i>
                             <span>My Account</span>
                         </a>
                     </li>
                     <li>
                         <a href="my-wishlist.php">
-                            <i class='bx bx-heart'></i>
-                            <span>Wishlist</span>
+                            <i class='fa-regular fa-bookmark '></i>
+                            <span>favourites</span>
                         </a>
                     </li>
                     <li><a href="my-cart.php">
                             <i class='bx bx-shopping-bag'></i>
-                            <span>My Cart</span>
+                            <span>shopping bag</span>
                         </a>
                     </li>
-                    <?php if (strlen($_SESSION['login']) == 0) {   ?>
+                    <?php if (strlen($_SESSION['login']) == 0) { ?>
                     <li><a href="login.php">
                             <i class='bx bx-arrow-from-right'></i>
                             <span>Login</span>

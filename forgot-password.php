@@ -19,8 +19,8 @@ if (isset($_POST['change'])) {
         exit();
     } else {
         $extra = "forgot-password.php";
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri  = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        $host = $_SERVER['HTTP_HOST'];
+        $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         header("location:http://$host$uri/$extra");
         $_SESSION['errmsg'] = "Invalid email id or Contact no";
         exit();
@@ -91,6 +91,9 @@ if (isset($_POST['change'])) {
         return true;
     }
     </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -111,16 +114,7 @@ if (isset($_POST['change'])) {
     </header>
 
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.html" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Forgot Password</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
     <style>
     .form-group input {
         border: 2px solid gray;
@@ -150,8 +144,33 @@ if (isset($_POST['change'])) {
                         justify-content: center;
                     }
                     </style>
+                    <style>
+                    .form-group input {
+                        border: 2px solid gray;
+                    }
+
+                    .form-group input:focus {
+                        border: 2px solid black !important;
+                    }
+
+                    .checkout-page-button {
+                        background: #F2F3F8 !important;
+                        width: 100% !important;
+                        color: #000;
+                        height: 50px !important;
+                        font-size: 20px !important;
+                        border-radius: 0 !important;
+                        font-family: 'Raleway', sans-serif !important;
+                        font-weight: 400 !important;
+                    }
+
+                    .checkout-page-button:hover {
+                        color: #000;
+                        border: 1px solid black;
+                    }
+                    </style>
                     <h4 class=""
-                        style="text-align: center ; font-family: 'Raleway',sans-serif;font-size: 40px;color: #000;text-transform: uppercase ;font-weight: light !important ;">
+                        style="text-transform: uppercase; text-align: center ;  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 300; ">
                         Forgot password</h4>
                     <div class="col-md-6 col-sm-6 col-lg-12 sign-in">
                         <form class="register-form outer-top-xs" style="width: 500px;" name="register" method="post">
@@ -165,21 +184,21 @@ if (isset($_POST['change'])) {
                             </span>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1"
-                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Email
+                                    style="text-transform: uppercase; font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Email
                                     Address <span>*</span></label>
                                 <input type="email" name="email" class="form-control unicase-form-control text-input"
                                     id="exampleInputEmail1" required>
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputPassword1"
-                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Contact
+                                    style="text-transform: uppercase; font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Contact
                                     no <span>*</span></label>
                                 <input type="text" name="contact" class="form-control unicase-form-control text-input"
                                     id="contact" required>
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="password"
-                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Password.
+                                    style=" text-transform: uppercase;  font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Password.
                                     <span>*</span></label>
                                 <input type="password" class="form-control unicase-form-control text-input"
                                     id="password" name="password" required>
@@ -187,7 +206,7 @@ if (isset($_POST['change'])) {
 
                             <div class="form-group">
                                 <label class="info-title" for="confirmpassword"
-                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Confirm
+                                    style=" text-transform: uppercase;  font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Confirm
                                     Password. <span>*</span></label>
                                 <input type="password" class="form-control unicase-form-control text-input"
                                     id="confirmpassword" name="confirmpassword" required>

@@ -82,12 +82,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
+            <script src="assets/js/html5shiv.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
     <!-- box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -109,62 +111,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
         <div class='container'>
             <div class='row outer-bottom-sm'>
                 <div class='col-md-3 sidebar'>
-                    <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-                    </style>
-                    <!-- ================================== TOP NAVIGATION ================================== -->
-                    <div class="side-menu animate-dropdown outer-bottom-xs">
-                        <div class="side-menu animate-dropdown outer-bottom-xs"
-                            style="border: 1px solid black !important ;box-shadow: none !important ; outline:none !important;">
-                            <div class="head"
-                                style="font-family: 'Raleway',sans-serif  !important;background: transparent  !important;color: #000;font-weight: 400 ;  box-shadow: none !important ; font-size: 15px !important  ;border-bottom: 1px solid #000  ;  ">
-                                Categories
-                            </div>
-                            <nav class="yamm megamenu-horizontal" role="navigation">
-
-                                <ul class="nav">
-                                    <li class="dropdown menu-item">
-                                        <?php $sql = mysqli_query($con, "select id,categoryName  from category");
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                        <a style="font-family: 'Raleway',sans-serif  !important;text-transform: uppercase; "
-                                            href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                            class="dropdown-toggle">
-                                            <?php echo $row['categoryName']; ?></a>
-                                        <?php } ?>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div><!-- /.side-menu -->
-                    <style>
-                    .sidebar .side-menu nav .nav>li>a,
-                    .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
-                        color: #000 !important;
-                        font-size: 15px !important;
-                        font-weight: 400 !important;
-                        text-transform: uppercase !important;
-                    }
-
-                    .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
-                        display: none !important;
-                    }
-
-                    .menu-item {
-                        background: transparent !important;
-                    }
-
-                    .sidebar .side-menu nav .nav>li>a:hover,
-                    .sidebar .side-menu nav .nav>li>a:focus {
-                        background: white !important;
-                        border: 0px solid #555 !important;
-                        color: #000 !important;
-                    }
-                    </style>
                     <!-- ================================== TOP NAVIGATION : END ================================== -->
                     <div class="sidebar-module-container">
                         <h3 class="section-title"
-                            style="font-family: 'Raleway',sans-serif  !important;text-transform: uppercase ;font-weight: 300 !important ;  color: #000; font-weight: 400;   ">
+                            style="font-size: 12px;  text-transform: uppercase !important; font-family: 'Raleway', sans-serif !important;font-weight: 600 !important ;  color: #000;   font-weight: 400; ">
                             shopping
                             by
                         </h3>
@@ -172,25 +122,23 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                             <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
                             <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
                                 <div class="widget-header m-t-20"
-                                    style="background:transparent ;border: 1px solid black;border-bottom: 0;  ">
+                                    style="background:transparent ;border: 1px solid black;border-bottom: 0; padding: 0;   ">
                                     <h4 class="widget-title"
-                                        style="font-family: 'Raleway',sans-serif  !important;text-transform: uppercase ; color: #000;font-size: 15px;padding: 5px; font-weight: 400;   ">
+                                        style=" font-family: 'Raleway', sans-serif !important;text-transform: uppercase ; color: #000;font-size: 11px;padding: 8px 13px; font-weight: 600;   ">
                                         Category</h4>
                                 </div>
                                 <div class="sidebar-widget-body m-t-10" style="border: 1px solid black;margin: 0;">
                                     <?php $sql = mysqli_query($con, "select id,categoryName  from category");
                                     while ($row = mysqli_fetch_array($sql)) {
-                                    ?>
+                                        ?>
                                     <div class="accordion">
-                                        <div class="accordion-group">
+                                        <div class="accordion-group" style="padding: 0 !important  ;  ">
                                             <div class="accordion-heading"
-                                                style="display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 12px;  ">
-                                                <a style="font-family: 'Raleway',sans-serif  !important;width: 100%; font-size: 17px;color: #000 !important ; font-weight: 300 !important ;font-size: 15px;    "
+                                                style="display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 0 !important ;  ">
+                                                <a style=" font-family: 'Raleway', sans-serif !important;width: 100%; color: #000 !important ; font-weight: 600 !important ;font-size: 11px; text-transform: uppercase; padding: 0px 13px !important ;    "
                                                     href="category.php?cid=<?php echo $row['id']; ?>" class="">
                                                     <?php echo $row['categoryName']; ?>
                                                 </a>
-                                                <i class='bx bx-plus' style="color:black;font-size: 17px;"></i>
-
                                             </div>
                                         </div>
                                     </div>
@@ -240,20 +188,48 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane active " id="grid-container">
                                 <div class="category-product  inner-top-vs">
-                                    <div class="row">
+                                    <div class=""
+                                        style="display: flex;align-items: center;justify-content: space-around      ; flex-wrap: wrap;   ">
                                         <?php
                                         $ret = mysqli_query($con, "select * from products where productName like '$find'");
                                         $num = mysqli_num_rows($ret);
                                         if ($num > 0) {
                                             while ($row = mysqli_fetch_array($ret)) { ?>
                                         <style>
+                                        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
                                         .products,
                                         .product {
                                             width: 250px !important;
-                                            margin-top: 50px !important;
+                                            margin-top: 10px;
+
                                         }
 
-                                        @media only screen and (max-width: 800px) {
+
+                                        @media only screen and (max-width: 450px) {
+
+                                            .products,
+                                            .product {
+                                                width: 140px !important;
+                                            }
+
+                                            .image {
+                                                width: 100% !important;
+                                                height: 100% !important;
+                                            }
+
+                                            .addtocart {
+                                                display: none !important;
+                                            }
+
+                                            .name {
+                                                display: none !important;
+                                            }
+                                        }
+
+
+                                        @media only screen and (max-width: 350px) {
 
                                             .products,
                                             .product {
@@ -266,7 +242,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                             }
                                         }
                                         </style>
-                                        <div class="col-sm-6 col-md-4 wow fadeInUp" style="margin-top: 20px; ">
+                                        <div class=" wow fadeInUp" style="margin-top: 20px; ">
                                             <div class="products">
 
                                                 <div class="product">
@@ -285,7 +261,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
 
                                                     <div class="product-info text-left"
-                                                        style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                        style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                         <h3 class="name"><a
                                                                 style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -301,13 +277,13 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                         <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                                         <div class="action " style="width: 100%; "><a
                                                                 href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                                class="lnk btn btn-primary col-lg-12"
+                                                                class="lnk btn btn-primary col-lg-12 addtocart"
                                                                 style="font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0; ">
                                                                 Add </a>
                                                         </div>
                                                         <?php } else { ?>
                                                         <div class=" action" style="color:red ;width: 100%; ">
-                                                            <button class="lnk btn btn-primary col-lg-12"
+                                                            <button class="lnk btn btn-primary col-lg-12 addtocart"
                                                                 style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ;  ">
                                                                 Out of Stock</button>
                                                         </div>

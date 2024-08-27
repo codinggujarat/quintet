@@ -15,14 +15,16 @@
 .navbar-nav li a {
     font-family: 'Raleway', sans-serif !important;
     background: white !important;
-    font-size: 14px !important;
+    font-size: 13px !important;
     color: #000 !important;
-    font-weight: 400 !important;
-    position: relative;
+    font-weight: 600 !important;
+    position: relative !important;
 }
 
 .navbar-nav li a {
-    line-height: 2px !important;
+    line-height: 0px !important;
+    padding: 10px 20px !important;
+
 }
 
 
@@ -90,11 +92,12 @@
                             </li>
                             <?php $sql = mysqli_query($con, "select id,categoryName  from category limit 6");
                             while ($row = mysqli_fetch_array($sql)) {
-                            ?>
+                                ?>
 
                             <li class="dropdown yamm">
                                 <a href="category.php?cid=<?php echo $row['id']; ?>">
-                                    <?php echo $row['categoryName']; ?></a>
+                                    <?php echo $row['categoryName']; ?>
+                                </a>
 
                             </li>
                             <?php } ?>

@@ -36,7 +36,9 @@ include('includes/config.php');
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/images/favicon.ico">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -53,17 +55,7 @@ include('includes/config.php');
 
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.html" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Track your orders
-                    </li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
+
     <style>
     .form-group input {
         border: 2px solid gray;
@@ -78,7 +70,7 @@ include('includes/config.php');
         width: 100% !important;
         color: #000;
         height: 50px !important;
-        font-size: 20px !important;
+        font-size: 15px !important;
         border-radius: 0 !important;
         font-family: 'Raleway', sans-serif !important;
         font-weight: 400 !important;
@@ -93,28 +85,28 @@ include('includes/config.php');
         <div class="container">
             <div class="track-order-page inner-bottom-sm">
                 <div class="row">
-                    <div class="col-md-12" style="margin-top: -100px; ">
-                        <h2
-                            style="text-align: left; font-family: 'Raleway',sans-serif;font-size: 40px;color: #000;text-transform: uppercase ;font-weight: 400 !important ;    ">
-                            Track
-                            your Order</h2>
-                        <span class="title-tag inner-top-vs "
-                            style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 15px;color: #000; text-transform: uppercase;font-weight: 500;  ">Please
-                            enter your Order ID in the box below and press
-                            Enter. This was given to you on your receipt and in the confirmation email you should have
-                            received. </span>
-                        <form class=" register-form outer-top-xs col-lg-6 col-sm-12 " style="margin-left: -10px; "
-                            role="form" method="post" action="order-details.php">
+                    <span class="title-tag inner-top-vs "
+                        style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 12px;color: #000; text-transform: uppercase;font-weight: 500;  ">Please
+                        enter your Order ID in the box below and press
+                        Enter. This was given to you on your receipt and in the confirmation email you should have
+                        received. </span>
+                    <h2
+                        style="text-align: center ;text-transform: uppercase; font-family: 'Raleway' , sans-serif !important;font-size:25px;color: #000; font-weight: 300;    ">
+                        Track
+                        your Order</h2>
+                    <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;   ">
+                        <form class=" register-form outer-top-xs col-lg-6 col-sm-12 " style="width: 500px; " role="form"
+                            method="post" action="order-details.php">
                             <div class="form-group">
                                 <label class="info-title" for="exampleOrderId1"
-                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;  font-size: 20px;color: #000; ">Order
+                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;  font-size: 15px;color: #000; ">Order
                                     ID</label>
                                 <input type="text" class="form-control unicase-form-control text-input " name="orderid"
                                     id="exampleOrderId1">
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleBillingEmail1"
-                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;   font-size: 20px;color: #000; ">Registered
+                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;   font-size: 15px;color: #000; ">Registered
                                     Email</label>
                                 <input type="email" class="form-control unicase-form-control text-input" name="email"
                                     id="exampleBillingEmail1">
@@ -126,45 +118,46 @@ include('includes/config.php');
                 </div><!-- /.row -->
             </div><!-- /.sigin-in-->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <div <?php echo include('includes/brands-slider.php'); ?> </div>
-            </div>
-            <?php include('includes/footer.php'); ?>
-            <script src="assets/js/jquery-1.11.1.min.js"></script>
+            <div> <?php echo include('includes/brands-slider.php'); ?></div>
+        </div>
+    </div>
+    <?php include('includes/footer.php'); ?>
+    <script src="assets/js/jquery-1.11.1.min.js"></script>
 
-            <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
-            <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-            <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
 
-            <script src="assets/js/echo.min.js"></script>
-            <script src="assets/js/jquery.easing-1.3.min.js"></script>
-            <script src="assets/js/bootstrap-slider.min.js"></script>
-            <script src="assets/js/jquery.rateit.min.js"></script>
-            <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
-            <script src="assets/js/bootstrap-select.min.js"></script>
-            <script src="assets/js/wow.min.js"></script>
-            <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/echo.min.js"></script>
+    <script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/bootstrap-slider.min.js"></script>
+    <script src="assets/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
 
-            <!-- For demo purposes – can be removed on production -->
+    <!-- For demo purposes – can be removed on production -->
 
-            <script src="switchstylesheet/switchstylesheet.js"></script>
+    <script src="switchstylesheet/switchstylesheet.js"></script>
 
-            <script>
-            $(document).ready(function() {
-                $(".changecolor").switchstylesheet({
-                    seperator: "color"
-                });
-                $('.show-theme-options').click(function() {
-                    $(this).parent().toggleClass('open');
-                    return false;
-                });
-            });
+    <script>
+    $(document).ready(function() {
+        $(".changecolor").switchstylesheet({
+            seperator: "color"
+        });
+        $('.show-theme-options').click(function() {
+            $(this).parent().toggleClass('open');
+            return false;
+        });
+    });
 
-            $(window).bind("load", function() {
-                $('.show-theme-options').delay(2000).trigger('click');
-            });
-            </script>
-            <!-- For demo purposes – can be removed on production : End -->
+    $(window).bind("load", function() {
+        $('.show-theme-options').delay(2000).trigger('click');
+    });
+    </script>
+    <!-- For demo purposes – can be removed on production : End -->
 
 
 

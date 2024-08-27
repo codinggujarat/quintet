@@ -75,19 +75,20 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
+            <script src="assets/js/html5shiv.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
     <!-- box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -105,6 +106,18 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
     </div><!-- /.breadcrumb -->
+    <style>
+    .sidebar {
+        position: sticky !important;
+        top: 20px !important;
+    }
+
+    @media only screen and (max-width: 1000px) {
+        .sidebar {
+            position: relative !important;
+        }
+    }
+    </style>
     <div class="body-content outer-top-xs">
         <div class='container'>
             <div class='row outer-bottom-sm'>
@@ -113,33 +126,32 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <!-- ================================== TOP NAVIGATION : END ================================== -->
                     <div class="sidebar-module-container" style="margin-top: -20px;">
                         <h3 class="section-title"
-                            style="font-family: 'Raleway',sans-serif  !important;text-transform: uppercase ;  color: #000;font-weight: 400;    ">
+                            style="font-size: 13px;  font-family: 'Raleway',sans-serif  !important;text-transform: uppercase ;  color: #000;font-weight: 600;    ">
                             shopping by</h3>
                         <div class="sidebar-filter">
                             <style>
                             @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
                             </style>
                             <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-                            <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
+                            <div class="sidebar-widget wow fadeInUp outer-bottom-xs " style="border: 1px solid #000;">
                                 <div class="widget-header"
-                                    style="background:transparent ;border: 1px solid black;border-bottom: 0;  ">
+                                    style="background:transparent ;padding:0;border-bottom: 1px solid #000 !important ;  ">
                                     <h4 class="widget-title"
-                                        style="font-family: 'Raleway',sans-serif  !important;text-transform: uppercase ; color: #000;font-size: 15px;padding: 5px;  font-weight: 400;  ">
+                                        style=" font-family: 'Raleway', sans-serif !important;text-transform: uppercase ; color: #000;font-size: 13px;padding: 8px 13px; font-weight: 600;   ">
                                         Category</h4>
                                 </div>
-                                <div class="sidebar-widget-body m-t-10" style="border: 1px solid black;margin: 0;">
+                                <div class="sidebar-widget-body m-t-10" style="margin: 0;">
                                     <?php $sql = mysqli_query($con, "select id,categoryName  from category");
                                     while ($row = mysqli_fetch_array($sql)) {
-                                    ?>
+                                        ?>
                                     <div class="accordion">
                                         <div class="accordion-group">
                                             <div class="accordion-heading"
                                                 style="display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 12px;  ">
-                                                <a style="font-family: 'Raleway',sans-serif  !important;width: 100%; font-size: 17px;color: #000 !important ; font-weight: 400 !important ;font-size: 15px;text-transform: uppercase;     "
+                                                <a style="font-family: 'Raleway',sans-serif  !important;width: 100%; color: #000 !important ; font-weight: 400 !important ;font-size: 13px;text-transform: uppercase;     "
                                                     href="category.php?cid=<?php echo $row['id']; ?>" class="">
                                                     <?php echo $row['categoryName']; ?>
                                                 </a>
-                                                <i class='bx bx-plus' style="color:black;font-size: 17px;"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -164,16 +176,16 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 <div class=""
                                     style=" display: flex; text-align: left; height: 100px; background-color: transparent ; ">
                                     <h1
-                                        style="font-family: 'Raleway' sans-serif !important; text-transform:uppercase    ; color: #fff; font-size: 25px;font-weight: 300 !important;color: #000; ">
-                                        Sub category :
+                                        style="font-family: 'Raleway', sans-serif !important; text-transform:uppercase    ;  font-size: 15px;font-weight: 600 !important;color: #000 !important ; ">
+                                        Sub category <i class='bx bx-chevron-right' style=" font-size: 15px;"></i>
                                     </h1>
                                     <?php $sql = mysqli_query($con, "select subcategory  from subcategory where id='$cid'");
                                     while ($row = mysqli_fetch_array($sql)) {
-                                    ?>
+                                        ?>
 
                                     <div class="excerpt hidden-sm hidden-md">
                                         <h1
-                                            style="font-family:  'Raleway' sans-serif  !important;  text-transform: uppercase   ; color: lightgray; font-size: 25px; text-align: center important; font-weight: 300 !important;margin-left: 10px; color: #000;">
+                                            style="font-family:  'Raleway', sans-serif  !important;  text-transform: uppercase   ; color: lightgray; font-size: 15px; text-align: center important; font-weight: 600 !important;margin-left: 5px; color: #000;">
                                             <?php echo htmlentities($row['subcategory']); ?>
                                         </h1>
                                     </div>
@@ -188,24 +200,72 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane active " id="grid-container">
                                 <div class="category-product  inner-top-vs">
-                                    <div class="row">
+                                    <div class=""
+                                        style="display: flex;align-items: center;justify-content: space-evenly ;flex-wrap: wrap;     ">
                                         <?php
                                         $ret = mysqli_query($con, "select * from products where subCategory='$cid' ORDER BY RAND()");
                                         $num = mysqli_num_rows($ret);
                                         if ($num > 0) {
                                             while ($row = mysqli_fetch_array($ret)) { ?>
                                         <style>
+                                        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
                                         .products,
                                         .product {
                                             width: 250px !important;
-                                            margin-top: 50px !important;
+                                            margin-top: 10px;
+
                                         }
 
-                                        @media only screen and (max-width: 800px) {
+                                        .name a {
+                                            font-size: 12px !important;
+                                        }
+
+
+                                        @media only screen and (max-width: 450px) {
+
+                                            .products,
+                                            .product {
+                                                width: 140px !important;
+                                                overflow: hidden !important;
+                                                text-overflow: ellipsis !important;
+                                                white-space: nowrap !important;
+                                            }
+
+                                            .image {
+                                                width: 100% !important;
+                                                height: 100% !important;
+                                            }
+
+                                            .addtocart {
+                                                display: none !important;
+                                            }
+
+
+                                            .name {
+                                                width: 140px !important;
+                                                overflow: hidden !important;
+                                                text-overflow: ellipsis !important;
+                                                white-space: nowrap !important;
+                                            }
+
+                                            .name a {
+                                                font-size: 10px !important;
+                                            }
+                                        }
+
+
+                                        @media only screen and (max-width: 350px) {
 
                                             .products,
                                             .product {
                                                 width: 100% !important;
+                                            }
+
+                                            .name {
+                                                width: 100% !important;
+
                                             }
 
                                             .image {
@@ -214,8 +274,11 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                             }
                                         }
                                         </style>
-                                        <div class="col-sm-6 col-md-4 wow fadeInUp" style="margin-top: 20px; ">
-                                            <div class="products">
+
+                                        <div class="  wow fadeInUp"
+                                            style="margin-top: 20px;  display:
+                                            flex;align-items: center;justify-content: space-around   ;flex-wrap: wrap; ">
+                                            <div class=" products">
 
                                                 <div class="product">
                                                     <div class="product-image" style="background:#F2F3F8 !important;">
@@ -233,10 +296,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
 
                                                     <div class="product-info text-left"
-                                                        style="width:250px !important; margin-top: -20px !important;padding: 0 !important;">
+                                                        style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
                                                         <h3 class="name"><a
                                                                 style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                !important ;font-weight:300 !important ;  text-transform: uppercase; color: #000; "
                                                                 href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                                                         </h3>
 
@@ -246,20 +309,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                                 Rs.<?php echo htmlentities($row['productPrice']); ?>
                                                             </span>
                                                         </div><!-- /.product-price -->
-                                                        <?php if ($row['productAvailability'] == 'In Stock') { ?>
-                                                        <div class="action " style="width: 100%;  "><a
-                                                                href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
-                                                                class="lnk btn btn-primary col-lg-12"
-                                                                style="font-size: 15px; text-transform: uppercase;font-family: 'Raleway', sans-serif !important;background:transparent ; color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;    height: 40px !important ;">
-                                                                Add </a>
-                                                        </div>
-                                                        <?php } else { ?>
-                                                        <div class=" action" style="color:red ;width: 100%; ">
-                                                            <button class="lnk btn btn-primary col-lg-12"
-                                                                style="font-size: 15px;text-transform: uppercase;font-family: 'Raleway', sans-serif !important;color: #000 !important ;border:1px solid #000 !important;  border-radius:0;display: flex;align-items: center;justify-content: center;cursor: no-drop;background:transparent  !important ; display: flex;align-items: center;justify-content: center;    height: 40px !important ; ">
-                                                                Out of Stock</button>
-                                                        </div>
-                                                        <?php } ?>
+
                                                     </div><!-- /.product-info -->
 
                                                 </div><!-- /.product -->
@@ -326,11 +376,19 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
         $(".changecolor").switchstylesheet({
             seperator: "color"
         });
+
+
         $('.show-theme-options').click(function() {
             $(this).parent().toggleClass('open');
             return false;
         });
+
+
+
+
+
     });
+
 
     $(window).bind("load", function() {
         $('.show-theme-options').delay(2000).trigger('click');

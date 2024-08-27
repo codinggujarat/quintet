@@ -79,7 +79,9 @@ if (isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -97,21 +99,34 @@ if (isset($_POST['submit'])) {
     </header>
 
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="breadcrumb">
+    <div class=" ">
         <div class="container">
-            <div class="breadcrumb-inner">
+            <div class="">
                 <?php
                 $ret = mysqli_query($con, "select category.categoryName as catname,subCategory.subcategory as subcatname,products.productName as pname from products join category on category.id=products.category join subcategory on subcategory.id=products.subCategory where products.id='$pid'");
                 while ($rw = mysqli_fetch_array($ret)) {
-
-                ?>
-
-
-                <ul class="list-inline list-unstyled">
-                    <li><a href="index.php">Home</a></li>
-                    <li><?php echo htmlentities($rw['catname']); ?></a></li>
-                    <li><?php echo htmlentities($rw['subcatname']); ?></li>
-                    <li class='active'><?php echo htmlentities($rw['pname']); ?></li>
+                    ?>
+                <ul class="list-inline list-unstyled"
+                    style="display: flex;align-items: center;justify-content: end;   ">
+                    <li style="padding: 0 !important ;margin: 0 !important  ; border: 0 !important  ; "><a
+                            href="index.php"
+                            style="  border: 0 !important  ; font-size: 10px !important ; color: #000 !important ; ">Home
+                            /</a>
+                    </li>
+                    <li style="padding: 0 !important ;margin: 0 !important  ; border: 0 !important  ; "><a href=""
+                            style="  border: 0 !important  ; font-size: 10px !important ; color: #000 !important ; "><?php echo htmlentities($rw['catname']); ?>
+                            /</a>
+                    </li>
+                    <li style="padding: 0 !important ;margin: 0 !important  ; border: 0 !important  ; "><a href=""
+                            style="  border: 0 !important  ; font-size: 10px !important ; color: #000 !important ; "><?php echo htmlentities($rw['subcatname']); ?>
+                            /</a>
+                    </li>
+                    <li class='active' style="padding: 0 !important ;margin: 0 !important  ; border: 0 !important  ; ">
+                        <a href=""
+                            style="  border: 0 !important  ; font-size: 10px !important ; color: #000 !important ; "><?php echo htmlentities($rw['pname']); ?>
+                            /</a>
+                    </li>
+                    </li>
                 </ul>
                 <?php } ?>
             </div><!-- /.breadcrumb-inner -->
@@ -134,7 +149,7 @@ if (isset($_POST['submit'])) {
 
                                     <?php $sql = mysqli_query($con, "select id,categoryName  from category");
                                     while ($row = mysqli_fetch_array($sql)) {
-                                    ?>
+                                        ?>
                                     <div class="accordion-group">
                                         <div class="accordion-heading"
                                             style="text-transform: uppercase; display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 12px;  ">
@@ -191,7 +206,7 @@ if (isset($_POST['submit'])) {
                                 $ret = mysqli_query($con, "select * from products order by rand() limit 4 ");
                                 while ($rws = mysqli_fetch_array($ret)) {
 
-                                ?>
+                                    ?>
 
 
                                 <div class="item">
@@ -217,10 +232,6 @@ if (isset($_POST['submit'])) {
                                                     style="font-size: 11px;font-family: sans-serif, 'Poppins' !important;color: #000;font-weight: normal; ">
                                                     MRP. <?php echo htmlentities($rws['productPrice']); ?>.00
                                                 </span>
-
-                                                <span
-                                                    class=" price-before-discount">MRP.<?php echo htmlentities($row['productPriceBeforeDiscount']); ?></span>
-
                                             </div><!-- /.product-price -->
 
                                         </div><!-- /.product-info -->
@@ -239,7 +250,7 @@ if (isset($_POST['submit'])) {
                 $ret = mysqli_query($con, "select * from products where id='$pid'");
                 while ($row = mysqli_fetch_array($ret)) {
 
-                ?>
+                    ?>
 
 
                 <div class='col-md-9'>
@@ -344,11 +355,12 @@ if (isset($_POST['submit'])) {
                         <div class='col-sm-6 col-md-7 product-info-block'>
                             <div class="product-info">
                                 <h1 class="name"
-                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 15px; font-weight: 300; ">
-                                    <?php echo htmlentities($row['productName']); ?></h1>
+                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 15px; font-weight: 500;color: #000;     ">
+                                    <?php echo htmlentities($row['productName']); ?>
+                                </h1>
                                 <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pid'");
                                     $num = mysqli_num_rows($rt); {
-                                    ?>
+                                        ?>
                                 <!-- /.rating-reviews -->
                                 <style>
                                 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -360,14 +372,14 @@ if (isset($_POST['submit'])) {
                                         <div class="col-sm-6">
                                             <div class="stock-box">
                                                 <span class="label"
-                                                    style="  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase ;  ">Availability
+                                                    style="  font-weight: 600; font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase ;  ">Availability
                                                     : </span>
                                             </div>
                                         </div>
                                         <div class=" col-sm-6">
                                             <div class="stock-box">
                                                 <span class="value"
-                                                    style="  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase ;"><?php echo htmlentities($row['productAvailability']); ?></span>
+                                                    style="  font-weight: 600; font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase ;"><?php echo htmlentities($row['productAvailability']); ?></span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
@@ -381,7 +393,7 @@ if (isset($_POST['submit'])) {
                                         <div class="col-sm-6">
                                             <div class="stock-box">
                                                 <span class="label"
-                                                    style="  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase; ">Product
+                                                    style="  font-weight: 600; font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase; ">Product
                                                     Brand
                                                     :</span>
                                             </div>
@@ -389,33 +401,59 @@ if (isset($_POST['submit'])) {
                                         <div class="col-sm-6">
                                             <div class="stock-box">
                                                 <span class="value"
-                                                    style="  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;"><?php echo htmlentities($row['productCompany']); ?></span>
+                                                    style="  font-weight: 600; font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;"><?php echo htmlentities($row['productCompany']); ?></span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
                                 </div>
 
+                                <div class="stock-container info-container m-t-10">
+                                    <div class="row"
+                                        style="display: flex;align-items: center;justify-content: start;   width: 100%; ">
+                                        <div class="col-sm-6">
+                                            <div class="stock-box">
+                                                <span class="label"
+                                                    style=" font-weight: 600;  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform: uppercase; ">Product
+                                                    Color
+                                                    :</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="stock-box"
+                                                style=" font-family: 'Raleway', sans-serif;display: flex;align-items: center;  ">
+                                                <div class="color-box"
+                                                    style="border: 1px solid black; width: 15px;height: 15px; background: <?php echo htmlentities($row['productColor']); ?>;  ">
 
+                                                </div>
+                                                <div>
+                                                    <span class="value"
+                                                        style="text-transform: uppercase;  margin-left: 10px;  font-family: 'Raleway', sans-serif !important ; font-size: 12px;font-weight: 600;  color: #000; "><?php echo htmlentities($row['productColor']); ?></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- /.row -->
+                                </div>
                                 <div class="stock-container info-container m-t-10 ">
                                     <div class="row"
                                         style="display: flex;align-items: center;justify-content: start;   width: 100%; ">
                                         <div class="col-sm-6 col-sm-12">
                                             <div class="stock-box">
                                                 <span class="label"
-                                                    style="  font-family: 'Raleway', sans-serif; font-size: 12px;color: #000;text-transform: uppercase ;  ">Shipping
+                                                    style="  font-weight: 600; font-family: 'Raleway', sans-serif; font-size: 12px;color: #000;text-transform: uppercase ;  ">Shipping
                                                     Charge :</span>
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-sm-12">
                                             <div class="stock-box">
                                                 <span class="value"
-                                                    style="font-family: sans-serif, ' Poppins'!important;color: #000; font-size: 12px;"><?php if ($row['shippingCharge'] == 0) {
-                                                                                                                                                echo "Free";
-                                                                                                                                            } else {
-                                                                                                                                                echo htmlentities($row['shippingCharge']);
-                                                                                                                                            }
+                                                    style="font-weight: 500; font-family: sans-serif, ' Poppins'!important;color: #000; font-size: 12px;"><?php if ($row['shippingCharge'] == 0) {
+                                                            echo "Free";
+                                                        } else {
+                                                            echo htmlentities($row['shippingCharge']);
+                                                        }
 
-                                                                                                                                            ?></span>
+                                                        ?></span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
@@ -430,7 +468,7 @@ if (isset($_POST['submit'])) {
                                         <div class="col-sm-6">
                                             <div class="reviews">
                                                 <a href="#" class="lnk"
-                                                    style="font-family: sans-serif, ' Poppins'!important;color: #000; font-size: 12px;text-transform: uppercase; ">(<?php echo htmlentities($num); ?>
+                                                    style="font-weight: 600 !important ;  font-family: 'Raleway', sans-serif;color: #000; font-size: 12px;text-transform: uppercase; ">(<?php echo htmlentities($num); ?>
                                                     Reviews)</a>
                                             </div>
                                         </div>
@@ -456,16 +494,16 @@ if (isset($_POST['submit'])) {
 
                                         <div class="col-sm-12">
                                             <div class="favorite-button m-t-10">
-                                                <a class="btn" data-toggle="tooltip" data-placement="right"
-                                                    title="Wishlist"
+                                                <a class="btn" title="favourites"
                                                     style="border: 1px solid black;  background:#F2F3F8 ;  border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center;width: 200px !important ;  height: 30px !important ; "
                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                    <i class="bx bx-heart" style=" color:#000 ;font-weight: 300;"></i>
+                                                    <i class="fa-regular fa-bookmark"
+                                                        style=" color:#000 ;font-weight: 500;"></i>
                                                     <span style=" margin-left: 5px;
                                                         font-family: 'Raleway' , sans-serif; font-size: 12px; color:
-                                                        #000 ;text-transform: uppercase ;font-weight: 300; ">Add
-                                                        TO
-                                                        Wishlist</span>
+                                                        #000 ;text-transform: uppercase ;font-weight: 500; ">
+                                                        favourites
+                                                    </span>
                                                 </a>
                                             </div>
                                         </div>
@@ -473,12 +511,12 @@ if (isset($_POST['submit'])) {
                                             <?php if ($row['productAvailability'] == 'In Stock') { ?>
                                             <a href="product-details.php?page=product&action=add&id=<?php echo $row['id']; ?>"
                                                 class="btn "
-                                                style="font-weight: 300;   border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center;  background: #F2F3F8 !important ;   font-family: 'Raleway' , sans-serif; font-size: 12px !important ; color:#000;border: 1px solid black;   width: 200px !important ;  height: 30px !important ; ">
+                                                style="text-transform: uppercase; font-weight: 500;   border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center;  background: #F2F3F8 !important ;   font-family: 'Raleway' , sans-serif; font-size: 12px !important ; color:#000;border: 1px solid black;   width: 200px !important ;  height: 30px !important ; ">
                                                 ADD </a>
                                             <?php } else { ?>
 
                                             <a href="#" class="btn btn-black"
-                                                style="font-weight: 300;   border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center;  background: #F2F3F8 !important ;   font-family: 'Raleway' , sans-serif; font-size: 12px !important ; color:#000;border: 1px solid black;   width: 200px !important ;  height: 30px !important ;cursor  :no-drop;    ">
+                                                style="text-transform: uppercase; font-weight: 500;   border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center;  background: #F2F3F8 !important ;   font-family: 'Raleway' , sans-serif; font-size: 12px !important ; color:#000;border: 1px solid black;   width: 200px !important ;  height: 30px !important ;cursor  :no-drop;    ">
                                                 Out of Stock</a>
                                             <?php } ?>
                                         </div>
@@ -587,47 +625,70 @@ if (isset($_POST['submit'])) {
 
                                 #product-tabs li {
                                     background: #F2F3F8;
-                                    padding: 10px 20px !important;
-                                    margin-left: 20px;
+                                    padding: 8px 10px !important;
                                     transition: 1ms;
-
+                                    text-align: center !important;
+                                    z-index: 999;
                                 }
 
-                                #product-tabs li:first-child {
-                                    margin-left: 0;
-                                }
 
                                 #product-tabs li.active {
-                                    color: #000 !important;
                                     border: 2px solid #000;
                                 }
 
                                 #product-tabs li a {
+                                    text-align: center !important;
+                                    color: #000 !important;
                                     width: 100% !important;
                                     font-family: 'Raleway', sans-serif;
-                                    font-size: 15px;
+                                    font-size: 10px !important;
                                     font-weight: normal;
-
+                                    padding: 8px 10px !important;
+                                    color: #000 !important;
                                 }
                                 </style>
                                 <ul id="product-tabs" class="">
                                     <li style="width: 220px !important ; " class="active"><a data-toggle="tab"
                                             href="#description"
-                                            style="font-family: 'Raleway' , sans-serif; font-size: 15px;font-weight: normal; ">DESCRIPTION</a>
+                                            style="font-family: 'Raleway' , sans-serif; font-size: 10px;font-weight: 600 !important ;color: #000;  ">DESCRIPTION</a>
                                     </li>
                                     <li style="width: 220px !important ; "><a data-toggle="tab" href="#review"
-                                            style="font-family: 'Raleway' , sans-serif; font-size: 15px;font-weight: normal; ">REVIEW</a>
+                                            style="font-family: 'Raleway' , sans-serif; font-size: 10px;font-weight: 600 !important ; color: #000; ">REVIEW</a>
                                     </li>
                                 </ul><!-- /.nav-tabs #product-tabs -->
                             </div>
-                            <div class="col-sm-12 m-t-20">
-                                <div class="tab-content" style="border: 0 !important ;background-color: #F2F3F8; ">
+                            <div class="col-sm-12 ">
+                                <div class="tab-content" style="background-color: #F2F3F8;  ">
 
-                                    <div id="description" class="tab-pane in active" style="border: 0 !important ;">
-                                        <h4 class=" title"
-                                            style="text-align: left ;margin-top: -10px;   font-family: 'Raleway' , sans-serif;font-size: 30px;text-transform: uppercase      ; font-weight: normal;color: #000; ">
-                                            DESCRIPTION</h4>
-                                        <div class="product-tab"
+                                    <div id="description" class="tab-pane in active">
+                                        <style>
+                                        .productDescription {
+                                            height: 50vh !important;
+                                            overflow-y: auto !important;
+                                        }
+
+                                        .productDescription::-webkit-scrollbar-track {
+                                            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+                                            background-color: #F2F3F8 !important;
+                                        }
+
+                                        .productDescription:hover.productDescription::-webkit-scrollbar {
+                                            display: block !important;
+                                        }
+
+                                        .productDescription::-webkit-scrollbar {
+                                            display: none !important;
+                                            width: 5px !important;
+                                            background-color: #F2F3F8 !important;
+                                            height: 5px !important;
+                                        }
+
+                                        .productDescription::-webkit-scrollbar-thumb {
+                                            background-color: #F2F3F8 !important;
+                                            border: 2px solid #F2F3F8 !important;
+                                        }
+                                        </style>
+                                        <div class="product-tab productDescription"
                                             style="background:whitesmoke;padding: 30px 20px;border: 0 !important ; ">
                                             <p class="text "
                                                 style="font-size: 20px  !important ; font-weight: 300 !important ;font-family: 'Raleway' , sans-serif ; ">
@@ -677,8 +738,8 @@ if (isset($_POST['submit'])) {
 
                                                         .rating1>label {
                                                             cursor: pointer;
-                                                            width: 30px;
-                                                            height: 30px;
+                                                            width: 20px;
+                                                            height: 20px;
                                                             margin-top: auto;
                                                             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
                                                             background-repeat: no-repeat;
@@ -689,8 +750,8 @@ if (isset($_POST['submit'])) {
 
                                                         .rating2>label {
                                                             cursor: pointer;
-                                                            width: 30px;
-                                                            height: 30px;
+                                                            width: 20px;
+                                                            height: 20px;
                                                             margin-top: auto;
                                                             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
                                                             background-repeat: no-repeat;
@@ -701,8 +762,8 @@ if (isset($_POST['submit'])) {
 
                                                         .rating3>label {
                                                             cursor: pointer;
-                                                            width: 30px;
-                                                            height: 30px;
+                                                            width: 20px;
+                                                            height: 20px;
                                                             margin-top: auto;
                                                             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
                                                             background-repeat: no-repeat;
@@ -751,14 +812,16 @@ if (isset($_POST['submit'])) {
                                                                         Write your own review</h4>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
+                                                                    <tr
+                                                                        style="margin: 0 !important ; padding: 0 !important ; ">
                                                                         <td class=" cell-label "
-                                                                            style="padding: 0;margin: 0; font-size:18px ;color:
-                                                                        #000;font-weight: normal;text-transform:
+                                                                            style="margin: 0 !important ; padding:0 20px !important ;  font-size:12px ;color:
+                                                                        #000;font-weight: 700;text-transform:
                                                                         capitalize; font-family: 'Raleway' , sans-serif;text-transform: uppercase;text-align: left;  ">
                                                                             Quality
                                                                         </td>
-                                                                        <td>
+                                                                        <td
+                                                                            style="padding: 0 !important ;  margin: 0 !important ;    ">
                                                                             <div class=" rating1">
                                                                                 <input type="radio" name="quality"
                                                                                     id="rating-5" value="5">
@@ -778,11 +841,13 @@ if (isset($_POST['submit'])) {
                                                                             </div>
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
+                                                                    <tr
+                                                                        style="margin: 0 !important ; padding: 0 !important ;  ">
                                                                         <td class="cell-label"
-                                                                            style="padding: 0;margin: 0;font-size:18px ;color: #000;font-weight: normal;text-transform: capitalize;font-family: 'Raleway' , sans-serif;text-transform: uppercase; text-align: left;   ">
+                                                                            style="margin: 0 !important ; padding: 0 20px !important ; padding: 0;margin: 0;font-size:12px ;color: #000;font-weight: 700;text-transform: capitalize;font-family: 'Raleway' , sans-serif;text-transform: uppercase; text-align: left;   ">
                                                                             Price</td>
-                                                                        <td>
+                                                                        <td
+                                                                            style="margin: 0 !important ; padding: 0 !important ; ">
                                                                             <div class=" rating2">
                                                                                 <input type="radio" name="price"
                                                                                     id="rating2-5" value="5">
@@ -802,11 +867,13 @@ if (isset($_POST['submit'])) {
                                                                             </div>
                                                                         </td>
                                                                     </tr>
-                                                                    <tr>
+                                                                    <tr
+                                                                        style="margin: 0 !important ; padding: 0 !important ; ">
                                                                         <td class="cell-label"
-                                                                            style="padding: 0;margin: 0;  font-size:18px ;color: #000;font-weight: normal;text-transform: capitalize;  font-family: 'Raleway' , sans-serif;text-transform: uppercase;text-align: left;   ">
+                                                                            style="margin : 0 !important ; padding: 0 20px !important ;   font-size:12px ;color: #000;font-weight: 700;text-transform: capitalize;  font-family: 'Raleway' , sans-serif;text-transform: uppercase;text-align: left;   ">
                                                                             Value</td>
-                                                                        <td>
+                                                                        <td
+                                                                            style="margin: 0 !important ;padding: 0 !important ;   ">
                                                                             <div class="rating3">
                                                                                 <input type="radio" name="value"
                                                                                     id="rating3-5" value="5">
@@ -862,19 +929,19 @@ if (isset($_POST['submit'])) {
                                                         }
                                                         </style>
                                                         <div class="row m-t-20">
-                                                            <div class="col-sm-6">
-                                                                <div class="form-group">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group col-lg-6">
                                                                     <label for="exampleInputName"
-                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 18px;color: #000;font-weight: 400;text-transform: uppercase  ">Your
+                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 13px;color: #000;font-weight: 600;text-transform: uppercase  ">Your
                                                                         Name <span class="astk">*</span></label>
                                                                     <input type="text" class="form-control txt"
                                                                         id="exampleInputName" placeholder="" name="name"
                                                                         required="required"
                                                                         style="background: transparent ;text-transform: uppercase;   ">
                                                                 </div><!-- /.form-group -->
-                                                                <div class="form-group">
+                                                                <div class="form-group col-lg-6">
                                                                     <label for="exampleInputSummary"
-                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 18px;color: #000;font-weight: 400;text-transform: uppercase">Summary
+                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 13px;color: #000;font-weight: 600;text-transform: uppercase">Summary
                                                                         <span class="astk">*</span></label>
                                                                     <input type="text" class="form-control txt"
                                                                         id="exampleInputSummary" placeholder=""
@@ -884,10 +951,10 @@ if (isset($_POST['submit'])) {
                                                                 </div><!-- /.form-group -->
                                                             </div>
 
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
+                                                            <div class="col-md-6 col-lg-12">
+                                                                <div class="form-group col-lg-12">
                                                                     <label for="exampleInputReview"
-                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 18px;color: #000;font-weight: 400;text-transform: uppercase; ">Review
+                                                                        style="font-family: 'Raleway' , sans-serif;font-size: 13px;color: #000;font-weight: 600;text-transform: uppercase; ">Review
                                                                         <span class="astk">*</span></label>
 
                                                                     <textarea class="form-control txt txt-review"
@@ -900,12 +967,11 @@ if (isset($_POST['submit'])) {
                                                         </div><!-- /.row -->
 
                                                         <div class="action ">
-                                                            <button name="submit" class="btn btn-primary btn-upper"
-                                                                style="background: black !important;
-        width: 50% !important;
+                                                            <button name="submit" class="btn " style="margin-left : 15px;  background: #fff !important;color: #000 !important ; 
+        width: 96% !important;
         height: 40px !important;
         font-size: 15px !important;
-        border-radius: 0 !important;">SUBMIT
+        border-radius: 0 !important; border: 1px solid #000 !important;">SUBMIT
                                                                 REVIEW</button>
                                                         </div><!-- /.action -->
                                                         <div class="product-reviews col-lg-12"
@@ -916,7 +982,7 @@ if (isset($_POST['submit'])) {
                                                             </h4>
                                                             <?php $qry = mysqli_query($con, "select * from productreviews where productId='$pid'");
                                                                 while ($rvw = mysqli_fetch_array($qry)) {
-                                                                ?>
+                                                                    ?>
 
                                                             <div class="reviews m-t-10 col-lg-5 "
                                                                 style="border: solid 1px #000; margin-left:10px; padding: 10px;border-radius: 5px;background:#F2F3F8 ;   ">
@@ -986,7 +1052,7 @@ if (isset($_POST['submit'])) {
         </div><!-- /.product-tabs -->
 
         <?php $cid = $row['category'];
-                    $subcid = $row['subCategory'];
+            $subcid = $row['subCategory'];
                 } ?>
         <!-- ============================================== UPSELL PRODUCTS ============================================== -->
         <div class="section featured-product wow fadeInUp">
@@ -998,9 +1064,9 @@ if (isset($_POST['submit'])) {
             <div class="" style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap; ">
 
                 <?php
-            $qry = mysqli_query($con, "select * from products where subCategory='$subcid' and category='$cid'");
-            while ($rw = mysqli_fetch_array($qry)) {
-            ?>
+                $qry = mysqli_query($con, "select * from products where subCategory='$subcid' and category='$cid'");
+                while ($rw = mysqli_fetch_array($qry)) {
+                    ?>
                 <style>
                 .products,
                 .product {

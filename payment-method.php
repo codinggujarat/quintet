@@ -11,7 +11,7 @@ if (strlen($_SESSION['login']) == 0) {
         unset($_SESSION['cart']);
         header('location:order-history.php');
     }
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,7 +49,9 @@ if (strlen($_SESSION['login']) == 0) {
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="cnt-home">
@@ -60,61 +62,45 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
     </header>
-    <div class="breadcrumb">
-        <div class="container">
-            <div class="breadcrumb-inner">
-                <ul class="list-inline list-unstyled">
-                    <li><a href="home.html" style="color: #000 !important ;  ">Home</a></li>
-                    <li class='active' style="font-size: 10px !important ;color:gray !important ; ">Payment Method</li>
-                </ul>
-            </div><!-- /.breadcrumb-inner -->
-        </div><!-- /.container -->
-    </div><!-- /.breadcrumb -->
 
-    <div class="body-content outer-top-bd">
+
+    <div class="body-content outer-top-bd m-t-20 ">
         <div class="container">
             <div class="checkout-box faq-page inner-bottom-sm">
                 <div class="row">
-                    <div class="col-md-12" style="margin-top: -100px; ">
+                    <div class="col-md-12">
                         <h2
-                            style="text-align: left; font-family: 'Raleway',sans-serif;font-size: 30px;color: #000;text-transform: uppercase ;font-weight: 400 !important ;    ">
+                            style="text-align: left; font-family: 'Raleway',sans-serif;font-size: 15px;color: #000;text-transform: uppercase ;font-weight: 600 !important ;    ">
                             Choose Payment Method</h2>
                         <div class="panel-group checkout-steps" id="accordion">
                             <!-- checkout-step-01  -->
                             <div class="panel panel-default checkout-step-01" style="border:none;">
 
                                 <!-- panel-heading -->
-                                <div class="panel-heading"
-                                    style="background: transparent !important  ;border: 2px solid black;  ">
-                                    <h4 class="unicase-checkout-title"
-                                        style="display: flex;align-items: center;justify-content: space-between;">
-                                        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne"
-                                            style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 18px;color: #000; width: 100%;text-transform: uppercase ;   ">
-                                            Select your Payment Method
-                                        </a>
-                                        <i class='bx bxs-chevron-down' style="font-size: 30px !important ; "></i>
-                                    </h4>
-                                </div>
+
                                 <!-- panel-heading -->
                                 <style>
                                 </style>
-                                <div id="collapseOne" class="panel-collapse collapse in">
+                                <div id="collapseOne" class="panel-collapse collapse in"
+                                    style="display: flex;align-items: center;justify-content: center;   ">
                                     <!-- panel-body  -->
                                     <div class="panel-body">
-                                        <form name="payment" method="post" class="col-lg-6">
+                                        <form name="payment" method="post" class="col-lg-12 col-md-12 col-sm-12"
+                                            style="width:500px; padding: 50px;   ">
                                             <div class="card">
                                                 <div class="content">
                                                     <input type="radio" name="paymethod" id="one" checked="checked"
                                                         value="COD">
                                                     <input type="radio" name="paymethod" id="two"
                                                         value="Internet Banking">
-                                                    <input type="radio" name="paymethod" id="three"
-                                                        value="Debit / Credit card">
+                                                    <!-- <input type="radio" name="paymethod" id="three"
+                                                        value="Debit / Credit card"> -->
                                                     <label for="one" class="box first">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
-                                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif; ">COD</span>
+                                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif; ">cash
+                                                                on delivery</span>
                                                         </div>
                                                     </label>
                                                     <label for="two" class="box second">
@@ -125,7 +111,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 Banking</span>
                                                         </div>
                                                     </label>
-                                                    <label for="three" class="box third">
+                                                    <!-- <label for="three" class="box third">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
@@ -133,7 +119,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 / Credit card
                                                             </span>
                                                         </div>
-                                                    </label>
+                                                    </label> -->
                                                 </div>
                                             </div>
                                             <input type="submit" value="submit" name="submit" class="btn btn-primary">

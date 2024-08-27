@@ -1,6 +1,5 @@
 <div class="span3">
     <div class="sidebar">
-
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
         @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
@@ -41,7 +40,7 @@
                             $to = date('Y-m-d') . " " . $t1;
                             $result = mysqli_query($con, "SELECT * FROM Orders where orderDate Between '$from' and '$to'");
                             $num_rows1 = mysqli_num_rows($result); {
-                            ?>
+                                ?>
                             <b class=" label pull-right"><?php echo htmlentities($num_rows1); ?></b>
                             <?php } ?>
                         </a>
