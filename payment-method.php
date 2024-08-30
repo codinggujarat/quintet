@@ -11,7 +11,7 @@ if (strlen($_SESSION['login']) == 0) {
         unset($_SESSION['cart']);
         header('location:order-history.php');
     }
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +65,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
     <div class="body-content outer-top-bd m-t-20 ">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="checkout-box faq-page inner-bottom-sm">
                 <div class="row">
                     <div class="col-md-12">
@@ -214,10 +214,10 @@ if (strlen($_SESSION['login']) == 0) {
                 </div><!-- /.row -->
             </div><!-- /.checkout-box -->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <?php echo include('includes/brands-slider.php'); ?>
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
+    <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

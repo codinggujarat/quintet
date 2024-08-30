@@ -30,7 +30,7 @@ if (strlen($_SESSION['login']) == 0) {
         }
     }
 
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +101,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
     <div class="body-content outer-top-bd">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="my-wishlist-page inner-bottom-sm">
                 <div class="row">
                     <div class=" my-wishlist">
@@ -125,7 +125,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 if ($num > 0) {
                                     while ($row = mysqli_fetch_array($ret)) {
 
-                                        ?>
+                                ?>
                             <div class="m-t-20 col-lg-4" style="
                                     display: flex;align-items: center;justify-content: space-between  ;    ">
                                 <div class="col-card col-lg-12" style="
@@ -143,7 +143,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         </div>
                                         <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
                                                     $num = mysqli_num_rows($rt); {
-                                                        ?>
+                                                    ?>
 
 
                                         <?php } ?>
@@ -190,9 +190,9 @@ if (strlen($_SESSION['login']) == 0) {
 
                 </div><!-- /.row -->
             </div><!-- /.sigin-in-->
-            <?php include('includes/brands-slider.php'); ?>
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js">
     </script>

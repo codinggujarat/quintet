@@ -108,53 +108,9 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <!-- ============================================== HEADER : END ============================================== -->
     </div><!-- /.breadcrumb -->
     <div class="body-content outer-top-xs">
-        <div class='container'>
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class='row outer-bottom-sm'>
-                <div class='col-md-3 sidebar'>
-                    <!-- ================================== TOP NAVIGATION : END ================================== -->
-                    <div class="sidebar-module-container">
-                        <h3 class="section-title"
-                            style="font-size: 12px;  text-transform: uppercase !important; font-family: 'Raleway', sans-serif !important;font-weight: 600 !important ;  color: #000;   font-weight: 400; ">
-                            shopping
-                            by
-                        </h3>
-                        <div class="sidebar-filter">
-                            <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-                            <div class="sidebar-widget wow fadeInUp outer-bottom-xs ">
-                                <div class="widget-header m-t-20"
-                                    style="background:transparent ;border: 1px solid black;border-bottom: 0; padding: 0;   ">
-                                    <h4 class="widget-title"
-                                        style=" font-family: 'Raleway', sans-serif !important;text-transform: uppercase ; color: #000;font-size: 11px;padding: 8px 13px; font-weight: 600;   ">
-                                        Category</h4>
-                                </div>
-                                <div class="sidebar-widget-body m-t-10" style="border: 1px solid black;margin: 0;">
-                                    <?php $sql = mysqli_query($con, "select id,categoryName  from category");
-                                    while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                    <div class="accordion">
-                                        <div class="accordion-group" style="padding: 0 !important  ;  ">
-                                            <div class="accordion-heading"
-                                                style="display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 0 !important ;  ">
-                                                <a style=" font-family: 'Raleway', sans-serif !important;width: 100%; color: #000 !important ; font-weight: 600 !important ;font-size: 11px; text-transform: uppercase; padding: 0px 13px !important ;    "
-                                                    href="category.php?cid=<?php echo $row['id']; ?>" class="">
-                                                    <?php echo $row['categoryName']; ?>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <?php } ?>
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
-
-
-
-
-                            <!-- ============================================== COLOR: END ============================================== -->
-
-                        </div><!-- /.sidebar-filter -->
-                    </div><!-- /.sidebar-module-container -->
-                </div><!-- /.sidebar -->
-                <div class='col-md-9'>
+                <div class='col-md-12'>
                     <!-- ========================================== SECTION – HERO ========================================= -->
 
                     <div id="category" class="category-carousel ">
@@ -247,8 +203,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
                                                 <div class="product">
                                                     <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image"
-                                                            style="background:transparent !important;width: 250px; height: 250px;  ">
+                                                        <div class="image" style="background:transparent !important;  ">
                                                             <a
                                                                 href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
                                                                 <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
@@ -328,10 +283,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     </div><!-- /.col -->
                 </div>
             </div>
-            <?php include('includes/brands-slider.php'); ?>
 
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src=" assets/js/jquery-1.11.1.min.js">
     </script>

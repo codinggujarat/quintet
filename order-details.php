@@ -74,7 +74,7 @@ include('includes/config.php');
 
 
     <div class="body-content outer-top-xs">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="row inner-bottom-sm">
                 <div class="shopping-cart">
                     <div class="col-md-12 col-sm-12 shopping-cart-table ">
@@ -183,10 +183,10 @@ include('includes/config.php');
             </div> <!-- /.row -->
             </form>
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <?php echo include('includes/brands-slider.php'); ?>
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
+    <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>

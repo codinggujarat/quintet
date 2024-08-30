@@ -100,12 +100,12 @@ if (isset($_POST['submit'])) {
 
     <!-- ============================================== HEADER : END ============================================== -->
     <div class=" ">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="">
                 <?php
                 $ret = mysqli_query($con, "select category.categoryName as catname,subCategory.subcategory as subcatname,products.productName as pname from products join category on category.id=products.category join subcategory on subcategory.id=products.subCategory where products.id='$pid'");
                 while ($rw = mysqli_fetch_array($ret)) {
-                    ?>
+                ?>
                 <ul class="list-inline list-unstyled"
                     style="display: flex;align-items: center;justify-content: end;   ">
                     <li style="padding: 0 !important ;margin: 0 !important  ; border: 0 !important  ; "><a
@@ -133,37 +133,14 @@ if (isset($_POST['submit'])) {
         </div><!-- /.container -->
     </div><!-- /.breadcrumb -->
     <div class="body-content outer-top-xs">
-        <div class='container'>
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class='row single-product outer-bottom-sm '>
                 <div class='col-md-3 sidebar'>
                     <div class="sidebar-module-container">
 
 
                         <!-- ==============================================CATEGORY============================================== -->
-                        <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
-                            <div class="head"
-                                style="font-family: 'Raleway' , sans-serif;background: transparent  !important;color: #000; ;box-shadow: none !important ; font-size: 15px !important  ; padding: 14px;text-transform: uppercase;  border: 1px solid black;border-bottom : 0;  ">
-                                Categories</div>
-                            <div class="sidebar-widget-body m-t-10" style="border: 1px solid black;margin: 0;">
-                                <div class="accordion">
 
-                                    <?php $sql = mysqli_query($con, "select id,categoryName  from category");
-                                    while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading"
-                                            style="text-transform: uppercase; display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 12px;  ">
-                                            <a style="font-family: 'Raleway' , sans-serif;width: 100%; font-size: 17px;color: #000 !important ; font-weight: 400 !important ;font-size: 15px;    "
-                                                href="category.php?cid=<?php echo $row['id']; ?>" class="">
-                                                <?php echo $row['categoryName']; ?>
-                                            </a>
-                                            <i class='bx bx-plus' style="color:black;font-size: 17px;"></i>
-                                        </div>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
                         <!-- ============================================== CATEGORY : END ============================================== -->
                         <!-- ============================================== HOT DEALS ============================================== -->
                         <style>
@@ -206,17 +183,18 @@ if (isset($_POST['submit'])) {
                                 $ret = mysqli_query($con, "select * from products order by rand() limit 4 ");
                                 while ($rws = mysqli_fetch_array($ret)) {
 
-                                    ?>
+                                ?>
 
 
                                 <div class="item">
                                     <div class="products ">
-                                        <div class="hot-deal-wrapper" style="background:#F2F3F8 !important;border:1px solid black ;width:
-                                            250px; height:250px;">
+                                        <div class="hot-deal-wrapper" style="background:#F2F3F8 !important;width:
+                                            320px; height:100%;border-radius:20px;">
                                             <div class=" image"
-                                                style="background:transparent !important;padding: 20px; ">
-                                                <img src="admin/productimages/<?php echo htmlentities($rws['id']); ?>/<?php echo htmlentities($rws['productImage1']); ?>"
-                                                    width="100%" height="100%" alt="">
+                                                style="background:transparent !important;height: 100%;border-radius:20px;width:100%; ">
+                                                <img src="
+                                                admin/productimages/<?php echo htmlentities($rws['id']); ?>/<?php echo htmlentities($rws['productImage1']); ?>"
+                                                    width="100%" height="100%" alt="" style="border-radius:10px;">
                                             </div>
 
                                         </div><!-- /.hot-deal-wrapper -->
@@ -250,7 +228,7 @@ if (isset($_POST['submit'])) {
                 $ret = mysqli_query($con, "select * from products where id='$pid'");
                 while ($row = mysqli_fetch_array($ret)) {
 
-                    ?>
+                ?>
 
 
                 <div class='col-md-9'>
@@ -360,7 +338,7 @@ if (isset($_POST['submit'])) {
                                 </h1>
                                 <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pid'");
                                     $num = mysqli_num_rows($rt); {
-                                        ?>
+                                    ?>
                                 <!-- /.rating-reviews -->
                                 <style>
                                 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
@@ -448,12 +426,12 @@ if (isset($_POST['submit'])) {
                                             <div class="stock-box">
                                                 <span class="value"
                                                     style="font-weight: 500; font-family: sans-serif, ' Poppins'!important;color: #000; font-size: 12px;"><?php if ($row['shippingCharge'] == 0) {
-                                                            echo "Free";
-                                                        } else {
-                                                            echo htmlentities($row['shippingCharge']);
-                                                        }
+                                                                                                                                                                    echo "Free";
+                                                                                                                                                                } else {
+                                                                                                                                                                    echo htmlentities($row['shippingCharge']);
+                                                                                                                                                                }
 
-                                                        ?></span>
+                                                                                                                                                                ?></span>
                                             </div>
                                         </div>
                                     </div><!-- /.row -->
@@ -982,7 +960,7 @@ if (isset($_POST['submit'])) {
                                                             </h4>
                                                             <?php $qry = mysqli_query($con, "select * from productreviews where productId='$pid'");
                                                                 while ($rvw = mysqli_fetch_array($qry)) {
-                                                                    ?>
+                                                                ?>
 
                                                             <div class="reviews m-t-10 col-lg-5 "
                                                                 style="border: solid 1px #000; margin-left:10px; padding: 10px;border-radius: 5px;background:#F2F3F8 ;   ">
@@ -1052,7 +1030,7 @@ if (isset($_POST['submit'])) {
         </div><!-- /.product-tabs -->
 
         <?php $cid = $row['category'];
-            $subcid = $row['subCategory'];
+                    $subcid = $row['subCategory'];
                 } ?>
         <!-- ============================================== UPSELL PRODUCTS ============================================== -->
         <div class="section featured-product wow fadeInUp">
@@ -1064,9 +1042,9 @@ if (isset($_POST['submit'])) {
             <div class="" style="display: flex;align-items: center;justify-content: space-between;flex-wrap: wrap; ">
 
                 <?php
-                $qry = mysqli_query($con, "select * from products where subCategory='$subcid' and category='$cid'");
-                while ($rw = mysqli_fetch_array($qry)) {
-                    ?>
+            $qry = mysqli_query($con, "select * from products where subCategory='$subcid' and category='$cid'");
+            while ($rw = mysqli_fetch_array($qry)) {
+            ?>
                 <style>
                 .products,
                 .product {
@@ -1091,8 +1069,7 @@ if (isset($_POST['submit'])) {
                     <div class="products">
                         <div class="product">
                             <div class="product-image" style="background:#F2F3F8 !important;">
-                                <div class="image"
-                                    style="background:transparent !important;width: 250px; height: 250px; ">
+                                <div class="image" style="background:transparent !important; ">
                                     <a href="product-details.php?pid=<?php echo htmlentities($rw['id']); ?>"><img
                                             src="assets/images/blank.gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($rw['id']); ?>/<?php echo htmlentities($rw['productImage1']); ?>"
@@ -1134,10 +1111,7 @@ if (isset($_POST['submit'])) {
 
     </div><!-- /.col -->
     <div class="clearfix"></div>
-    </div>
     <?php include('includes/brands-slider.php'); ?>
-    </div>
-    </div>
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>

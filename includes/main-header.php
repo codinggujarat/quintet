@@ -30,11 +30,13 @@ if (isset($_Get['action'])) {
     border-right: 0 !important;
     border-radius: 50px !important;
     height: 60px;
-    /* border: 2px solid black !important; */
+    border: 1px solid black !important;
     text-transform: uppercase !important;
     font-weight: 400;
     font-family: 'Raleway', sans-serif !important;
     font-size: 15px !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+
 }
 
 .control-group .search-field::placeholder {
@@ -76,7 +78,7 @@ if (isset($_Get['action'])) {
 }
 </style>
 <div class="main-header">
-    <div class="container">
+    <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
         <div class="row" style=" display: flex;
     align-items: center;
     justify-content: center;
@@ -98,8 +100,8 @@ if (isset($_Get['action'])) {
                     <form name="search" method="post" action="search-result.php">
                         <div class="control-group ">
 
-                            <input class="search-field" placeholder="Search here..." name="product" required="required"
-                                style="box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;" />
+                            <input class="search-field" placeholder="Search here..." name="product"
+                                required="required" />
 
                             <button class="search-buttons" type="submit" name="search"><i
                                     class='bx bx-search-alt'></i></button>
@@ -114,15 +116,15 @@ if (isset($_Get['action'])) {
                 <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
                 <?php
                 if (!empty($_SESSION['cart'])) {
-                    ?>
+                ?>
                 <div class="dropdown dropdown-cart">
                     <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown" style="border:none !important;">
                         <div class="items-cart-inner"
-                            style="border:1px solid black !important;display: flex;align-items: center;justify-content: space-between;    ">
+                            style="display: flex;align-items: center;justify-content: space-between;    ">
                             <div class=" total-price-basket" style=" border-right:0 !important;">
                                 <span class=" lbl"
                                     style="font-family: sans-serif, 'Poppins' !important; font-weight: bold; font-size: 15px;color:black; ">
-                                    cart
+                                    bag
                                     -</span>
                                 <span class="total-price"
                                     style="font-family: sans-serif, 'Poppins' !important;font-weight: bold; font-size: 15px;color:black;">
@@ -142,7 +144,7 @@ if (isset($_Get['action'])) {
                         </div>
                     </a>
                     <ul class="dropdown-menu"
-                        style="font-family: sans-serif, 'Poppins' !important;background:white !important;width:350px !important;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:10px ;">
+                        style="font-family: sans-serif, 'Poppins' !important;background:white !important;width:350px !important;box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;border-radius:10px ;">
 
                         <?php
                             $sql = "SELECT * FROM products WHERE id IN(";
@@ -160,7 +162,7 @@ if (isset($_Get['action'])) {
                                     $totalprice += $subtotal;
                                     $_SESSION['qnty'] = $totalqunty += $quantity;
 
-                                    ?>
+                            ?>
 
 
                         <li style="background:white !important;width:300px !important">
@@ -170,20 +172,26 @@ if (isset($_Get['action'])) {
                                         <div class="image" style="background:lightgray !important; width:70px;">
                                             <a href="product-details.php?pid=<?php echo $row['id']; ?>"><img
                                                     src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
-                                                    width="70" height="70" alt=""></a>
+                                                    width="70" height="100%" alt=""
+                                                    style="border: 1px solid black;"></a>
                                         </div>
                                     </div>
-                                    <div class="col-xs-7">
+                                    <div class="col-xs-6">
 
                                         <h3 class="name"><a href="product-details.php?pid=<?php echo $row['id']; ?>"
-                                                style="font-family: sans-serif, 'Poppins' !important; font-weight: bold; "><?php echo $row['productName']; ?></a>
+                                                style="font-size:15px !important ; font-family: 'Poppins', sans-serif !important; font-weight: 600 !important ; "><?php echo $row['productName']; ?></a>
                                         </h3>
-                                        <div class="price">
-                                            Rs.<?php echo ($row['productPrice'] + $row['shippingCharge']); ?>*<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>
+                                        <div class="price"
+                                            style="margin-top: 5px;font-size:15px !important ;font-family: 'Poppins', sans-serif !important; font-weight: 500 !important ;color:#000 !important ;">
+                                            Rs.<?php echo ($row['productPrice'] + $row['shippingCharge']); ?>
+                                        </div>
+                                        <div class="price"
+                                            style="margin-top: 5px;font-size:15px !important ;font-family: 'Poppins', sans-serif !important; font-weight: 500 !important ;color:#000 !important ;">
+                                            Qty.<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>
                                         </div>
                                     </div>
                                 </div>
-                                <hr style="margin-bottom:2px;margin-top:2px;">
+                                <hr style=" margin-bottom:2px;margin-top:2px;">
                             </div><!-- /.cart-item -->
 
                             <?php }
@@ -192,13 +200,13 @@ if (isset($_Get['action'])) {
                             </div>
                             <hr>
 
-                            <div class="clearfix cart-total">
-                                <div class="pull-right">
+                            <div class="clearfix cart-total" style="border-top: 1px solid  black;">
+                                <div class="pull-right" style="margin-top: 20px;">
 
                                     <span class="text"
-                                        style="font-family:'Raleway ', sans-serif  !important; font-size: 15px;text-transform: uppercase; ">Total
+                                        style="font-family:'Raleway ', sans-serif  !important; font-size: 15px;font-weight: 600;color: #000;text-transform: uppercase;  ">Total
                                         :</span><span
-                                        style="font-family: sans-serif, 'Poppins' !important; font-size: 15px;"
+                                        style="font-family: sans-serif, 'Poppins' !important; font-size: 15px;font-weight: 600;color: #000;"
                                         class='price'>Rs.<?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
 
                                 </div>
@@ -207,7 +215,7 @@ if (isset($_Get['action'])) {
                                 </div>
 
                                 <a href="my-cart.php" class="btn btn-upper btn-primary btn-block m-t-20"
-                                    style="background:black;border-radius: 0;color: #fff !important ; ">My Cart</a>
+                                    style="background:black;border-radius: 0;color: #fff !important ; ">My Bag</a>
                             </div><!-- /.cart-total-->
 
 
@@ -218,11 +226,11 @@ if (isset($_Get['action'])) {
                 <div class="dropdown dropdown-cart">
                     <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown" style="border:none !important;">
                         <div class="items-cart-inner"
-                            style="border:1px solid black !important;display: flex;align-items: center;justify-content: space-between;   ">
+                            style="display: flex;align-items: center;justify-content: space-between;   ">
                             <div class="total-price-basket" style=" border-right:0 !important;">
                                 <span class="lbl"
                                     style="font-family: sans-serif, 'Poppins' !important; font-weight: bold; font-size: 15px;color:black; ">
-                                    cart
+                                    bag
                                     -</span>
                                 <span class="total-price">
                                     <span class="sign"
@@ -243,7 +251,7 @@ if (isset($_Get['action'])) {
                         </div>
                     </a>
                     <ul class="dropdown-menu"
-                        style="font-family: sans-serif, 'Poppins' !important;background:white !important;width:350px !important;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;border-radius:10px ; ">
+                        style="font-family: sans-serif, 'Poppins' !important;background:white !important;width:350px !important;box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;border-radius:10px ; ">
 
 
 
@@ -255,8 +263,8 @@ if (isset($_Get['action'])) {
                                         style="display: flex;align-items: center;justify-content: center; height: 100px;  ">
                                         <h4
                                             style="font-size: 15px;  font-family: 'Raleway',sans-serif !important ; font-weight: 600 !important ;text-align: center; color: #000;text-transform: uppercase  ; ">
-                                            Your Shopping Cart is
-                                            Empty.</h4>
+                                            Your shopping basket is empty
+                                            .</h4>
                                     </div>
 
 

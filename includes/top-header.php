@@ -12,7 +12,9 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    background: #F2F3F8 !important;
+    background: #000 !important;
+
+
 }
 
 
@@ -21,7 +23,7 @@
 .list-unstyled li a,
 .list-unstyled li a span {
     font-family: 'Raleway', sans-serif !important;
-    text-transform: uppercase !important;
+    text-transform: capitalize !important;
     font-weight: 600 !important;
 }
 
@@ -33,23 +35,22 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    border: 2px solid #000 !important;
 
 }
 
 .list-unstyled li a,
 .list-unstyled li a .fa {
-    color: #000 !important;
-    font-size: 11px !important;
+    color: #fff !important;
+    font-size: 15px !important;
     padding: 5px 10px !important;
 }
 
 .list-unstyled li a .fa {
-    font-size: 10px !important;
+    font-size: 15px !important;
 }
 </style>
 <div class="top-bar animate-dropdown">
-    <div class="container">
+    <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
         <div class="header-top-inner" style="overflow-x :auto !important   ;">
             <div class="cnt-account">
                 <ul class="list-unstyled ">
@@ -99,12 +100,14 @@
 
             <div class="cnt-block">
                 <ul class="list-unstyled list-inline">
+                    <?php if (strlen($_SESSION['login'])) { ?>
                     <li class="dropdown dropdown-small">
                         <a href="track-orders.php" class="dropdown-toggle "
-                            style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;background: #fff;color: #000 !important   ; border: 2px solid black ;font-weight: bold;  "><span
+                            style="margin-top: 5px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;background: #fff;color: #000 !important   ; border: 2px solid black ;font-weight: bold;  "><span
                                 class="key">Track
                                 Order</b></a>
                     </li>
+                    <?php } ?>
 
 
                 </ul>

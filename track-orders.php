@@ -59,6 +59,20 @@ include('includes/config.php');
     <style>
     .form-group input {
         border: 2px solid gray;
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+
+    .form-group input::placeholder {
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 
     .form-group input:focus {
@@ -66,11 +80,11 @@ include('includes/config.php');
     }
 
     .checkout-page-button {
-        background: #F2F3F8 !important;
+        background: #000 !important;
         width: 100% !important;
-        color: #000;
+        color: #fff !important;
         height: 50px !important;
-        font-size: 15px !important;
+        font-size: 20px !important;
         border-radius: 0 !important;
         font-family: 'Raleway', sans-serif !important;
         font-weight: 400 !important;
@@ -85,30 +99,35 @@ include('includes/config.php');
         <div class="container">
             <div class="track-order-page inner-bottom-sm">
                 <div class="row">
-                    <span class="title-tag inner-top-vs "
-                        style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 12px;color: #000; text-transform: uppercase;font-weight: 500;  ">Please
-                        enter your Order ID in the box below and press
-                        Enter. This was given to you on your receipt and in the confirmation email you should have
-                        received. </span>
-                    <h2
-                        style="text-align: center ;text-transform: uppercase; font-family: 'Raleway' , sans-serif !important;font-size:25px;color: #000; font-weight: 300;    ">
-                        Track
-                        your Order</h2>
                     <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;   ">
+
                         <form class=" register-form outer-top-xs col-lg-6 col-sm-12 " style="width: 500px; " role="form"
                             method="post" action="order-details.php">
+                            <h2
+                                style="text-align: center ;text-transform: uppercase; font-family: 'Raleway' , sans-serif !important;font-size:40px !important ;color: #000; font-weight: 500;    ">
+                                Track
+                                your Order</h2>
+                            <span class="title-tag inner-top-vs inner-bottom-20   "
+                                style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 12px;color: #000; text-transform: capitalize  ;font-weight: 600;  ">Please
+                                enter your Order ID in the box below and press
+                                Enter. This was given to you on your receipt and in the confirmation email you should
+                                have
+                                received. </span>
                             <div class="form-group">
                                 <label class="info-title" for="exampleOrderId1"
-                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;  font-size: 15px;color: #000; ">Order
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Order
                                     ID</label>
-                                <input type="text" class="form-control unicase-form-control text-input " name="orderid"
+                                <input placeholder="Order ID" type="text"
+                                    class="form-control unicase-form-control text-input " name="orderid"
                                     id="exampleOrderId1">
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleBillingEmail1"
-                                    style="text-align: left;  font-family: 'Raleway', sans-serif !important;text-transform: uppercase;   font-size: 15px;color: #000; ">Registered
-                                    Email</label>
-                                <input type="email" class="form-control unicase-form-control text-input" name="email"
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">What's
+                                    your Registered e-mail?
+                                </label>
+                                <input placeholder="E-mail" type="email"
+                                    class="form-control unicase-form-control text-input" name="email"
                                     id="exampleBillingEmail1">
                             </div>
                             <button type="submit" name="submit"
@@ -118,9 +137,9 @@ include('includes/config.php');
                 </div><!-- /.row -->
             </div><!-- /.sigin-in-->
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <div> <?php echo include('includes/brands-slider.php'); ?></div>
         </div>
     </div>
+    <div> <?php echo include('includes/brands-slider.php'); ?></div>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

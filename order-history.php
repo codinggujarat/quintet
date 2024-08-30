@@ -6,7 +6,7 @@ if (strlen($_SESSION['login']) == 0) {
     header('location:login.php');
 } else {
 
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +77,7 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- ============================================== HEADER : END ============================================== -->
 
     <div class="body-content outer-top-xs">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="row inner-bottom-sm">
                 <div class="shopping-cart">
                     <div class="col-md-12 col-sm-12 shopping-cart-table ">
@@ -88,29 +88,28 @@ if (strlen($_SESSION['login']) == 0) {
                                     <style>
                                     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                                    .item,
-                                    .last-item {
+                                    .order-tabel {
                                         font-family: 'Raleway', sans-serif !important;
                                         font-size: 12px !important;
                                         color: #000;
                                         text-transform: uppercase;
-                                        font-weight: normal;
+                                        font-weight: 600;
                                         border: 0 !important;
                                     }
                                     </style>
                                     <thead>
                                         <tr>
-                                            <th class="cart-romove item">#</th>
-                                            <th class="cart-description item">Image</th>
-                                            <th class="cart-product-name item">Product Name</th>
+                                            <th class="order-tabel">#</th>
+                                            <th class="order-tabel">Image</th>
+                                            <th class="order-tabel">Product Name</th>
 
-                                            <th class="cart-qty item">Quantity</th>
-                                            <th class="cart-sub-total item">Price Per unit</th>
-                                            <th class="cart-sub-total item">Shipping Charge</th>
-                                            <th class="cart-total item">Grandtotal</th>
-                                            <th class="cart-total item">Payment Method</th>
-                                            <th class="cart-description item">Order Date</th>
-                                            <th class="cart-total last-item">Action</th>
+                                            <th class="order-tabel">Quantity</th>
+                                            <th class="order-tabel">Price Per unit</th>
+                                            <th class="order-tabel">Shipping Charge</th>
+                                            <th class="order-tabel">Grandtotal</th>
+                                            <th class="order-tabel">Payment Method</th>
+                                            <th class="order-tabel">Order Date</th>
+                                            <th class="order-tabel">Action</th>
                                         </tr>
                                     </thead><!-- /thead -->
 
@@ -119,7 +118,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         <?php $query = mysqli_query($con, "select products.productImage1 as pimg1,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
                                             $cnt = 1;
                                             while ($row = mysqli_fetch_array($query)) {
-                                                ?>
+                                            ?>
                                         <tr style="border-bottom: 20px solid #fff !important; ">
                                             <td><?php echo $cnt; ?></td>
                                             <td class="cart-image"
@@ -184,10 +183,10 @@ if (strlen($_SESSION['login']) == 0) {
             </div> <!-- /.row -->
             </form>
             <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <?php echo include('includes/brands-slider.php'); ?>
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
+    <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>

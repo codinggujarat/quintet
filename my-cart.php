@@ -146,7 +146,7 @@ if (isset($_POST['shipupdate'])) {
 
 
     <div class="body-content outer-top-xs">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="row inner-bottom-sm">
                 <div class="shopping-cart">
                     <div class="col-md-12 col-sm-12 shopping-cart-table ">
@@ -160,7 +160,7 @@ if (isset($_POST['shipupdate'])) {
                             <form name="cart" method="post">
                                 <?php
                                 if (!empty($_SESSION['cart'])) {
-                                    ?>
+                                ?>
                                 <table class="table ">
                                     <thead>
                                         <style>
@@ -236,7 +236,7 @@ if (isset($_POST['shipupdate'])) {
 
                                                     array_push($pdtid, $row['id']);
                                                     //print_r($_SESSION['pid'])=$pdtid;exit;
-                                                    ?>
+                                            ?>
 
                                         <tr style="border-bottom: 20px solid #fff !important; ">
                                             <td class="romove-item"><input type="checkbox" name="remove_code[]"
@@ -253,8 +253,8 @@ if (isset($_POST['shipupdate'])) {
                                                         style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
                                                         href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
 
-                                                                         $_SESSION['sid'] = $pd;
-                                                                         ?></a>
+                                                                                                                                                    $_SESSION['sid'] = $pd;
+                                                                                                                                                    ?></a>
                                                 </h4>
                                                 <div class="row">
                                                     <div class="col-sm-4">
@@ -263,7 +263,7 @@ if (isset($_POST['shipupdate'])) {
                                                     <div class="col-sm-6">
                                                         <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
                                                                     $num = mysqli_num_rows($rt); {
-                                                                        ?>
+                                                                    ?>
                                                         <div class="reviews" style="color:black;">
                                                             ( <?php echo htmlentities($num); ?> Reviews )
                                                         </div>
@@ -341,9 +341,9 @@ if (isset($_POST['shipupdate'])) {
                                     <td>
                                         <div class="form-group">
                                             <?php
-                                                $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                                while ($row = mysqli_fetch_array($query)) {
-                                                    ?>
+                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                            while ($row = mysqli_fetch_array($query)) {
+                                            ?>
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing Address"
@@ -414,9 +414,9 @@ if (isset($_POST['shipupdate'])) {
                                     <td>
                                         <div class="form-group">
                                             <?php
-                                                $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                                while ($row = mysqli_fetch_array($query)) {
-                                                    ?>
+                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                            while ($row = mysqli_fetch_array($query)) {
+                                            ?>
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Shipping Address"

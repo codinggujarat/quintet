@@ -155,6 +155,20 @@ if (isset($_POST['login'])) {
     <style>
     .form-group input {
         border: 2px solid gray;
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+
+    .form-group input::placeholder {
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 
     .form-group input:focus {
@@ -162,9 +176,9 @@ if (isset($_POST['login'])) {
     }
 
     .checkout-page-button {
-        background: #F2F3F8 !important;
-        width: 50% !important;
-        color: #000;
+        background: #000 !important;
+        width: 100% !important;
+        color: #fff !important;
         height: 50px !important;
         font-size: 20px !important;
         border-radius: 0 !important;
@@ -178,17 +192,18 @@ if (isset($_POST['login'])) {
     }
     </style>
     <div class="body-content outer-top-bd">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="sign-in-page inner-bottom-sm">
                 <div class="row">
                     <!-- Sign-in -->
                     <div class="col-md-6 col-sm-6 sign-in">
                         <h4 class=""
-                            style="  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 300;  ">
+                            style="  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 500;text-transform: capitalize;  ">
                             sign
                             in
                         </h4>
-                        <p class="" style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000">
+                        <p class=""
+                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000; font-weight: 500;text-transform: capitalize; ">
                             Hello, Welcome to
                             your
                             account.</p>
@@ -203,21 +218,23 @@ if (isset($_POST['login'])) {
                             </span>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Email
-                                    Address <span></span></label>
-                                <input type="email" name="email" class="form-control unicase-form-control text-input"
-                                    id="exampleInputEmail1">
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">What's
+                                    your e-mail?</label>
+                                <input type="email" name="email" placeholder="E-mail"
+                                    class="form-control unicase-form-control text-input" id="exampleInputEmail1">
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputPassword1"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Password
-                                    <span></span></label>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Your
+                                    password? *
+                                </label>
                                 <input type="password" name="password"
-                                    class="form-control unicase-form-control text-input" id="exampleInputPassword1">
+                                    class="form-control unicase-form-control text-input" placeholder="Password"
+                                    id="exampleInputPassword1">
                             </div>
                             <div class="radio outer-xs">
                                 <a href="forgot-password.php" class="forgot-password pull-right"
-                                    style="font-size: 20px;color: #000;font-family: 'Raleway' , sans-serif !important;">Forgot
+                                    style="text-decoration: underline;  font-size: 15px !important ;color: #000;font-family: 'Raleway' , sans-serif !important;font-weight: 600 !important ;text-transform: capitalize !important ; ">Forgot
                                     your
                                     Password?</a>
                             </div>
@@ -230,54 +247,64 @@ if (isset($_POST['login'])) {
                     <!-- create a new account -->
                     <div class="col-md-6 col-sm-6 create-new-account">
                         <h4 class="checkout-subtitle"
-                            style=" font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 300;  ">
+                            style=" font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 500; text-transform: capitalize;  ">
                             create a
                             new account</h4>
                         <p class="text title-tag-line"
-                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000">Create
+                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000; font-weight: 500;text-transform: capitalize; ">
+                            Create
                             your own Shopping account.</p>
                         <form class="register-form outer-top-xs" role="form" method="post" name="register"
                             onSubmit="return valid();">
                             <div class="form-group">
                                 <label class="info-title" for="fullname"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Full
-                                    Name <span>*</span></label>
-                                <input type="text" class="form-control unicase-form-control text-input" id="fullname"
-                                    name="fullname" required="required">
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">What's
+                                    your name? </label>
+                                <input placeholder="Name" type="text"
+                                    class="form-control unicase-form-control text-input" id="fullname" name="fullname"
+                                    required="required">
                             </div>
 
 
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail2"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Email
-                                    Address <span>*</span></label>
-                                <input type="email" class="form-control unicase-form-control text-input" id="email"
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">What's
+                                    your e-mail?
+                                </label>
+                                <input type="email" placeholder="E-mail"
+                                    class="form-control unicase-form-control text-input" id="email"
                                     onBlur="userAvailability()" name="emailid" required>
                                 <span id="user-availability-status1" style="font-size:12px;"></span>
                             </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="contactno"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Contact
-                                    No. <span>*</span></label>
-                                <input type="text" class="form-control unicase-form-control text-input" id="contactno"
-                                    name="contactno" maxlength="10" required>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Phone
+                                    Number
+                                </label>
+                                <input type="text" placeholder="98xxxxxxxxx"
+                                    class="form-control unicase-form-control text-input" id="contactno" name="contactno"
+                                    maxlength="10" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="password"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Password.
-                                    <span>*</span></label>
-                                <input type="password" class="form-control unicase-form-control text-input"
-                                    id="password" name="password" required>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Your
+                                    password?
+
+                                </label>
+                                <input type="password" placeholder="Password"
+                                    class="form-control unicase-form-control text-input" id="password" name="password"
+                                    required>
                             </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="confirmpassword"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000">Confirm
-                                    Password. <span>*</span></label>
-                                <input type="password" class="form-control unicase-form-control text-input"
-                                    id="confirmpassword" name="confirmpassword" required>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Confirm
+                                    Password. </label>
+                                <input type="password" placeholder="Password"
+                                    class="form-control unicase-form-control text-input" id="confirmpassword"
+                                    name="confirmpassword" required>
                             </div>
 
 
@@ -285,26 +312,101 @@ if (isset($_POST['login'])) {
                                 id="submit">Sign Up</button>
                         </form>
                         <span class="checkout-subtitle outer-top-xs"
-                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000">Sign Up
+                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000;font-weight: 600 !important ;text-transform: capitalize !important ;">Sign
+                            Up
                             Today And You'll Be Able To : </span>
-                        <div class="checkbox" style="font-family: 'Raleway' , sans-serif !important;color: #000; ">
-                            <label class="checkbox" style="font-family: 'Raleway' , sans-serif !important;">
+                        <ul class="checkbox"
+                            style="font-family: 'Raleway' , sans-serif !important;color: #000;list-style-type: disc !important ;  ">
+                            <li class="checkbox"
+                                style="list-style-type: disc !important ;  font-family: 'Raleway' , sans-serif !important;font-weight: 600 !important ;text-transform: capitalize !important ;">
                                 Speed your way through the checkout.
-                            </label>
-                            <label class="checkbox " style="font-family: 'Raleway' , sans-serif !important;">
+                            </li>
+                            <li class="checkbox "
+                                style="list-style-type: disc !important ;font-family: 'Raleway' , sans-serif !important;font-weight: 600 !important ;text-transform: capitalize !important ;">
                                 Track your orders easily.
-                            </label>
-                            <label class="checkbox" style="font-family: 'Raleway' , sans-serif !important;">
+                            </li>
+                            <li class="checkbox"
+                                style="list-style-type: disc !important ;font-family: 'Raleway' , sans-serif !important;font-weight: 600 !important ;text-transform: capitalize !important ;">
                                 Keep a record of all your purchases.
-                            </label>
-                        </div>
+                            </li>
+                        </ul>
                     </div>
+
+
+                </div><!-- /.info-boxes -->
+                <div class="info-boxes wow fadeInUp ">
+                    <div class="info-boxes-inner">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-4 col-lg-4 ">
+                                <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
+                                    <div class=" row  " style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 500; ">
+                                        <div class="col-lg-12" style="margin-bottom: 10px; ">
+                                            <i class="bx bxs-truck" style="color: #000;font-size: 50px; "></i>
+                                        </div>
+                                        <span class="col-lg-12"
+                                            style="text-transform: uppercase;font-size: 14px;font-weight: 600;margin-bottom: 5px; font-weight: 700;    ">Free
+                                            & Fast
+                                            Delivery
+                                        </span>
+                                        <h6 class="col-lg-12"
+                                            style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                            Shipping within 48 hours across India.
+
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+
+                            <div class="hidden-md col-sm-4 col-lg-4">
+                                <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
+                                    <div class="row" style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 500; ">
+                                        <div class="col-lg-12 " style="margin-bottom: 10px; ">
+                                            <i class="bx bx-revision" style="color: #000;font-size: 50px; "></i>
+
+                                        </div>
+                                        <span class="col-lg-12 "
+                                            style="margin-bottom: 5px;text-transform: uppercase;font-size: 14px;font-weight: 700;  ">
+                                            Return Policy
+                                        </span>
+                                        <h6 class="col-lg-12"
+                                            style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                            Returns with 7 days.
+
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+
+                            <div class="col-md-6 col-sm-4 col-lg-4">
+                                <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
+                                    <div class="row" style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 500; ">
+                                        <div class=" col-lg-12" style="margin-bottom: 10px; ">
+                                            <i class=" bx bxs-envelope" style="color: #000;font-size: 50px; "></i>
+                                        </div>
+                                        <span class="col-lg-12"
+                                            style="text-transform: uppercase;font-size: 14px;font-weight: 600; margin-bottom: 5px;font-weight: 700;   ">
+                                            Contact us
+                                        </span>
+                                        <h6 class="col-lg-12"
+                                            style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                            Write us at example.com
+
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div><!-- .col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.info-boxes-inner -->
+                    <!-- ============================================== INFO BOXES : END ============================================== -->
                     <!-- create a new account -->
                 </div><!-- /.row -->
             </div>
-            <?php include('includes/brands-slider.php'); ?>
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

@@ -133,7 +133,7 @@ if (isset($_POST['change'])) {
     }
     </style>
     <div class="body-content outer-top-bd">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="sign-in-page inner-bottom-sm">
                 <div class="row">
                     <!-- Sign-in -->
@@ -224,9 +224,9 @@ if (isset($_POST['change'])) {
                     <!-- create a new account -->
                 </div><!-- /.row -->
             </div>
-            <?php include('includes/brands-slider.php'); ?>
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

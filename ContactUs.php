@@ -119,7 +119,7 @@ if (isset($_POST['change'])) {
     <!-- ============================================== HEADER : END ============================================== -->
 
     <div class="body-content outer-top-bd">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
 
 
 
@@ -232,7 +232,6 @@ if (isset($_POST['change'])) {
             });
             </script>
             <!-- create a new account -->
-            <?php include('includes/brands-slider.php'); ?>
 
         </div><!-- /.row -->
     </div>
@@ -419,6 +418,8 @@ if (isset($_POST['change'])) {
     }
     </style>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
+
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

@@ -96,9 +96,12 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- animated  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+
 </head>
 
-<body class="cnt-home " style="background: white !important;">
+<body class="cnt-home" style="background: white !important;">
 
     <header class="header-style-1">
 
@@ -114,306 +117,1287 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <!-- ============================================== HEADER : END ============================================== -->
     </div><!-- /.breadcrumb -->
     <div class="body-content outer-top-xs">
-        <div class='container'>
-            <div class='row outer-bottom-sm'>
-                <div class='col-md-3 sidebar'>
+        <div class='row outer-bottom-sm'>
+            <div class="col-lg-12 col-md-12 col-sm-12">
 
-                    <style>
+                <div class="image">
+                    <?php $sql = mysqli_query($con, "select categoryName  from category where id='$cid'");
+                    while ($row = mysqli_fetch_array($sql)) {
+                    ?>
+
+                    <div class="excerpt ">
+                        <h1
+                            style="text-align: center; font-family:  'Raleway', sans-serif  !important;  text-transform: uppercase   ; color: lightgray; font-size: 50px ; text-align: center important; font-weight: 400 !important;margin-left: 5px; color: #000;">
+                            <?php echo htmlentities($row['categoryName']); ?>
+                        </h1>
+                    </div>
+                    <?php } ?>
+                </div>
+                <style>
+                .megamenu-horizontal ul li a {
+                    border: 2px solid black;
+                    margin-left: 10px;
+                    padding: 4px 10px;
+                    font-size: 14px;
+                    font-weight: 700 !important;
+                }
+
+                .megamenu-horizontal ul li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                </style>
+                <nav class=" yamm megamenu-horizontal" role="navigation">
+                    <ul class="nav">
+                        <li class="dropdown menu-item">
+                            <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid='$cid'");
+
+                            while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>" class=" dropdown-toggle">
+                                <?php echo $row['subcategory']; ?>
+                            </a>
+                            <?php } ?>
+
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class='col-md-2 sidebar'>
+                <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const menuButton = document.querySelector('.bx-slider-alt, .bx-slider-alt');
+                    const card = document.getElementById('MYFILTER');
+
+                    if (menuButton && card) {
+                        menuButton.addEventListener('click', () => {
+                            const isCardVisible = card.style.display === 'block';
+
+                            // Toggle visibility of the card
+                            if (isCardVisible) {
+                                card.style.display = 'none';
+                                menuButton.classList.remove('bx-slider-alt');
+                                menuButton.classList.add('bx-slider-alt');
+                            } else {
+                                card.style.display = 'block';
+                                menuButton.classList.remove('bx-slider-alt');
+                                menuButton.classList.add('bx-slider-alt');
+                            }
+                        });
+
+                        // Optional: Close the card if clicked outside
+                        document.addEventListener('click', (event) => {
+                            if (!card.contains(event.target) && !menuButton
+                                .contains(event
+                                    .target)) {
+                                card.style.display = 'none';
+                                menuButton.classList.remove('bx-slider-alt');
+                                menuButton.classList.add('bx-slider-alt');
+                            }
+                        });
+                    }
+                });
+                </script>
+                <style>
+                .sidebar {
+                    position: sticky !important;
+                    top: 20px !important;
+                }
+
+                @media only screen and (max-width: 800px) {
                     .sidebar {
-                        position: sticky !important;
-                        top: 20px !important;
+                        position: relative !important;
+                    }
+                }
+                </style>
+                <style>
+                .OPENFILTER {
+                    background: transparent !important;
+                    outline: 0;
+                    border: 0 solid black;
+
+                    width: 100%;
+                    padding: 10px 20px;
+                    font-size: 18px;
+                    color: #000;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .filter-menu {
+                    position: sticky;
+                    z-index: 999999;
+                    width: 230px !important;
+                    height: 100% !important;
+                    /* display: none; */
+                }
+
+                .filter-menu li {
+                    margin-bottom: 20px;
+                }
+
+                .filter-menu li a {
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+                    justify-content: start;
+                    font-size: 15px !important;
+                    color: #000 !important;
+                    text-transform: capitalize !important;
+                    font-weight: 600 !important;
+                    font-family: 'Raleway', sans-serif !important;
+                }
+
+                .filter-menu h4 {
+                    font-size: 17px;
+                    color: #000 !important;
+                    font-weight: 600;
+                    font-family: 'Raleway', sans-serif !important;
+                    text-transform: capitalize !important;
+                    border-bottom: 1px solid black;
+                    padding-bottom: 10px;
+                }
+
+                @media screen and (max-width: 768px) {
+
+
+                    .filter-menu {
+                        padding: 15px 20px;
                     }
 
-                    @media only screen and (max-width: 800px) {
-                        .sidebar {
-                            position: relative !important;
-                        }
-                    }
-                    </style>
-                    <!-- ================================== TOP NAVIGATION ================================== -->
-                    <div class="side-menu animate-dropdown outer-bottom-xs">
-                        <div class=" side-menu animate-dropdown outer-bottom-xs"
-                            style="border: 1px solid black !important ;box-shadow: none !important ; outline:none !important;background: transparent   !important;  ">
-                            <div class="head"
-                                style="padding: 8px 13px;  font-family: 'Raleway',sans-serif !important;color: #000;box-shadow: none !important ;font-weight: 600;  font-size: 13px !important  ;background: transparent  !important;border-bottom: 1px solid #000  ;">
-                                Sub Categories</div>
-
-                            <nav class=" yamm megamenu-horizontal" role="navigation">
-                                <ul class="nav">
-                                    <li class="dropdown menu-item">
-                                        <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid='$cid'");
-
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                            ?>
-                                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                            class=" dropdown-toggle">
-                                            <?php echo $row['subcategory']; ?>
-                                        </a>
-                                        <?php } ?>
-
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div><!-- /.side-menu -->
-                    <style>
-                    @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-                    .sidebar .side-menu nav .nav>li>a,
-                    .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
-                        color: #000 !important;
-                        font-size: 13px !important;
-                        font-weight: 400 !important;
-                        text-transform: uppercase !important;
-                        font-family: 'Raleway', sans-serif !important;
-                        padding: 8px 13px;
+                    .filter-menu {
+                        position: fixed;
+                        top: 0;
+                        left: -100%;
+                        height: 100%;
+                        max-width: 300px;
+                        width: 100%;
+                        padding-top: 100px;
+                        row-gap: 30px;
+                        flex-direction: column;
+                        transition: all 0.4s ease;
+                        z-index: 100;
                     }
 
-                    .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
-                        display: none !important;
+                    .filter-menu {
+                        left: 0;
                     }
 
-                    .menu-item {
-                        background: transparent !important;
+                    .filter-menu {
+                        display: none;
                     }
 
-                    .sidebar .side-menu nav .nav>li>a:hover,
-                    .sidebar .side-menu nav .nav>li>a:focus {
-                        background: transparent !important;
-                        border: 0px solid #555 !important;
-                        color: #000 !important;
-                    }
-                    </style>
-                    <!-- ================================== TOP NAVIGATION : END ================================== -->
-                    <div class="sidebar-module-container">
-                        <h3 class="section-title"
-                            style="font-size: 13px;  text-transform: uppercase !important;
-                        font-family: 'Raleway', sans-serif !important;font-weight: 600 !important ;  color: #000;   font-weight: 400; ">
-                            shopping
-                            by
-                        </h3>
-                        <div class="sidebar-filter">
-                            <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-                            <div class="sidebar-widget wow fadeInUp outer-bottom-xs " style="border: 1px solid #000;">
-                                <div class="widget-header" style="background:transparent ;padding:0; ">
-                                    <h4 class="widget-title"
-                                        style=" font-family: 'Raleway', sans-serif !important;text-transform: uppercase ; color: #000;font-size: 13px;padding: 8px 13px; font-weight: 600;   ">
-                                        Category</h4>
+
+
+                }
+                </style>
+
+                <button onclick="openForm()" class="OPENFILTER filterALL">
+                    Filter & Refine
+                    <i class='bx bx-slider-alt' style="margin-left: 10px;font-size: 20px; "></i>
+                </button>
+                <!-- ================================== TOP NAVIGATION ================================== -->
+                <div class="side-menu animate-dropdown outer-bottom-xs">
+                    <div class=" side-menu animate-dropdown outer-bottom-xs">
+                        <div class="filter-menu" id="MYFILTER"
+                            style="border: 1px solid black !important;margin:10px ;box-shadow: none !important ; outline:none !important;background:#f2f3f8    !important;   ">
+                            <div class=""
+                                style=" display: flex; align-items: baseline ;justify-content: start;  flex-wrap: wrap; ">
+                                <div class=" " style="padding: 18px; ">
+                                    <h4>Sort by </h4>
+                                    <ul>
+                                        <li><a href="#lowtohigh" data-toggle="tab">Price (Lowest First)</a>
+                                        </li>
+                                        <li><a href="#hightolow" data-toggle="tab">Price (Highest First)</a>
+                                        </li>
+                                        <li><a href="#AtoZ" data-toggle="tab">A to Z</a>
+                                        </li>
+                                        <li><a href="#ZtoA" data-toggle="tab">Z to A</a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="sidebar-widget-body m-t-10" style="border-top: 1px solid black;margin: 0;">
-                                    <?php $sql = mysqli_query($con, "select id,categoryName  from category");
-                                    while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                    <div class="accordion">
-                                        <div class="accordion-group" style="padding: 0 !;  ">
-                                            <div class="accordion-heading"
-                                                style="display: flex;align-items: center;justify-content: space-between;height: 40px;padding: 0 !important ;  ">
-                                                <a style=" font-family: 'Raleway', sans-serif !important;width: 100%; color: #000 !important ; font-weight: 400 !important ;font-size: 13px; text-transform: uppercase; padding: 0px 13px;    "
-                                                    href="category.php?cid=<?php echo $row['id']; ?>" class="">
-                                                    <?php echo $row['categoryName']; ?>
-                                                </a>
-                                            </div>
-                                        </div>
+                                <style>
+                                .box {
+                                    height: 12px;
+                                    width: 12px;
+                                    margin-right: 20px;
+                                }
 
-                                    </div>
-                                    <?php } ?>
-                                </div><!-- /.sidebar-widget-body -->
-                            </div><!-- /.sidebar-widget -->
+                                .black {
+                                    margin-right: 6px;
+                                    background: #000;
+                                }
 
+                                .white {
+                                    border: 1px solid black;
+                                    background: #fff;
+                                }
 
+                                .blue {
+                                    background: blue;
+                                }
 
+                                .green {
+                                    background: green;
+                                }
 
-                            <!-- ============================================== COLOR: END ============================================== -->
+                                .pink {
+                                    background: pink;
+                                }
 
-                        </div><!-- /.sidebar-filter -->
-                    </div><!-- /.sidebar-module-container -->
-                </div><!-- /.sidebar -->
-                <div class='col-md-9' style="background-color: white !important ;">
-                    <!-- ========================================== SECTION – HERO ========================================= -->
+                                .red {
+                                    background: red;
+                                }
 
-                    <div id="category" class="category-carousel "
-                        style="display: flex;align-items: bacseline;justify-content: space-between; ">
-                        <div class="item" style="height: 20px !important ;margin-top: -20px;    ">
-                            <div class="image">
-                                <div class=""
-                                    style=" display: flex; text-align: left; height: 100px; background-color: transparent ; ">
-                                    <h1
-                                        style="font-family: 'Raleway', sans-serif !important; text-transform:uppercase    ; color: #fff; font-size: 15px;font-weight: 600 !important;color: #000; ">
-                                        category <i class='bx bx-chevron-right' style="font-size: 15px;"></i>
-                                    </h1>
-                                    <?php $sql = mysqli_query($con, "select categoryName  from category where id='$cid'");
-                                    while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
+                                .silver {
+                                    background: #C0C0C0 !important;
+                                }
 
-                                    <div class="excerpt ">
-                                        <h1
-                                            style="font-family:  'Raleway', sans-serif  !important;  text-transform: uppercase   ; color: lightgray; font-size: 15px ; text-align: center important; font-weight: 600 !important;margin-left: 5px; color: #000;">
-                                            <?php echo htmlentities($row['categoryName']); ?>
-                                        </h1>
-                                    </div>
-                                    <?php } ?>
+                                .yellow {
+                                    background: yellow;
+                                }
+
+                                .colors span {
+                                    text-transform: capitalize;
+                                    font-size: 15px;
+                                }
+                                </style>
+                                <div class=" colors" style="padding: 18px; ">
+                                    <h4>Colour's</h4>
+                                    <ul>
+                                        <li>
+
+                                            <a href="#all" data-toggle="tab">
+                                                <div class="box"
+                                                    style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);">
+                                                </div>
+                                                <span>All</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#blackandwhiteandGray" data-toggle="tab">
+                                                <div class='box black '></div>
+                                                <div class='box white'></div>
+                                                <span>Black & White</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Blue" data-toggle="tab">
+                                                <div class='box blue '></div>
+                                                <span>Blue</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Pink" data-toggle="tab">
+                                                <div class='box pink '></div>
+                                                <span>Pink</span>
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Red" data-toggle="tab">
+                                                <div class='box red '></div>
+                                                <span>Red & Rose</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Green" data-toggle="tab">
+                                                <div class='box green '></div>
+                                                <span>Green</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#Yellow" data-toggle="tab">
+                                                <div class='box yellow '></div>
+                                                <span>Yellow</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
+
                             </div>
                         </div>
 
                     </div>
+                </div><!-- /.side-menu -->
+                <style>
+                @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                    <div class=" search-result-container">
-                        <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane active " id="grid-container">
-                                <div class="category-product  inner-top-vs">
-                                    <div class=""
-                                        style="display: flex;align-items: center;justify-content: space-evenly ;flex-wrap: wrap;     ">
-                                        <?php
-                                        $ret = mysqli_query($con, "select * from products where category='$cid ' ORDER BY RAND()");
-                                        $num = mysqli_num_rows($ret);
-                                        if ($num > 0) {
-                                            while ($row = mysqli_fetch_array($ret)) { ?>
+                .sidebar .side-menu nav .nav>li>a,
+                .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
+                    color: #000 !important;
+                    font-size: 13px !important;
+                    font-weight: 400 !important;
+                    text-transform: uppercase !important;
+                    font-family: 'Raleway', sans-serif !important;
+                    padding: 8px 13px;
+                }
 
-                                        <div class=" wow fadeInUp" style="margin-top: 20px;  ">
-                                            <style>
-                                            @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+                .sidebar .side-menu nav .nav>li>a.dropdown-toggle::after {
+                    display: none !important;
+                }
 
+                .menu-item {
+                    background: transparent !important;
+                }
 
-                                            @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-                                            .products,
-                                            .product {
-                                                width: 250px !important;
-                                                margin-top: 10px;
-
-                                            }
-
-                                            .name a {
-                                                font-size: 12px !important;
-                                            }
-
-
-                                            @media only screen and (max-width: 450px) {
-
-                                                .products,
-                                                .product {
-                                                    width: 140px !important;
-                                                    overflow: hidden !important;
-                                                    text-overflow: ellipsis !important;
-                                                    white-space: nowrap !important;
-                                                }
-
-                                                .image {
-                                                    width: 100% !important;
-                                                    height: 100% !important;
-                                                }
-
-                                                .addtocart {
-                                                    display: none !important;
-                                                }
-
-
-                                                .name {
-                                                    width: 140px !important;
-                                                    overflow: hidden !important;
-                                                    text-overflow: ellipsis !important;
-                                                    white-space: nowrap !important;
-                                                }
-
-                                                .name a {
-                                                    font-size: 10px !important;
-                                                }
-                                            }
-
-
-                                            @media only screen and (max-width: 350px) {
-
-                                                .products,
-                                                .product {
-                                                    width: 100% !important;
-                                                }
-
-                                                .name {
-                                                    width: 100% !important;
-
-                                                }
-
-                                                .image {
-                                                    width: 100% !important;
-                                                    height: 100% !important;
-                                                }
-                                            }
-                                            </style>
-
-                                            <div class="products">
-
-                                                <div class="product" id="product">
-                                                    <div class="product-image" style="background:#F2F3F8 ;">
-                                                        <div class="image"
-                                                            style="background:transparent !important;   ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
-
-
-                                                    <div class="product-info text-left"
-                                                        style="width:200px !important; margin-top: 5px !important;padding: 0 !important;">
-                                                        <h3 class="name"><a
-                                                                style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:10px !important ;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-
-                                                        <div class="product-price" style="margin-top: -10px; ">
-                                                            <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 11px; ">MRP:
-                                                                Rs.<?php echo htmlentities($row['productPrice']); ?>
-                                                            </span>
-                                                        </div><!-- /.product-price -->
-
-                                                    </div><!-- /.product-info -->
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div>
-                                        <?php }
-                                        } else { ?>
-
-                                        <div class="col-sm-6 col-md-4 wow fadeInUp">
-                                            <h3>No Product Found</h3>
-                                        </div>
-
-                                        <?php } ?>
-
-
-
-
-
-
-
-
-
-
-                                    </div><!-- /.row -->
-                                </div><!-- /.category-product -->
-
-                            </div><!-- /.tab-pane -->
-
-
-
-                        </div><!-- /.search-result-container -->
-
-                    </div><!-- /.col -->
-                </div>
+                .sidebar .side-menu nav .nav>li>a:hover,
+                .sidebar .side-menu nav .nav>li>a:focus {
+                    background: transparent !important;
+                    border: 0px solid #555 !important;
+                    color: #000 !important;
+                }
+                </style>
             </div>
-            <?php include('includes/brands-slider.php'); ?>
+            <!-- ================================== TOP NAVIGATION : END ================================== -->
+            <div class='col-md-10' style="background-color: white !important ;">
+                <!-- ========================================== SECTION – HERO ========================================= -->
 
+
+                <div class="tab-content outer-top-xs" style="background: white !important   ; ">
+                    <div class="tab-pane in active" id="all">
+                        <div class="product-slider">
+                            <div class="" data-item="4"
+                                style="display: flex;align-items: center;justify-content: space-around      ; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid ' ORDER BY RAND()");
+                                while ($row = mysqli_fetch_array($ret)) {
+
+                                ?>
+
+                                <style>
+                                @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+                                .products,
+                                .product {
+                                    width: 250px !important;
+                                    margin-top: 10px;
+
+                                }
+
+                                .name a {
+                                    font-size: 12px !important;
+                                }
+
+
+                                @media only screen and (max-width: 450px) {
+
+                                    .products,
+                                    .product {
+                                        width: 140px !important;
+                                        overflow: hidden !important;
+                                        text-overflow: ellipsis !important;
+                                        white-space: nowrap !important;
+                                    }
+
+                                    .image {
+                                        width: 100% !important;
+                                        height: 100% !important;
+                                    }
+
+                                    .addtocart {
+                                        display: none !important;
+                                    }
+
+
+                                    .name {
+                                        width: 140px !important;
+                                        overflow: hidden !important;
+                                        text-overflow: ellipsis !important;
+                                        white-space: nowrap !important;
+                                    }
+
+                                    .name a {
+                                        font-size: 10px !important;
+                                    }
+                                }
+
+
+                                @media only screen and (max-width: 350px) {
+
+                                    .products,
+                                    .product {
+                                        width: 100% !important;
+                                    }
+
+                                    .name {
+                                        width: 100% !important;
+                                    }
+
+                                    .image {
+                                        width: 100% !important;
+                                        height: 100% !important;
+                                    }
+                                }
+                                </style>
+                                <div class=" item item-carousel">
+                                    <div class="products m-t-0">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important; ">
+                                                <div class="image" style="background:transparent !important;">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width=" 100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item -->
+                                <?php } ?>
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+
+
+
+
+                    <div class="tab-pane" id="SmartPhone">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid ' ORDER BY productPrice ASC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code... 
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top: 5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item -->
+                                <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+
+
+
+
+
+
+                    <div class="tab-pane" id="MAN">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category=10 ORDER BY RAND() ");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+
+
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="WOMAN">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category=8 ORDER BY RAND() ");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+
+
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="lowtohigh">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid ' ORDER BY productPrice ASC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="hightolow">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productPrice DESC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="AtoZ">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName ASC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="ZtoA">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName DESC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="ZtoA">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName DESC");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+
+
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+
+                    <div class="tab-pane" id="blackandwhiteandGray">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Black', 'Black & White', 'Black & Gray', 'White & Teal') ");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Blue">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Blue', 'Skyblue')");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Pink">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Pink','Bright Pink')");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Red">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Red','Dusty Rose','Copper Red')");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Green">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor = 'Green'");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Silver">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Silver','Silver Shadow')");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+                    <div class="tab-pane" id="Yellow">
+                        <div class="product-slider">
+                            <div class=""
+                                style="display: flex;align-items: center;justify-content: space-between; flex-wrap: wrap;   ">
+                                <?php
+                                $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Yellow','Sunshine Yellow')");
+                                while ($row = mysqli_fetch_array($ret)) {
+                                    # code...
+                                ?>
+                                <div class=" item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                <h3 class="name"><a
+                                                        style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+
+                                                <div class=" product-price" style="margin-top: -10px; ">
+                                                    <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 11px; ">MRP:
+                                                        Rs.<?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </div><!-- /.product-price -->
+
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.product -->
+
+                                    </div><!-- /.products -->
+                                </div><!-- /.item --> <?php } ?>
+
+
+                            </div><!-- /.home-owl-carousel -->
+                        </div><!-- /.product-slider -->
+                    </div>
+
+
+                </div><!-- /.search-result-container -->
+
+            </div><!-- /.col -->
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 
@@ -455,6 +1439,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
         $('.show-theme-options').delay(2000).trigger('click');
     });
     </script>
+
 
 </body>
 

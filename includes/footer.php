@@ -22,9 +22,9 @@ footer .contentfooter p,
 a {
     font-size: 12px !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 300 !important;
     text-transform: uppercase !important;
     color: #000 !important;
+    font-weight: 400 !important;
 }
 
 footer .contentfooter .boxfooter {
@@ -34,20 +34,20 @@ footer .contentfooter .boxfooter {
 
 footer .contentfooter .topicfooter {
     cursor: default !important;
-    font-size: 14px !important;
+    font-size: 20px !important;
     color: #000 !important;
     margin-bottom: 16px !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
 
-    text-transform: uppercase !important;
+    text-transform: capitalize !important;
 
 }
 
 footer .contentfooter p {
     text-align: justify !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-transform: capitalize !important;
 
 }
@@ -62,12 +62,13 @@ footer .contentfooter .lowerfooter i {
 
 footer .contentfooter .middlefooter {
     padding-left: 80px !important;
+
 }
 
 footer .contentfooter .middlefooter a {
-    font-size: 12px !important;
+    font-size: 14px !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
 }
 
@@ -80,24 +81,24 @@ footer .contentfooter .rightfooter .footerinput {
     border-radius: 0 !important;
     padding-left: 10px !important;
     text-transform: uppercase !important;
-    font-size: 14px !important;
+    font-size: 11px !important;
     border: 1px solid #000 !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
 }
 
 footer .contentfooter .rightfooter .footerinput::placeholder {
     color: #000 !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
 }
 
 footer .contentfooter .rightfooter .footerbtn {
     height: 42px !important;
     width: 100% !important;
-    font-size: 14px !important;
+    font-size: 11px !important;
     color: #000 !important;
     background: #fff !important;
     outline: none !important;
@@ -109,7 +110,7 @@ footer .contentfooter .rightfooter .footerbtn {
     border: 1px solid #000 !important;
     transition: all 0.3s ease-in-out !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
 }
 
@@ -133,7 +134,7 @@ footer .contentfooter .media-iconsfooter a {
     margin: 30px px 0 0 !important;
     transition: all 0.3s ease !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
 }
 
@@ -151,13 +152,13 @@ footer .bottomfooter {
 footer .bottomfooter a {
     color: #000 !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 }
 
 footer a {
     transition: all 0.3s ease !important;
     font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
 }
 
@@ -198,6 +199,7 @@ footer a:hover {
     footer .contentfooter .middlefooter {
         padding-left: 0 !important;
     }
+
 }
 </style>
 <footer>
@@ -207,7 +209,7 @@ footer a:hover {
                 <div class="leftfooter boxfooter">
                     <div class="upperfooter">
                         <div class="topicfooter">About us</div>
-                        <p style="font-weight: 600 !important ; ">Learn more about our brand, mission, and values.
+                        <p style="font-weight: 500 !important ; ">Learn more about our brand, mission, and values.
                             Discover how we
                             started, what drives us, and
                             our commitment to delivering quality products and exceptional customer experiences.</p>
@@ -229,9 +231,9 @@ footer a:hover {
                 </div>
                 <div class=" middlefooter boxfooter">
                     <div class="topicfooter">Customer Service</div>
-                    <div><a href="#">Shipping & Delivery</a></div>
-                    <div><a href="track-orders.php">Order Status</a></div>
-                    <div><a href="ContactUs.php">Contact Us</a></div>
+                    <div style="margin-bottom: 10px;"><a href="#">Shipping & Delivery</a></div>
+                    <div style="margin-bottom: 10px;"><a href="track-orders.php">Order Status</a></div>
+                    <div style="margin-bottom: 10px;"><a href="ContactUs.php">Contact Us</a></div>
                 </div>
                 <div class="rightfooter boxfooter">
                     <div class="topicfooter">Subscribe us</div>
@@ -240,12 +242,87 @@ footer a:hover {
                         <input type="submit" name="" class="footerbtn" value="Send">
                         <div class="media-iconsfooter">
                             <div class="topicfooter">Follow Us</div>
-                            <a href="#"><i class='bx bxl-facebook'></i></a>
-                            <a href="#"><i class='bx bxl-instagram'></i></a>
-                            <a href="#"><i class='bx bxl-twitter'></i></a>
-                            <a href="#"><i class='bx bxl-youtube'></i></a>
-                            <a href="#"><i class='bx bxl-linkedin'></i></a>
+                            <ul class="socialmedia">
+                                <li>
+                                    <a href="#">
+                                        <i class='bx bxl-facebook icon'></i> </a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="bx bxl-instagram icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="bx bxl-twitter icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="bx bxl-youtube icon"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#"><i class="bx bxl-linkedin icon"></i></a>
+                                </li>
+                            </ul>
                         </div>
+
+                        <style>
+                        .socialmedia {
+                            display: flex;
+                        }
+
+                        .socialmedia li {
+                            list-style: none;
+                        }
+
+                        .socialmedia li a {
+                            width: 50px;
+                            height: 50px;
+                            background-color: #fff;
+                            text-align: center;
+                            line-height: 50px;
+                            font-size: 35px;
+                            margin: 0 10px;
+                            display: block;
+                            position: relative;
+                            overflow: hidden;
+                            z-index: 1;
+                            border: 1px solid black;
+                            color: #fff;
+
+                        }
+
+                        .socialmedia li a .icon {
+                            position: relative;
+                            color: #000;
+                            transition: .5s;
+                            z-index: 2;
+                        }
+
+
+
+                        .socialmedia li a:before {
+                            content: "";
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: #f00;
+                            transition: .5s;
+                            z-index: 2;
+
+                        }
+
+                        ul li a:hover .icon {
+                            color: #fff;
+                        }
+
+                        .socialmedia li a:hover:before {
+                            top: 0;
+                        }
+
+
+                        .socialmedia li a:before {
+                            background: #000;
+                        }
+                        </style>
                     </form>
 
                 </div>

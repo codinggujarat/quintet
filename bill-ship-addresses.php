@@ -99,6 +99,12 @@ if (strlen($_SESSION['login']) == 0) {
     .form-group textarea {
         border: 2px solid gray !important;
         border-radius: 0 !important;
+        border: 2px solid gray;
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 
     .form-group input:focus,
@@ -106,54 +112,77 @@ if (strlen($_SESSION['login']) == 0) {
         border: 2px solid black !important;
     }
 
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+    .form-group input:focus {
+        border: 2px solid black !important;
+    }
+
     .checkout-page-button {
-        background: black !important;
-        width: 50% !important;
+        background: #000 !important;
+        width: 100% !important;
+        color: #fff !important;
         height: 50px !important;
         font-size: 20px !important;
         border-radius: 0 !important;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 400 !important;
+    }
+
+    .checkout-page-button:hover {
+        color: #000;
+        border: 1px solid black;
     }
     </style>
     <div class="body-content outer-top-bd">
-        <div class="container">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="checkout-box inner-bottom-sm">
-                <div class="row">
+                <div class="row ">
+                    <?php include('includes/myaccount-sidebar.php'); ?>
+
                     <div class="col-md-8">
                         <div class="panel-group checkout-steps" id="accordion">
                             <!-- checkout-step-01  -->
                             <div class="panel  checkout-step-01">
 
                                 <!-- panel-heading -->
-                                <div class="panel-heading"
-                                    style="background: transparent !important ;border-bottom: 2px solid black; ">
+                                <div class="panel-heading">
                                     <h4 class="unicase-checkout-title">
-                                        <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne"
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px;color: #000;text-transform: capitalize   ;font-weight: light !important ;display: flex;align-items: center;justify-content: space-between;   ">
+                                        <a
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px !important  ;color: #000;text-transform: uppercase        !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;border-bottom : 1px solid black; padding-bottom: 20px;  ">
                                             Billing Address
-                                            <span style="background: transparent ; "><i class='bx bx-chevron-down'
-                                                    style="font-size: 40px !important ;color: #000;  "></i></span>
                                         </a>
                                     </h4>
                                 </div>
                                 <!-- panel-heading -->
 
-                                <div id="collapseOne" class="panel-collapse collapse in">
+                                <div>
 
                                     <!-- panel-body  -->
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-md-12 col-sm-12 already-registered-login">
+                                    <div class="row">
+                                        <div class="col-md-12 col-sm-12 already-registered-login">
+                                            <div class="panel-body"
+                                                style="margin: 0 !important ;padding: 0px !important ;  display: flex;align-items: center;justify-content: center;  height: 100%; ">
 
                                                 <?php
                                                     $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
                                                     while ($row = mysqli_fetch_array($query)) {
                                                     ?>
 
-                                                <form class="register-form" role="form" method="post">
+                                                <form class="register-form" role="form" method="post"
+                                                    style="width: 100%; ">
                                                     <div class="form-group">
                                                         <label class="info-title" for="Billing Address"
                                                             style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
-                                                            Address<span>*</span></label>
+                                                            Address</label>
                                                         <textarea class="form-control unicase-form-control text-input"
                                                             name="billingaddress"
                                                             required="required"><?php echo $row['billingAddress']; ?></textarea>
@@ -165,7 +194,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <label class="info-title" for="Billing State "
                                                             style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
                                                             State
-                                                            <span>*</span></label>
+                                                        </label>
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="bilingstate" name="bilingstate"
@@ -175,7 +204,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <label class="info-title" for="Billing City"
                                                             style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
                                                             City
-                                                            <span>*</span></label>
+                                                        </label>
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="billingcity" name="billingcity" required="required"
@@ -185,7 +214,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <label class="info-title" for="Billing Pincode"
                                                             style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
                                                             Pincode
-                                                            <span>*</span></label>
+                                                        </label>
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="billingpincode" name="billingpincode"
@@ -210,31 +239,29 @@ if (strlen($_SESSION['login']) == 0) {
                             <!-- checkout-step-01  -->
                             <!-- checkout-step-02  -->
                             <div class="panel  checkout-step-02">
-                                <div class="panel-heading"
-                                    style="background: transparent !important ;border-bottom: 2px solid black; ">
+                                <div class="panel-heading">
                                     <h4 class="unicase-checkout-title">
-                                        <a data-toggle="collapse" class="collapsed" data-parent="#accordion"
-                                            href="#collapseTwo"
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px;color: #000;text-transform: capitalize ;font-weight: light !important ;display: flex;align-items: center;justify-content: space-between;   ">
+                                        <a
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px !important  ;color: #000;text-transform: uppercase       !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;border-bottom : 1px solid black; padding-bottom: 20px;  ">
                                             Shipping Address
-                                            <span style="background: transparent ; "><i class='bx bx-chevron-down'
-                                                    style="font-size: 40px !important ;color: #000;  "></i></span>
+
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="panel-body">
+                                <div>
+                                    <div class="panel-body"
+                                        style="margin: 0 !important ;padding: 0px !important ;  display: flex;align-items: center;justify-content: center;  height: 100%; ">
 
                                         <?php
                                             $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
                                             while ($row = mysqli_fetch_array($query)) {
                                             ?>
 
-                                        <form class="register-form" role="form" method="post">
+                                        <form class="register-form" role="form" method="post" style="width: 100%; ">
                                             <div class="form-group">
                                                 <label class="info-title" for="Shipping Address"
                                                     style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal !important ; ">Shipping
-                                                    Address<span>*</span></label>
+                                                    Address</label>
                                                 <textarea class="form-control unicase-form-control text-input" " name="
                                                     shippingaddress"
                                                     required="required"><?php echo $row['shippingAddress']; ?></textarea>
@@ -246,7 +273,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <label class="info-title" for="Billing State "
                                                     style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
                                                     State
-                                                    <span>*</span></label>
+                                                </label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingstate" name="shippingstate"
                                                     value="<?php echo $row['shippingState']; ?>" required>
@@ -255,7 +282,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <label class="info-title" for="Billing City"
                                                     style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
                                                     City
-                                                    <span>*</span></label>
+                                                </label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingcity" name="shippingcity" required="required"
                                                     value="<?php echo $row['shippingCity']; ?>">
@@ -264,7 +291,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <label class="info-title" for="Billing Pincode"
                                                     style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
                                                     Pincode
-                                                    <span>*</span></label>
+                                                </label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingpincode" name="shippingpincode" required="required"
                                                     value="<?php echo $row['shippingPincode']; ?>">
@@ -286,13 +313,12 @@ if (strlen($_SESSION['login']) == 0) {
 
                         </div><!-- /.checkout-steps -->
                     </div>
-                    <?php include('includes/myaccount-sidebar.php'); ?>
                 </div><!-- /.row -->
             </div><!-- /.checkout-box -->
-            <?php include('includes/brands-slider.php'); ?>
 
         </div>
     </div>
+    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

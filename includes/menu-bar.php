@@ -7,15 +7,18 @@
     font-family: sans-serif, 'Poppins' !important;
 }
 
+
 .navbar-nav li {
     background-color: white !important;
 }
+
+
 
 .header-nav,
 .navbar-nav li a {
     font-family: 'Raleway', sans-serif !important;
     background: white !important;
-    font-size: 13px !important;
+    font-size: 15px !important;
     color: #000 !important;
     font-weight: 600 !important;
     position: relative !important;
@@ -24,7 +27,7 @@
 .navbar-nav li a {
     line-height: 0px !important;
     padding: 10px 20px !important;
-
+    margin-bottom: 20px;
 }
 
 
@@ -70,29 +73,41 @@
 .collapse {
     overflow: hidden !important;
 }
+
+.nav-outer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+@media only screen and (max-width: 800px) {
+    .nav-outer {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: start !important;
+    }
+}
 </style>
-<div class="header-nav animate-dropdown">
-    <div class="container">
+<div class="header-nav animate-dropdown m-t-20">
+    <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
         <div class="yamm navbar navbar-default " role="navigation">
             <div class="navbar-header">
                 <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse"
                     class="navbar-toggle collapsed" type="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <i class='bx bx-food-menu  ' style="font-size: 20px;"></i>
                 </button>
             </div>
             <div class="nav-bg-class">
                 <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                     <div class="nav-outer ">
                         <ul class="nav navbar-nav ">
-                            <li class="active dropdown yamm-fw ">
-                                <a href="index.php" data-hover="dropdown" class=" dropdown-toggle">Home</a>
+                            <li class=" active dropdown yamm-fw ">
+                                <a href=" New_Arrivals.php" data-hover="dropdown" class=" dropdown-toggle">New
+                                    Arrivals</a>
                             </li>
                             <?php $sql = mysqli_query($con, "select id,categoryName  from category limit 6");
                             while ($row = mysqli_fetch_array($sql)) {
-                                ?>
+                            ?>
 
                             <li class="dropdown yamm">
                                 <a href="category.php?cid=<?php echo $row['id']; ?>">
