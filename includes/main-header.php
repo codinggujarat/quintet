@@ -22,6 +22,7 @@ if (isset($_Get['action'])) {
     display: flex;
     align-items: center;
     justify-content: baseline;
+
 }
 
 
@@ -120,7 +121,7 @@ if (isset($_Get['action'])) {
                 <div class="dropdown dropdown-cart">
                     <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown" style="border:none !important;">
                         <div class="items-cart-inner"
-                            style="display: flex;align-items: center;justify-content: space-between;    ">
+                            style="border:1px solid black; display: flex;align-items: center;justify-content: space-between; border:1px solid black !important;    ">
                             <div class=" total-price-basket" style=" border-right:0 !important;">
                                 <span class=" lbl"
                                     style="font-family: sans-serif, 'Poppins' !important; font-weight: bold; font-size: 15px;color:black; ">
@@ -226,7 +227,7 @@ if (isset($_Get['action'])) {
                 <div class="dropdown dropdown-cart">
                     <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown" style="border:none !important;">
                         <div class="items-cart-inner"
-                            style="display: flex;align-items: center;justify-content: space-between;   ">
+                            style="display: flex;align-items: center;justify-content: space-between;  border:1px solid black !important;  ">
                             <div class="total-price-basket" style=" border-right:0 !important;">
                                 <span class="lbl"
                                     style="font-family: sans-serif, 'Poppins' !important; font-weight: bold; font-size: 15px;color:black; ">
