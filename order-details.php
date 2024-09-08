@@ -17,7 +17,7 @@ include('includes/config.php');
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Order History</title>
+    <title>ORDER DETAILS - QUINTET</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
@@ -39,7 +39,12 @@ include('includes/config.php');
     <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <!-- box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -94,98 +99,151 @@ include('includes/config.php');
                                     font-weight: normal;
                                 }
                                 </style>
-                                <table class="table ">
-                                    <thead style="border: 0 !important ; ">
-                                        <tr ">
-                                        <th class=" cart-romove item">#</th>
-                                            <th class="cart-description item">Image</th>
-                                            <th class="cart-product-name item">Product Name</th>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <?php
+                                    $orderid = $_POST['orderid'];
+                                    $email = $_POST['email'];
+                                    $ret = mysqli_query($con, "select t.email,t.id from (select usr.email,odrs.id from users as usr join orders as odrs on usr.id=odrs.userId) as t where  t.email='$email' and (t.id='$orderid')");
+                                    $num = mysqli_num_rows($ret);
+                                    if ($num > 0) {
+                                        $query = mysqli_query($con, "select products.productImage1 as pimg1,products.productName as pname,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on orders.productId=products.id where orders.id='$orderid' and orders.paymentMethod is not null");
+                                        $cnt = 1;
+                                        while ($row = mysqli_fetch_array($query)) {
+                                    ?>
+                                    <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                                    </div>
+                                    <style>
+                                    .mywishlistcard {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: start;
+                                        flex-wrap: wrap;
 
-                                            <th class="cart-qty item">Quantity</th>
-                                            <th class="cart-sub-total item">Price Per unit</th>
-                                            <th class="cart-total item">Grandtotal</th>
-                                            <th class="cart-total item">Payment Method</th>
-                                            <th class="cart-description item">Order Date</th>
-                                            <th class="cart-total last-item">Action</th>
-                                        </tr>
-                                    </thead><!-- /thead -->
+                                    }
 
-                                    <tbody>
-                                        <?php
-                                        $orderid = $_POST['orderid'];
-                                        $email = $_POST['email'];
-                                        $ret = mysqli_query($con, "select t.email,t.id from (select usr.email,odrs.id from users as usr join orders as odrs on usr.id=odrs.userId) as t where  t.email='$email' and (t.id='$orderid')");
-                                        $num = mysqli_num_rows($ret);
-                                        if ($num > 0) {
-                                            $query = mysqli_query($con, "select products.productImage1 as pimg1,products.productName as pname,orders.productId as opid,orders.quantity as qty,products.productPrice as pprice,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on orders.productId=products.id where orders.id='$orderid' and orders.paymentMethod is not null");
-                                            $cnt = 1;
-                                            while ($row = mysqli_fetch_array($query)) {
-                                        ?>
-                                        <tr style="border-bottom: 20px solid #fff !important; ">
-                                            <td><?php echo $cnt; ?></td>
-                                            <td class="cart-image"
-                                                style="width: 100px;height: 100px; background:#f2f3f8 ;  ">
-                                                <a class="entry-thumbnail"
+
+                                    @media only screen and (max-width: 800px) {
+                                        .mywishlistcard {
+                                            justify-content: center;
+                                        }
+                                    }
+
+                                    .cart-product-sub-total {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                    }
+
+                                    .cart-product-sub-total span {
+                                        font-size: 12px;
+                                        text-transform: uppercase;
+                                        font-weight: 600 !important;
+                                        font-family: 'Raleway', sans-serif !important;
+                                        color: #000 !important;
+                                    }
+
+                                    .mywishlistcardimage {
+                                        width: 220px !important;
+                                        height: 100% !important;
+                                        background: white !important;
+                                        object-fit: cover;
+                                    }
+                                    </style>
+                                    <div class="col-card">
+
+                                        <div class="mywishlistcardimage">
+                                            <a class="entry-thumbnail"
+                                                href="product-details.php?pid=<?php echo $row['opid']; ?>">
+                                                <img src="admin/productimages/<?php echo $row['opid']; ?>/<?php echo $row['pimg1']; ?>"
+                                                    alt="" width="100%" height="100%">
+                                            </a>
+                                        </div>
+                                        <div class="mywishlistcardimage">
+                                            <h4 class='cart-product-description' style="width: 120px; "><a
+                                                    style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
                                                     href="product-details.php?pid=<?php echo $row['opid']; ?>">
-                                                    <img src="admin/productimages/<?php echo $row['opid']; ?>/<?php echo $row['pimg1']; ?>"
-                                                        alt="" width="50px" height="50px">
-                                                </a>
-                                            </td>
-                                            <td class="cart-product-name-info">
-                                                <h4 class='cart-product-description' style="width: 120px; "><a
-                                                        style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
-                                                        href="product-details.php?pid=<?php echo $row['opid']; ?>">
-                                                        <?php echo $row['pname']; ?></a></h4>
+                                                    <?php echo $row['pname']; ?></a></h4>
+                                        </div>
+                                        <div class="mywishlistcardimage">
 
+                                        </div>
+                                        <div class="mywishlistcardimage">
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Quantity</span>
+                                                <span
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo $qty = $row['qty']; ?></span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Price Per unit
+                                                </span>
+                                                <span
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo $price = $row['pprice']; ?></span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Total
+                                                </span>
+                                                <span
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo $qty * $price; ?></span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Payment Method
+                                                </span>
+                                                <span
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo $row['paym']; ?></span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Order Date
+                                                </span>
+                                                <span
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo $row['odate']; ?></span>
+                                            </h4>
+                                        </div>
 
-                                            </td>
-                                            <td class="cart-product-quantity"
-                                                style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $qty = $row['qty']; ?>
-                                            </td>
-                                            <td class="cart-product-sub-total"
-                                                style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $price = $row['pprice']; ?>
-                                            </td>
-                                            <td class="cart-product-grand-total"
-                                                style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $qty * $price; ?></td>
-                                            <td class="cart-product-sub-total"
-                                                style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $row['paym']; ?> </td>
-                                            <td class="cart-product-sub-total"
-                                                style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;">
-                                                <?php echo $row['odate']; ?> </td>
+                                        <div class="mywishlistcardimage">
+                                            <a href="javascript:void(0);"
+                                                onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');"
+                                                title="Track order" class="trackorder"
+                                                style="border: 1px solid black;  background:#fff ;width: 100%;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ;">
+                                                <span>Track order</span>
+                                                <i class='bx bx-right-top-arrow-circle'
+                                                    style="font-size: 15px; margin-left: 10px;"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php $cnt = $cnt + 1;
+                                        }
+                                    } else { ?>
+                                <div class="noFound" style="
+                                        display: flex !important;
+                                        align-items: center !important;
+                                        justify-content: center !important;
+                                        height: 50vh !important;
+                                        width: 100% !important;
+                                        font-family: 'Raleway', sans-serif !important;
+                                        color: #000 !important;
+                                  ">
+                                    <h4>
+                                        Either order id or Registered email id is invalid
+                                    </h4>
+                                </div>
 
-                                            <td>
-                                                <a style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
-                                                    href="javascript:void(0);"
-                                                    onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');"
-                                                    title="Track order">
-                                                    <i class='bx bx-right-top-arrow-circle'
-                                                        style="font-size: 30px !important ;"></i>
-                                            </td>
-                                        </tr>
-                                        <?php $cnt = $cnt + 1;
-                                            }
-                                        } else { ?>
-                                        <tr>
-                                            <td colspan="8">Either order id or Registered email id is invalid</td>
-                                        </tr>
-                                        <?php } ?>
-                                    </tbody><!-- /tbody -->
-                                </table><!-- /table -->
-
+                                <?php } ?>
+                            </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
 
-                </div><!-- /.shopping-cart -->
-            </div> <!-- /.row -->
-            </form>
-            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
-        </div><!-- /.container -->
-    </div><!-- /.body-content -->
+        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+    </div><!-- /.container -->
     <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
 

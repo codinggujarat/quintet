@@ -44,7 +44,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Product Category</title>
+    <title>Search engine | QUINTET</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -78,7 +78,11 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
@@ -108,7 +112,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <!-- ============================================== HEADER : END ============================================== -->
     </div><!-- /.breadcrumb -->
     <div class="body-content outer-top-xs">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div>
             <div class='row outer-bottom-sm'>
                 <div class='col-md-12'>
                     <!-- ========================================== SECTION – HERO ========================================= -->
@@ -144,8 +148,24 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane active " id="grid-container">
                                 <div class="category-product  inner-top-vs">
-                                    <div class=""
-                                        style="display: flex;align-items: center;justify-content: space-around      ; flex-wrap: wrap;   ">
+                                    <style>
+                                    .productimagetab {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: start;
+                                        flex-wrap: wrap;
+                                    }
+
+                                    @media only screen and (max-width: 800px) {
+                                        .productimagetab {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center !important;
+                                            flex-wrap: wrap;
+                                        }
+                                    }
+                                    </style>
+                                    <div class="productimagetab" data-item="4">
                                         <?php
                                         $ret = mysqli_query($con, "select * from products where productName like '$find'");
                                         $num = mysqli_num_rows($ret);
@@ -158,8 +178,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                         .products,
                                         .product {
                                             width: 250px !important;
-                                            margin-top: 10px;
-
+                                            margin-left: 3px;
                                         }
 
 
@@ -216,7 +235,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
 
                                                     <div class="product-info text-left"
-                                                        style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                                                        style="width:240px !important; margin-top:5px !important;padding: 0 !important;">
                                                         <h3 class="name"><a
                                                                 style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "

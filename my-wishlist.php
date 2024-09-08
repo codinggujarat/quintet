@@ -44,7 +44,7 @@ if (strlen($_SESSION['login']) == 0) {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>My Wishlist</title>
+    <title>FAVOURITES - QUINTET</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Customizable CSS -->
@@ -78,7 +78,12 @@ if (strlen($_SESSION['login']) == 0) {
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -120,25 +125,43 @@ if (strlen($_SESSION['login']) == 0) {
                                 </h1>
                             </div>
                             <?php
-                                $ret = mysqli_query($con, "select products.productName as pname,products.productName as proid,products.productImage1 as pimage,products.productPrice as pprice,wishlist.productId as pid,wishlist.id as wid from wishlist join products on products.id=wishlist.productId where wishlist.userId='" . $_SESSION['id'] . "'");
+                                $ret = mysqli_query($con, "select products.productAvailability as pAvailability ,products.productName as pname,products.productName as proid,products.productImage1 as pimage,products.productPrice as pprice,wishlist.productId as pid,wishlist.id as wid from wishlist join products on products.id=wishlist.productId where wishlist.userId='" . $_SESSION['id'] . "'");
                                 $num = mysqli_num_rows($ret);
                                 if ($num > 0) {
                                     while ($row = mysqli_fetch_array($ret)) {
 
                                 ?>
-                            <div class="m-t-20 col-lg-4" style="
-                                    display: flex;align-items: center;justify-content: space-between  ;    ">
-                                <div class="col-card col-lg-12" style="
-                                    display: flex;align-items: center;justify-content: start  ;    ">
-                                    <div class="col-sm-12"
-                                        style=" width: 80px;height: 80px; background: #F2F3F8;  ;display: flex;align-items: center;justify-content: center;    ">
-                                        <img src="
-                                            admin/productimages/<?php echo htmlentities($row['pid']); ?>/<?php echo htmlentities($row['pimage']); ?>"
-                                            alt="<?php echo htmlentities($row['pname']); ?>" width="70px" height="70px">
+                            <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                                <style>
+                                .mywishlistcard {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: start;
+                                    flex-wrap: wrap;
+                                }
+
+                                @media only screen and (max-width: 800px) {
+                                    .mywishlistcard {
+                                        justify-content: center;
+                                    }
+                                }
+
+                                .mywishlistcardimage {
+                                    width: 220px !important;
+                                    height: 100% !important;
+                                    background: white !important;
+                                    object-fit: cover;
+                                }
+                                </style>
+                                <div class="col-card">
+                                    <div class="mywishlistcardimage"> <img
+                                            src="
+                                        admin/productimages/<?php echo htmlentities($row['pid']); ?>/<?php echo htmlentities($row['pimage']); ?>"
+                                            alt="<?php echo htmlentities($row['pname']); ?>" width="100%" height="100%">
                                     </div>
-                                    <div class="col-sm-12">
-                                        <div class="product-name"><a
-                                                style="font-family: 'Raleway', sans-serif !important;color: #000 !important ;font-size: 12px; "
+                                    <div class="mywishlistcardimage">
+                                        <div class="product-name " style="padding:5px 10px;">
+                                            <a style="font-family: 'Poppins', sans-serif !important;font-weight: 500 !important;color: #000 !important ;font-size: 11px !important;"
                                                 href="product-details.php?pid=<?php echo htmlentities($pd = $row['pid']); ?>"><?php echo htmlentities($row['pname']); ?></a>
                                         </div>
                                         <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
@@ -147,11 +170,12 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                                         <?php } ?>
-                                        <div class="price" style=" font-family: sans-serif, ' Poppins' !important;">
+                                        <div class="price"
+                                            style="padding:0 10px; font-family: sans-serif, ' Poppins' !important;">
                                             Rs.
                                             <?php echo htmlentities($row['pprice']); ?>.00
                                         </div>
-                                        <div class="btn-group">
+                                        <div class="btn-group ">
                                             <style>
                                             .btn-group {
                                                 display: flex;
@@ -159,16 +183,25 @@ if (strlen($_SESSION['login']) == 0) {
                                                 justify-content: start;
                                             }
                                             </style>
-                                            <a href="my-wishlist.php?page=product&action=add&id=<?php echo $row['pid']; ?>"
-                                                class="btn-upper btn btn-primary"
-                                                style="background: #F2F3F8 !important;color: black;  width: 80px !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black;">
-                                                Add </a>
+                                            <?php if ($row['pAvailability'] == 'In Stock') { ?>
+                                            <a href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                                class="btn-upper btn btn-primary col-sm-6 m-t-10"
+                                                style="background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black;">
+                                                ADD </a>
+                                            <?php } else { ?>
+
+                                            <a href="#" class="btn-upper btn btn-primary col-sm-6 m-t-10"
+                                                style="cursor:no-drop !important;background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black;">
+                                                Out of Stock</a>
+                                            <?php } ?>
                                             <a href="my-wishlist.php?del=<?php echo htmlentities($row['wid']); ?>"
-                                                onClick="return confirm('Are you sure you want to delete?')"
-                                                class="btn-upper btn btn-primary"
-                                                style="margin-left: 20px; background: #F2F3F8 !important;color: black;  width: 30px !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black; ">
-                                                <i class='bx bxs-trash' style="font-size: 15px;  "></i>
+                                                onClick="return confirm('Are you sure you want to Remove?')"
+                                                class="btn-upper btn btn-primary col-sm-6 m-t-10"
+                                                style=" margin-left: 20px; background: #fff !important;color: black;  width: 30px !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black; ">
+                                                <i class="fa-solid fa-bookmark" style="font-size: 10px;  "></i>
                                             </a>
+
+
                                         </div>
                                     </div>
                                 </div>

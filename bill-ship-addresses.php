@@ -74,7 +74,12 @@ if (strlen($_SESSION['login']) == 0) {
     <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -98,13 +103,14 @@ if (strlen($_SESSION['login']) == 0) {
     .form-group input,
     .form-group textarea {
         border: 2px solid gray !important;
-        border-radius: 0 !important;
         border: 2px solid gray;
         font-family: 'Raleway', sans-serif !important;
         font-size: 15px;
         color: #000;
         font-weight: 600;
-        text-transform: capitalize;
+        height: 60px;
+        border-radius: 10px;
+
     }
 
     .form-group input:focus,
@@ -128,13 +134,13 @@ if (strlen($_SESSION['login']) == 0) {
 
     .checkout-page-button {
         background: #000 !important;
-        width: 100% !important;
+        width: 100px !important;
         color: #fff !important;
-        height: 50px !important;
-        font-size: 20px !important;
-        border-radius: 0 !important;
+        height: 40px !important;
+        font-size: 13px !important;
+        border-radius: 50px !important;
         font-family: 'Raleway', sans-serif !important;
-        font-weight: 400 !important;
+        font-weight: 600 !important;
     }
 
     .checkout-page-button:hover {
@@ -148,20 +154,76 @@ if (strlen($_SESSION['login']) == 0) {
                 <div class="row ">
                     <?php include('includes/myaccount-sidebar.php'); ?>
 
-                    <div class="col-md-8">
-                        <div class="panel-group checkout-steps" id="accordion">
+                    <div class="col-md-9 myprofile">
+                        <style>
+                        .myprofile {
+                            display: flex;
+                            align-items: center;
+                            justify-content: start;
+                            margin-top: 10%;
+
+                        }
+
+                        .myprofilecard {
+                            width: 800px;
+                            padding: 20px;
+                        }
+
+                        .input-field {
+                            position: relative;
+                        }
+
+
+
+                        .input-field label {
+                            position: absolute;
+                            top: 50%;
+                            left: 15px;
+                            transform: translateY(-50%);
+                            color: #000;
+                            font-size: 15px;
+                            pointer-events: none;
+                            transition: 0.3s;
+                            font-family: 'Raleway', sans-serif !important;
+                            font-weight: 500;
+                        }
+
+                        input:focus,
+                        textarea:focus {
+                            border: 2px solid #000;
+                        }
+
+                        input:focus~label,
+                        textarea:focus~label,
+                        input:valid~label,
+                        textarea:valid~label {
+                            top: 0;
+                            left: 15px;
+                            font-size: 16px;
+                            padding: 0 2px;
+                            background: #fff;
+                            color: #000;
+                        }
+
+                        .noallowtochage input {
+                            cursor: no-drop;
+                            background: #f2f3f8;
+                        }
+                        </style>
+                        <div class="panel-group checkout-steps myprofilecard">
                             <!-- checkout-step-01  -->
                             <div class="panel  checkout-step-01">
 
                                 <!-- panel-heading -->
-                                <div class="panel-heading">
+                                <div class="">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px !important  ;color: #000;text-transform: uppercase        !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;border-bottom : 1px solid black; padding-bottom: 20px;  ">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Billing Address
                                         </a>
                                     </h4>
                                 </div>
+
                                 <!-- panel-heading -->
 
                                 <div>
@@ -179,52 +241,50 @@ if (strlen($_SESSION['login']) == 0) {
 
                                                 <form class="register-form" role="form" method="post"
                                                     style="width: 100%; ">
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="Billing Address"
-                                                            style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
-                                                            Address</label>
+
+                                                    <div class="input-field form-group">
                                                         <textarea class="form-control unicase-form-control text-input"
-                                                            name="billingaddress"
+                                                            name="billingaddress" required
+                                                            value="<?php echo $row['name']; ?>" id="name" name="name"
                                                             required="required"><?php echo $row['billingAddress']; ?></textarea>
+                                                        <label>
+                                                            Billing Address
+                                                        </label>
                                                     </div>
 
 
-
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="Billing State "
-                                                            style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
-                                                            State
-                                                        </label>
+                                                    <div class="form-group input-field">
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="bilingstate" name="bilingstate"
                                                             value="<?php echo $row['billingState']; ?>" required>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="Billing City"
-                                                            style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
-                                                            City
+                                                        <label>
+                                                            Billing State
                                                         </label>
+                                                    </div>
+                                                    <div class="form-group input-field">
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="billingcity" name="billingcity" required="required"
                                                             value="<?php echo $row['billingCity']; ?>">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="info-title" for="Billing Pincode"
-                                                            style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;">Billing
-                                                            Pincode
+                                                        <label>
+                                                            Billing City
                                                         </label>
+                                                    </div>
+                                                    <div class="form-group input-field">
                                                         <input type="text"
                                                             class="form-control unicase-form-control text-input"
                                                             id="billingpincode" name="billingpincode"
                                                             required="required"
                                                             value="<?php echo $row['billingPincode']; ?>">
+                                                        <label>
+                                                            Billing Pincode
+                                                        </label>
                                                     </div>
 
 
                                                     <button type="submit" name="update"
-                                                        class="btn-upper btn btn-primary checkout-page-button">Update</button>
+                                                        class="btn-upper btn btn-primary checkout-page-button">Save</button>
                                                 </form>
                                                 <?php } ?>
                                             </div>
@@ -238,11 +298,11 @@ if (strlen($_SESSION['login']) == 0) {
                             </div>
                             <!-- checkout-step-01  -->
                             <!-- checkout-step-02  -->
-                            <div class="panel  checkout-step-02">
-                                <div class="panel-heading">
+                            <div class="panel  ">
+                                <div class="">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 20px !important  ;color: #000;text-transform: uppercase       !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;border-bottom : 1px solid black; padding-bottom: 20px;  ">
+                                            style="margin-top: 40px;text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Shipping Address
 
                                         </a>
@@ -258,43 +318,38 @@ if (strlen($_SESSION['login']) == 0) {
                                             ?>
 
                                         <form class="register-form" role="form" method="post" style="width: 100%; ">
-                                            <div class="form-group">
-                                                <label class="info-title" for="Shipping Address"
-                                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal !important ; ">Shipping
-                                                    Address</label>
-                                                <textarea class="form-control unicase-form-control text-input" " name="
-                                                    shippingaddress"
+                                            <div class="form-group input-field">
+                                                <textarea class="form-control unicase-form-control text-input"
+                                                    name="shippingaddress"
                                                     required="required"><?php echo $row['shippingAddress']; ?></textarea>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing State "
-                                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
-                                                    State
+                                                <label>
+                                                    Shipping
+                                                    Address
                                                 </label>
+                                            </div>
+                                            <div class="form-group input-field">
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingstate" name="shippingstate"
                                                     value="<?php echo $row['shippingState']; ?>" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing City"
-                                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
-                                                    City
+                                                <label>Shipping
+                                                    State
                                                 </label>
+                                            </div>
+                                            <div class="form-group input-field">
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingcity" name="shippingcity" required="required"
                                                     value="<?php echo $row['shippingCity']; ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing Pincode"
-                                                    style="font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000;font-weight: normal  !important; ">Shipping
-                                                    Pincode
+                                                <label>Shipping
+                                                    City
                                                 </label>
+                                            </div>
+                                            <div class="form-group input-field">
                                                 <input type="text" class="form-control unicase-form-control text-input"
                                                     id="shippingpincode" name="shippingpincode" required="required"
                                                     value="<?php echo $row['shippingPincode']; ?>">
+                                                <label>Shipping
+                                                    Pincode
+                                                </label>
                                             </div>
 
 

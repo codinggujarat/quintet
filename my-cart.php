@@ -22,7 +22,6 @@ if (isset($_POST['remove_code'])) {
 
             unset($_SESSION['cart'][$key]);
         }
-        echo "<script>alert('Your Cart has been Updated');</script>";
     }
 }
 // code for insert product in order table
@@ -89,7 +88,7 @@ if (isset($_POST['shipupdate'])) {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>My Cart</title>
+    <title>Cart - QUINTET</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
@@ -119,9 +118,12 @@ if (isset($_POST['shipupdate'])) {
 
     <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
 
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
@@ -161,159 +163,390 @@ if (isset($_POST['shipupdate'])) {
                                 <?php
                                 if (!empty($_SESSION['cart'])) {
                                 ?>
-                                <table class="table ">
-                                    <thead>
-                                        <style>
-                                        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                                        .item,
-                                        .last-item {
-                                            font-size: 12px !important;
-                                            color: #000;
-                                            text-transform: uppercase;
-                                            font-weight: normal;
-                                            border: 0 !important;
-                                            font-family: 'Raleway', sans-serif !important;
-                                        }
+                                <style>
+                                @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                                        .form-group input,
-                                        .form-group textarea {
-                                            border: 2px solid gray;
-                                        }
+                                .item,
+                                .last-item {
+                                    font-size: 12px !important;
+                                    color: #000;
+                                    text-transform: uppercase;
+                                    font-weight: normal;
+                                    border: 0 !important;
+                                    font-family: 'Raleway', sans-serif !important;
+                                }
 
-                                        .form-group input:focus,
-                                        .form-group textarea:focus {
-                                            border: 2px solid black !important;
-                                        }
-                                        </style>
-                                        <tr>
-                                            <th class="cart-romove item">Remove</th>
-                                            <th class="cart-description item">Image</th>
-                                            <th class="cart-product-name item">Product Name</th>
+                                .form-group input,
+                                .form-group textarea {
+                                    border: 2px solid gray;
+                                }
 
-                                            <th class="cart-qty item">Quantity</th>
-                                            <th class="cart-sub-total item">Price Per unit</th>
-                                            <th class="cart-sub-total item">Shipping Charge</th>
-                                            <th class="cart-total last-item">Grandtotal</th>
-                                        </tr>
-                                    </thead><!-- /thead -->
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="7">
-                                                <div class="shopping-cart-btn">
-                                                    <span class=""
-                                                        style="display: flex;align-items: center;justify-content: space-between;   ">
-                                                        <a href="index.php"
-                                                            class="btn btn-upper outer-left-xs border-0 "
-                                                            style="border-radius: 0  !important;background: #F2F3F8 !important;border: 1px solid black ;  ">Continue
-                                                            Shopping</a>
-                                                        <input type="submit" name="submit"
-                                                            style="border-radius: 0  !important; border: 1px solid black ; "
-                                                            value="Update shopping cart"
-                                                            class="btn btn-upper pull-right outer-right-xs">
-                                                    </span>
-                                                </div><!-- /.shopping-cart-btn -->
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php
-                                            $pdtid = array();
-                                            $sql = "SELECT * FROM products WHERE id IN(";
-                                            foreach ($_SESSION['cart'] as $id => $value) {
-                                                $sql .= $id . ",";
-                                            }
-                                            $sql = substr($sql, 0, -1) . ") ORDER BY id ASC";
-                                            $query = mysqli_query($con, $sql);
-                                            $totalprice = 0;
-                                            $totalqunty = 0;
-                                            if (!empty($query)) {
-                                                while ($row = mysqli_fetch_array($query)) {
-                                                    $quantity = $_SESSION['cart'][$row['id']]['quantity'];
-                                                    $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge'];
-                                                    $totalprice += $subtotal;
-                                                    $_SESSION['qnty'] = $totalqunty += $quantity;
+                                .form-group input:focus,
+                                .form-group textarea:focus {
+                                    border: 2px solid black !important;
+                                }
 
-                                                    array_push($pdtid, $row['id']);
-                                                    //print_r($_SESSION['pid'])=$pdtid;exit;
-                                            ?>
+                                .shopping-cart-btn {
+                                    width: 100% !important;
+                                    display: flex !important;
+                                    align-items: center !important;
+                                    justify-content: space-between !important;
+                                    position: fixed !important;
+                                    z-index: 99999999 !important;
+                                    right: 0 !important;
+                                    bottom: 0 !important;
+                                }
 
-                                        <tr style="border-bottom: 20px solid #fff !important; ">
-                                            <td class="romove-item"><input type="checkbox" name="remove_code[]"
-                                                    value="<?php echo htmlentities($row['id']); ?>" /></td>
-                                            <td class="cart-image"
-                                                style="width: 100px;height: 100px; background:#f2f3f8 ;  ">
-                                                <a class="entry-thumbnail" href="detail.html">
-                                                    <img src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
-                                                        alt="" width="50px" height="50px">
-                                                </a>
-                                            </td>
-                                            <td class="cart-product-name-info">
-                                                <h4 class='cart-product-description'><a
-                                                        style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
-                                                        href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
+                                .cart-btns {
+                                    position: absolute;
+                                    bottom: 0;
+                                    width: 100%;
+                                    background-color: #F2F3F8 !important;
+                                    padding: 0 20px;
 
-                                                                                                                                                    $_SESSION['sid'] = $pd;
-                                                                                                                                                    ?></a>
-                                                </h4>
-                                                <div class="row">
-                                                    <div class="col-sm-4">
-                                                        <div class="rating rateit-small"></div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
-                                                                    $num = mysqli_num_rows($rt); {
-                                                                    ?>
-                                                        <div class="reviews" style="color:black;">
-                                                            ( <?php echo htmlentities($num); ?> Reviews )
-                                                        </div>
-                                                        <?php } ?>
-                                                    </div>
-                                                </div><!-- /.row -->
+                                }
+                                </style>
 
-                                            </td>
-                                            <td class="cart-product-quantity">
-                                                <div class="quant-input">
-                                                    <div class="arrows">
-                                                        <div class="arrow plus gradient"><span class="ir"><i
-                                                                    class="icon fa fa-sort-asc"></i></span></div>
-                                                        <div class="arrow minus gradient"><span class="ir"><i
-                                                                    class="icon fa fa-sort-desc"></i></span></div>
-                                                    </div>
-                                                    <input type="text" style="border: 1px solid black;"
-                                                        value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>"
-                                                        name="quantity[<?php echo $row['id']; ?>]">
 
-                                                </div>
-                                            </td>
-                                            <td class="cart-product-sub-total"><span class="cart-sub-total-price"
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;"><?php echo "Rs" . " " . $row['productPrice']; ?>.00</span>
-                                            </td>
-                                            <td class="cart-product-sub-total"><span class="cart-sub-total-price"
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;"><?php echo "Rs" . " " . $row['shippingCharge']; ?>.00</span>
-                                            </td>
+                                <div class="shopping-cart-btn">
 
-                                            <td class="cart-product-grand-total"><span class="cart-grand-total-price"
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;"><?php echo ($_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge']); ?>.00</span>
-                                            </td>
-                                        </tr>
+                                    <div class="cart-btns">
+                                        <span class=""
+                                            style="font-family: 'Raleway', sans-serif !important;display: flex;align-items: center;justify-content: space-between;   ">
+                                            <a href="index.php" class="btn  border-0"
+                                                style="border-radius: 0  !important;font-weight: 500 !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;">Continue
+                                                Shopping</a>
+                                            <input type="submit" name="submit"
+                                                style="text-transform: uppercase;font-weight: 500 !important;border-radius: 0  !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;"
+                                                value="Update shopping cart" class="btn ">
+                                        </span>
+                                    </div>
+                                </div><!-- /.shopping-cart-btn -->
 
-                                        <?php }
-                                            }
-                                            $_SESSION['pid'] = $pdtid;
-                                            ?>
+                                <?php
+                                    $pdtid = array();
+                                    $sql = "SELECT * FROM products WHERE id IN(";
+                                    foreach ($_SESSION['cart'] as $id => $value) {
+                                        $sql .= $id . ",";
+                                    }
+                                    $sql = substr($sql, 0, -1) . ") ORDER BY id ASC";
+                                    $query = mysqli_query($con, $sql);
+                                    $totalprice = 0;
+                                    $totalqunty = 0;
+                                    if (!empty($query)) {
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            $quantity = $_SESSION['cart'][$row['id']]['quantity'];
+                                            $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge'];
+                                            $totalprice += $subtotal;
+                                            $_SESSION['qnty'] = $totalqunty += $quantity;
 
-                                    </tbody><!-- /tbody -->
-                                </table><!-- /table -->
+                                            array_push($pdtid, $row['id']);
+                                            //print_r($_SESSION['pid'])=$pdtid;exit;
+                                    ?>
+
+
+                                <?php }
+                                    }
+                                    $_SESSION['pid'] = $pdtid;
+                                    ?>
+
 
                         </div>
                     </div><!-- /.shopping-cart-table -->
-                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
-                        <style>
-                        .checkout-page-button {
-                            background: #F2F3F8 !important;
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <?php
+                                    $pdtid = array();
+                                    $sql = "SELECT * FROM products WHERE id IN(";
+                                    foreach ($_SESSION['cart'] as $id => $value) {
+                                        $sql .= $id . ",";
+                                    }
+                                    $sql = substr($sql, 0, -1) . ") ORDER BY id ASC";
+                                    $query = mysqli_query($con, $sql);
+                                    $totalprice = 0;
+                                    $totalqunty = 0;
+                                    if (!empty($query)) {
+                                        while ($row = mysqli_fetch_array($query)) {
+                                            $quantity = $_SESSION['cart'][$row['id']]['quantity'];
+                                            $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge'];
+                                            $totalprice += $subtotal;
+                                            $_SESSION['qnty'] = $totalqunty += $quantity;
+
+                                            array_push($pdtid, $row['id']);
+                                            //print_r($_SESSION['pid'])=$pdtid;exit;
+                        ?>
+                        <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                            <style>
+                            .mywishlistcard {
+                                display: flex;
+                                align-items: center;
+                                justify-content: start;
+                                flex-wrap: wrap;
+
+                            }
+
+
+                            @media only screen and (max-width: 800px) {
+                                .mywishlistcard {
+                                    justify-content: center;
+                                }
+                            }
+
+                            .cart-product-sub-total {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                            }
+
+                            .cart-product-sub-total span {
+                                font-size: 12px;
+                                text-transform: uppercase;
+                                font-weight: 600 !important;
+                                font-family: 'Raleway', sans-serif !important;
+                                color: #000 !important;
+                            }
+
+                            .mywishlistcardimage {
+                                width: 220px !important;
+                                height: 100% !important;
+                                background: white !important;
+                                object-fit: cover;
+                            }
+                            </style>
+                            <div class="col-card">
+                                <div class="mywishlistcardimage">
+                                    <a class="entry-thumbnail"
+                                        href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>">
+                                        <img src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
+                                            alt="" width="100%" height="100%">
+                                    </a>
+                                </div>
+                                <div class="mywishlistcardimage">
+                                    <h4 class='cart-product-description'><a
+                                            style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
+                                            href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
+                                                                                                                                    $_SESSION['sid'] = $pd;
+                                                                                                                                    ?></a>
+                                    </h4>
+                                    <div class="mywishlistcardimage">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="rating rateit-small"></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
+                                                        $num = mysqli_num_rows($rt); {
+                                                        ?>
+                                                <div class="reviews" style="color:black;">
+                                                    ( <?php echo htmlentities($num); ?> Reviews )
+                                                </div>
+                                                <?php } ?>
+                                            </div>
+                                        </div><!-- /.row -->
+                                    </div>
+                                    <div class="mywishlistcardimage">
+                                        <div class="quant-input">
+                                            <div class="arrows">
+                                                <div class="arrow plus gradient"><span class="ir"><i
+                                                            class="icon fa fa-sort-asc"></i></span></div>
+                                                <div class="arrow minus gradient"><span class="ir"><i
+                                                            class="icon fa fa-sort-desc"></i></span></div>
+                                            </div>
+                                            <input type="text" style="border: 1px solid black;"
+                                                value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>"
+                                                name="quantity[<?php echo $row['id']; ?>]">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="mywishlistcardimage">
+                                        <h4 class="cart-product-sub-total">
+                                            <span>Price Per unit</span>
+                                            <span class="cart-sub-total-price"
+                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+                                                <?php echo "Rs" . " " . $row['productPrice']; ?>.00</span>
+                                        </h4>
+                                        <h4 class="cart-product-sub-total">
+                                            <span>
+                                                Shipping cost
+                                            </span>
+                                            <span class="cart-sub-total-price"
+                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+
+                                                <?php echo "Rs" . " " . $row['shippingCharge']; ?>.00</span>
+                                        </h4>
+
+                                        <h4 class="cart-product-sub-total">
+                                            <span>
+                                                Total
+                                            </span>
+                                            <span class="cart-grand-total-price"
+                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+                                                <?php echo ($_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge']); ?>.00</span>
+                                        </h4>
+                                    </div>
+                                    <div class="mywishlistcardimage">
+                                        <style>
+                                        .switch {
+                                            position: relative;
+                                            display: inline-block;
+                                            width: 30px;
+                                            height: 18px;
+                                        }
+
+                                        .switch input {
+                                            display: none;
+                                        }
+
+                                        .slider {
+                                            position: absolute;
+                                            cursor: pointer;
+                                            top: 0;
+                                            left: 0;
+                                            right: 0;
+                                            bottom: 0;
+                                            background-color: #ccc;
+                                            -webkit-transition: .4s;
+                                            transition: .4s;
+                                        }
+
+                                        .slider:before {
+                                            position: absolute;
+                                            content: "";
+                                            height: 13px;
+                                            width: 13px;
+                                            left: 4px;
+                                            bottom: 3px;
+                                            background-color: white;
+                                            -webkit-transition: .4s;
+                                            transition: .4s;
+                                        }
+
+                                        input:checked+.slider {
+                                            background-color: #000;
+                                        }
+
+                                        input:focus+.slider {
+                                            box-shadow: 0 0 1px #2196F3;
+                                        }
+
+                                        input:checked+.slider:before {
+                                            -webkit-transform: translateX(10px);
+                                            -ms-transform: translateX(10px);
+                                            transform: translateX(10px);
+                                        }
+
+                                        /* Rounded sliders */
+                                        .slider.round {
+                                            border-radius: 34px;
+                                        }
+
+                                        .slider.round:before {
+                                            border-radius: 50%;
+                                        }
+                                        </style>
+                                        <div class="" style="padding:10px;background:#fff !important;display: flex;
+                                align-items: center;
+                                justify-content:space-between;">
+                                            <div class="">
+                                                <a class="btn " title="favourites"
+                                                    style="border: 1px solid black;  background:#F2F3F8 ;width: 0;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ; "
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                    <i class="fa-regular fa-bookmark"
+                                                        style=" color:#000 ;font-weight: 500;"></i>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="" style="padding:10px;background:#fff !important;display: flex;
+                                align-items: center;
+                                justify-content:space-between;">
+                                                <label class="switch">
+                                                    <input type="checkbox" name="remove_code[]"
+                                                        value="<?php echo htmlentities($row['id']); ?>">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                                <p
+                                                    style="font-family: 'Raleway', sans-serif !important;font-weight: 700;margin-left: 10px;margin-top: 5px;text-transform: uppercase;">
+                                                    remove
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php }
+                                    }
+                                    $_SESSION['pid'] = $pdtid;
+                        ?>
+                    </div>
+                    <div class="col-lg-12 "
+                        style="display: flex;
+                            justify-content: end;
+                            align-items: center;margin-top: 40px;margin-bottom: 40px;border-top: 1px solid black;padding-top:50px;">
+
+                        <div class="col-lg-4 col-sm-12 col-xs-12">
+                            <div class="cart-grand-total"
+                                style="display: flex; align-items: center;justify-content: space-between;font-family: sans-serif, 'Poppins' !important;font-size: 14px;color:
+                                        #000; font-weight: 400;text-transform: uppercase  ;padding:20px;border:1px solid black; ">
+                                Grand Total
+                                <span class="inner-left-md"
+                                    style="font-weight: 400;text-transform: uppercase  ;"><?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
+                            </div>
+                            <div class="cart-checkout-btn ">
+                                <button type="submit" name="ordersubmit" class="btn " style="   background: #000 !important;;
                             width: 100% !important;
+                            height: 50px !important;
+                            font-size: 16px !important;
+                            font-weight: 400; 
+                            padding:10px 20px;
+                            border-radius: 0 !important;color: #fff;border: 1px solid black ;  ">PROCCED TO
+                                    CHEKOUT</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-5 col-sm-12 estimate-ship-tax">
+                        <style>
+                        .estimate-ship-tax {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100%;
+                        }
+
+                        .form-group input {
+                            border: 2px solid gray;
+                            font-family: 'Raleway', sans-serif !important;
+                            font-size: 15px;
+                            color: #000;
+                            font-weight: 600;
+                            text-transform: capitalize;
+                        }
+
+
+                        .form-group input::placeholder {
+                            font-family: 'Raleway', sans-serif !important;
+                            font-size: 15px !important;
                             color: #000 !important;
+                            font-weight: 600 !important;
+                            text-transform: capitalize !important;
+                        }
+
+                        .form-group input:focus {
+                            border: 2px solid black !important;
+                        }
+
+                        .checkout-page-button {
+                            background: #000 !important;
+                            width: 50% !important;
+                            color: #fff !important;
                             height: 50px !important;
                             font-size: 15px !important;
                             border-radius: 0 !important;
@@ -326,12 +559,16 @@ if (isset($_POST['shipupdate'])) {
                             border: 1px solid black !important;
                         }
                         </style>
+
+
+
                         <table class="table     ">
                             <thead>
                                 <tr>
                                     <th>
                                         <span class=""
-                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 400;text-transform: uppercase   ;  ">Shipping
+                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 600;text-transform:capitalize   ;  ">Billing
+
                                             Address</span>
                                     </th>
                                 </tr>
@@ -347,7 +584,7 @@ if (isset($_POST['shipupdate'])) {
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing Address"
-                                                    style="font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase;">Billing
+                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
                                                     Address<span>*</span></label>
                                                 <textarea class=" form-control unicase-form-control text-input"
                                                     name="billingaddress"
@@ -358,7 +595,7 @@ if (isset($_POST['shipupdate'])) {
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing State "
-                                                    style="font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase;">Billing
+                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
                                                     State
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -367,7 +604,7 @@ if (isset($_POST['shipupdate'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing City"
-                                                    style="font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase;">Billing
+                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
                                                     City
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -376,7 +613,7 @@ if (isset($_POST['shipupdate'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing Pincode"
-                                                    style="font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase;">Billing
+                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
                                                     Pincode
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -398,13 +635,13 @@ if (isset($_POST['shipupdate'])) {
                         </table><!-- /table -->
                     </div>
 
-                    <div class="col-md-4 col-sm-12 estimate-ship-tax">
+                    <div class="col-md-5 col-sm-12 estimate-ship-tax">
                         <table class="table ">
                             <thead>
                                 <tr>
                                     <th>
                                         <span class="estimate-title"
-                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 400;text-transform: uppercase   ;  ">Shipping
+                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 600;text-transform:capitalize   ;  ">Shipping
                                             Address</span>
                                     </th>
                                 </tr>
@@ -420,7 +657,7 @@ if (isset($_POST['shipupdate'])) {
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Shipping Address"
-                                                    style=" font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase; ">Shipping
+                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
                                                     Address<span>*</span></label>
                                                 <textarea class="form-control unicase-form-control text-input"
                                                     name="shippingaddress"
@@ -431,7 +668,7 @@ if (isset($_POST['shipupdate'])) {
 
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing State "
-                                                    style=" font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase; ">Shipping
+                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
                                                     State
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -440,7 +677,7 @@ if (isset($_POST['shipupdate'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing City"
-                                                    style=" font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase; ">Shipping
+                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
                                                     City
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -449,7 +686,7 @@ if (isset($_POST['shipupdate'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label class="info-title" for="Billing Pincode"
-                                                    style=" font-family: 'Raleway' , sans-serif;font-size: 17px;color: #000;text-transform: uppercase; ">Shipping
+                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
                                                     Pincode
                                                     <span>*</span></label>
                                                 <input type="text" class="form-control unicase-form-control text-input"
@@ -470,37 +707,8 @@ if (isset($_POST['shipupdate'])) {
                             </tbody><!-- /tbody -->
                         </table><!-- /table -->
                     </div>
-                    <div class="col-md-4 col-sm-12 cart-shopping-total">
-                        <table class="table ">
-                            <thead>
-                                <tr>
-                                    <th style="border: 1px solid black;  ">
-                                        <div class="cart-grand-total" style="display: flex; align-items: center; font-family: sans-serif, 'Poppins' !important;font-size: 14px;color:
-                                        #000; font-weight: 400;text-transform: uppercase  ; ">
-                                            Grand Total
-                                            <span class="inner-left-md"
-                                                style="font-weight: 400;text-transform: uppercase  ;"><?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead><!-- /thead -->
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="cart-checkout-btn ">
-                                            <button type="submit" name="ordersubmit" class="btn " style="   background: #F2F3F8 !important;;
-                            width: 100% !important;
-                            height: 40px !important;
-                            font-size: 16px !important;
-                            font-weight: 400; 
-                            border-radius: 0 !important;color: #000;border: 1px solid black ;  ">PROCCED TO
-                                                CHEKOUT</button>
+                    <div class="col-md-12 col-sm-12 cart-shopping-total">
 
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody><!-- /tbody -->
-                        </table>
                         <?php } else { ?>
                         <div style="height:50vh !important ; ">
                             <div>

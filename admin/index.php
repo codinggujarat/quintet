@@ -48,82 +48,132 @@ if (isset($_POST['submit'])) {
 
 <body>
 
-    <div class="navbar navbar-fixed-top" style="background: #f2f3f8 !important ; ">
-        <div class="navbar-inner" style="background: #f2f3f8 !important ;">
-            <div class="container">
-                <style>
-                input {
-                    height: 45px !important;
-                    width: 100% !important;
-                    outline: none !important;
-                    font-size: 12px !important;
-                    border-radius: 5px !important;
-                    border: 1px solid #000 !important;
-                    transition: all 0.3s ease !important;
-                    outline: o !important;
-                }
+    <style>
+    input::placeholder {
+        font-weight: 600;
+    }
 
-                input:focus {
-                    box-shadow: none !important;
-                    border-color: #9b59b6;
-                }
-                </style>
+    input {
 
-                <div class="nav-collapse "
-                    style="display: flex;align-items:center;justify-content: end   ;height: 80px !important; background: #f2f3f8 !important ;">
-                    <ul class="nav ">
-                        <li>
-                            <a href="http://localhost/shopping/"
-                                style="background :#fff;  border: 2px solid black;text-transform: uppercase;line-height: 1px;font-size: 12px;font-weight: 600 !important;    ">
-                                Back to Web
-                            </a>
-                        </li>
-                    </ul>
-                </div><!-- /.nav-collapse -->
-            </div>
-        </div><!-- /navbar-inner -->
-    </div><!-- /navbar -->
+        height: 60px !important;
+        width: 100% !important;
+        outline: none !important;
+        font-size: 12px !important;
+        border-radius: 10px !important;
+        border: 1px solid #000 !important;
+        transition: all 0.3s ease !important;
+        outline: o !important;
+        background: #fff !important;
+    }
+
+    input:focus {
+        box-shadow: none !important;
+        border-color: #9b59b6;
+    }
+    </style>
 
 
 
     <div class="wrapper ">
+        <style>
+        .module-login,
+        form,
+        .module-body,
+        .module-head {
+            background: white !important;
+        }
+
+        .module-head h1 {
+            text-transform: uppercase;
+        }
+
+        .input-field-login {
+            position: relative;
+        }
+
+
+
+        .input-field-login label {
+            font-family: 'Raleway', sans-serif !important;
+            font-size: 17px;
+            color: #000;
+            font-weight: 600;
+            text-transform: capitalize !important;
+        }
+
+        .input-field-login label {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #000;
+            font-size: 15px;
+            pointer-events: none;
+            transition: 0.3s;
+            font-family: 'Raleway', sans-serif !important;
+            font-weight: 500;
+
+        }
+
+        input:focus,
+        textarea:focus {
+            border: 2px solid #000;
+        }
+
+        input:focus~label,
+        textarea:focus~label,
+        input:valid~label,
+        textarea:valid~label {
+            top: 0;
+            left: 15px;
+            font-size: 16px;
+            padding: 0 2px;
+            background: #fff;
+            color: #000;
+        }
+
+        .noallowtochage input {
+            cursor: no-drop;
+            background: #f2f3f8;
+        }
+        </style>
         <div class="container">
-            <div class="row" style="display: flex;align-items: center;justify-content: center;height: 70vh;     ">
-                <div class="module module-login "
-                    style="background-color: #f2f3f8;width: 400px; padding: 30px;border-radius: 20px; border: 1px solid black;    ">
+            <div class="row" style="display: flex;align-items: center;justify-content: center;height: 80vh;     ">
+                <div class="module module-login " style="width: 500px; padding: 30px;border-radius: 20px; 
+                    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px
+                    -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
                     <form class="form-vertical" method="post">
-                        <div class="module-head" style="background-color: #f2f3f8;">
-                            <h1 style="font-size: 30px !important ;font-weight: 400 !important ;text-align: center;  ">
+                        <div class="module-head">
+                            <h1 style="font-size: 40px !important ;font-weight: 400 !important ; text-align: left;  ">
                                 Sign In</h1>
+
                             <span
                                 style="font-size: 15px; color:black;text-align: center !important ; padding: 0px;font-weight: 500;   ">
                                 <?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg'] = ""); ?>
                             </span>
                         </div>
-                        <div class="module-body" style="background-color: #f2f3f8;">
+                        <div class="module-body">
                             <div class="control-group">
-                                <div class="controls row-fluid">
-                                    <label class="info-title" for="exampleInputEmail2"
-                                        style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000;text-transform: capitalize !important ; ">username</label>
+                                <div class="controls row-fluid input-field-login">
                                     <input class="span12 form-control" type="text" id="inputEmail" name="username"
-                                        placeholder="Enter Your Username" style="background-color: #f2f3f8;">
+                                        style="background-color: #f2f3f8;">
+                                    <label>
+                                        What's your username? </label>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <div class="controls row-fluid">
-                                    <label class="info-title" for="exampleInputEmail2"
-                                        style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000;text-transform: capitalize !important ; ">Password</label>
+                                <div class="controls row-fluid input-field-login">
                                     <input class="span12" type="password" id="inputPassword" name="password"
-                                        placeholder="Enter Your Password" style="background-color: #f2f3f8;">
+                                        style="background-color: #f2f3f8;">
+                                    <label>
+                                        Your password?</label>
                                 </div>
                             </div>
                         </div>
                         <div class="module-foot" style="background: transparent ; border: 0 !important ;  ">
                             <div class="control-group">
                                 <div class="controls clearfix" style="background: #fff !important  ;">
-                                    <button type="submit" class=" " name="submit"
-                                        style="width: 100%;padding: 10px 10px;  font-size: 14px;background: #fff !important ;border: 1px solid !important ;outline: 0 !important ;  ">Login</button>
-
+                                    <button type="submit" class=" btn checkout-page-button" name="submit">Login</button>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +182,23 @@ if (isset($_POST['submit'])) {
             </div>
         </div>
     </div>
+    <style>
+    .checkout-page-button {
+        background: #000 !important;
+        width: 100% !important;
+        color: #fff !important;
+        height: 50px !important;
+        font-size: 18px !important;
+        border-radius: 10px !important;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 400 !important;
+    }
+
+    .checkout-page-button:hover {
+        color: #fff !important;
+        border: 1px solid black !important;
+    }
+    </style>
     <!--/.wrapper-->
 
 

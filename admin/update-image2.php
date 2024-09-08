@@ -19,7 +19,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     }
 
 
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -199,136 +199,91 @@ if (strlen($_SESSION['alogin']) == 0) {
 
     <main class="main-content">
         <div ss="position-relative iq-banner">
-            <!--Nav Start-->
-            <nav class="nav navbar navbar-expand-lg navbar-light iq-navbar fixed-top"
-                style="background:#f2f3f8 !important  ; ">
-                <div class="container-fluid navbar-inner">
+            <?php include('include/header.php'); ?>
 
-                    <div class="sidebar-toggle " data-toggle="sidebar" data-active="true" style="background: #0dcaf0;">
-                        <i class="icon">
-                            <svg width="20" class="icon-20" viewBox="0 0 24 24">
-                                <path fill="currentColor"
-                                    d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
-                            </svg>
-                        </i>
-                    </div>
-                    <div class="navbar-brand"
-                        style="display: flex;align-items: center;justify-content: end !important ;   ">
-                        <!--logo End-->
-                        <!-- 
-                            <h4 class="logo-title">
-
-                            </h4> -->
-                        <div class="dropdown">
-
-                            <a href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="./images/user1.png" style=" width: 50px !important;
-                            height: 50px !important;
-                            border-radius: 50% !important;
-                            border: 1px solid black !important; 
-                            background: #0dcaf0 !important ; 
-                            " />
-                            </a>
-                            <style>
-                            .dropdown-menu {
-                                top: 50px !important;
-                                left: -130px !important;
-                            }
-                            </style>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="change-password.php">Change Password</a></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </nav>
             <div class="conatiner-fluid content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
-                        <div class="card p-lg-4">
-                            <div class="card-body">
-                                <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
-                                    class="text-uppercase">
-                                    update image
+                        <div class="centerCard">
+                            <div class="card p-lg-4">
+                                <div class="card-body">
+                                    <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
+                                        class="text-uppercase">
+                                        update image Two
 
-                                </h3>
-                                <div class="module-body">
+                                    </h3>
+                                    <div class="module-body">
 
-                                    <?php if (isset($_POST['submit'])) { ?>
-                                    <div class="alert alert-success">
-                                        <button type="button" class="close" data-dismiss="alert">×</button>
-                                        <strong>Well done!</strong>
-                                        <?php echo htmlentities($_SESSION['msg']); ?>
-                                        <?php echo htmlentities($_SESSION['msg'] = ""); ?>
-                                    </div>
-                                    <?php } ?>
+                                        <?php if (isset($_POST['submit'])) { ?>
+                                        <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>Well done!</strong>
+                                            <?php echo htmlentities($_SESSION['msg']); ?>
+                                            <?php echo htmlentities($_SESSION['msg'] = ""); ?>
+                                        </div>
+                                        <?php } ?>
 
 
 
-                                    <br />
+                                        <br />
 
-                                    <form class="form-horizontal row-fluid" name="insertproduct" method="post"
-                                        enctype="multipart/form-data">
+                                        <form class="form-horizontal row-fluid" name="insertproduct" method="post"
+                                            enctype="multipart/form-data">
 
-                                        <?php
+                                            <?php
 
-                                            $query = mysqli_query($con, "select productName,productImage2 from products where id='$pid'");
-                                            $cnt = 1;
-                                            while ($row = mysqli_fetch_array($query)) {
+                                                $query = mysqli_query($con, "select productName,productImage2 from products where id='$pid'");
+                                                $cnt = 1;
+                                                while ($row = mysqli_fetch_array($query)) {
 
 
 
                                                 ?>
 
 
-                                        <div class="control-group mb-3">
-                                            <label class="form-control    text-uppercase   text-black m-0 p-0"
-                                                for="basicinput" style="font-size: 15px;font-weight: 500; ">Product
-                                                Name</label>
-                                            <input type="text" name="productName" readonly
-                                                value="<?php echo htmlentities($row['productName']); ?>"
-                                                class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
-                                                required style="outline: 0  !important ;border: 1px solid black; ">
-                                        </div>
+                                            <div class="control-group mb-3" style="position: relative;">
+                                                <label class="imgLable">Product
+                                                    Name</label>
+                                                <input type=" text" name="productName" readonly
+                                                    value="<?php echo htmlentities($row['productName']); ?>"
+                                                    class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
+                                                    required style="outline: 0  !important ;border: 1px solid black; ">
+                                            </div>
 
 
-                                        <div class="control-group mb-3">
-                                            <label class="form-control    text-uppercase   text-black m-0 p-0"
-                                                for="basicinput" style="font-size: 15px;font-weight: 500; ">Current
-                                                Product Image1</label>
-                                            <img src="productimages/<?php echo htmlentities($pid); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                                width="300px" height="300px"
-                                                style="border: 1px solid black;background:#f2f3f8  ; ">
-                                        </div>
+                                            <div class="control-group mb-3" style="position: relative;">
+                                                <label class="imgLable">Current
+                                                    Product Image Two</label>
+                                                <img src=" productimages/<?php echo htmlentities($pid); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                                    width="100%" height="100%"
+                                                    style="border: 1px solid black;background:#f2f3f8  ; ">
+                                            </div>
 
 
 
-                                        <div class="control-group mb-3">
-                                            <label class="form-control    text-uppercase   text-black m-0 p-0"
-                                                for="basicinput" style="font-size: 15px;font-weight: 500; ">New Product
-                                                Image2</label>
-                                            <input type="file" name="productimage2" id="productimage2" value=""
-                                                class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
-                                                required style="outline: 0  !important ;border: 1px solid black; ">
-                                        </div>
+                                            <div class="control-group mb-3" style="position: relative;">
+                                                <input type="file" name="productimage2" id="productimage2" value=""
+                                                    class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
+                                                    required style="outline: 0  !important ;border: 1px solid black; ">
+                                                <label class="imgLable">New Product
+                                                    Image Two</label>
+                                            </div>
 
 
-                                        <?php } ?>
+                                            <?php } ?>
 
-                                        <div class="control-group mb-3">
-                                            <button type="submit" name="submit"
-                                                class="btn col-lg-4 bg-black text-white text-uppercase  border-0 rounded-0"
-                                                style=" font-family: 'Raleway' ,sans-serif ; font-weight: 400 !important ;  ">Update</button>
-                                        </div>
-                                    </form>
+                                            <div class="control-group mb-3" style="position: relative;">
+                                                <button type="submit" name="submit"
+                                                    class="checkout-page-button">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
+
+
+
+
                             </div>
-
-
-
-
-
                         </div>
                         <!--/.content-->
                     </div>

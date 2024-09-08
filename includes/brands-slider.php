@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <h1
     style=" margin-top: 100px;  text-align: center;font-weight: 400;color: #000;  font-family: 'Raleway',sans-serif ;  ">
-    SHOES'S</h1>
+</h1>
 <style>
 .productslider {
     width: 300px !important;
@@ -13,7 +13,7 @@
 <div class="swiper mySwiper2 ">
     <div class="swiper-wrapper ">
         <?php
-        $ret = mysqli_query($con, "SELECT * FROM products WHERE category=10 and subcategory=21 ORDER BY RAND()  ");
+        $ret = mysqli_query($con, "SELECT * FROM products  ORDER BY RAND()  ");
         while ($row = mysqli_fetch_array($ret)) {
             # code...
         ?>
@@ -65,7 +65,7 @@
 <script>
 var swiper = new Swiper(".mySwiper2", {
     slidesPerView: 3,
-    spaceBetween: 0,
+    spaceBetween: -199,
     loop: true,
     fade: "true",
     grabCursor: "true",

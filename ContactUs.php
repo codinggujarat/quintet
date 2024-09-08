@@ -44,7 +44,7 @@ if (isset($_POST['change'])) {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Shopping Portal | Forgot Password</title>
+    <title> CONTACT US - QUINTET</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -80,7 +80,11 @@ if (isset($_POST['change'])) {
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <script type="text/javascript">
     function valid() {
         if (document.register.password.value != document.register.confirmpassword.value) {
@@ -357,17 +361,17 @@ if (isset($_POST['change'])) {
         color: #fff;
         border: none;
         outline: none;
-        font-size: 18px;
+        font-size: 13px;
         cursor: pointer;
-        color: #000;
+        color: #fff;
         padding: 13px 25px;
-        background: #f2f3f8;
+        background: #000;
         transition: background 0.3s ease;
         border: 1px solid black;
     }
 
     .button-area button:hover {
-        background: #f2f3f8;
+        background: #000;
     }
 
     .button-area span {

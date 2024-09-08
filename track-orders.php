@@ -16,7 +16,7 @@ include('includes/config.php');
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Track Orders</title>
+    <title> ORDER TRACK | QUINTET</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
@@ -34,7 +34,12 @@ include('includes/config.php');
     <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -63,17 +68,12 @@ include('includes/config.php');
         font-size: 15px;
         color: #000;
         font-weight: 600;
-        text-transform: capitalize;
+        height: 60px;
+        border-radius: 10px;
     }
 
 
-    .form-group input::placeholder {
-        font-family: 'Raleway', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        font-weight: 600;
-        text-transform: capitalize;
-    }
+
 
     .form-group input:focus {
         border: 2px solid black !important;
@@ -81,11 +81,11 @@ include('includes/config.php');
 
     .checkout-page-button {
         background: #000 !important;
-        width: 100% !important;
+        width: 200px !important;
         color: #fff !important;
         height: 50px !important;
-        font-size: 20px !important;
-        border-radius: 0 !important;
+        font-size: 15px !important;
+        border-radius: 50px !important;
         font-family: 'Raleway', sans-serif !important;
         font-weight: 400 !important;
     }
@@ -94,52 +94,113 @@ include('includes/config.php');
         color: #000;
         border: 1px solid black;
     }
-    </style>
-    <div class="body-content outer-top-bd">
-        <div class="container">
-            <div class="track-order-page inner-bottom-sm">
-                <div class="row">
-                    <div class="col-md-12" style="display: flex;align-items: center;justify-content: center;   ">
 
-                        <form class=" register-form outer-top-xs col-lg-6 col-sm-12 " style="width: 500px; " role="form"
-                            method="post" action="order-details.php">
+    .input-field {
+        position: relative;
+    }
+
+
+
+    .input-field label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #000;
+        font-size: 15px;
+        pointer-events: none;
+        transition: 0.3s;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 500;
+    }
+
+    input:focus {
+        border: 2px solid #000;
+    }
+
+    input:focus~label,
+    input:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background: #fff;
+        color: #000;
+    }
+
+    .noallowtochage input {
+        cursor: no-drop;
+        background: #f2f3f8;
+    }
+    </style>
+
+    <div class="body-content outer-top-bd">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+            <?php include('includes/myaccount-sidebar.php'); ?>
+            <div class="track-order-page ">
+                <div class="row">
+                    <style>
+                    .myprofile {
+                        display: flex;
+                        align-items: center;
+                        justify-content: start;
+                        margin-top: 10%;
+                    }
+
+                    .myprofilecard {
+                        width: 800px;
+                        padding: 20px;
+                        margin-top: 10%;
+                    }
+                    </style>
+                    <div class="col-md-8 myprofile">
+
+                        <form class=" register-form  " style=" width: 600px; " role=" form" method="post"
+                            action="order-details.php">
                             <h2
-                                style="text-align: center ;text-transform: uppercase; font-family: 'Raleway' , sans-serif !important;font-size:40px !important ;color: #000; font-weight: 500;    ">
+                                style="text-align: left ;text-transform:capitalize; font-family: 'Raleway' , sans-serif !important;font-size:30px !important ;color: #000; font-weight: 500;    ">
                                 Track
                                 your Order</h2>
-                            <span class="title-tag inner-top-vs inner-bottom-20   "
-                                style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 12px;color: #000; text-transform: capitalize  ;font-weight: 600;  ">Please
+                            <span class="title-tag    "
+                                style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 600;  ">Please
                                 enter your Order ID in the box below and press
                                 Enter. This was given to you on your receipt and in the confirmation email you should
                                 have
                                 received. </span>
-                            <div class="form-group">
-                                <label class="info-title" for="exampleOrderId1"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Order
-                                    ID</label>
-                                <input placeholder="Order ID" type="text"
-                                    class="form-control unicase-form-control text-input " name="orderid"
+                            <span class="title-tag inner-top-vs inner-bottom-20   "
+                                style="text-align: left;   font-family: 'Raleway',sans-serif; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 600;  ">Please
+                                Enter your order number and Email to find your order</span>
+
+                            <div class="form-group input-field">
+                                <input type="text" class="form-control unicase-form-control text-input " name="orderid"
                                     id="exampleOrderId1">
+                                <label>
+                                    What's
+                                    your order
+                                    number
+                                </label>
                             </div>
-                            <div class="form-group">
-                                <label class="info-title" for="exampleBillingEmail1"
-                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">What's
+                            <div class=" form-group input-field">
+                                <input type="email" class="form-control unicase-form-control text-input" name="email"
+                                    id="exampleBillingEmail1">
+                                <label>What's
                                     your Registered e-mail?
                                 </label>
-                                <input placeholder="E-mail" type="email"
-                                    class="form-control unicase-form-control text-input" name="email"
-                                    id="exampleBillingEmail1">
                             </div>
                             <button type="submit" name="submit"
-                                class="btn-upper btn btn-primary checkout-page-button col-sm-12 ">Track</button>
+                                class="btn-upper btn btn-primary checkout-page-button col-sm-12 ">
+                                Find your order
+                            </button>
                         </form>
                     </div>
                 </div><!-- /.row -->
             </div><!-- /.sigin-in-->
-            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
         </div>
     </div>
-    <div> <?php echo include('includes/brands-slider.php'); ?></div>
+    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+
+
+    <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
 

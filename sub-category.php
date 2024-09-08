@@ -44,7 +44,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Product Category</title>
+    <title>
+
+        <?php $sql = mysqli_query($con, "select subcategory  from subcategory where id='$cid'");
+        while ($row = mysqli_fetch_array($sql)) {
+        ?>
+        <?php echo htmlentities($row['subcategory']); ?>
+        <?php } ?> | QUINTET
+    </title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -77,8 +84,11 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <!-- Fonts -->
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
-
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <!-- HTML5 elements and media queries Support for IE8 : HTML5 shim and Respond.js -->
     <!--[if lt IE 9]>
             <script src="assets/js/html5shiv.js"></script>
@@ -119,7 +129,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     }
     </style>
     <div class="body-content outer-top-xs">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div class="">
             <div class='row outer-bottom-sm'>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div>
@@ -144,8 +154,24 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane active " id="grid-container">
                                 <div class="category-product ">
-                                    <div class=""
-                                        style="display: flex;align-items: center;justify-content: space-evenly ;flex-wrap: wrap;     ">
+                                    <style>
+                                    .productimagetab {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: start;
+                                        flex-wrap: wrap;
+                                    }
+
+                                    @media only screen and (max-width: 800px) {
+                                        .productimagetab {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center !important;
+                                            flex-wrap: wrap;
+                                        }
+                                    }
+                                    </style>
+                                    <div class="productimagetab wow fadeInUpBig" data-item="4">
                                         <?php
                                         $ret = mysqli_query($con, "select * from products where subCategory='$cid' ORDER BY RAND()");
                                         $num = mysqli_num_rows($ret);
@@ -158,8 +184,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                         .products,
                                         .product {
                                             width: 250px !important;
-                                            margin-top: 10px;
-
+                                            margin-left: 2px;
                                         }
 
                                         .name a {
@@ -219,14 +244,15 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                         }
                                         </style>
 
-                                        <div class="  wow fadeInUp"
-                                            style="margin-top: 20px;  display:
+                                        <div class="  "
+                                            style="  display:
                                             flex;align-items: center;justify-content: space-around   ;flex-wrap: wrap; ">
                                             <div class=" products">
 
                                                 <div class="product">
                                                     <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
+                                                        <div class="image " data-wow-delay="0.1s"
+                                                            style="background:transparent !important; ">
                                                             <a
                                                                 href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
                                                                 <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"

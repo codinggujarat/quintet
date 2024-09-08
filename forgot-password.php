@@ -44,7 +44,7 @@ if (isset($_POST['change'])) {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Shopping Portal | Forgot Password</title>
+    <title> FORGOT PASSWORD - QUINTET</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -80,7 +80,11 @@ if (isset($_POST['change'])) {
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <script type="text/javascript">
     function valid() {
         if (document.register.password.value != document.register.confirmpassword.value) {
@@ -118,6 +122,20 @@ if (isset($_POST['change'])) {
     <style>
     .form-group input {
         border: 2px solid gray;
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+
+
+    .form-group input::placeholder {
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 15px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize;
     }
 
     .form-group input:focus {
@@ -125,11 +143,19 @@ if (isset($_POST['change'])) {
     }
 
     .checkout-page-button {
-        background: black !important;
-        width: 50% !important;
+        background: #000 !important;
+        width: 100% !important;
+        color: #fff !important;
         height: 50px !important;
         font-size: 20px !important;
         border-radius: 0 !important;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 400 !important;
+    }
+
+    .checkout-page-button:hover {
+        color: #000;
+        border: 1px solid black;
     }
     </style>
     <div class="body-content outer-top-bd">
@@ -144,36 +170,12 @@ if (isset($_POST['change'])) {
                         justify-content: center;
                     }
                     </style>
-                    <style>
-                    .form-group input {
-                        border: 2px solid gray;
-                    }
-
-                    .form-group input:focus {
-                        border: 2px solid black !important;
-                    }
-
-                    .checkout-page-button {
-                        background: #F2F3F8 !important;
-                        width: 100% !important;
-                        color: #000;
-                        height: 50px !important;
-                        font-size: 20px !important;
-                        border-radius: 0 !important;
-                        font-family: 'Raleway', sans-serif !important;
-                        font-weight: 400 !important;
-                    }
-
-                    .checkout-page-button:hover {
-                        color: #000;
-                        border: 1px solid black;
-                    }
-                    </style>
-                    <h4 class=""
-                        style="text-transform: uppercase; text-align: center ;  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 300; ">
-                        Forgot password</h4>
                     <div class="col-md-6 col-sm-6 col-lg-12 sign-in">
                         <form class="register-form outer-top-xs" style="width: 500px;" name="register" method="post">
+                            <h4 class=""
+                                style="  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 500;text-transform: capitalize;  ">
+                                Forgot password
+                            </h4>
                             <span style="color:red;">
                                 <?php
                                 echo htmlentities($_SESSION['errmsg']);
@@ -184,38 +186,45 @@ if (isset($_POST['change'])) {
                             </span>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputEmail1"
-                                    style="text-transform: uppercase; font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Email
-                                    Address <span>*</span></label>
-                                <input type="email" name="email" class="form-control unicase-form-control text-input"
-                                    id="exampleInputEmail1" required>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;">
+                                    What's
+                                    your e-mail?</label>
+                                <input type="email" name="email" placeholder="E-mail"
+                                    class="form-control unicase-form-control text-input" id="exampleInputEmail1"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="exampleInputPassword1"
-                                    style="text-transform: uppercase; font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Contact
-                                    no <span>*</span></label>
-                                <input type="text" name="contact" class="form-control unicase-form-control text-input"
-                                    id="contact" required>
+                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;">
+
+                                    Phone
+                                    Number </label>
+                                <input type="text" placeholder="98xxxxxxxxx" name="contact"
+                                    class="form-control unicase-form-control text-input" id="contact" required>
                             </div>
                             <div class="form-group">
                                 <label class="info-title" for="password"
-                                    style=" text-transform: uppercase;  font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Password.
-                                    <span>*</span></label>
+                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;">
+                                    Your
+                                    password?
+                                </label>
                                 <input type="password" class="form-control unicase-form-control text-input"
-                                    id="password" name="password" required>
+                                    id="password" placeholder="Password" name="password" required>
                             </div>
 
                             <div class="form-group">
                                 <label class="info-title" for="confirmpassword"
-                                    style=" text-transform: uppercase;  font-family: sans-serif, ' Poppins'!important;font-size: 17px;color: #000">Confirm
-                                    Password. <span>*</span></label>
+                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;">
+                                    Confirm
+                                    Password
+                                </label>
                                 <input type="password" class="form-control unicase-form-control text-input"
-                                    id="confirmpassword" name="confirmpassword" required>
+                                    id="confirmpassword" placeholder="Password" name="confirmpassword" required>
                             </div>
 
 
 
-                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button"
-                                name="change">Change</button>
+                            <button type="submit" class=" checkout-page-button" name="change">Change</button>
                         </form>
                     </div>
                     <!-- Sign-in -->

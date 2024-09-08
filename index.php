@@ -35,7 +35,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <meta name="keywords" content="MediaCenter, Template, eCommerce">
     <meta name="robots" content="all">
 
-    <title>Shopping Portal Home Page</title>
+    <title>QUINTET | New Collection Online</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -62,7 +62,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -71,6 +75,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- animated  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!--Model Viewer  -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </head>
 
 <body class="cnt-home">
@@ -84,8 +91,13 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         <?php include('includes/menu-bar.php'); ?>
 
     </header>
-
+    <style>
+    .col-lg-12 {
+        width: 100%;
+    }
+    </style>
     <!-- ============================================== HEADER : END ============================================== -->
+
     <div class="body-content outer-top-xs" id="top-banner-and-menu">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -203,8 +215,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             }
 
             video {
-                min-width: 100%;
-                min-height: 100%;
+                width: 100%;
+                height: 100%;
                 z-index: 1;
 
             }
@@ -222,7 +234,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
             .bg-video-wrap a h1 {
                 text-align: center;
-                color: #000;
+                color: #fff;
                 position: absolute;
                 top: 0;
                 bottom: 0;
@@ -239,15 +251,49 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             </style>
             <div class="col-lg-12 ">
                 <div class="bg-video-wrap">
-                    <video src="assets/video/new.mp4" loop muted autoplay>
+                    <video src="assets/video/large_2x.mp4" loop muted autoplay>
                     </video>
-                    <a href="product-details.php?pid=29">
+                    <a href="product-details.php?pid=22">
                         <div class="overlay">
                         </div>
                         <h1>
                             Big, bigger &and; faster
                         </h1>
                     </a>
+                </div>
+            </div>
+            <style>
+            model-viewer::-webkit-scrollbar {
+                display: none !important;
+            }
+
+            model-viewer {
+                width: 600px !important;
+                height: 600px !important;
+                overflow: hidden !important;
+            }
+
+            .model-viewer {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            </style>
+
+            <div class="col-lg-12 model-viewerbox" style="background-color:#f2f3f8;">
+                <h1
+                    style="text-transform: uppercase;text-align: center;font-weight: 400;color: #000;  font-family: 'Raleway',sans-serif ;  ">
+                    Take a closer
+                    <span class="swipe" style="font-family: 'Raleway', sans-serif;-webkit-text-stroke: 3px white;
+                        color: transparent;
+                            font-weight: 900;  -webkit-text-stroke: 2px #000;">
+                        Look..
+                    </span>
+                </h1>
+                <div class="model-viewer wow zoomIn" data-wow-delay="0.5s">
+                    <model-viewer camera-controls alt="Model" src="assets/360model/iphone_15_pro_max_-__glgt.glb">
+                    </model-viewer>
                 </div>
             </div>
 
@@ -274,7 +320,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="productman">
                                 <div class="product-image"
                                     style="background:#f2f3f8;  border-radius: 10px !important ;">
-                                    <div class="image"
+                                    <div class="image wow fadeInUpBig" data-wow-delay="0.1s"
                                         style="background:#f2f3f8 !important;width: 270px; height: 100%; ">
                                         <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
                                             <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
@@ -332,7 +378,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="productWOMAN ">
                                 <div class="product-image"
                                     style="background:#f2f3f8 !important;border-radius: 10px !important ;">
-                                    <div class="image"
+                                    <div class="image wow fadeInUpBig" data-wow-delay="0.1s"
                                         style="background:#f2f3f8 !important;width: 270px; height: 100%; ">
                                         <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
                                             <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
@@ -390,7 +436,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                         <div class="swiper-slide">
                             <div class="productSHOES ">
                                 <div class="background:#f2f3f8 !important;border-radius: 10px !important ;">
-                                    <div class="image"
+                                    <div class="image wow fadeInUpBig" data-wow-delay="0.1s"
                                         style="background:#f2f3f8 !important;width: 480px; height: 100%; ">
                                         <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
                                             <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
@@ -1506,7 +1552,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 class="h-entry mb-30 v-height gradient rounded-0"
                                 style="height: 1000px;border-radius: 0;"
                                 data-title=" <?php echo htmlentities($row['productName']); ?>">
-                                <div class="featured-img"
+                                <div class="featured-img wow fadeInUpBig"
                                     style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                 </div>
 
@@ -1530,7 +1576,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 data-title="<?php echo htmlentities($row['productName']); ?>"
                                 style="border-radius: 0;height: 670px;">
 
-                                <div class="featured-img"
+                                <div class="featured-img wow fadeInUpBig"
                                     style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                 </div>
 
@@ -1552,7 +1598,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         class="h-entry v-height gradient rounded-0"
                                         data-title="<?php echo htmlentities($row['productName']); ?>"
                                         style="border-radius: 0;height: 300px;">
-                                        <div class="featured-img"
+                                        <div class="featured-img wow fadeInUpBig"
                                             style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                         </div>
                                         <div class="text w-100">
@@ -1574,7 +1620,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         data-title="<?php echo htmlentities($row['productName']); ?>"
                                         style="border-radius: 0;height: 300px;">
 
-                                        <div class="featured-img"
+                                        <div class="featured-img wow fadeInUpBig"
                                             style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                         </div>
 
@@ -1607,7 +1653,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 class="h-entry mb-30 v-height gradient rounded-0"
                                 style="height: 1000px;border-radius: 0;"
                                 data-title=" <?php echo htmlentities($row['productName']); ?>">
-                                <div class="featured-img"
+                                <div class="featured-img wow fadeInUpBig"
                                     style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                 </div>
 
@@ -1631,7 +1677,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 data-title="<?php echo htmlentities($row['productName']); ?>"
                                 style="border-radius: 0;height: 485px;">
 
-                                <div class="featured-img"
+                                <div class="featured-img wow fadeInUpBig"
                                     style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                 </div>
 
@@ -1653,7 +1699,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         class="h-entry v-height gradient rounded-0"
                                         data-title="<?php echo htmlentities($row['productName']); ?>"
                                         style="border-radius: 0;height: 485px;">
-                                        <div class="featured-img"
+                                        <div class="featured-img wow fadeInUpBig"
                                             style="background-image: url('admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>');">
                                         </div>
                                         <div class="text w-100">
@@ -1669,6 +1715,87 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     </div>
                 </div>
             </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 btn-card-box">
+                <div class="btn-card">
+                    <i id="MYGRID6" class='bx bx-square'></i>
+                    <i id="MYGRID2" class='bx bx-grid-alt icon'></i>
+                    <i id="MYGRID12" class='bx bx-grid'></i>
+                </div>
+            </div>
+
+            <style>
+            .btn-card-box {
+                padding: 20px;
+                position: sticky;
+                top: 20%;
+                background: white;
+                z-index: 999;
+            }
+
+            .btn-card {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .btn-card i {
+                font-size: 23px;
+                margin-left: 10px;
+            }
+
+            .card .image {
+                background: #f2f3f8 !important;
+                width: 100%;
+                height: 100%;
+            }
+
+            .box-card {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                width: 100%;
+                flex-wrap: wrap;
+            }
+            </style>
+            <div class="box-card">
+                <?php
+                $ret = mysqli_query($con, "SELECT * FROM products  where category ORDER BY RAND() ");
+                while ($row = mysqli_fetch_array($ret)) {
+                    # code...
+                ?>
+                <div class="card wow fadeInUpBig">
+                    <div class="image  responsiveCard" data-wow-delay="0.1s">
+                        <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                            <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                width=" 100%" height="100%" alt=""></a>
+                    </div><!-- /.image -->
+                </div>
+                <?php } ?>
+            </div>
+            <script>
+            document.getElementById('MYGRID6').addEventListener('click', function() {
+                var boxes = document.querySelectorAll(
+                    '.responsiveCard'); // Select all elements with the class 'myBox'
+                boxes.forEach(function(box) {
+                    box.style.width = "765px"; // Toggle 'active' class for each box
+                });
+            });
+            document.getElementById('MYGRID2').addEventListener('click', function() {
+                var boxes = document.querySelectorAll(
+                    '.responsiveCard'); // Select all elements with the class 'myBox'
+                boxes.forEach(function(box) {
+                    box.style.width = "220px"; // Toggle 'active' class for each box
+                });
+            });
+            document.getElementById('MYGRID12').addEventListener('click', function() {
+                var boxes = document.querySelectorAll(
+                    '.responsiveCard'); // Select all elements with the class 'myBox'
+                boxes.forEach(function(box) {
+                    box.style.width = "100px"; // Toggle 'active' class for each box
+                });
+            });
+            </script>
         </div>
     </div>
 
@@ -1812,16 +1939,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         origin: "bottom",
         delay: 500,
     });
-    ScrollReveal().reveal(" .mySwiper2 .image", {
-        ...scrollRevealOption,
-        origin: "bottom",
-        delay: 500,
-    });
-    ScrollReveal().reveal(" .mySwiper3 .image", {
-        ...scrollRevealOption,
-        origin: "bottom",
-        delay: 500,
-    });
+
     ScrollReveal().reveal(" .section .retro-layout .featured-img", {
         ...scrollRevealOption,
         origin: "bottom",
