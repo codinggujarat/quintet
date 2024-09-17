@@ -1,0 +1,421 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if (isset($_GET['action']) && $_GET['action'] == "add") {
+    $id = intval($_GET['id']);
+    if (isset($_SESSION['cart'][$id])) {
+        $_SESSION['cart'][$id]['quantity']++;
+    } else {
+        $sql_p = "SELECT * FROM products WHERE id={$id}";
+        $query_p = mysqli_query($con, $sql_p);
+        if (mysqli_num_rows($query_p) != 0) {
+            $row_p = mysqli_fetch_array($query_p);
+            $_SESSION['cart'][$row_p['id']] = array("quantity" => 1, "price" => $row_p['productPrice']);
+        } else {
+            $message = "Product ID is invalid";
+        }
+    }
+    echo "<script>alert('Product has been added to the cart')</script>";
+    echo "<script type='text/javascript'> document.location ='my-cart.php'; </script>";
+}
+
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="MediaCenter, Template, eCommerce">
+    <meta name="robots" content="all">
+
+    <title>Registration And Log In | Help | QUINTET India </title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+    <!-- Customizable CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/green.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.css">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <!--<link rel="stylesheet" href="assets/css/owl.theme.css">-->
+    <link href="assets/css/lightbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/rateit.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+
+    <!-- Demo Purpose Only. Should be removed in production -->
+    <link rel="stylesheet" href="assets/css/config.css">
+
+    <link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
+    <link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
+    <link href="assets/css/red.css" rel="alternate stylesheet" title="Red color">
+    <link href="assets/css/orange.css" rel="alternate stylesheet" title="Orange color">
+    <link href="assets/css/dark-green.css" rel="alternate stylesheet" title="Darkgreen color">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <!-- Favicon -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- animated  -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body class="cnt-home">
+
+
+
+    <!-- ============================================== HEADER ============================================== -->
+    <header class="header-style-1">
+        <?php include('includes/top-header.php'); ?>
+        <?php include('includes/main-header.php'); ?>
+        <?php include('includes/menu-bar.php'); ?>
+
+    </header>
+    <!-- ============================================== HEADER : END ============================================== -->
+    <div class="body-content outer-top-xs" id="top-banner-and-menu">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+            <div class="row">
+
+                <style>
+                .body-content {
+                    margin-top: 150px !important;
+                    margin-bottom: 100%;
+                }
+
+                .row {
+                    margin-left: 100px;
+                    margin-right: 100px;
+                }
+                </style>
+
+                <!-- Alltopic style -->
+                <style>
+                @media only screen and (max-width: 1000px) {
+                    .row {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                }
+
+                @media only screen and (max-width: 800px) {
+
+
+                    .topicBox {
+                        grid-template-columns: repeat(2, 1fr);
+
+                    }
+
+                    .Alltopichelp .topicGroup ul {
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-gap: 1rem;
+                    }
+
+                    .topicBox .small_topicBox {
+                        width: 200px;
+                    }
+
+                    .Alltopichelp {
+                        margin: 0;
+                        padding: 5px;
+                    }
+
+                    .row {
+                        flex-wrap: wrap !important;
+                        margin: 0 !important;
+                        padding: 0 !important;
+                        width: 100% !important;
+                    }
+
+                    .RegisterAndLogin {
+                        display: none;
+                    }
+                }
+                </style>
+                <div class="col-lg-3 col-md-4 col-sm-5">
+                    <?php include('includes/MyQuintetAccount.php'); ?>
+                </div>
+                <div class="col-lg-7 col-md-8 col-sm-7">
+                    <div class="RegisterAndLoginRighttext">
+                        <h1>REGISTRATION AND LOG IN</h1>
+                    </div>
+                    <div class="RegisterAndLoginRighttext">
+                        <img src="img/lookformyaccoutsidebar.jpg" alt="">
+                    </div>
+                    <div class="RegisterAndLoginRighttext">
+                        <p>Here you will find all the information needed to register at quintetonline.in, access your
+                            account
+                            and resolve any related situation.</p>
+                        <p>
+                            <span>Registering is very simple:</span> we will only ask you for the necessary
+                            information to speed up
+                            the purchase process. You can do it on the Register option.
+                        </p>
+                        <p>
+                            If you already have an account, you can <span>log in</span> by entering your email address
+                            and password.
+                            To end the session and log out securely, you can do so from Profile > Account.
+                        </p>
+                        <p>
+                            These are some of the advantages of having a quintetonline.in account:
+                        </p>
+                        <ol class="list">
+                            <li>Make purchases swiftly.</li>
+                            <li>Check the information and the status of all your purchases and returns.</li>
+                            <li>Receive notifications about your orders and news in the APP</li>
+                            <li>Create lists of your favourite items with the Favourites and Save for later options.
+                            </li>
+                        </ol>
+                        <p>
+                            To improve your experience with us, we need to verify your account. When you create a
+                            Quintet
+                            account, we’ll send you a code and you’ll have to enter it to complete the registration
+                            process. If you’re already a registered user, you’ll find this option in your account.
+                        </p>
+                    </div>
+                    <div class="RegisterAndLoginRighttext">
+                        <h1>Frequently asked questions</h1>
+                    </div>
+                    <!-- accrdion-->
+                    <style>
+                    .RegisterAndLoginRighttext {
+                        margin-bottom: 20px;
+                        font-family: 'Poppins', sans-serif !important;
+                        font-weight: 400 !important;
+                    }
+
+                    .RegisterAndLoginRighttext h1 {
+                        font-size: 20px;
+                        font-weight: 400;
+                        font-family: 'Poppins', sans-serif;
+                        text-transform: uppercase;
+                        color: #000;
+
+                    }
+
+                    .RegisterAndLoginRighttext img {
+                        width: 100%;
+                        height: 30vh;
+                        object-fit: cover;
+                        background-position: center;
+                    }
+
+                    .RegisterAndLoginRighttext p {
+                        font-size: 11px;
+                        font-weight: 300;
+                        color: #000;
+                    }
+
+                    .RegisterAndLoginRighttext p span {
+                        color: #000;
+                        font-weight: 600 !important;
+
+                    }
+
+                    .RegisterAndLoginRighttext ol {
+                        list-style-type: disc;
+                    }
+
+                    .RegisterAndLoginRighttext ol li {
+                        font-size: 11px;
+                        font-weight: 300;
+                        color: #000;
+
+                    }
+
+                    .accordion {
+                        width: 100%;
+                    }
+
+
+                    .accordion .accordion-content {
+                        border: 1px solid #000;
+                        overflow: hidden;
+                    }
+
+
+                    .accordion-content.open {
+                        padding-bottom: 10px;
+                    }
+
+                    .accordion-content header {
+                        display: flex;
+                        min-height: 50px;
+                        padding: 0 15px;
+                        cursor: pointer;
+                        align-items: center;
+                        justify-content: space-between;
+                        transition: all 0.5s linear;
+                    }
+
+
+                    .accordion-content header .title {
+                        font-size: 10px;
+                        font-weight: 400;
+                        color: #000;
+                        text-transform: uppercase;
+                    }
+
+                    .accordion-content header i {
+                        font-size: 9px;
+                        color: #000;
+                    }
+
+                    .accordion-content .description {
+                        height: 0;
+                        font-size: 12px;
+                        color: #000;
+                        font-weight: 400;
+                        padding: 0 15px;
+                        transition: all 0.2s linear;
+                    }
+
+
+
+                    @media only screen and (max-width:500px) {
+                        .second-topic {
+                            display: none;
+                        }
+
+                        .mobileview,
+                        .accordion {
+                            display: block;
+                        }
+                    }
+                    </style>
+                    <div class="accordion">
+                        <div class="accordion-content">
+                            <header>
+                                <span class="title">DO I HAVE TO REGISTER TO SHOP ONLINE?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </header>
+                            <div class="description">
+
+                                <div class="small_topicBox mobileview">
+                                    At Quintet, we offer the option to place an order without having previously
+                                    registered.
+                                    All you have to do is provide the basic information for the purchase (personal
+                                    details, delivery address and payment details).
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-content">
+                            <header>
+                                <span class="title">I CAN’T ACCESS MY ACCOUNT. WHAT CAN I DO?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </header>
+                            <div class="description">
+                                <div class="small_topicBox mobileview">
+                                    <p>
+                                        Please check that the email and password you have entered are correct. If you
+                                        don't
+                                        remember your password, you can reset it by selecting the Forgot your password?
+                                        option
+                                    </p>
+                                    <p>
+                                        For any other issue that does not allow you to access your account, please
+                                        contact
+                                        us so we can help you.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                const accordionContent = document.querySelectorAll(".accordion-content");
+                accordionContent.forEach((item, index) => {
+                    let header = item.querySelector("header");
+                    header.addEventListener("click", () => {
+                        item.classList.toggle("open");
+                        let description = item.querySelector(".description");
+                        if (item.classList.contains("open")) {
+                            description.style.height =
+                                `${description.scrollHeight}px`; //scrollHeight property returns the height of an element including padding , but excluding borders, scrollbar or margin
+                            item.querySelector("i").classList.replace("fa-plus", "fa-minus");
+                        } else {
+                            description.style.height = "0px";
+                            item.querySelector("i").classList.replace("fa-minus", "fa-plus");
+                        }
+                        removeOpen(
+                            index
+                        ); //calling the funtion and also passing the index number of the clicked header
+                    })
+                })
+
+                function removeOpen(index1) {
+                    accordionContent.forEach((item2, index2) => {
+                        if (index1 != index2) {
+                            item2.classList.remove("open");
+                            let des = item2.querySelector(".description");
+                            des.style.height = "0px";
+                            item2.querySelector("i").classList.replace("fa-minus", "fa-plus");
+                        }
+                    })
+                }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="" style="margin-top: 400%;">
+        <?php include('includes/footer.php'); ?>
+
+    </div>
+    <script src=" assets/js/jquery-1.11.1.min.js">
+    </script>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+
+    <script src="assets/js/echo.min.js"></script>
+    <script src="assets/js/jquery.easing-1.3.min.js"></script>
+    <script src="assets/js/bootstrap-slider.min.js"></script>
+    <script src="assets/js/jquery.rateit.min.js"></script>
+    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!-- For demo purposes – can be removed on production -->
+
+    <script src="switchstylesheet/switchstylesheet.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        $(".changecolor").switchstylesheet({
+            seperator: "color"
+        });
+        $('.show-theme-options').click(function() {
+            $(this).parent().toggleClass('open');
+            return false;
+        });
+    });
+
+    $(window).bind("load", function() {
+        $('.show-theme-options').delay(2000).trigger('click');
+    });
+    </script>
+
+
+</body>
+
+</html>

@@ -101,6 +101,7 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
+    <?php include('includes/search.php'); ?>
 
     <!-- ============================================== HEADER : END ============================================== -->
 
@@ -115,55 +116,119 @@ if (strlen($_SESSION['login']) == 0) {
                             width: 100%;
                         }
                         </style>
-                        <div class="wishlist col-sm-12 ">
-                            <div>
-                                <h1
-                                    style="font-family: 'Raleway',sans-serif;font-size: 14px !important ;color: #000;text-transform: uppercase ;font-weight: 500 !important ;">
-                                    favourites
-                                    <i class='fa-regular fa-bookmark'
-                                        style="font-size: 15px ;color:black ;   margin-left: 10px; "></i>
-                                </h1>
-                            </div>
+                        <div>
+                            <h1
+                                style="font-family: 'Raleway',sans-serif;font-size: 14px !important ;color: #000;text-transform: uppercase ;font-weight: 500 !important ;">
+                                favourites
+                                <i class='fa-regular fa-bookmark'
+                                    style="font-size: 15px ;color:black ;   margin-left: 10px; "></i>
+                            </h1>
+                        </div>
+                        <div class=" mywishlistcards" style="display: flex;
+                                            align-items: center;
+                                            justify-content: start;
+                                            flex-wrap: wrap;">
                             <?php
-                                $ret = mysqli_query($con, "select products.productAvailability as pAvailability ,products.productName as pname,products.productName as proid,products.productImage1 as pimage,products.productPrice as pprice,wishlist.productId as pid,wishlist.id as wid from wishlist join products on products.id=wishlist.productId where wishlist.userId='" . $_SESSION['id'] . "'");
+                                $ret = mysqli_query($con, "select products.productAvailability as pAvailability ,products.productName as pname,products.productName as proid,products.productImageSix as pimage,products.productPrice as pprice,wishlist.productId as pid,wishlist.id as wid from wishlist join products on products.id=wishlist.productId where wishlist.userId='" . $_SESSION['id'] . "'");
                                 $num = mysqli_num_rows($ret);
                                 if ($num > 0) {
                                     while ($row = mysqli_fetch_array($ret)) {
-
                                 ?>
-                            <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                            <div class=" mywishlistcard">
                                 <style>
-                                .mywishlistcard {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: start;
-                                    flex-wrap: wrap;
-                                }
-
                                 @media only screen and (max-width: 800px) {
-                                    .mywishlistcard {
-                                        justify-content: center;
+                                    .mywishlistcards {
+                                        justify-content: center !important;
                                     }
                                 }
 
+                                .cart-product-sub-total {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                }
+
+                                .cart-product-sub-total span {
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+                                    font-family: 'Poppins', sans-serif !important;
+                                    font-weight: 400 !important;
+                                    color: #000 !important;
+                                }
+
                                 .mywishlistcardimage {
-                                    width: 220px !important;
+                                    width: 100% !important;
                                     height: 100% !important;
                                     background: white !important;
                                     object-fit: cover;
                                 }
+
+                                .mywishlistcardimage .entry-thumbnail img {
+                                    border-bottom: 1px solid black;
+                                }
+
+                                .trackorder {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    border: 0 !important;
+                                    border-top: 1px solid black !important;
+                                }
+
+                                .col-card {
+                                    border: 1px solid black;
+                                    width: 240px;
+                                }
+
+                                .RemoveBook {
+                                    position: absolute;
+                                    right: 0;
+                                    top: 0;
+                                }
+
+                                .name {
+                                    width: 80% !important;
+                                    overflow: hidden !important;
+                                    text-overflow: ellipsis !important;
+                                    white-space: nowrap !important;
+                                }
+
+                                @media only screen and (max-width: 800px) {
+                                    .col-card {
+                                        border: 1px solid black;
+                                        width: 200px;
+                                    }
+                                }
+
+                                @media only screen and (max-width: 500px) {
+                                    .col-card {
+                                        border: 1px solid black;
+                                        width: 170px;
+                                    }
+                                }
                                 </style>
                                 <div class="col-card">
-                                    <div class="mywishlistcardimage"> <img
-                                            src="
-                                        admin/productimages/<?php echo htmlentities($row['pid']); ?>/<?php echo htmlentities($row['pimage']); ?>"
-                                            alt="<?php echo htmlentities($row['pname']); ?>" width="100%" height="100%">
-                                    </div>
                                     <div class="mywishlistcardimage">
+                                        <a
+                                            href="product-details.php?pid=<?php echo htmlentities($pd = $row['pid']); ?>">
+                                            <img src="admin/productimages/<?php echo htmlentities($row['pid']); ?>/<?php echo htmlentities($row['pimage']); ?>"
+                                                alt="<?php echo htmlentities($row['pname']); ?>" width="100%"
+                                                height="100%">
+                                        </a>
+                                    </div>
+                                    <div class="mywishlistcardimage" style="position: relative;">
                                         <div class="product-name " style="padding:5px 10px;">
                                             <a style="font-family: 'Poppins', sans-serif !important;font-weight: 500 !important;color: #000 !important ;font-size: 11px !important;"
                                                 href="product-details.php?pid=<?php echo htmlentities($pd = $row['pid']); ?>"><?php echo htmlentities($row['pname']); ?></a>
                                         </div>
+                                        <a href="my-wishlist.php?del=<?php echo htmlentities($row['wid']); ?>"
+                                            onClick="return confirm('Are you sure you want to Remove?')"
+                                            class="RemoveBook"
+                                            style=" margin-left: 20px; background: #fff !important;color: black;  width: 30px !important;height: 30px !important;font-size: 10px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;">
+                                            <i class="fa-solid fa-bookmark" style="font-size: 10px;  "></i>
+                                        </a>
                                         <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
                                                     $num = mysqli_num_rows($rt); {
                                                     ?>
@@ -171,8 +236,8 @@ if (strlen($_SESSION['login']) == 0) {
 
                                         <?php } ?>
                                         <div class="price"
-                                            style="padding:0 10px; font-family: sans-serif, ' Poppins' !important;">
-                                            Rs.
+                                            style="font-size:10px;padding:0 10px; font-family: sans-serif, ' Poppins' !important;">
+                                            ₹
                                             <?php echo htmlentities($row['pprice']); ?>.00
                                         </div>
                                         <div class="btn-group ">
@@ -181,27 +246,20 @@ if (strlen($_SESSION['login']) == 0) {
                                                 display: flex;
                                                 align-items: center;
                                                 justify-content: start;
+
                                             }
                                             </style>
                                             <?php if ($row['pAvailability'] == 'In Stock') { ?>
-                                            <a href="index.php?page=product&action=add&id=<?php echo $row['id']; ?>"
+                                            <a href="my-wishlist.php?page=product&action=add&id=<?php echo $row['pid']; ?>"
                                                 class="btn-upper btn btn-primary col-sm-6 m-t-10"
-                                                style="background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black;">
+                                                style="font-weight: 400 !important; background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 10px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border-top: 1px Solid black;">
                                                 ADD </a>
                                             <?php } else { ?>
 
                                             <a href="#" class="btn-upper btn btn-primary col-sm-6 m-t-10"
-                                                style="cursor:no-drop !important;background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black;">
+                                                style="font-weight: 400 !important; cursor:no-drop !important;background: #fff !important;padding: 10px;color: black;  width: 100% !important;height: 30px !important;font-size: 10px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border-top: 1px Solid black;">
                                                 Out of Stock</a>
                                             <?php } ?>
-                                            <a href="my-wishlist.php?del=<?php echo htmlentities($row['wid']); ?>"
-                                                onClick="return confirm('Are you sure you want to Remove?')"
-                                                class="btn-upper btn btn-primary col-sm-6 m-t-10"
-                                                style=" margin-left: 20px; background: #fff !important;color: black;  width: 30px !important;height: 30px !important;font-size: 12px !important;border-radius: 0 !important;display: flex;align-items: center;justify-content: center;border: 1px Solid black; ">
-                                                <i class="fa-solid fa-bookmark" style="font-size: 10px;  "></i>
-                                            </a>
-
-
                                         </div>
                                     </div>
                                 </div>

@@ -21,83 +21,19 @@ if (isset($_Get['action'])) {
 }
 ?>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 
-.control-group {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: baseline;
+
+body::-webkit-scrollbar {
+    display: none;
 }
-
-
-
-
-
-.control-group .search-field {
-    border-right: 0 !important;
-    border-radius: 50px !important;
-    height: 40px;
-    background-color: #f2f3f8 !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-size: 15px !important;
-    width: 200px !important;
-    padding: 0 40px !important;
-    font-weight: 500;
-    color: #000 !important;
-
-}
-
-.control-group .search-field:focus,
-.control-group .search-field:hover,
-.basket i:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    border: 1px solid #f2f3f8 !important;
-}
-
-.control-group .search-field::placeholder {
-    font-size: 15px !important;
-    color: #000 !important;
-    text-transform: capitalize;
-    font-weight: 500;
-}
-
-
-
-.control-group .search-buttons {
-    outline: 0 !important;
-    border: 0 !important;
-    background: transparent !important;
-    position: relative !important;
-    height: 60px;
-
-}
-
-.control-group .search-buttons .bx-search-alt {
-    font-size: 26px;
-    top: 10px !important;
-    left: 11px;
-    position: absolute;
-    background: #f2f3f8;
-    color: #000;
-    padding: 7px;
-    border-radius: 50px;
-}
-
-
-.search-area {
-    border: 0 !important;
-}
-
-
-
-
-
 
 
 .items-cart-inner {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: lighter !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -126,6 +62,8 @@ if (isset($_Get['action'])) {
 }
 
 .basket {
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
     background: transparent !important;
     border-left: 0 !important;
 }
@@ -134,11 +72,9 @@ if (isset($_Get['action'])) {
 .basket i {
     font-size: 20px !important;
     color: #000 !important;
+    background: transparent !important;
+
     cursor: pointer;
-    border-radius: 50px;
-    background: #f2f3f8;
-    padding: 10px;
-    margin: 0 !important;
 }
 
 
@@ -153,9 +89,11 @@ if (isset($_Get['action'])) {
     align-items: center !important;
     justify-content: center !important;
     height: 20px !important;
+    color: #fff !important;
     width: 20px !important;
     right: 8px !important;
     top: 15px !important;
+    color: #fff !important;
     border: 2px solid black !important;
 }
 
@@ -165,23 +103,20 @@ if (isset($_Get['action'])) {
 
 .logo-holder {
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: center;
-    height: 50px;
+    justify-content: space-between;
 }
 
 .side-menu {
     overflow-y: scroll !important;
     font-family: sans-serif, 'Poppins' !important;
+    width: 400px;
     background: white !important;
-    width: 400px !important;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-wrap: wrap;
     padding-top: 50px;
+    display: flex;
     padding-bottom: 300px;
-    right: -100%;
+    right: -200%;
     transition: 0.5s linear;
     position: fixed;
     top: 0;
@@ -200,8 +135,36 @@ if (isset($_Get['action'])) {
     display: none;
 }
 
-.logo-holder .logo img {
-    width: 300px;
+.logo-holder .logo svg {
+    width: 500px;
+    transition: all 0.5s linear;
+    color: #fff;
+    fill: black !important;
+}
+
+.logo-holder .logo svg path {
+    fill: black !important;
+
+}
+
+.main-header:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+}
+
+.main-header {
+    width: 100%;
+    z-index: 9 !important;
+}
+
+.main-header.sticky {
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+    width: 100%;
+    z-index: 9;
+    color: #fff;
+}
+
+.main-header.sticky .logo-holder .logo svg {
+    width: 340px;
 }
 
 
@@ -213,44 +176,42 @@ if (isset($_Get['action'])) {
     display: none;
 }
 
+
+.main-header {
+    position: fixed;
+    top: 0;
+    z-index: 99999;
+}
+
+
+
 @media only screen and (max-width: 1000px) {
+    .logo-holder .logo svg {
+        width: 150px;
+    }
+
+    .main-header.sticky .logo-holder .logo svg {
+        width: 150px;
+
+    }
+
     .main-header {
-        position: relative;
+        height: 70px;
     }
 
 
 }
 
 @media only screen and (max-width: 800px) {
+    .main-header {
+        width: 100%;
+        z-index: 99;
+    }
+
     .responsive-search {
         display: block;
     }
 
-    .control-group {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 400px;
-        background: white;
-        height: 100%;
-        display: flex;
-        align-items: baseline;
-        padding: 20px;
-        justify-content: start;
-        z-index: 99999;
-        display: block;
-        left: -100%;
-        transition: 0.2s linear;
-
-    }
-
-    .control-group .bx-x {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        font-size: 30px;
-        color: #000;
-    }
 
     .total-price-basket {
         display: none !important;
@@ -261,43 +222,8 @@ if (isset($_Get['action'])) {
     }
 
 
-    .control-group .search-field {
-        height: 50px !important;
-    }
-
-    .control-group .search-buttons .bx-search-alt {
-        font-size: 25px;
-        top: 63px !important;
-        left: 0px;
-        position: absolute;
-        background: #f2f3f8;
-        color: #000;
-        padding: 13px;
-        border-radius: 50px;
-    }
-
-    .control-group .bx-x {
-        display: block;
-    }
-
-    .control-group .search-field {
-        border-right: 0 !important;
-        border-radius: 50px !important;
-        height: 50px;
-        border: 1px solid black !important;
-        background-color: transparent !important;
-        font-family: 'Raleway', sans-serif !important;
-        font-size: 15px !important;
-        /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
-        width: 100% !important;
-        padding: 0 50px !important;
-        font-weight: 500;
-        color: #000 !important;
-
-    }
-
     .logo-holder .logo img {
-        width: 140px;
+        width: 300px;
     }
 
     .navbar_Nav {
@@ -309,19 +235,20 @@ if (isset($_Get['action'])) {
         position: fixed;
         background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
         z-index: 99999;
-        left: -100%;
+        left: -200%;
         top: 0;
         width: 100%;
         height: 100%;
     }
+
 
 }
 
 .overMyCart {
     position: fixed;
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-    z-index: 99999;
-    right: -100%;
+    z-index: 999;
+    right: -200%;
     top: 0;
     width: 100%;
     height: 100%;
@@ -329,7 +256,7 @@ if (isset($_Get['action'])) {
 </style>
 <style>
 .lnk-cart {
-    margin: 0 !important;
+    margin-left: 20px !important;
     padding: 0 !important;
     border: 0 !important;
 }
@@ -348,114 +275,189 @@ if (isset($_Get['action'])) {
     left: 10px !important;
     font-size: 30px !important;
     color: #000 !important;
+    font-weight: 400 !important;
 }
 
 .side-menu {
     overflow-y: scroll !important;
     font-family: sans-serif, 'Poppins' !important;
     background: white !important;
-    width: 400px !important;
-    display: flex;
-    align-items: start;
-    justify-content: start;
-    flex-wrap: wrap;
+    width: 400px;
     padding-top: 50px;
     padding-bottom: 300px;
-    right: -100%;
+    right: -200%;
     transition: 0.5s linear;
+    border: 1px solid black;
+}
+
+.side-menu .cart-item .image a img {
+    width: 199px;
+    border: 1px solid black !important;
+    border-left: 0 !important;
+    border-right: 1px solid black !important;
 
 }
 
-.side-menu .cart-item .image img {
-    width: 190px;
-}
-
-.side-menu .cart-pra h3 {
+.side-menu .cart-pra .cartText {
     margin: 0;
-    overflow: hidden;
-    padding: 0;
+
+    width: 100px !important;
+    font-size: 10px !important;
+    overflow: hidden !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-    width: 190px;
 }
 
 .side-menu .cart-pra h3 a {
-    margin: 0;
-    padding: 0;
     font-size: 12px !important;
     font-family: 'Poppins', sans-serif !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 .side-menu .cart-pra h6 {
     font-weight: normal;
     font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .side-menu .cart-pra {
-    /* margin: 0 10px; */
-    padding: 0;
+    padding: 5px;
+    border: 1px solid black;
+    border-top: 0;
+    border-left: 0 !important;
+    border-right: 1px solid black !important;
 }
 
 .cart-total {
     background: #fff;
-    width: 100%;
+    width: 400px;
     position: fixed;
-    bottom: 2%;
+    bottom: 0%;
 }
 
 .total {
+    border: 0 solid black;
+    border-top: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 400px;
+    height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
 }
 
 .total h5 {
-    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
     text-transform: uppercase;
-    font-weight: 600;
     color: #000;
 }
 
-.total_btn a {
+.total_btn .a {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000 !important;
+    background: #fff !important;
     width: 400px !important;
-    color: #fff !important;
+    color: #000 !important;
     height: 50px !important;
-    font-size: 16px !important;
+    font-size: 12px !important;
     border-radius: 0 !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 300 !important;
+    font-weight: 500 !important;
+    border: 1px solid black;
+    border-left: 0;
     margin-top: 20px !important;
 }
 </style>
-<div class="overMyCart" onclick="closeMyCart()">
 
-</div>
-<div class="overMySearch" onclick="closeSearch()">
+<style>
+.navbar_Nav button {
+    background: transparent !important;
+    border: 0;
+}
 
-</div>
-<div class="main-header">
-    <div class="" style="  padding: 0;margin:0 30px;  ">
-        <div class="navbar_Nav">
+.navbar_Nav button .sideMenu {
+    font-size: 20px;
+}
 
-            <div class=" logo-holder">
-                <!-- ============================================================= LOGO ============================================================= -->
+
+.navbar_Nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+/* shoppingBagMobileView */
+.shoppingBagMobileView a {
+    display: none;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.searchandBagtopNav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .shoppingBagMobileView a {
+        display: block;
+    }
+}
+</style>
+<div class="main-header sticky-top">
+    <div class="" style=" padding: 0;margin:0 30px; ">
+        <div class=" navbar_Nav">
+
+            <div class="logo-holder">
+                <div style="margin:0 !important;padding:0;" class="responsive-search">
+                    <svg class="responsive-search " height="30px" width="30px" onclick="openAccount()"
+                        viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 9H13H19M5 15H19" stroke="#000000" stroke-width="1" stroke-linecap="round" />
+                    </svg>
+                </div>
                 <div class="logo">
-                    <a href="index.php">
-                        <img src="img/Quintet10.png" alt="">
+                    <a href="index">
+                        <svg width="500" height="" viewBox="0 0 486 92" fill="" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M29.6 72.5C24 71.4333 19.0333 69.2333 14.7 65.9C10.3667 62.5667 6.96667 58.4 4.5 53.4C2.1 48.4 0.9 42.9333 0.9 37C0.9 30.1333 2.46667 23.9333 5.6 18.4C8.8 12.8 13.2 8.43333 18.8 5.29999C24.4 2.1 30.6667 0.499997 37.6 0.499997C44.5333 0.499997 50.8 2.1 56.4 5.29999C62 8.43333 66.3667 12.8 69.5 18.4C72.7 23.9333 74.3 30.1333 74.3 37C74.3 42.9333 73.0667 48.4 70.6 53.4C68.2 58.4 64.8333 62.5667 60.5 65.9C56.1667 69.2333 51.2 71.4333 45.6 72.5V92H29.6V72.5ZM37.6 57.8C41.4667 57.8 44.9333 56.9 48 55.1C51.1333 53.3 53.5667 50.8333 55.3 47.7C57.1 44.5 58 40.9333 58 37C58 33.0667 57.1 29.5333 55.3 26.4C53.5667 23.2 51.1333 20.7 48 18.9C44.9333 17.0333 41.4667 16.1 37.6 16.1C33.7333 16.1 30.2667 17.0333 27.2 18.9C24.1333 20.7 21.7 23.2 19.9 26.4C18.1667 29.5333 17.3 33.0667 17.3 37C17.3 40.9333 18.1667 44.5 19.9 47.7C21.7 50.8333 24.1333 53.3 27.2 55.1C30.2667 56.9 33.7333 57.8 37.6 57.8ZM120.103 73.5C113.636 73.5 107.936 72.1667 103.003 69.5C98.1365 66.8333 94.3698 63.1 91.7031 58.3C89.0365 53.4333 87.7031 47.7667 87.7031 41.3V2H103.703V40.5C103.703 44.1667 104.336 47.3333 105.603 50C106.936 52.6 108.803 54.6 111.203 56C113.67 57.4 116.636 58.1 120.103 58.1C123.57 58.1 126.503 57.4 128.903 56C131.37 54.6 133.236 52.6 134.503 50C135.77 47.3333 136.403 44.1667 136.403 40.5V2H152.403V41.3C152.403 47.7667 151.07 53.4333 148.403 58.3C145.803 63.1 142.036 66.8333 137.103 69.5C132.236 72.1667 126.57 73.5 120.103 73.5ZM170.741 72V2H186.741V72H170.741ZM206.386 72V2H222.486L254.786 67.1V2H270.786V72H254.686L222.386 6.9V72H206.386ZM308.47 72V17.4H283.27V2H349.57V17.4H324.47V72H308.47ZM362.05 72V2H410.35V15.9H377.75V36H399.95V38H377.75V58.1H413.25V72H362.05ZM444.017 72V17.4H418.817V2H485.117V17.4H460.017V72H444.017Z"
+                                fill="white" />
+                        </svg>
                     </a>
                 </div>
-            </div>
+                <div class="searchandBagtopNav">
+                    <div class="shoppingBagMobileView">
+                        <a href="searchBar" style="border:0;background:transparent;">
+                            <span class="key">
+                                <i class='bx bx-search'></i>
+                                search
+                            </span>
+                        </a>
+                    </div>
+                    <div class="shoppingBagMobileView" style="margin-left: 20px;">
+                        <?php
+                        if (!empty($_SESSION['cart'])) {
+                        ?>
+                        <a href=" #ShoppingBag" onclick="openMyCart()">
+                            <i class='bx bx-shopping-bag'></i>
+                            Shopping bag (<?php echo $_SESSION['qnty']; ?>)
+                        </a>
+                        <?php } else { ?>
+                        <a href="#ShoppingBag" onclick="openMyCart()">
+                            <i class='bx bx-shopping-bag'></i>
+                            Shopping bag (0)
+                        </a>
+                        <?php } ?>
+                    </div>
+                </div>
 
+            </div>
 
             <style>
             .myWishlist i {
@@ -480,217 +482,11 @@ if (isset($_Get['action'])) {
                 align-items: center;
                 justify-content: center;
                 position: absolute;
-                left: 45%;
-                top: 5%;
-            }
-
-            .bag i {
-                font-size: 40px;
-                color: #000;
-            }
-
-            .bag span {
-                position: absolute;
-                left: 40%;
-                top: 40%;
-                font-weight: bolder;
+                left: 15%;
+                top: 2.3%;
             }
             </style>
-            <div class="sidebar-navitem">
-                <div class="top-search-holder">
-                    <div class="search-area ">
-                        <form name="search" method="post" action="search-result.php" autocomplete="off">
 
-                            <div class="control-group ">
-                                <i class="bx bx-x" onclick="closeSearch() "></i>
-                                <button class="search-buttons" type="submit" name="search"><i
-                                        class='bx bx-search-alt'></i></button>
-                                <input class="search-field" placeholder="Search here..." name="product"
-                                    required="required" />
-                            </div>
-                        </form>
-                    </div>
-                    <!-- ============================================================= SEARCH AREA : END ============================================================= -->
-                </div><!-- /.top-search-holder -->
-                <div class="  top-cart-row">
-                    <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-
-                    <?php
-                    if (!empty($_SESSION['cart'])) {
-                    ?>
-                    <div class="dropdown dropdown-cart cartBtn   ">
-
-                        <button class=" lnk-cart" onclick="openSearch() ">
-                            <div class="basket responsive-search">
-                                <i class="bx bx-search-alt"></i>
-                            </div>
-                        </button>
-                        <a href="my-wishlist.php" class=" lnk-cart">
-                            <div class="basket">
-                                <i class='bx bx-bookmark'></i>
-                            </div>
-                        </a>
-                        <button class=" lnk-cart" onclick="openMyCart()">
-                            <div class="items-cart-inner  ">
-                                <div class="basket ">
-                                    <i class='bx bx-shopping-bag'></i>
-                                </div>
-                                <div class="basket-item-count">
-
-                                    <span class="count"><?php echo $_SESSION['qnty']; ?></span>
-                                </div>
-                            </div>
-                        </button>
-                        <button class=" lnk-cart" onclick="openAccount()">
-                            <div class="basket responsive-search">
-                                <i class="bx bx-menu"></i>
-                            </div>
-                        </button>
-
-                        <ul class="side-menu">
-                            <i class="bx bx-x" onclick="closeMyCart()"></i>
-                            <?php
-                                $sql = "SELECT * FROM products WHERE id IN(";
-                                foreach ($_SESSION['cart'] as $id => $value) {
-                                    $sql .= $id . ",";
-                                }
-                                $sql = substr($sql, 0, -1) . ") ORDER BY id ASC";
-                                $query = mysqli_query($con, $sql);
-                                $totalprice = 0;
-                                $totalqunty = 0;
-                                if (!empty($query)) {
-                                    while ($row = mysqli_fetch_array($query)) {
-                                        $quantity = $_SESSION['cart'][$row['id']]['quantity'];
-                                        $subtotal = $_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge'];
-                                        $totalprice += $subtotal;
-                                        $_SESSION['qnty'] = $totalqunty += $quantity;
-                                ?>
-                            <div class="bag">
-                                <div>
-                                    <i class='bx bx-shopping-bag'></i>
-                                </div>
-                                <span>
-                                    <?php echo $_SESSION['qnty']; ?>
-                                </span>
-
-                            </div>
-                            <li style="margin-top: 50px;">
-
-                                <div class=" cart-item  ">
-                                    <div class="image">
-                                        <a href=" product-details.php?pid=<?php echo $row['id']; ?>"><img
-                                                src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
-                                                width="100%" height="100%" alt="" style="border: 1px solid black;"></a>
-                                    </div>
-
-                                    <div class="cart-pra">
-                                        <h3>
-                                            <a href=" product-details.php?pid=<?php echo $row['id']; ?>">
-                                                <?php echo $row['productName']; ?></a>
-                                        </h3>
-                                        <h6>
-                                            <span>
-                                                Rs.
-                                            </span>
-                                            <span>
-                                                <?php echo ($row['productPrice'] + $row['shippingCharge']); ?>
-                                            </span>
-                                        </h6>
-                                        <h6>
-                                            <span>
-                                                Qty.
-                                            </span>
-                                            <span>
-                                                <?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>
-                                            </span>
-                                        </h6>
-                                    </div>
-                                </div>
-                                <?php }
-                                } ?>
-                            </li>
-                            <div class=" cart-total ">
-                                <div class="total">
-                                    <h5>
-                                        Total :
-                                    </h5>
-                                    <span
-                                        style="font-family: sans-serif, 'Poppins' !important; font-size: 15px;font-weight: 600;color: #000;"
-                                        class='price'>Rs.<?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
-                                </div>
-                                <div class="total_btn">
-                                    <a href="my-cart.php" class="btn checkout-page-button">
-                                        My Bag </a>
-                                </div>
-                            </div><!-- /.cart-total-->
-                        </ul><!-- /.dropdown-menu-->
-                    </div><!-- /.dropdown-cart -->
-                    <?php } else { ?>
-                    <div class="dropdown dropdown-cart cartBtn">
-                        <button class=" lnk-cart" onclick="openSearch() ">
-                            <div class="items-cart-inner">
-                                <div class="basket responsive-search">
-                                    <i class="bx bx-search-alt"></i>
-                                </div>
-                            </div>
-                        </button>
-                        <a href="my-wishlist.php" class="lnk-cart">
-                            <div class="items-cart-inner">
-                                <div class="basket">
-                                    <i class='bx bx-bookmark'></i>
-                                </div>
-                            </div>
-                        </a>
-                        <button class="lnk-cart" onclick="openMyCart()">
-                            <div class="items-cart-inner">
-                                <div class="basket">
-                                    <i class='bx bx-shopping-bag'></i>
-                                </div>
-                                <div class="basket-item-count">
-                                    <span class="count">0</span>
-                                </div>
-                            </div>
-                        </button>
-                        <button class=" lnk-cart" onclick="openAccount()">
-                            <div class="basket responsive-search">
-                                <i class='bx bx-menu'></i>
-                            </div>
-                        </button>
-
-                        <ul class="side-menu" style=" display: flex;
-                            align-items: center;
-                            justify-content: center;">
-                            <i class="bx bx-x" onclick="closeMyCart()"
-                                style="position: absolute !important;top: 10px !important;left: 10px !important;font-size: 30px !important;color: #000 !important;"></i>
-
-                            <div class="bag">
-                                <div>
-                                    <i class='bx bx-shopping-bag'></i>
-                                </div>
-                                <span>
-                                    0
-                                </span>
-                            </div>
-                            <li style="margin-top: 50px !important;">
-                                <div class="cart-item ">
-                                    <h4
-                                        style="font-size: 20px;  font-family: 'Raleway',sans-serif !important ; font-weight: 600 !important ;text-align: center; color: #000;text-transform: uppercase  ; ">
-                                        Your shopping basket is empty
-                                        .</h4>
-                                </div><!-- /.cart-item -->
-                                <div class=" cart-total">
-                                    <div class="total_btn">
-                                        <a href="index.php" class="btn out-page-button">Continue
-                                            Shooping</a>
-                                    </div>
-                                </div><!-- /.cart-total-->
-                            </li>
-                        </ul><!-- /.dropdown-menu-->
-                    </div>
-                    <?php } ?>
-                    <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
-                </div><!-- /.top-cart-row -->
-            </div>
         </div><!-- /.row -->
 
     </div><!-- /.container -->
@@ -724,26 +520,34 @@ window.onscroll = function() {
 }
 </script>
 <script>
-function openSearch() {
-    document.querySelector(".control-group").style.left = "0";
-    document.querySelector(".overMySearch").style.left = "0";
+document.addEventListener("DOMContentLoaded", function() {
+    let activeForm = null;
 
-}
+    // Event listener for buttons to toggle forms
+    document.body.addEventListener("click", function(event) {
+        const target = event.target;
+        if (target.matches("[data-toggle-form]")) {
+            event.stopPropagation(); // Prevents the click from propagating further
 
-function closeSearch() {
-    document.querySelector(".control-group").style.left = "-100%";
-    document.querySelector(".overMySearch").style.left = "-100%";
-}
-</script>
-<script>
-function openMyCart() {
-    document.querySelector(".side-menu").style.right = "0";
-    document.querySelector(".overMyCart").style.right = "0";
+            const formId = target.getAttribute("data-toggle-form");
+            const form = document.getElementById(formId);
 
-}
+            if (activeForm && activeForm !== form) {
+                activeForm.style.display = "none";
+            }
 
-function closeMyCart() {
-    document.querySelector(".side-menu").style.right = "-100%";
-    document.querySelector(".overMyCart").style.right = "-100%";
-}
+            if (form.style.display === "block") {
+                form.style.display = "none";
+                activeForm = null;
+            } else {
+                form.style.display = "block";
+                activeForm = form;
+            }
+        } else if (activeForm && !activeForm.contains(event.target)) {
+            // Click outside any active form closes it
+            activeForm.style.display = "none";
+            activeForm = null;
+        }
+    });
+});
 </script>

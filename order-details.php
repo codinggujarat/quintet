@@ -74,7 +74,9 @@ include('includes/config.php');
         <?php include('includes/top-header.php'); ?>
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
+        <?php include('includes/search.php'); ?>
     </header>
+
     <!-- ============================================== HEADER : END ============================================== -->
 
 

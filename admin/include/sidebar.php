@@ -87,10 +87,10 @@ select:valid~label {
 
 .control-group label {
     font-family: 'Raleway', sans-serif !important;
-    font-size: 17px !important;
+    font-size: 14px !important;
     color: #000 !important;
     font-weight: 500 !important;
-    text-transform: capitalize !important;
+    text-transform: uppercase !important;
 }
 
 .control-group input,
@@ -98,14 +98,14 @@ select:valid~label {
 .control-group select {
     border: 2px solid gray !important;
     font-family: 'Raleway', sans-serif !important;
-    font-size: 15px !important;
+    font-size: 14px !important;
     color: #000 !important;
     font-weight: 600 !important;
     padding: 10px 20px !important;
     width: 100% !important;
     height: 60px !important;
     box-shadow: 0 !important;
-    border-radius: 10px !important;
+    /* border-radius: 10px !important; */
 }
 
 
@@ -132,7 +132,7 @@ select:valid~label {
     color: #fff !important;
     height: 50px !important;
     font-size: 18px !important;
-    border-radius: 10px !important;
+    /* border-radius: 10px !important; */
     font-family: 'Raleway', sans-serif !important;
     font-weight: 400 !important;
 }
@@ -155,8 +155,8 @@ select:valid~label {
 }
 
 .centerCard .card .card-body h3 {
-    font-size: 30px;
-    text-transform: capitalize !important;
+    font-size: 20px;
+    text-transform: uppercase !important;
 }
 
 .imgLable {
@@ -197,6 +197,38 @@ select:valid~label {
 
 .logOut:hover svg {
     background-color: transparent !important;
+}
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f2f3f8;
+    border: 1px solid black;
+    height: 20px;
+    margin-top: 30px;
+    border-radius: 0;
+    margin-bottom: 30px;
+}
+
+
+.alert button {
+    border: 0;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+}
+
+.alert span {
+    font-weight: bold;
+}
+
+.alert span,
+.alert h6 {
+    text-transform: uppercase;
+    font-size: 13px;
 }
 </style>
 <aside class="sidebar sidebar-default sidebar-white  sidebar-base navs-rounded-all " style="background:#fff; ">

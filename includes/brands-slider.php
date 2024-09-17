@@ -4,6 +4,10 @@
     style=" margin-top: 100px;  text-align: center;font-weight: 400;color: #000;  font-family: 'Raleway',sans-serif ;  ">
 </h1>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
 .productslider {
     width: 300px !important;
     margin-top: 10px;
@@ -33,14 +37,13 @@
 
 
                 <div class="product-info text-left"
-                    style="width:250px !important; margin-top:5px !important;padding: 0 !important;">
+                    style="width:250px !important; margin-top:0px !important;padding: 0 !important;">
                     <h3 class="name" style="text-align: center;"><a
-                            style="text-align: center; background: transparent !important ; font-family:'Raleway',sans-serif
-                                                !important;font-size:11px;font-weight:700 !important ; text-transform: uppercase; color: #000; "
+                            style="text-align: center; background: transparent !important ; font-family: 'Poppins', sans-serif !important;font-size:10px;font-weight:400 !important ; text-transform: uppercase; color: #000; "
                             href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
                     </h3>
 
-                    <div class=" product-price" style="margin-top: -10px; text-align: center;">
+                    <div class=" product-price" style="margin-top: -14px; text-align: center;">
                         <span class="price" style="color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:500;font-size: 13px; ">
                             &#8377;&nbsp;<?php echo htmlentities($row['productPrice']); ?>.00

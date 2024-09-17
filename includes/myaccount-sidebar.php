@@ -13,7 +13,7 @@
             <div class="panel ">
 
                 <style>
-                @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 
@@ -56,9 +56,9 @@
                     display: flex !important;
                     align-items: center !important;
                     justify-content: start !important;
-                    font-family: 'Raleway', sans-serif !important;
+                    font-family: 'Poppins', sans-serif !important;
                     color: #000 !important;
-                    font-weight: 500 !important;
+                    font-weight: 400 !important;
                     text-transform: capitalize !important;
                     font-size: 18px !important;
                     background: #fff !important;
@@ -115,9 +115,9 @@
 
 
                     /* .nav-checkout-progress li a {
-                        font-family: 'Raleway', sans-serif !important;
+                        font-family: 'Poppins', sans-serif !important;
                         color: #000 !important;
-                        font-weight: 500 !important;
+                        font-weight: 400 !important;
                         text-transform: uppercase !important;
                         font-size: 16px !important;
                         background: #fff !important;
@@ -130,18 +130,25 @@
                     }
                 }
 
-                .profiletitle .profiletitlelink {
+                .profiletitle a {
                     display: flex !important;
                     align-items: start !important;
                     justify-content: start !important;
-                    font-family: 'Raleway', sans-serif !important;
+                    font-family: 'Poppins', sans-serif !important;
                     color: #000 !important;
-                    font-weight: 500 !important;
+                    font-weight: 400 !important;
                     text-transform: capitalize !important;
-                    font-size: 30px !important;
                     background: #fff !important;
                     color: #000 !important;
                     margin-bottom: 50px !important;
+                }
+
+                .profiletitle .profiletitlelink span {
+                    font-family: 'Poppins', sans-serif !important;
+                    font-weight: 300 !important;
+                    font-size: 30px !important;
+
+
                 }
                 </style>
                 <div class="panel-body">

@@ -1,379 +1,239 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 footer {
+    height: 100% !important;
     width: 100% !important;
-    background: #f2f3f8 !important;
+    padding: 150px !important;
+    /* margin: auto !important; */
+    background: white !important;
 }
 
-footer .contentfooter {
-    max-width: 1350px !important;
-    margin: auto !important;
+.input_type_newsletter {
+    position: relative !important;
+    margin-top: 40px !important;
+    margin-left: 20px !important;
+
+}
+
+.social_media_newsletter,
+.input_type_newsletter {
+    margin-top: 40px !important;
+
+}
+
+.join_our_newsletter h1 {
+    font-size: 20px !important;
+    margin-left: 20px !important;
+
+    text-transform: uppercase !important;
+    font-weight: 300 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.input_type_newsletter label {
+    position: absolute !important;
+    top: 50% !important;
+    left: 15px !important;
+    transform: translateY(-50%) !important;
+    color: #000 !important;
+    font-size: 12px !important;
+    pointer-events: none !important;
+    transition: 0.3s !important;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: uppercase !important;
+    font-weight: 300 !important;
+
+}
+
+.input_type_newsletter input {
+    width: 500px !important;
+    border: 0 !important;
+    border-bottom: 1px solid black !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    height: 40px !important;
+    padding: 30px !important;
+}
+
+.input_type_newsletter input:focus {
+    border-bottom: 1px solid black !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+}
+
+.input_type_newsletter input:focus~label,
+.input_type_newsletter input:valid~label {
+    top: 0 !important;
+    left: 15px !important;
+    font-size: 12px !important;
+    padding: 0 2px !important;
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.social_media_newsletter ul {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-evenly !important;
+    margin-top: 100px !important;
+}
+
+.social_media_newsletter ul li {
+    margin-left: 20px !important;
+    text-transform: uppercase !important;
+    font-weight: 300 !important;
+    font-size: 10px !important;
+}
+
+.social_media_newsletter {
     display: flex !important;
     align-items: baseline !important;
-    flex-wrap: wrap !important;
+    justify-content: start !important;
+}
+
+.footLink ul {
+    display: block !important;
+}
+
+.footLink ul li {
+    margin-bottom: 10px !important;
+}
+
+.footLink ul li:first-child {
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    color: #000 !important;
+    margin-bottom: 20px !important;
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: uppercase !important;
+
+}
+
+.copyrightfoot {
+    display: flex !important;
+    align-items: center !important;
     justify-content: space-between !important;
-    padding: 50px 0 !important;
+    /* padding-bottom: 300px !important; */
+    padding-top: 50px !important;
+    margin-left: 20px !important;
 }
 
-footer .contentfooter p,
-a {
-    font-size: 13px !important;
-    font-family: 'Raleway', sans-serif !important;
+.copyrightfoot h1 {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
     text-transform: uppercase !important;
     color: #000 !important;
-    font-weight: 600 !important;
 }
 
-footer .contentfooter .boxfooter {
-    width: 25% !important;
-    transition: all 0.4s ease !important;
+.copyandLanguage {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
 }
 
-footer .contentfooter .boxfooter:nth-child(1) {
-    width: 20% !important;
+.copyandLanguage .messCopy {
+    margin-left: 40px !important;
 }
 
-
-footer .contentfooter .topicfooter {
-    cursor: default !important;
-    font-size: 14px !important;
-    color: #000 !important;
-    margin-bottom: 16px !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 700 !important;
-
-    text-transform: uppercase !important;
-
-}
-
-footer .contentfooter p {
-    text-align: justify !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-    text-transform: capitalize !important;
-
-}
-
-footer .contentfooter .lowerfooter .topicfooter {
-    margin: 24px 0 5px 0 !important;
-}
-
-footer .contentfooter .lowerfooter i {
-    padding-right: 16px !important;
-}
-
-footer .contentfooter .middlefooter,
-footer .contentfooter .rightfooter {
-    padding-left: 80px !important;
-
-}
-
-footer .contentfooter .middlefooter a {
-    font-size: 13px !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 600 !important;
-    text-transform: capitalize !important;
-}
-
-footer .contentfooter .rightfooter form {
-    position: relative;
-}
-
-.contentfooter .rightfooter .footerinput {
-    height: 45px !important;
-    width: 100% !important;
-    outline: none !important;
-    color: #000 !important;
-    background: white !important;
-    border-radius: 10px !important;
-    padding-left: 10px !important;
-    text-transform: capitalize !important;
-    font-size: 11px !important;
-    border: 0px solid #000 !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-    transition: 0.1s linear !important;
-
-}
-
-footer .contentfooter .rightfooter .footerinput::placeholder {
-    color: #000 !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-
-}
-
-.contentfooter .rightfooter .footerinput:focus {
-    border: 2px solid #000 !important;
-}
-
-footer .contentfooter .rightfooter .footerbtn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 50px !important;
-    width: 50px !important;
-    font-size: 20px !important;
-    color: #000 !important;
-    outline: none !important;
-    border-radius: 0 !important;
-    letter-spacing: 1px !important;
-    cursor: pointer !important;
-    text-transform: uppercase !important;
-    border: 0 !important;
-    outline: 0 !important;
-    background: transparent !important;
-    transition: all 0.3s ease-in-out !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-
-}
-
-.contentfooter .rightfooter .footerbtn:hover {
-    background: none !important;
-    color: #000 !important;
-}
-
-footer .contentfooter .media-iconsfooter {
-    margin-top: 20px !important;
-}
-
-footer .contentfooter .media-iconsfooter a {
-    font-size: 13px !important;
-    height: 45px !important;
-    width: 45px !important;
-    display: inline-block !important;
-    text-align: center !important;
-    line-height: 43px !important;
-    border: 2px solid lightgray !important;
-    margin: 30px px 0 0 !important;
-    transition: all 0.3s ease !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-
-}
-
-.contentfooter .media-iconsfooter a:hover {
-    border-color: #000 !important;
-}
-
-footer .bottomfooter {
-    width: 100% !important;
-    text-align: right !important;
-    color: gray !important;
-    padding: 0 40px 5px 0 !important;
-}
-
-footer .bottomfooter a {
-    color: #000 !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-}
-
-footer a {
-    text-decoration: none;
-    transition: all 0.3s ease !important;
-    font-family: 'Raleway', sans-serif !important;
-    font-weight: 500 !important;
-
-}
-
-footer a:hover {
-    color: #000 !important;
-}
-
-.phone a {
-    text-decoration: none;
-    font-family: sans-serif, 'Poppins' !important;
-}
-
-@media (max-width:1100px) {
-    footer .contentfooter .middlefooter {
-        padding-left: 50px !important;
-    }
-}
-
-@media (max-width:950px) {
-    footer .contentfooter .boxfooter {
-        width: 50% !important;
-    }
-
-    .contentfooter .rightfooter {
-        margin-top: 40px !important;
-    }
-}
-
-@media (max-width:560px) {
+@media only screen and (max-width: 800px) {
     footer {
-        position: relative !important;
+        margin: 0 !important;
+        padding: 5px !important;
     }
 
-    footer .contentfooter .boxfooter {
-        width: 100% !important;
-        margin-top: 30px !important;
+    .social_media_newsletter ul {
+        flex-wrap: wrap !important;
+        justify-content: start !important;
+
     }
 
-    footer .contentfooter .middlefooter {
-        padding-left: 0 !important;
+    .social_media_newsletter {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
     }
-
 }
 </style>
 <footer>
-    <div class="">
-        <div class="">
-            <div class="contentfooter">
-                <div class="leftfooter boxfooter">
-                    <div class="upperfooter">
-                        <div class="topicfooter">About us</div>
-                        <p style="font-weight: 500 !important ; ">
-                            Overlays Clothing Pvt Ltd
-
-                            Explore to CHANGE.
-                            Learn More
-                        </p>
-                    </div>
-
-                </div>
-                <div class=" middlefooter boxfooter">
-                    <div class="topicfooter">POLICIES</div>
-                    <div style="margin-bottom: 10px;"><a href="#">Shipping & Delivery</a></div>
-                    <div style="margin-bottom: 10px;"><a href="track-orders.php">Order Status</a></div>
-                    <div style="margin-bottom: 10px;"><a href="ContactUs.php">Contact Us</a></div>
-                    <div style="margin-bottom: 10px;"><a href="ShippingPolicy.php">Shipping Policy</a></div>
-                </div>
-                <div class="rightfooter boxfooter">
-                    <div class="topicfooter">Newsletter </div>
-                    <form action="#">
-                        <input type="text" class="footerinput" placeholder="Enter email address">
-                        <button type="submit" name="" class="footerbtn" value="Send">
-                            <i class='bx bx-right-arrow-alt '></i>
-                        </button>
-                    </form>
-                </div>
-                <div class="rightfooter boxfooter">
-                    <div class="media-iconsfooter">
-                        <div class="topicfooter">Follow Us</div>
-                        <p>Stay in touch!
-
-                        </p>
-                        <ul class="socialmedia">
-                            <li>
-                                <a href="#" style="             width: 50px !important;
-                        height: 50px !important;
-                        text-decoration: none !important;
-                        background-color: #f2f3f8 !important;
-                        text-align: center !important;
-                        line-height: 50px !important;
-                        font-size: 18px !important;
-                        display: block !important;
-                        position: relative !important;
-                        overflow: hidden !important;
-                        z-index: 1 !important;
-                        border: 1px solid black !important;
-                        color: #fff !important;">
-                                    <i class='bx bxl-facebook icon'></i> </a>
-                            </li>
-                            <li>
-                                <a href="#" style="             width: 50px !important;
-                        height: 50px !important;
-                        text-decoration: none !important;
-                        background-color: #f2f3f8 !important;
-                        text-align: center !important;
-                        line-height: 50px !important;
-                        font-size: 18px !important;
-                        display: block !important;
-                        position: relative !important;
-                        overflow: hidden !important;
-                        z-index: 1 !important;
-                        border: 1px solid black !important;
-                        color: #fff !important;"><i class="bx bxl-instagram icon"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" style="             width: 50px !important;
-                        height: 50px !important;
-                        text-decoration: none !important;
-                        background-color: #f2f3f8 !important;
-                        text-align: center !important;
-                        line-height: 50px !important;
-                        font-size: 18px !important;
-                        display: block !important;
-                        position: relative !important;
-                        overflow: hidden !important;
-                        z-index: 1 !important;
-                        border: 1px solid black !important;
-                        color: #fff !important;"><i class="bx bxl-twitter icon"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" style="             width: 50px !important;
-                        height: 50px !important;
-                        text-decoration: none !important;
-                        background-color: #f2f3f8 !important;
-                        text-align: center !important;
-                        line-height: 50px !important;
-                        font-size: 18px !important;
-                        display: block !important;
-                        position: relative !important;
-                        overflow: hidden !important;
-                        z-index: 1 !important;
-                        border: 1px solid black !important;
-                        color: #fff !important;"><i class="bx bxl-youtube icon"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <style>
-                    .socialmedia {
-                        display: flex;
-                    }
-
-                    .socialmedia li {
-                        list-style: none;
-                    }
-
-                    /* .socialmedia li a {} */
-
-                    .socialmedia li a .icon {
-                        position: relative;
-                        color: #000;
-                        transition: .5s;
-                        z-index: 2;
-                    }
-
-
-
-                    .socialmedia li a:before {
-                        content: "";
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: #f00;
-                        transition: .5s;
-                        z-index: 2;
-
-                    }
-
-                    ul li a:hover .icon {
-                        color: #fff;
-                    }
-
-                    .socialmedia li a:hover:before {
-                        top: 0;
-                    }
-
-
-                    .socialmedia li a:before {
-                        background: #000;
-                    }
-                    </style>
-                </div>
+    <div class="join_our_newsletter">
+        <h1>
+            join our newsletter
+        </h1>
+    </div>
+    <div class="input_type_newsletter ">
+        <input type="text" name="" id="" required>
+        <label for="">ENTER YOUR EMAIL ADDRESS HERE</label>
+    </div>
+    <div class="social_media_newsletter">
+        <ul>
+            <li>Follow us</li>
+            <li><a href="">Instagram</a></li>
+            <li><a href="">Facebook</a></li>
+            <li><a href="">X</a></li>
+            <li><a href="">Pinterest</a></li>
+            <li><a href="">Youtube</a></li>
+            <li><a href="">Spotify</a></li>
+        </ul>
+    </div>
+    <div class="social_media_newsletter">
+        <div class="helpFoot footLink">
+            <ul>
+                <li><a href="">Help</a></li>
+                <li><a href="">My Zara Account</a></li>
+                <li><a href="">Items and Sizes</a></li>
+                <li><a href="">Gift Options</a></li>
+                <li><a href="">Shipping</a></li>
+                <li><a href="">Payment and Invoices</a></li>
+                <li><a href="">My purchases</a></li>
+                <li><a href="">Exchanges, returns and refunds</a></li>
+                <li><a href="">Zara Experiencies</a></li>
+            </ul>
+        </div>
+        <div class="helpFoot footLink">
+            <ul>
+                <li><a href="">Policies</a></li>
+                <li><a href="">Newsletter</a></li>
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Facebook</a></li>
+                <li><a href="">X</a></li>
+                <li><a href="">Pinterest</a></li>
+                <li><a href="">Youtube</a></li>
+            </ul>
+        </div>
+        <div class="helpFoot footLink">
+            <ul>
+                <li><a href="">Company</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Join Life</a></li>
+                <li><a href="">Offices</a></li>
+                <li><a href="">Stores</a></li>
+                <li><a href="">Work with us</a></li>
+            </ul>
+        </div>
+        <div class="helpFoot footLink">
+            <ul>
+                <li><a href="">Policies</a></li>
+                <li><a href="">Privacy policy</a></li>
+                <li><a href="">Purchase conditions</a></li>
+                <li><a href="">Gift Card Conditions</a></li>
+                <li><a href="">Cookies Settings</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyrightfoot">
+        <div class="NameOfcountry">
+            <h1>INDIA</h1>
+        </div>
+        <div class="copyandLanguage">
+            <div class="language">
+                <h1>ENGLISH</h1>
             </div>
-            <div class="bottomfooter">
-                <p>Copyright © 2024 <a href="#">Quintet</a> All rights reserved</p>
+            <div class="messCopy">
+                <h1>© All rights reserved</h1>
             </div>
-        </div><!-- /.container -->
-    </div><!-- /.links-social -->
+        </div>
+    </div>
 </footer>

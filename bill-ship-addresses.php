@@ -97,6 +97,8 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
+    <?php include('includes/search.php'); ?>
+
     <!-- ============================================== HEADER : END ============================================== -->
 
     <style>
@@ -104,10 +106,10 @@ if (strlen($_SESSION['login']) == 0) {
     .form-group textarea {
         border: 2px solid gray !important;
         border: 2px solid gray;
-        font-family: 'Raleway', sans-serif !important;
+        font-family: 'Poppins', sans-serif !important;
         font-size: 15px;
         color: #000;
-        font-weight: 600;
+        font-weight: 400;
         height: 60px;
         border-radius: 10px;
 
@@ -121,10 +123,10 @@ if (strlen($_SESSION['login']) == 0) {
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-        font-family: 'Raleway', sans-serif !important;
+        font-family: 'Poppins', sans-serif !important;
         font-size: 15px;
         color: #000;
-        font-weight: 600;
+        font-weight: 400;
         text-transform: capitalize;
     }
 
@@ -139,8 +141,8 @@ if (strlen($_SESSION['login']) == 0) {
         height: 40px !important;
         font-size: 13px !important;
         border-radius: 50px !important;
-        font-family: 'Raleway', sans-serif !important;
-        font-weight: 600 !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 400 !important;
     }
 
     .checkout-page-button:hover {
@@ -184,8 +186,8 @@ if (strlen($_SESSION['login']) == 0) {
                             font-size: 15px;
                             pointer-events: none;
                             transition: 0.3s;
-                            font-family: 'Raleway', sans-serif !important;
-                            font-weight: 500;
+                            font-family: 'Poppins', sans-serif !important;
+                            font-weight: 400;
                         }
 
                         input:focus,
@@ -215,10 +217,10 @@ if (strlen($_SESSION['login']) == 0) {
                             <div class="panel  checkout-step-01">
 
                                 <!-- panel-heading -->
-                                <div class="">
+                                <div class="" style="margin-bottom: 20px;">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Billing Address
                                         </a>
                                     </h4>
@@ -299,10 +301,10 @@ if (strlen($_SESSION['login']) == 0) {
                             <!-- checkout-step-01  -->
                             <!-- checkout-step-02  -->
                             <div class="panel  ">
-                                <div class="">
+                                <div class="" style="margin-bottom: 20px;">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="margin-top: 40px;text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="margin-top: 40px;text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Shipping Address
 
                                         </a>

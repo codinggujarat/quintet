@@ -157,67 +157,71 @@ if (isset($_POST['login'])) {
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
+    <?php include('includes/search.php'); ?>
 
     <!-- ============================================== HEADER : END ============================================== -->
 
     <style>
     .form-group label {
-        font-family: 'Raleway', sans-serif !important;
-        font-size: 17px;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px;
         color: #000;
-        font-weight: 500;
-        text-transform: capitalize;
+        font-weight: 400;
+        text-transform: uppercase;
     }
 
     .form-group input {
-        border: 2px solid gray !important;
-        font-family: 'Raleway', sans-serif !important;
-        font-size: 15px !important;
+        border: 0;
+        border: 1px solid black !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
         color: #000 !important;
-        font-weight: 600 !important;
+        font-weight: 400 !important;
         padding: 10px 20px !important;
         width: 100%;
-        height: 60px;
+        height: 50px;
         box-shadow: 0 !important;
-        border-radius: 10px;
+        border-radius: 0px;
     }
 
 
 
 
     .form-group input::placeholder {
-        font-family: 'Raleway', sans-serif !important;
-        font-size: 15px !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-size: 12px !important;
         color: #000 !important;
-        font-weight: 600 !important;
+        font-weight: 400 !important;
         text-transform: capitalize !important;
     }
 
     .form-group input:focus {
-        border: 2px solid black !important;
+        border: 1px solid black !important;
         box-shadow: none !important;
     }
 
     .checkout-page-button {
-        background: #000 !important;
-        width: 100% !important;
-        color: #fff !important;
-        height: 50px !important;
-        font-size: 18px !important;
-        border-radius: 10px !important;
-        font-family: 'Raleway', sans-serif !important;
-        font-weight: 400 !important;
+        background: #fff;
+        width: 100%;
+        color: #000;
+        height: 50px;
+        font-size: 14px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        outline: 0;
+        border: 1px solid black;
+        text-transform: uppercase;
     }
 
     .checkout-page-button:hover {
-        color: #fff !important;
+        color: #000 !important;
         border: 1px solid black !important;
     }
     </style>
     <div class="body-content outer-top-bd">
         <style>
         .main-formbody {
-            height: 90vh !important;
+            height: 100vh !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -335,37 +339,25 @@ if (isset($_POST['login'])) {
 
         .form .text {
             color: #333 !important;
+            font-weight: 400;
+            font-family: 'Poppins', sans-serif !important;
+
             font-size: 14px !important;
         }
 
         .form a.text {
-            color: #4070f4 !important;
-            text-decoration: none !important;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: #000 !important;
+            text-decoration: underline !important;
+            font-family: 'Poppins', sans-serif;
         }
 
         .form a:hover {
             text-decoration: underline !important;
         }
 
-        .form .button {
-            margin-top: 35px !important;
-        }
 
-        .form .button input {
-            border: none !important;
-            color: #fff !important;
-            font-size: 17px !important;
-            font-weight: 500 !important;
-            letter-spacing: 1px !important;
-            border-radius: 6px !important;
-            background-color: #4070f4 !important;
-            cursor: pointer !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .button input:hover {
-            background-color: #265df2 !important;
-        }
 
         .form .login-signup {
             margin-top: 30px !important;
@@ -392,8 +384,9 @@ if (isset($_POST['login'])) {
             padding-left: 5px;
             color: #000;
             margin-top: 5px;
-            font-weight: 600;
-            font-family: 'Raleway', sans-serif !important;
+            font-weight: 400;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif !important;
 
         }
 
@@ -408,7 +401,7 @@ if (isset($_POST['login'])) {
 
         .invalid-feedback span {
             font-size: 13px;
-            font-family: 'Raleway', sans-serif !important;
+            font-family: 'Poppins', sans-serif !important;
         }
 
         .input-field-login {
@@ -423,11 +416,11 @@ if (isset($_POST['login'])) {
             left: 15px;
             transform: translateY(-50%);
             color: #000;
-            font-size: 15px;
+            font-size: 12px;
             pointer-events: none;
             transition: 0.3s;
-            font-family: 'Raleway', sans-serif !important;
-            font-weight: 500;
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 400;
         }
 
         input:focus,
@@ -441,7 +434,7 @@ if (isset($_POST['login'])) {
         textarea:valid~label {
             top: 0;
             left: 15px;
-            font-size: 16px;
+            font-size: 12px;
             padding: 0 2px;
             background: #fff;
             color: #000;
@@ -457,12 +450,12 @@ if (isset($_POST['login'])) {
                 <div class="forms">
                     <div class="form login">
                         <h4 class=""
-                            style="  font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 500;text-transform: capitalize;  ">
+                            style="  font-family: 'Poppins' , sans-serif !important;font-size:20px;color: #000; font-weight: 300 !important;text-transform:uppercase;  ">
                             sign
                             in
                         </h4>
                         <p class=""
-                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000; font-weight: 500;text-transform: capitalize; ">
+                            style="font-family: 'Poppins' , sans-serif !important;font-size: 10px;color: #000; font-weight: 300 !important;text-transform:uppercase; ">
                             Hello, Welcome to
                             your
                             account.</p>
@@ -501,13 +494,12 @@ if (isset($_POST['login'])) {
                             </span>
                             <div class="radio outer-xs ">
                                 <a href="forgot-password.php" class="forgot-password pull-right"
-                                    style="text-decoration: underline;  font-size: 15px !important ;color: #000;font-family: 'Raleway' , sans-serif !important;font-weight: 600 !important ;text-transform: capitalize !important ; ">
+                                    style="text-decoration: underline;  font-size: 12px !important ;color: #000;font-family: 'Poppins' , sans-serif !important;font-weight: 300 !important ;text-transform:uppercase !important ; ">
                                     Forgot
                                     your
                                     Password?</a>
                             </div>
-                            <button type=" submit" class="btn-upper btn btn-primary checkout-page-button"
-                                name="login">Login</button>
+                            <button type=" submit" class=" checkout-page-button" name="login">Login</button>
                         </form>
                         <div class="login-signup">
                             <span class="text">Create Account?
@@ -518,11 +510,11 @@ if (isset($_POST['login'])) {
                     <!-- Registration Form -->
                     <div class="form signup">
                         <h4 class="checkout-subtitle"
-                            style=" font-family: 'Raleway' , sans-serif !important;font-size:40px;color: #000; font-weight: 500; text-transform: capitalize;  ">
+                            style="  font-family: 'Poppins' , sans-serif !important;font-size:20px;color: #000; font-weight: 300 !important;text-transform:uppercase;    ">
                             create a
                             new account</h4>
                         <p class="text title-tag-line"
-                            style="font-family: 'Raleway' , sans-serif !important;font-size: 20px;color: #000; font-weight: 500;text-transform: capitalize; ">
+                            style="font-family: 'Poppins' , sans-serif !important;font-size: 10px;color: #000; font-weight: 300 !important;text-transform:uppercase; ">
                             Create
                             your own Shopping account.</p>
                         <form class="register-form outer-top-xs needs-validation" novalidate role="form" method="post"
@@ -575,8 +567,8 @@ if (isset($_POST['login'])) {
 
 
 
-                            <button type="submit" name="submit" class="btn-upper btn btn-primary checkout-page-button"
-                                id="submit">Sign Up</button>
+                            <button type="submit" name="submit" class=" checkout-page-button" id="submit">Sign
+                                Up</button>
                         </form>
                         <div class="login-signup">
                             <span class="text">Sign in with your account?
@@ -651,18 +643,28 @@ if (isset($_POST['login'])) {
                     <div class="row">
                         <div class="col-md-6 col-sm-4 col-lg-4 ">
                             <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class=" row  " style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
-                                                    #000; font-weight: 500; ">
+                                <div class=" row  " style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 400; ">
                                     <div class="col-lg-12" style="margin-bottom: 10px; ">
-                                        <i class="bx bxs-truck" style="color: #000;font-size: 50px; "></i>
+                                        <svg width="30px" fill="#000000" viewBox="0 -64 640 640"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path
+                                                    d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48v320c0 26.5 21.5 48 48 48h16c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z">
+                                                </path>
+                                            </g>
+                                        </svg>
                                     </div>
                                     <span class="col-lg-12"
-                                        style="text-transform: uppercase;font-size: 14px;font-weight: 600;margin-bottom: 5px; font-weight: 700;    ">Free
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">Free
                                         & Fast
                                         Delivery
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
                                         Shipping within 48 hours across India.
 
                                     </h6>
@@ -672,18 +674,27 @@ if (isset($_POST['login'])) {
 
                         <div class="hidden-md col-sm-4 col-lg-4">
                             <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class="row" style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
-                                                    #000; font-weight: 500; ">
+                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 400; ">
                                     <div class="col-lg-12 " style="margin-bottom: 10px; ">
-                                        <i class="bx bx-revision" style="color: #000;font-size: 50px; "></i>
-
+                                        <svg width="30px" fill="#000000" viewBox="0 0 56 56"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path
+                                                    d="M 19.2811 49.5156 C 20.5233 49.5156 21.3436 48.6719 21.3436 47.4531 C 21.3436 46.8438 21.1561 46.3984 20.7811 46.0234 L 14.0311 39.4375 L 9.5780 35.6406 L 15.0858 35.8750 L 44.9920 35.8750 C 50.4529 35.8750 52.7267 33.3672 52.7267 28.0703 L 52.7267 14.2188 C 52.7267 8.7578 50.4529 6.4844 44.9920 6.4844 L 31.8671 6.4844 C 30.5780 6.4844 29.7342 7.4219 29.7342 8.5703 C 29.7342 9.7188 30.5780 10.6562 31.8671 10.6562 L 44.9920 10.6562 C 47.4764 10.6562 48.5545 11.7344 48.5545 14.2188 L 48.5545 28.0703 C 48.5545 30.6250 47.4764 31.7031 44.9920 31.7031 L 15.0858 31.7031 L 9.5780 31.9375 L 14.0311 28.1406 L 20.7811 21.5547 C 21.1561 21.1797 21.3436 20.7109 21.3436 20.1016 C 21.3436 18.9062 20.5233 18.0391 19.2811 18.0391 C 18.7655 18.0391 18.1561 18.2969 17.7577 18.6953 L 3.9764 32.2188 C 3.5077 32.6640 3.2733 33.2031 3.2733 33.7891 C 3.2733 34.3516 3.5077 34.9140 3.9764 35.3594 L 17.7577 48.8828 C 18.1561 49.2813 18.7655 49.5156 19.2811 49.5156 Z">
+                                                </path>
+                                            </g>
+                                        </svg>
                                     </div>
                                     <span class="col-lg-12 "
-                                        style="margin-bottom: 5px;text-transform: uppercase;font-size: 14px;font-weight: 700;  ">
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;     ">
                                         Return Policy
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;  ">
                                         Returns with 7 days.
 
                                     </h6>
@@ -693,19 +704,40 @@ if (isset($_POST['login'])) {
 
                         <div class="col-md-6 col-sm-4 col-lg-4">
                             <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class="row" style="text-align: center; font-family: 'Raleway' , sans-serif !important;font-size:25px;color:
-                                                    #000; font-weight: 500; ">
+                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                                                    #000; font-weight: 400; ">
                                     <div class=" col-lg-12" style="margin-bottom: 10px; ">
-                                        <i class=" bx bxs-envelope" style="color: #000;font-size: 50px; "></i>
+                                        <svg width="30px" viewBox=" 0 -2.5 20 20" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <title>email [#1572]</title>
+                                                <desc>Created with Sketch.</desc>
+                                                <defs> </defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="Dribbble-Light-Preview"
+                                                        transform="translate(-340.000000, -922.000000)" fill="#000000">
+                                                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                                                            <path
+                                                                d="M294,774.474 L284,765.649 L284,777 L304,777 L304,765.649 L294,774.474 Z M294.001,771.812 L284,762.981 L284,762 L304,762 L304,762.981 L294.001,771.812 Z"
+                                                                id="email-[#1572]"> </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
                                     </div>
                                     <span class="col-lg-12"
-                                        style="text-transform: uppercase;font-size: 14px;font-weight: 600; margin-bottom: 5px;font-weight: 700;   ">
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">
                                         Contact us
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="text-transform: capitalize  ;font-size: 13px;font-weight: 700;   ">
+                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
                                         Write us at example.com
-
                                     </h6>
                                 </div>
                             </div>

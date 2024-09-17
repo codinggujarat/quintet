@@ -78,6 +78,8 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include('includes/top-header.php'); ?>
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
+        <?php include('includes/search.php'); ?>
+
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
 
@@ -87,30 +89,36 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php include('includes/myaccount-sidebar.php'); ?>
                 <div class="shopping-cart">
 
-                    <div class="col-md-9 col-sm-12 shopping-cart-table ">
+                    <div class="col-md-9 col-sm-12 shopping-cart-table " style="margin-top: 100px;">
                         <div class="">
-                            <form name="cart" method="post">
+                            <form name=" cart" method="post">
 
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <?php $query = mysqli_query($con, "select products.productImage1 as pimg1,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity  as qty, orders.orderStatus as ostatus,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on  orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
+
+                                <div class=""
+                                    style="background: transparent !important ; border-bottom:none !important  ; ">
+                                    <h4 class="unicase-checkout-title">
+                                        <a
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
+                                            Order History
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div class=" mywishlistcards" style="display: flex;
+                                            align-items: center;
+                                            justify-content: start;
+                                            flex-wrap: wrap;">
+                                    <?php $query = mysqli_query($con, "select products.productImageSix as pimg6,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity  as qty, orders.orderStatus as ostatus,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on  orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
                                         $cnt = 1;
 
                                         while ($row = mysqli_fetch_array($query)) {
-                                        ?><div
-                                        class="m-t-20 col-xxl-2 col-lg-3 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                                        ?><div class=" mywishlistcard">
                                         <style>
                                         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                                        .mywishlistcard {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: start;
-                                            flex-wrap: wrap;
-                                        }
 
                                         @media only screen and (max-width: 800px) {
-                                            .mywishlistcard {
-                                                justify-content: center;
+                                            .mywishlistcards {
+                                                justify-content: center !important;
                                             }
                                         }
 
@@ -118,41 +126,75 @@ if (strlen($_SESSION['login']) == 0) {
                                             display: flex;
                                             align-items: center;
                                             justify-content: space-between;
+                                            padding-left: 10px;
+                                            padding-right: 10px;
                                         }
 
                                         .cart-product-sub-total span {
                                             font-size: 12px;
                                             text-transform: uppercase;
-                                            font-family: 'Raleway', sans-serif !important;
-                                            font-weight: 600 !important;
+                                            font-family: 'Poppins', sans-serif !important;
+                                            font-weight: 400 !important;
                                             color: #000 !important;
                                         }
 
                                         .mywishlistcardimage {
-                                            width: 220px !important;
+                                            width: 100% !important;
                                             height: 100% !important;
                                             background: white !important;
                                             object-fit: cover;
+                                        }
+
+                                        .mywishlistcardimage .entry-thumbnail img {
+                                            border-bottom: 1px solid black;
                                         }
 
                                         .trackorder {
                                             display: flex;
                                             align-items: center;
                                             justify-content: center;
+                                            border: 0 !important;
+                                            border-top: 1px solid black !important;
+                                        }
+
+                                        .col-card {
                                             border: 1px solid black;
+                                            width: 250px;
+                                        }
+
+                                        .name {
+                                            width: 80% !important;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                        }
+
+                                        @media only screen and (max-width: 800px) {
+                                            .col-card {
+                                                border: 1px solid black;
+                                                width: 200px;
+                                            }
+                                        }
+
+                                        @media only screen and (max-width: 500px) {
+                                            .col-card {
+                                                border: 1px solid black;
+                                                width: 170px;
+                                            }
                                         }
                                         </style>
                                         <div class="col-card">
                                             <div class="mywishlistcardimage">
                                                 <a class="entry-thumbnail"
                                                     href="product-details.php?pid=<?php echo $row['opid']; ?>">
-                                                    <img src="admin/productimages/<?php echo $row['proid']; ?>/<?php echo $row['pimg1']; ?>"
+                                                    <img src="admin/productimages/<?php echo $row['proid']; ?>/<?php echo $row['pimg6']; ?>"
                                                         alt="" width="100%" height="100%">
                                                 </a>
                                             </div>
                                             <div class="mywishlistcardimage">
-                                                <h4 class='cart-product-description' style="width: 100%; ">
-                                                    <a style=" font-family: sans-serif, ' Poppins' !important;font-weight: 600 !important;font-size: 15px;"
+                                                <h4 class='cart-product-description name'
+                                                    style="width: 100%;padding-left:10px;padding-right:10px; ">
+                                                    <a style=" font-family: sans-serif, ' Poppins' !important;font-weight:400 !important;font-size: 13px !important; "
                                                         href="product-details.php?pid=<?php echo $row['opid']; ?>">
                                                         <?php echo $row['pname']; ?></a>
                                                 </h4>
@@ -163,7 +205,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                         Quantity
                                                     </span>
                                                     <span class="cart-sub-total-price"
-                                                        style=" font-weight: 600 !important;font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        style=" font-weight: 400 !important;font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
                                                         <?php echo $qty = $row['qty']; ?>
                                                     </span>
                                                 </h4>

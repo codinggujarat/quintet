@@ -72,7 +72,6 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- box-icon -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
@@ -118,6 +117,8 @@ if (strlen($_SESSION['login']) == 0) {
         <!-- ============================================== NAVBAR : END ============================================== -->
 
     </header>
+    <?php include('includes/search.php'); ?>
+
     <!-- ============================================== HEADER : END ============================================== -->
 
     <style>
@@ -125,7 +126,7 @@ if (strlen($_SESSION['login']) == 0) {
     .form-group textarea {
         border: 2px solid gray !important;
         border: 2px solid gray;
-        font-family: 'poppins', sans-serif !important;
+        font-family: 'Poppins', sans-serif !important;
         font-size: 15px;
         color: #000;
         height: 60px;
@@ -142,10 +143,10 @@ if (strlen($_SESSION['login']) == 0) {
 
     .form-group input::placeholder,
     .form-group textarea::placeholder {
-        font-family: 'Raleway', sans-serif !important;
+        font-family: 'Poppins', sans-serif !important;
         font-size: 15px;
         color: #000;
-        font-weight: 600;
+        font-weight: 400;
         text-transform: capitalize;
     }
 
@@ -160,7 +161,7 @@ if (strlen($_SESSION['login']) == 0) {
         height: 40px !important;
         font-size: 13px !important;
         border-radius: 50px !important;
-        font-family: 'Raleway', sans-serif !important;
+        font-family: 'Poppins', sans-serif !important;
         font-weight: 600 !important;
     }
 
@@ -203,8 +204,8 @@ if (strlen($_SESSION['login']) == 0) {
                             font-size: 15px;
                             pointer-events: none;
                             transition: 0.3s;
-                            font-family: 'Raleway', sans-serif !important;
-                            font-weight: 500;
+                            font-family: 'Poppins', sans-serif !important;
+                            font-weight: 400;
                         }
 
                         input:focus {
@@ -235,7 +236,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     style="background: transparent !important ; border-bottom:none !important  ; ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
                                             Account Details
                                         </a>
                                     </h4>
@@ -309,7 +310,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     style="background: transparent !important ; border-bottom:none !important  ;  ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Raleway',sans-serif;font-size: 24px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 500 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Change Password </a>
                                     </h4>
                                 </div>
@@ -382,8 +383,8 @@ if (strlen($_SESSION['login']) == 0) {
                                             color: #000;
                                             margin-left: 20px;
                                             margin-top: 5px;
-                                            font-weight: 600;
-                                            font-family: 'Raleway', sans-serif !important;
+                                            font-weight: 400;
+                                            font-family: 'Poppins', sans-serif !important;
 
                                         }
 

@@ -66,6 +66,8 @@ if (strlen($_SESSION['login']) == 0) {
         <?php include('includes/top-header.php'); ?>
         <?php include('includes/main-header.php'); ?>
         <?php include('includes/menu-bar.php'); ?>
+        <?php include('includes/search.php'); ?>
+
     </header>
 
 

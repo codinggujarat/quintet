@@ -192,20 +192,54 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                     <?php if (isset($_POST['submit'])) { ?>
                                     <div class="alert alert-success">
-                                        <button type="button" class="close" data-dismiss="alert">×</button>
-                                        <strong>Well done!</strong>
-                                        <?php echo htmlentities($_SESSION['msg']); ?>
-                                        <?php echo htmlentities($_SESSION['msg'] = ""); ?>
+                                        <h6>
+                                            <span>
+                                                Well done!
+                                            </span>
+                                            <?php echo htmlentities($_SESSION['msg']); ?>
+                                            <?php echo htmlentities($_SESSION['msg'] = ""); ?>
+                                        </h6>
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <svg fill="#000000" height="12px" width="12px" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <polygon
+                                                        points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 ">
+                                                    </polygon>
+                                                </g>
+                                            </svg>
+                                        </button>
                                     </div>
                                     <?php } ?>
 
 
                                     <?php if (isset($_GET['del'])) { ?>
                                     <div class="alert alert-error">
-                                        <button type="button" class="close" data-dismiss="alert">×</button>
-                                        <strong>Oh snap!</strong>
-                                        <?php echo htmlentities($_SESSION['delmsg']); ?>
-                                        <?php echo htmlentities($_SESSION['delmsg'] = ""); ?>
+                                        <h6>
+                                            <span>Oh snap!</span>
+                                            <?php echo htmlentities($_SESSION['delmsg']); ?>
+                                            <?php echo htmlentities($_SESSION['delmsg'] = ""); ?>
+                                        </h6>
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <svg fill="#000000" height="12px" width="12px" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <polygon
+                                                        points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 ">
+                                                    </polygon>
+                                                </g>
+                                            </svg>
+                                        </button>
                                     </div>
                                     <?php } ?>
 
@@ -223,7 +257,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                         <div class="control-group mb-3 input-field-login">
                                             <textarea class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
-                                                name="description"></textarea>
+                                                name="description" required></textarea>
                                             <label>Description</label>
                                         </div>
 

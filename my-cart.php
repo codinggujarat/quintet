@@ -146,6 +146,7 @@ if (isset($_POST['shipupdate'])) {
         <?php include('includes/menu-bar.php'); ?>
     </header>
 
+    <?php include('includes/search.php'); ?>
 
     <div class="body-content outer-top-xs">
         <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
