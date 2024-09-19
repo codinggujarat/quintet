@@ -824,56 +824,63 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     </div>
                 </div>
                 <script>
+                // Click handler for MYGRID6 button
                 document.getElementById('MYGRID6').addEventListener('click', function() {
-                        var boxes = document.querySelectorAll(
-                            '.responsiveCard'); // Select all elements with the class 'myBox'
+                    var gridContainer = document.querySelector(
+                        '.productimagetab'); // Assuming your grid container has this class
 
-                        boxes.forEach(function(box) {
-                                box.style.width = "100%"; // Toggle 'active' class for each box
-                            }
+                    // Change the grid layout to 6 columns
+                    gridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
 
-                        );
-                        var productName = document.querySelectorAll('.productName');
-                        productName.forEach(function(productName) {
-                            productName.style.display = "none"; // Toggle 'active' class for each box
-                        });
-                    }
+                    var boxes = document.querySelectorAll(
+                        '.productimagetab'); // Select all elements with the class 'productimagetab'
+                    boxes.forEach(function(box) {
+                        box.style.width = "100%"; // Adjust width of each box
+                    });
 
-                );
+                    var productName = document.querySelectorAll('.productName');
+                    productName.forEach(function(productName) {
+                        productName.style.display = "none"; // Hide product name
+                    });
+                });
 
+                // Click handler for MYGRID2 button
                 document.getElementById('MYGRID2').addEventListener('click', function() {
-                        var boxes = document.querySelectorAll(
-                            '.responsiveCard'); // Select all elements with the class 'myBox'
+                    var gridContainer = document.querySelector(
+                        '.productimagetab'); // Assuming your grid container has this class
 
-                        boxes.forEach(function(box) {
-                                box.style.width = "210px"; // Toggle 'active' class for each box
-                            }
+                    // Change the grid layout to 2 columns
+                    gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
 
-                        );
-                        var productName = document.querySelectorAll('.productName');
-                        productName.forEach(function(productName) {
-                            productName.style.display = "block"; // Toggle 'active' class for each box
-                        });
-                    }
+                    var boxes = document.querySelectorAll('.productimagetab');
+                    boxes.forEach(function(box) {
+                        box.style.width = "100%"; // Adjust width of each box
+                    });
 
-                );
+                    var productName = document.querySelectorAll('.productName');
+                    productName.forEach(function(productName) {
+                        productName.style.display = "none"; // Show product name
+                    });
+                });
 
+                // Click handler for MYGRID12 button
                 document.getElementById('MYGRID12').addEventListener('click', function() {
-                        var boxes = document.querySelectorAll(
-                            '.responsiveCard'); // Select all elements with the class 'myBox'
+                    var gridContainer = document.querySelector(
+                        '.productimagetab'); // Assuming your grid container has this class
 
-                        boxes.forEach(function(box) {
-                                box.style.width = "130px"; // Toggle 'active' class for each box
-                            }
+                    // Change the grid layout to 12 columns
+                    gridContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
 
-                        );
-                        var productName = document.querySelectorAll('.productName');
-                        productName.forEach(function(productName) {
-                            productName.style.display = "none"; // Toggle 'active' class for each box
-                        });
-                    }
+                    var boxes = document.querySelectorAll('.productimagetab');
+                    boxes.forEach(function(box) {
+                        box.style.width = "100%"; // Adjust width of each box
+                    });
 
-                );
+                    var productName = document.querySelectorAll('.productName');
+                    productName.forEach(function(productName) {
+                        productName.style.display = "none"; // Hide product name
+                    });
+                });
                 </script>
                 <style>
                 .btn-card-box {
@@ -937,20 +944,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         <div class="product-slider wow fadeInUpBig">
                             <style>
                             .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: safe !important;
-                                flex-wrap: wrap;
+                                display: grid;
+                                grid-template-columns: repeat(6, 1fr);
+                                grid-auto-rows: auto;
                                 width: 100%;
-                            }
-
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
                             }
                             </style>
                             <div class="productimagetab">
@@ -968,10 +965,9 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 .product {
                                     height: 100%;
                                     margin: 0;
-                                    width: 295px;
+                                    width: auto !important;
                                     padding: 0;
-                                    flex-wrap: wrap;
-                                    height: 100%;
+                                    border: 1px solid black !important;
 
                                 }
 
@@ -997,12 +993,24 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 }
 
 
+                                @media only screen and (max-width: 1200px) {
+                                    .productimagetab {
+                                        grid-template-columns: repeat(5, 1fr);
+                                    }
+                                }
+
+                                @media only screen and (max-width: 1000px) {
+                                    .productimagetab {
+                                        grid-template-columns: repeat(4, 1fr);
+                                    }
+                                }
+
                                 @media only screen and (max-width: 550px) {
 
-
-                                    .product {
-                                        width: 210px;
+                                    .productimagetab {
+                                        grid-template-columns: repeat(2, 1fr);
                                     }
+
 
 
                                     .addtocart {
@@ -1021,17 +1029,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                         font-size: 10px !important;
                                     }
 
-                                    .product-info .favorites {
-                                        display: none;
-                                    }
+
                                 }
 
                                 @media only screen and (max-width: 350px) {
-
-                                    .products,
-                                    .product {
-                                        width: 100px !important;
-                                    }
 
                                     .name {
                                         width: 100% !important;
@@ -1054,52 +1055,50 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 }
                                 </style>
 
-                                <div class=" item item-carousel ">
-                                    <div class="products">
-                                        <div class="product responsiveCard">
-                                            <div class="product-image" style=" background:#F2F3F8 !important; ">
-                                                <div class=" image " data-wow-delay="0.1s"
-                                                    style="background:transparent !important;">
-                                                    <a
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            width=" 100%" height="100%" alt=""></a>
-                                                </div>
+                                <div class="products">
+                                    <div class="product ">
+                                        <div class="product-image" style=" background:#F2F3F8 !important; ">
+                                            <div class=" image " data-wow-delay="0.1s"
+                                                style="background:transparent !important;">
+                                                <a
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        width=" 100%" height="100%" alt=""></a>
                                             </div>
-                                            <div class=" product-info text-left productName"
-                                                style="position:relative; padding-left:10px; ">
-                                                <h3 class="name" style="margin-top:10px;">
-                                                    <a style="font-family: sans-serif, ' Poppins'
+                                        </div>
+                                        <div class=" product-info text-left productName"
+                                            style="position:relative; padding-left:10px; ">
+                                            <h3 class="name" style="margin-top:10px;">
+                                                <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                </h3>
-                                                <div class=" product-price" style="margin-top: -15px; ">
-                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                            </h3>
+                                            <div class=" product-price" style="margin-top: -15px; ">
+                                                <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                        ₹
-                                                        <span style="margin-left: 1px;">
-                                                            <?php echo htmlentities($row['productPrice']); ?>
-                                                        </span>
+                                                    ₹
+                                                    <span style="margin-left: 1px;">
+                                                        <?php echo htmlentities($row['productPrice']); ?>
                                                     </span>
-                                                </div>
-                                                <div class="favorites">
-                                                    <a title="favourites"
-                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
-                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                </span>
+                                            </div>
+                                            <div class="favorites">
+                                                <a title="favourites"
+                                                    style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                    <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                        <g>
                                                             <g>
-                                                                <g>
-                                                                    <path
-                                                                        d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
-                                                                </g>
+                                                                <path
+                                                                    d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
                                                             </g>
-                                                        </svg>
-                                                    </a>
-                                                </div>
+                                                        </g>
+                                                    </svg>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -1115,21 +1114,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="lowtohigh">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "select * from products where category='$cid ' ORDER BY productPrice ASC");
@@ -1149,8 +1134,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1212,21 +1197,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="hightolow">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productPrice DESC");
@@ -1247,8 +1218,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1309,21 +1280,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="AtoZ">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName ASC");
@@ -1345,8 +1302,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1407,21 +1364,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="ZtoA">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName DESC");
@@ -1442,8 +1385,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1504,21 +1447,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="ZtoA">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "select * from products where category='$cid '  ORDER BY productName DESC");
@@ -1539,8 +1468,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1602,21 +1531,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="blackandwhiteandGray">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Black', 'Black & White', 'Black & Gray', 'White & Teal') ");
@@ -1635,8 +1550,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1698,21 +1613,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Blue">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Blue', 'Skyblue')");
@@ -1731,8 +1632,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1793,21 +1694,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Pink">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Pink','Bright Pink')");
@@ -1826,8 +1713,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1888,21 +1775,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Red">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Red','Dusty Rose','Copper Red')");
@@ -1921,8 +1794,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1983,21 +1856,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Green">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor = 'Green'");
@@ -2016,8 +1875,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2078,21 +1937,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Silver">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid ' AND productColor IN ('Silver','Silver Shadow')");
@@ -2111,8 +1956,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2174,21 +2019,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="Yellow">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab">
                                 <?php
@@ -2207,8 +2038,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2272,21 +2103,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="price3000to4000">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab">
                                 <?php
@@ -2305,8 +2122,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2369,21 +2186,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="price5000to10000">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid' AND productPrice BETWEEN 5000 AND 10000");
@@ -2401,8 +2204,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2465,21 +2268,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="price10000to20000">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid' AND productPrice BETWEEN 10000 AND 20000");
@@ -2498,8 +2287,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2562,21 +2351,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     <div class="tab-pane" id="priceover10000">
                         <div class="product-slider">
                             <style>
-                            .productimagetab {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-                            }
 
-                            @media only screen and (max-width: 800px) {
-                                .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: center !important;
-                                    flex-wrap: wrap;
-                                }
-                            }
                             </style>
                             <div class="productimagetab"> <?php
                                                             $ret = mysqli_query($con, "SELECT * FROM products WHERE category = '$cid' AND productPrice > 20000");
@@ -2595,8 +2370,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 

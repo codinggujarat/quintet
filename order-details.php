@@ -81,7 +81,7 @@ include('includes/config.php');
 
 
     <div class="body-content outer-top-xs">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div class="">
             <div class="row inner-bottom-sm">
                 <div class="shopping-cart">
                     <div class="col-md-12 col-sm-12 shopping-cart-table ">
@@ -89,19 +89,8 @@ include('includes/config.php');
                             <form name="cart" method="post">
                                 <style>
                                 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-                                .item,
-                                .last-item {
-                                    font-family: 'Raleway', sans-serif !important;
-                                    font-size: 12px !important;
-                                    color: #000;
-                                    border: 0 !important;
-                                    text-transform: uppercase;
-                                    font-weight: normal;
-                                }
                                 </style>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div>
                                     <?php
                                     $orderid = $_POST['orderid'];
                                     $email = $_POST['email'];
@@ -112,116 +101,172 @@ include('includes/config.php');
                                         $cnt = 1;
                                         while ($row = mysqli_fetch_array($query)) {
                                     ?>
-                                    <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
-                                    </div>
-                                    <style>
-                                    .mywishlistcard {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
+                                    <div class=" mywishlistcard">
 
-                                    }
-
-
-                                    @media only screen and (max-width: 800px) {
-                                        .mywishlistcard {
-                                            justify-content: center;
+                                        <style>
+                                        .mywishlistcards {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: start;
+                                            flex-wrap: wrap;
                                         }
-                                    }
 
-                                    .cart-product-sub-total {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: space-between;
-                                    }
+                                        .mywishlistcard {
+                                            border-top: 1px solid black;
 
-                                    .cart-product-sub-total span {
-                                        font-size: 12px;
-                                        text-transform: uppercase;
-                                        font-weight: 600 !important;
-                                        font-family: 'Raleway', sans-serif !important;
-                                        color: #000 !important;
-                                    }
+                                        }
 
-                                    .mywishlistcardimage {
-                                        width: 220px !important;
-                                        height: 100% !important;
-                                        background: white !important;
-                                        object-fit: cover;
-                                    }
-                                    </style>
-                                    <div class="col-card">
+                                        @media only screen and (max-width: 800px) {
+                                            .mywishlistcards {
+                                                justify-content: center !important;
+                                            }
+                                        }
 
-                                        <div class="mywishlistcardimage">
-                                            <a class="entry-thumbnail"
-                                                href="product-details.php?pid=<?php echo $row['opid']; ?>">
-                                                <img src="admin/productimages/<?php echo $row['opid']; ?>/<?php echo $row['pimg1']; ?>"
-                                                    alt="" width="100%" height="100%">
-                                            </a>
-                                        </div>
-                                        <div class="mywishlistcardimage">
-                                            <h4 class='cart-product-description' style="width: 120px; "><a
-                                                    style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
+                                        .cart-product-sub-total {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: space-between;
+                                            padding-left: 10px;
+                                            padding-right: 10px;
+                                        }
+
+                                        .cart-product-sub-total span {
+                                            font-size: 12px;
+                                            text-transform: uppercase;
+                                            font-family: 'Poppins', sans-serif !important;
+                                            font-weight: 400 !important;
+                                            color: #000 !important;
+                                        }
+
+                                        .mywishlistcardimage {
+                                            width: 100% !important;
+                                            height: 100% !important;
+                                            background: white !important;
+                                            object-fit: cover;
+                                        }
+
+                                        .mywishlistcardimage .entry-thumbnail img {
+                                            border-bottom: 1px solid black;
+                                        }
+
+                                        .trackorder {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            text-transform: uppercase;
+                                            border: 0 !important;
+                                            border-top: 1px solid black !important;
+                                        }
+
+                                        .col-card {
+                                            border: 1px solid black;
+                                            width: 300px;
+                                        }
+
+                                        .name {
+                                            width: 80% !important;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                        }
+
+                                        @media only screen and (max-width: 800px) {
+                                            .col-card {
+                                                border: 1px solid black;
+                                                width: 200px;
+                                            }
+
+                                        }
+
+                                        @media only screen and (max-width: 500px) {
+                                            .col-card {
+                                                border: 1px solid black;
+                                                width: 100%;
+                                            }
+
+                                            .mywishlistcards {
+                                                margin: 0;
+                                                padding: 20px;
+                                                width: 100%;
+                                                justify-content: center;
+                                            }
+
+                                            .mywishlistcard {
+                                                margin: 0;
+                                                padding: 0;
+                                            }
+                                        }
+                                        </style>
+                                        <div class="col-card">
+                                            <div class="mywishlistcardimage">
+                                                <a class="entry-thumbnail"
                                                     href="product-details.php?pid=<?php echo $row['opid']; ?>">
-                                                    <?php echo $row['pname']; ?></a></h4>
-                                        </div>
-                                        <div class="mywishlistcardimage">
+                                                    <img src="admin/productimages/<?php echo $row['opid']; ?>/<?php echo $row['pimg1']; ?>"
+                                                        alt="" width="100%" height="100%">
+                                                </a>
+                                            </div>
+                                            <div class="mywishlistcardimage">
+                                                <h4 class='cart-product-description' style="width: 120px; "><a
+                                                        style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
+                                                        href="product-details.php?pid=<?php echo $row['opid']; ?>">
+                                                        <?php echo $row['pname']; ?></a></h4>
+                                            </div>
+                                            <div class="mywishlistcardimage">
 
-                                        </div>
-                                        <div class="mywishlistcardimage">
-                                            <h4 class="cart-product-sub-total">
-                                                <span>Quantity</span>
-                                                <span
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-                                                    <?php echo $qty = $row['qty']; ?></span>
-                                            </h4>
-                                            <h4 class="cart-product-sub-total">
-                                                <span>Price Per unit
-                                                </span>
-                                                <span
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-                                                    <?php echo $price = $row['pprice']; ?></span>
-                                            </h4>
-                                            <h4 class="cart-product-sub-total">
-                                                <span>Total
-                                                </span>
-                                                <span
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-                                                    <?php echo $qty * $price; ?></span>
-                                            </h4>
-                                            <h4 class="cart-product-sub-total">
-                                                <span>Payment Method
-                                                </span>
-                                                <span
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-                                                    <?php echo $row['paym']; ?></span>
-                                            </h4>
-                                            <h4 class="cart-product-sub-total">
-                                                <span>Order Date
-                                                </span>
-                                                <span
-                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-                                                    <?php echo $row['odate']; ?></span>
-                                            </h4>
-                                        </div>
+                                            </div>
+                                            <div class="mywishlistcardimage">
+                                                <h4 class="cart-product-sub-total">
+                                                    <span>Quantity</span>
+                                                    <span
+                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        <?php echo $qty = $row['qty']; ?></span>
+                                                </h4>
+                                                <h4 class="cart-product-sub-total">
+                                                    <span>Price Per unit
+                                                    </span>
+                                                    <span
+                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        <?php echo $price = $row['pprice']; ?></span>
+                                                </h4>
+                                                <h4 class="cart-product-sub-total">
+                                                    <span>Total
+                                                    </span>
+                                                    <span
+                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        <?php echo $qty * $price; ?></span>
+                                                </h4>
+                                                <h4 class="cart-product-sub-total">
+                                                    <span>Payment Method
+                                                    </span>
+                                                    <span
+                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        <?php echo $row['paym']; ?></span>
+                                                </h4>
+                                                <h4 class="cart-product-sub-total">
+                                                    <span>Order Date
+                                                    </span>
+                                                    <span
+                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                        <?php echo $row['odate']; ?></span>
+                                                </h4>
+                                            </div>
 
-                                        <div class="mywishlistcardimage">
-                                            <a href="javascript:void(0);"
-                                                onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');"
-                                                title="Track order" class="trackorder"
-                                                style="border: 1px solid black;  background:#fff ;width: 100%;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ;">
-                                                <span>Track order</span>
-                                                <i class='bx bx-right-top-arrow-circle'
-                                                    style="font-size: 15px; margin-left: 10px;"></i>
-                                            </a>
+                                            <div class="mywishlistcardimage">
+                                                <a href="javascript:void(0);"
+                                                    onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');"
+                                                    title="Track order" class="trackorder"
+                                                    style="border: 1px solid black;  background:#fff ;width: 100%;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ;">
+                                                    <span>Track order</span>
+                                                    <i class='bx bx-right-top-arrow-circle'
+                                                        style="font-size: 15px; margin-left: 10px;"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <?php $cnt = $cnt + 1;
+                                    <?php $cnt = $cnt + 1;
                                         }
                                     } else { ?>
-                                <div class="noFound" style="
+                                    <div class="noFound" style="
                                         display: flex !important;
                                         align-items: center !important;
                                         justify-content: center !important;
@@ -230,12 +275,12 @@ include('includes/config.php');
                                         font-family: 'Raleway', sans-serif !important;
                                         color: #000 !important;
                                   ">
-                                    <h4>
-                                        Either order id or Registered email id is invalid
-                                    </h4>
-                                </div>
+                                        <h4>
+                                            Either order id or Registered email id is invalid
+                                        </h4>
+                                    </div>
 
-                                <?php } ?>
+                                    <?php } ?>
                             </form>
                         </div>
                     </div>

@@ -93,15 +93,14 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php include('includes/myaccount-sidebar.php'); ?>
 
                 <div class="shopping-cart">
-                    <div class="col-md-9 col-sm-12 shopping-cart-table " style="margin-top: 100px;">
+                    <div class="col-md-9 col-sm-12 shopping-cart-table " style="margin-top:10px;">
                         <div class="table-responsive">
-                            <form name="cart" method="post">
+                            <form name="cart" method="post" style="padding:20px;">
                                 <div class=""
                                     style="background: transparent !important ; border-bottom:none !important  ; ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
-
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase !important  ;font-weight: 300 !important;display: flex;align-items: center;justify-content: space-between;">
                                             Payment Pending Order
                                         </a>
                                     </h4>
@@ -318,16 +317,18 @@ if (strlen($_SESSION['login']) == 0) {
                                     display: flex !important;
                                     align-items: center !important;
                                     justify-content: center !important;
-                                    height: 100vh !important;
+                                    height: 50vh !important;
                                     width: 100% !important;
-                                    font-family: 'Raleway',
-                                        sans-serif !important;
-                                    color: #000 !important;
+
                                 }
 
                                 .noFound h4 {
-                                    font-size: 30px;
+                                    font-size: 20px;
                                     color: #000;
+                                    font-weight: 300;
+                                    font-family: 'Poppins', sans-serif !important;
+                                    color: #000 !important;
+                                    text-transform: uppercase;
                                 }
                                 </style>
                                 <?php } ?>

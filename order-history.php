@@ -89,16 +89,16 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php include('includes/myaccount-sidebar.php'); ?>
                 <div class="shopping-cart">
 
-                    <div class="col-md-9 col-sm-12 shopping-cart-table " style="margin-top: 100px;">
+                    <div class="col-md-9 col-sm-12 shopping-cart-table " style="margin-top: 10px;">
                         <div class="">
-                            <form name=" cart" method="post">
+                            <form name=" cart" method="post" style="padding: 20px;">
 
 
                                 <div class=""
                                     style="background: transparent !important ; border-bottom:none !important  ; ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase !important  ;font-weight: 300 !important;display: flex;align-items: center;justify-content: space-between;">
                                             Order History
                                         </a>
                                     </h4>
@@ -111,7 +111,8 @@ if (strlen($_SESSION['login']) == 0) {
                                         $cnt = 1;
 
                                         while ($row = mysqli_fetch_array($query)) {
-                                        ?><div class=" mywishlistcard">
+                                        ?>
+                                    <div class=" mywishlistcard">
                                         <style>
                                         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 

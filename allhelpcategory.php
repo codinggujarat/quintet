@@ -74,6 +74,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
     <!-- animated  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://api.fontshare.com/v2/css?f[]=panchang@300&f[]=cabinet-grotesk@300&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body class="cnt-home">
@@ -94,30 +97,69 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             <div class="row ">
 
                 <style>
-                .body-content {
-                    margin-top: 70px !important;
-                    margin-bottom: 100%;
+                html {
+                    scroll-behavior: smooth;
+
                 }
+
+                .body-content {
+                    margin-bottom: 100%;
+                    background: #ffffff !important;
+                }
+
 
                 .imgBox {
                     display: flex;
                     align-items: center;
                     justify-content: start;
-                    width: 100%;
-                    height: 100%;
+                    object-fit: cover;
                     margin: 0;
                     padding: 0;
                 }
 
-                @media only screen and (max-width:800px) {
+                .imgBox img {
+                    object-fit: cover;
+                }
+
+                @media only screen and (max-width:1200px) {
                     .imgBox {
                         width: 50%;
                     }
                 }
+
+                .scroll-btn {
+                    position: fixed;
+                    top: 90%;
+                    left: 50%;
+                    font-family: 'Panchang', sans-serif;
+                    z-index: 9;
+                    transform: translate(-50%, -50%);
+                }
+
+                .scroll-btn h1 {
+                    padding: 20px;
+                    font-size: 20px;
+                    transform: rotate(-90deg);
+                    cursor: pointer;
+                    transition: all 2s linear;
+                }
+
+                .scroll-btn h1 a {
+                    color: #fff;
+                    transition: all 1s linear;
+
+                }
                 </style>
+                <div class="scroll-btn">
+                    <h1>
+                        <a href="#alltopicscroll">
+                            SCROLL
+                        </a>
+                    </h1>
+                </div>
                 <div class="heroImg">
                     <?php
-                    $ret = mysqli_query($con, "select * from products where category=8 AND id=35  LIMIT 1");
+                    $ret = mysqli_query($con, "select * from products where category=8 AND id=94  LIMIT 1");
                     while ($row = mysqli_fetch_array($ret)) {
                         # code...
                     ?>
@@ -132,220 +174,265 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     <?php } ?>
                 </div>
                 <!-- Alltopic style -->
-                <style>
-                .Alltopichelp {
-                    height: 100vh;
-                    width: 100%;
-                    padding: 150px;
-                    margin: auto;
-                    background: white;
-                    margin-bottom: 200px;
-                }
-
-                .Alltopichelp .topic:nth-child(2) {
-                    margin-top: 100px;
-                }
-
-                .Alltopichelp .topic h1 {
-                    font-size: 15px;
-                    font-weight: 500;
-                    color: #000;
-                    text-transform: uppercase;
-                    font-family: 'Poppins', sans-serif;
-                }
-
-                .Alltopichelp .topicGroup ul {
-                    margin-top: 35px;
-                    display: grid;
-                    grid-template-columns: repeat(5, 1fr);
-                    grid-auto-rows: auto;
-                    grid-gap: 5rem;
-                }
-
-                .Alltopichelp .topicGroup ul li:first-child {
-                    margin-left: 0;
-                }
-
-                .Alltopichelp .topicGroup ul li {
-                    padding: 5px 20px;
-                    border: 1px solid black;
-                    text-align: center;
-                }
-
-                .Alltopichelp .topicGroup ul li a {
-                    font-size: 10px;
-                }
-
-                .topicBox {
-                    display: grid;
-                    grid-template-columns: repeat(4, 1fr);
-                    grid-auto-rows: auto;
-                    grid-gap: 1rem;
-                }
-
-                .topicBox .small_topicBox {
-                    padding: 30px;
-                    overflow: auto;
-                    border: 1px solid black;
-                    height: 250px;
-                    width: 270px;
-                    object-fit: cover;
-                    margin-top: 30px;
-                    margin-bottom: 30px;
-                }
-
-                .topicBox .small_topicBox::-webkit-scrollbar-track {
-                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
-                    background-color: #fff !important;
-                }
-
-                .topicBox .small_topicBox:hover.topicBox .small_topicBox::-webkit-scrollbar {
-                    display: block !important;
-                }
-
-                .topicBox .small_topicBox::-webkit-scrollbar {
-                    display: none !important;
-                    width: 10px !important;
-                    height: 2px !important;
-                }
-
-                .topicBox .small_topicBox::-webkit-scrollbar-thumb {
-                    border: 10px solid #000 !important;
-                }
-
-                .topicBox .small_topicBox ul li:first-child {
-                    font-size: 15px;
-                    color: #000;
-                    font-weight: 300;
-                    font-family: 'Poppins', sans-serif;
-                    margin-bottom: 20px;
-                }
-
-                .topicBox .small_topicBox ul li {
-                    margin-bottom: 5px;
-                }
-
-                .topicBox .small_topicBox ul li a {
-                    font-size: 10px;
-                    font-weight: 300;
-                    font-family: 'Poppins', sans-serif;
-                    color: #000;
-                }
-
-                .topicBox .small_topicBox ul li a:hover {
-                    text-decoration: underline;
-                    color: #000;
-                }
-
-                @media only screen and (max-width: 800px) {
-                    .topicBox {
-                        grid-template-columns: repeat(2, 1fr);
+                <div id="alltopicscroll">
+                    <h1 class="alltopicscroll">HELP</h1>
+                    <style>
+                    #alltopicscroll {
+                        z-index: 2 !important;
 
                     }
 
+                    #alltopicscroll .alltopicscroll {
+                        font-family: 'Cabinet Grotesk', sans-serif;
+                        font-size: 100px;
+                        font-weight: 200;
+                        color: #000;
+                        height: 30vh;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 100%;
+                        text-align: center;
+                    }
+
+                    .Alltopichelp {
+                        height: 100%;
+                        width: 100%;
+                        padding: 150px;
+                        margin: auto;
+                        background: white;
+                        margin-bottom: 300px;
+                        transition: all 1s linear;
+                        margin-top: -200px;
+
+
+                    }
+
+                    .Alltopichelp .topic:nth-child(2) {
+                        margin-top: 100px;
+                    }
+
+                    .Alltopichelp .topic h1 {
+                        font-size: 15px;
+                        font-weight: 500;
+                        color: #000;
+                        text-transform: uppercase;
+                        font-family: 'Poppins', sans-serif;
+                    }
+
                     .Alltopichelp .topicGroup ul {
-                        grid-template-columns: repeat(2, 1fr);
+                        margin-top: 35px;
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        grid-auto-rows: auto;
+                        grid-gap: 5rem;
+                    }
+
+                    .Alltopichelp .topicGroup ul li:first-child {
+                        margin-left: 0;
+                    }
+
+                    .Alltopichelp .topicGroup ul li {
+                        padding: 5px 20px;
+                        border: 1px solid black;
+                        text-align: center;
+                    }
+
+                    .Alltopichelp .topicGroup ul li a {
+                        font-size: 10px;
+                    }
+
+                    .topicBox {
+                        display: grid;
+                        grid-template-columns: repeat(4, 1fr);
+                        grid-auto-rows: auto;
                         grid-gap: 1rem;
                     }
 
                     .topicBox .small_topicBox {
-                        width: 200px;
+                        padding: 30px;
+                        overflow: auto;
+                        border: 1px solid black;
+                        height: 250px;
+                        width: 270px;
+                        object-fit: cover;
+                        margin-top: 30px;
+                        margin-bottom: 30px;
                     }
 
-                    .Alltopichelp {
-                        margin: 0;
-                        padding: 5px;
+                    .topicBox .small_topicBox::-webkit-scrollbar-track {
+                        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+                        background-color: #fff !important;
                     }
-                }
-                </style>
-                <div class="Alltopichelp">
-                    <div class="fitst-topic topic">
-                        <h1>
-                            Frequently Asked Questions
-                        </h1>
-                        <div class="topicGroup">
-                            <ul>
-                                <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
-                                <li><a href="OrderStatus">ORDER STATUS</a></li>
-                                <li><a href="HowToReturn">HOW TO RETURN</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="second-topic topic">
-                        <h1>
-                            All help topics
-                        </h1>
-                        <div class="topicBox">
-                            <div class="small_topicBox">
+
+                    .topicBox .small_topicBox:hover.topicBox .small_topicBox::-webkit-scrollbar {
+                        display: block !important;
+                    }
+
+                    .topicBox .small_topicBox::-webkit-scrollbar {
+                        display: none !important;
+                        width: 10px !important;
+                        height: 2px !important;
+                    }
+
+                    .topicBox .small_topicBox::-webkit-scrollbar-thumb {
+                        border: 10px solid #000 !important;
+                    }
+
+                    .topicBox .small_topicBox ul li:first-child {
+                        font-size: 15px;
+                        color: #000;
+                        font-weight: 300;
+                        font-family: 'Poppins', sans-serif;
+                        margin-bottom: 20px;
+                    }
+
+                    .topicBox .small_topicBox ul li {
+                        margin-bottom: 5px;
+                    }
+
+                    .topicBox .small_topicBox ul li a {
+                        font-size: 10px;
+                        font-weight: 300;
+                        font-family: 'Poppins', sans-serif;
+                        color: #000;
+                    }
+
+                    .topicBox .small_topicBox ul li a:hover {
+                        text-decoration: underline;
+                        color: #000;
+                    }
+
+                    @media only screen and (max-width:1200px) {
+                        #alltopicscroll .alltopicscroll {
+                            font-size: 40px;
+                        }
+
+                        .topicBox {
+                            grid-template-columns: repeat(3, 1fr);
+
+                        }
+
+                        .Alltopichelp {
+                            margin: 0;
+                            padding: 5px;
+                        }
+
+                        .topicBox .small_topicBox {
+                            width: auto;
+                        }
+                    }
+
+                    @media only screen and (max-width: 800px) {
+                        .topicBox {
+                            grid-template-columns: repeat(2, 1fr);
+
+                        }
+
+                        .Alltopichelp .topicGroup ul {
+                            grid-template-columns: repeat(2, 1fr);
+                            grid-gap: 1rem;
+                        }
+
+                        .topicBox .small_topicBox {
+                            width: auto;
+                        }
+
+                        .Alltopichelp {
+                            margin: 0;
+                            padding: 5px;
+                        }
+                    }
+                    </style>
+                    <div class=" Alltopichelp" id="SCROLL">
+                        <div class="fitst-topic topic">
+                            <h1>
+                                Frequently Asked Questions
+                            </h1>
+                            <div class="topicGroup">
                                 <ul>
-                                    <li>MY QUINTET ACCOUNT</li>
-                                    <li><a href="registrationandlogin">REGISTRATION AND LOG IN</a></li>
-                                    <li><a href="profilemanagement">MANAGING MY PROFILE</a></li>
-                                    <li><a href="myfavourites">MY FAVOURITES</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>ITEMS AND SIZES</li>
                                     <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
-                                    <li><a href="whatsmysize">WHAT’S MY SIZE?</a></li>
-                                    <li><a href="compositionandcare">COMPOSITION AND CARE</a></li>
-                                    <li><a href="itemswarranty">ITEMS WARRANTY</a></li>
-                                    <li><a href="pricingpolicy">PRICING POLICY</a></li>
-                                    <li><a href="withdrawnitems">WITHDRAWN ITEMS</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>GIFT OPTIONS</li>
-                                    <li><a href="GiftCard">GIFT CARD</a></li>
-                                    <li><a href="giftpackaging">GIFT PACKAGING</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>SHIPPING</li>
-                                    <li><a href="shippingmethodsTimesandcosts">SHIPPING METHODS, TIMES AND
-                                            COSTS</a></li>
-                                    <li><a href="OrdersInSeveralShipments">ORDERS IN SEVERAL SHIPMENTS</a>
-                                    </li>
-                                    <li><a href="WhereDoWeShip">WHERE DO WE SHIP?</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>PAYMENTS AND INVOICES</li>
-                                    <li><a href="PaymentMethods">PAYMENT METHODS</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>MY PURCHASES</li>
-                                    <li><a href="OnlineShopping ">ONLINE SHOPPING</a></li>
                                     <li><a href="OrderStatus">ORDER STATUS</a></li>
-                                    <li><a href="ChangeOrCancelAnOnlineOrder">CHANGE OR CANCEL AN ONLINE ORDER</a>
-                                    </li>
-                                    <li><a href="IssuesWithMyOrder">ISSUES WITH MY ORDER</a></li>
-                                    <li><a href="In_storePurchases">IN-STORE PURCHASES</a></li>
-                                    <li><a href="OnlinePurchaseFromAStoreDevice">ONLINE PURCHASE FROM A STORE
-                                            DEVICE</a></li>
-                                </ul>
-                            </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>EXCHANGES, RETURNS AND REFUNDS</li>
                                     <li><a href="HowToReturn">HOW TO RETURN</a></li>
-                                    <li><a href="HowToExchange">HOW TO EXCHANGE</a></li>
-                                    <li><a href="SpecialReturnConditions">SPECIAL RETURN CONDITIONS</a></li>
                                 </ul>
                             </div>
-                            <div class="small_topicBox">
-                                <ul>
-                                    <li>QUINTET EXPERIENCES</li>
-                                    <li><a href="OurUsedClothingCollectionProgramme">OUR USED CLOTHING COLLECTION
-                                            PROGRAMME</a></li>
-                                    <li><a href="Newsletter">NEWSLETTER</a></li>
-                                </ul>
+                        </div>
+                        <div class="second-topic topic">
+                            <h1>
+                                All help topics
+                            </h1>
+                            <div class="topicBox">
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>MY QUINTET ACCOUNT</li>
+                                        <li><a href="registrationandlogin">REGISTRATION AND LOG IN</a></li>
+                                        <li><a href="profilemanagement">MANAGING MY PROFILE</a></li>
+                                        <li><a href="myfavourites">MY FAVOURITES</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>ITEMS AND SIZES</li>
+                                        <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
+                                        <li><a href="whatsmysize">WHAT’S MY SIZE?</a></li>
+                                        <li><a href="compositionandcare">COMPOSITION AND CARE</a></li>
+                                        <li><a href="itemswarranty">ITEMS WARRANTY</a></li>
+                                        <li><a href="pricingpolicy">PRICING POLICY</a></li>
+                                        <li><a href="withdrawnitems">WITHDRAWN ITEMS</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>GIFT OPTIONS</li>
+                                        <li><a href="GiftCard">GIFT CARD</a></li>
+                                        <li><a href="giftpackaging">GIFT PACKAGING</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>SHIPPING</li>
+                                        <li><a href="shippingmethodsTimesandcosts">SHIPPING METHODS, TIMES AND
+                                                COSTS</a></li>
+                                        <li><a href="OrdersInSeveralShipments">ORDERS IN SEVERAL SHIPMENTS</a>
+                                        </li>
+                                        <li><a href="WhereDoWeShip">WHERE DO WE SHIP?</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>PAYMENTS AND INVOICES</li>
+                                        <li><a href="PaymentMethods">PAYMENT METHODS</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>MY PURCHASES</li>
+                                        <li><a href="OnlineShopping ">ONLINE SHOPPING</a></li>
+                                        <li><a href="OrderStatus">ORDER STATUS</a></li>
+                                        <li><a href="ChangeOrCancelAnOnlineOrder">CHANGE OR CANCEL AN ONLINE ORDER</a>
+                                        </li>
+                                        <li><a href="IssuesWithMyOrder">ISSUES WITH MY ORDER</a></li>
+                                        <li><a href="In_storePurchases">IN-STORE PURCHASES</a></li>
+                                        <li><a href="OnlinePurchaseFromAStoreDevice">ONLINE PURCHASE FROM A STORE
+                                                DEVICE</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>EXCHANGES, RETURNS AND REFUNDS</li>
+                                        <li><a href="HowToReturn">HOW TO RETURN</a></li>
+                                        <li><a href="HowToExchange">HOW TO EXCHANGE</a></li>
+                                        <li><a href="SpecialReturnConditions">SPECIAL RETURN CONDITIONS</a></li>
+                                    </ul>
+                                </div>
+                                <div class="small_topicBox">
+                                    <ul>
+                                        <li>QUINTET EXPERIENCES</li>
+                                        <li><a href="OurUsedClothingCollectionProgramme">OUR USED CLOTHING COLLECTION
+                                                PROGRAMME</a></li>
+                                        <li><a href="Newsletter">NEWSLETTER</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -376,9 +463,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                         transition: all 0.5s linear;
                     }
 
-                    .accordion-content.open header {
-                        min-height: 35px;
-                    }
+
 
                     .accordion-content header .title {
                         font-size: 10px;
@@ -590,11 +675,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 </script>
             </div>
         </div>
+
     </div>
 
-    <div class="" style="margin-top: 400%;">
+    <div style="margin-top :-100% ;">
         <?php include('includes/footer.php'); ?>
-
     </div>
     <script src=" assets/js/jquery-1.11.1.min.js">
     </script>

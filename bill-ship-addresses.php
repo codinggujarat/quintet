@@ -101,55 +101,6 @@ if (strlen($_SESSION['login']) == 0) {
 
     <!-- ============================================== HEADER : END ============================================== -->
 
-    <style>
-    .form-group input,
-    .form-group textarea {
-        border: 2px solid gray !important;
-        border: 2px solid gray;
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        font-weight: 400;
-        height: 60px;
-        border-radius: 10px;
-
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-        border: 2px solid black !important;
-    }
-
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        font-weight: 400;
-        text-transform: capitalize;
-    }
-
-    .form-group input:focus {
-        border: 2px solid black !important;
-    }
-
-    .checkout-page-button {
-        background: #000 !important;
-        width: 100px !important;
-        color: #fff !important;
-        height: 40px !important;
-        font-size: 13px !important;
-        border-radius: 50px !important;
-        font-family: 'Poppins', sans-serif !important;
-        font-weight: 400 !important;
-    }
-
-    .checkout-page-button:hover {
-        color: #000;
-        border: 1px solid black;
-    }
-    </style>
     <div class="body-content outer-top-bd">
         <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="checkout-box inner-bottom-sm">
@@ -162,13 +113,21 @@ if (strlen($_SESSION['login']) == 0) {
                             display: flex;
                             align-items: center;
                             justify-content: start;
-                            margin-top: 10%;
-
                         }
+
 
                         .myprofilecard {
                             width: 800px;
                             padding: 20px;
+                            margin-top: 1%;
+                        }
+
+                        @media only screen and (max-width: 500px) {
+                            .myprofilecard {
+                                width: 100%;
+                                padding: 0;
+                                margin-top: 0;
+                            }
                         }
 
                         .input-field {
@@ -183,6 +142,7 @@ if (strlen($_SESSION['login']) == 0) {
                             left: 15px;
                             transform: translateY(-50%);
                             color: #000;
+                            text-transform: uppercase;
                             font-size: 15px;
                             pointer-events: none;
                             transition: 0.3s;
@@ -220,7 +180,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="" style="margin-bottom: 20px;">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Billing Address
                                         </a>
                                     </h4>
@@ -304,7 +264,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 <div class="" style="margin-bottom: 20px;">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="margin-top: 40px;text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
                                             Shipping Address
 
                                         </a>

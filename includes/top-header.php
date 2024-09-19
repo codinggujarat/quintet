@@ -75,6 +75,116 @@
     display: none;
 }
 
+.wrapper {
+    display: none;
+}
+
+.wrapper header {
+    font-size: 30px;
+    font-weight: 400;
+    padding-bottom: 20px;
+}
+
+.wrapper nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.wrapper nav label {
+    display: block;
+    /* width: 100%; */
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-left: 20px;
+    color: #000;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+    font-weight: 400;
+}
+
+
+input[type="radio"] {
+    display: none;
+}
+
+#home:checked~nav label.home,
+#blog:checked~nav label.blog,
+#code:checked~nav label.code,
+#help:checked~nav label.help,
+#about:checked~nav label.about {
+    color: #000;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+nav label i {
+    padding-right: 7px;
+}
+
+
+
+
+section .content {
+    display: none;
+    background: #fff;
+    height: 50vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-bottom: 1px solid black;
+}
+
+#home:checked~section .content-1,
+#blog:checked~section .content-2,
+#code:checked~section .content-3 {
+
+    display: block;
+}
+
+section .content .title {
+    font-size: 21px;
+    font-weight: 500;
+    margin: 30px 0 10px 0;
+}
+
+section .content p {
+    text-align: justify;
+}
+
+.searchBoxSideBar {
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 20% !important;
+    background: #fff;
+}
+
+.searchBoxSideBar a {
+    border: 1px solid black !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: end !important;
+    width: 100%;
+    padding: 8px;
+    color: #000;
+
+}
+
+.searchBoxSideBar a span {
+    font-size: 10px !important;
+}
+
+.searchBoxSideBar i {
+    display: none;
+}
+
 @media only screen and (max-width: 800px) {
     .myaccount-box {
         background: transparent !important;
@@ -97,7 +207,7 @@
         left: -100%;
         /* left: 0; */
         height: 100vh;
-        width: 380px;
+        width: 100%;
         text-align: left;
         display: block;
         background-color: white;
@@ -115,13 +225,16 @@
         justify-content: start;
         width: 100%;
         margin-top: 20px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
 
     }
 
     .myaccount-links li a span,
     .myaccount-links li a i {
-        font-size: 12px;
+        font-size: 15px;
         color: #000 !important;
+
         text-transform: uppercase !important;
     }
 
@@ -129,13 +242,13 @@
         margin-right: 20px;
     }
 
-    .myaccount-links .bx-x {
+    .myaccount-links .close {
         display: block;
         position: absolute;
-        left: 30px;
-        top: 20px;
-        font-size: 30px;
-        color: #000 !important;
+        left: 10px;
+        top: 10px;
+        color: #000;
+        z-index: 999;
     }
 
     .responsive-nav {
@@ -159,23 +272,14 @@
     }
 
     .logInOut a {
-        display: flex;
-        align-items: center;
-        width: 90%;
-        justify-content: center;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
     }
 
-    .logInOut a {
-        padding: 10px 50px;
-        border-radius: 50px;
-        background: #f2f3f8;
-        border: 1px solid black;
-        color: #000;
-    }
 
-    .logInOut a:hover {
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    }
 
     .logInOut a .bx,
     .logInOut a .linkLog {
@@ -210,6 +314,52 @@
         padding: 10px;
     }
 
+    .side_navbar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: start !important;
+    }
+
+    .bottom-sidebar {
+        position: fixed;
+        bottom: 20px;
+        left: 0;
+        border-top: 1px solid black;
+        width: 100%;
+    }
+
+    .responsive_Nav_Link,
+    .wrapper {
+        display: block;
+    }
+
+    .searchBoxSideBar {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        width: 80% !important;
+    }
+
+    .searchBoxSideBar a {
+        border: 1px solid black !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: end !important;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .searchBoxSideBar a span {
+        font-size: 10px !important;
+
+    }
+
+    .searchBoxSideBar i {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -224,6 +374,7 @@
     }
 }
 </style>
+
 <div class="overMyCart" onclick="closeMyCart()">
 
 </div>
@@ -232,15 +383,22 @@
 <div class="myaccount-box ">
     <div class="myaccount-links-box">
         <div class="myaccount-links">
-            <svg width="30px" height="30px" class="bx-x close " viewBox="0 0 24 24" fill="none"
+            <svg width="30px" height="30px" class=" close " viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg" onclick="closeAccount()">
-                <rect width="24" height="24" fill="white" />
-                <path d="M7 17L16.8995 7.10051" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M7 7.00001L16.8995 16.8995" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" />
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                    stroke-width="0.096">
+                    <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
+                <g id="SVGRepo_iconCarrier">
+                    <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round"></path>
+                </g>
             </svg>
             <li class=" fav-bag-side" style="margin-top: 40px;"></li>
             <?php if (strlen($_SESSION['login'])) { ?>
-            <li class="fav-bag-side"
+            <li class="fav-bag-side logInOut"
                 style="font-size: 12px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
                 <a href="my-account.php">
                     <span>Hi, </span>
@@ -248,25 +406,76 @@
                     <i class='bx bx-user' style="font-size: 20px;margin-left:10px;"></i>
                 </a>
             </li>
-            <?php } ?>
-
-            <?php $sql = mysqli_query($con, "select id,categoryName  from category limit 6");
-            while ($row = mysqli_fetch_array($sql)) {
-            ?>
-
-            <li class="responsive_Nav_Link ">
-                <a href=" category.php?cid=<?php echo $row['id']; ?>"
-                    style="font-size: 12px  !important;text-transform:uppercase !important;">
-                    <?php echo $row['categoryName']; ?>
+            <?php } else { ?>
+            <li class="fav-bag-side logInOut"
+                style="font-size: 12px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
+                <a href="my-account.php">
+                    <span>my account</span>
+                    <i class='bx bx-user' style="font-size: 20px;margin-left:10px;"></i>
                 </a>
             </li>
             <?php } ?>
-            <li class="responsive_Nav_Link responsive_Nav_Link2">
-                <a href=" New_Arrivals.php" style="font-size: 12px  !important;text-transform:uppercase !important;">New
-                    Arrivals</a>
-            </li>
+            <div class="wrapper">
+                <input type="radio" name="slider" checked id="home">
+                <input type="radio" name="slider" id="blog">
+                <input type="radio" name="slider" id="code">
+                <nav>
+                    <label for="home" class="home">WOMAN</label>
+                    <label for="blog" class="blog">MAN</label>
+                    <label for="code" class="code">KIDS</label>
+                </nav>
+                <section>
+                    <div class="content content-1">
+                        <ul class="responsive_Nav_Link">
+                            <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8");
 
-            <li class="deskotp-link" style="font-size: 16px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform:
+                            while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                            <li>
+                                <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                    style="font-size: 15px !important; width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    <?php echo $row['subcategory']; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div class=" content content-2">
+                        <ul class="responsive_Nav_Link">
+                            <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=10");
+
+                            while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                            <li>
+                                <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                    style="font-size: 15px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    <?php echo $row['subcategory']; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                    <div class="content content-3">
+                        <ul class="responsive_Nav_Link">
+                            <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=29");
+
+                            while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                            <li>
+                                <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                    style="font-size: 15px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    <?php echo $row['subcategory']; ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+
+
+            <li class="searchBoxSideBar" style="font-size: 15px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform:
                 uppercase !important ;">
                 <a href="searchBar.php" style="border:0;background:transparent;">
                     <i class='bx bx-search' style="font-size: 14px;"></i>
@@ -315,7 +524,7 @@
             <?php } ?>
 
             <?php if (strlen($_SESSION['login']) == 0) { ?>
-            <li class="logInOut"><a href="login">
+            <li class=""><a href="login">
                     <i class='bx bx-arrow-from-right'></i>
                     <span class="linkLog">LOG IN</span>
                 </a>
@@ -341,13 +550,14 @@
                 <?php } ?>
             </li>
 
-            <li class="logInOut fav-bag-side"><a href="logout">
+            <li class=" fav-bag-side"><a href="logout">
                     <i class='bx bx-arrow-to-right'></i>
                     <span class="linkLog">Logout</span>
                 </a>
             </li>
 
             <?php } ?>
+
             <!-- --------------------------------- -->
             <div class="sidebar-navitem">
 

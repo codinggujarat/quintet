@@ -162,8 +162,13 @@ if (isset($_POST['login'])) {
     <!-- ============================================== HEADER : END ============================================== -->
 
     <style>
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+
     .form-group label {
-        font-family: 'Poppins', sans-serif !important;
+        font-family: 'Poppins', sans-serif;
         font-size: 12px;
         color: #000;
         font-weight: 400;
@@ -172,15 +177,15 @@ if (isset($_POST['login'])) {
 
     .form-group input {
         border: 0;
-        border: 1px solid black !important;
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 12px !important;
-        color: #000 !important;
-        font-weight: 400 !important;
-        padding: 10px 20px !important;
+        border: 1px solid black;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+        padding: 10px 20px;
         width: 100%;
         height: 50px;
-        box-shadow: 0 !important;
+        box-shadow: 0;
         border-radius: 0px;
     }
 
@@ -188,16 +193,16 @@ if (isset($_POST['login'])) {
 
 
     .form-group input::placeholder {
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 12px !important;
-        color: #000 !important;
-        font-weight: 400 !important;
-        text-transform: capitalize !important;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        color: #000;
+        font-weight: 400;
+        text-transform: capitalize;
     }
 
     .form-group input:focus {
-        border: 1px solid black !important;
-        box-shadow: none !important;
+        border: 1px solid black;
+        box-shadow: none;
     }
 
     .checkout-page-button {
@@ -214,154 +219,154 @@ if (isset($_POST['login'])) {
     }
 
     .checkout-page-button:hover {
-        color: #000 !important;
-        border: 1px solid black !important;
+        color: #000;
+        border: 1px solid black;
     }
     </style>
     <div class="body-content outer-top-bd">
         <style>
         .main-formbody {
-            height: 100vh !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
-            position: relative !important;
-            max-width: 600px !important;
-            width: 100% !important;
-            background: #fff !important;
-            border-radius: 10px !important;
-            overflow: hidden !important;
-            margin: 0 20px !important;
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 20px;
         }
 
         .container .forms {
-            display: flex !important;
-            align-items: center !important;
-            height: 100% !important;
-            width: 200% !important;
-            transition: height 0.2s ease !important;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            width: 200%;
+            transition: height 0.2s ease;
         }
 
         .container .form {
-            width: 50% !important;
-            padding: 30px !important;
-            background-color: #fff !important;
-            transition: margin-left 0.18s ease !important;
+            width: 50%;
+            padding: 30px;
+            background-color: #fff;
+            transition: margin-left 0.18s ease;
         }
 
         .container.active .login {
-            margin-left: -50% !important;
-            opacity: 0 !important;
-            transition: margin-left 0.18s ease, opacity 0.15s ease !important;
+            margin-left: -50%;
+            opacity: 0;
+            transition: margin-left 0.18s ease, opacity 0.15s ease;
         }
 
         .container .signup {
-            opacity: 0 !important;
-            transition: opacity 0.09s ease !important;
+            opacity: 0;
+            transition: opacity 0.09s ease;
         }
 
         .container.active .signup {
-            opacity: 1 !important;
-            transition: opacity 0.2s ease !important;
+            opacity: 1;
+            transition: opacity 0.2s ease;
         }
 
         .container.active .forms {
-            height: 100% !important;
+            height: 100%;
         }
 
         .container .form .title {
-            position: relative !important;
-            font-size: 27px !important;
-            font-weight: 600 !important;
+            position: relative;
+            font-size: 27px;
+            font-weight: 600;
         }
 
         .form .title::before {
-            content: '' !important;
-            position: absolute !important;
-            left: 0 !important;
-            bottom: 0 !important;
-            height: 3px !important;
-            width: 30px !important;
-            background-color: #4070f4 !important;
-            border-radius: 25px !important;
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            background-color: #4070f4;
+            border-radius: 25px;
         }
 
         .form .input-field {
-            position: relative !important;
-            height: 50px !important;
-            width: 100% !important;
-            margin-top: 30px !important;
+            position: relative;
+            height: 50px;
+            width: 100%;
+            margin-top: 30px;
         }
 
         .input-field input {
-            position: absolute !important;
-            height: 100% !important;
-            width: 100% !important;
-            padding: 0 35px !important;
-            border: none !important;
-            outline: none !important;
-            font-size: 16px !important;
-            border-bottom: 2px solid #ccc !important;
-            border-top: 2px solid transparent !important;
-            transition: all 0.2s ease !important;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            padding: 0 35px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            border-bottom: 2px solid #ccc;
+            border-top: 2px solid transparent;
+            transition: all 0.2s ease;
         }
 
         .input-field input:is(:focus, :valid) {
-            border-bottom-color: #4070f4 !important;
+            border-bottom-color: #4070f4;
         }
 
         .input-field i {
-            position: absolute !important;
-            top: 50% !important;
-            transform: translateY(-50%) !important;
-            color: #999 !important;
-            font-size: 23px !important;
-            transition: all 0.2s ease !important;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 23px;
+            transition: all 0.2s ease;
         }
 
         .input-field input:is(:focus, :valid)~i {
-            color: #4070f4 !important;
+            color: #4070f4;
         }
 
         .input-field i.icon {
-            left: 0 !important;
+            left: 0;
         }
 
         .input-field i.showHidePw {
-            right: 0 !important;
-            cursor: pointer !important;
-            padding: 10px !important;
+            right: 0;
+            cursor: pointer;
+            padding: 10px;
         }
 
 
         .form .text {
-            color: #333 !important;
+            color: #333;
             font-weight: 400;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif;
 
-            font-size: 14px !important;
+            font-size: 14px;
         }
 
         .form a.text {
             font-weight: 300;
             text-transform: uppercase;
-            color: #000 !important;
-            text-decoration: underline !important;
+            color: #000;
+            text-decoration: underline;
             font-family: 'Poppins', sans-serif;
         }
 
         .form a:hover {
-            text-decoration: underline !important;
+            text-decoration: underline;
         }
 
 
 
         .form .login-signup {
-            margin-top: 30px !important;
-            text-align: center !important;
+            margin-top: 30px;
+            text-align: center;
         }
 
 
@@ -386,7 +391,7 @@ if (isset($_POST['login'])) {
             margin-top: 5px;
             font-weight: 400;
             text-transform: uppercase;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif;
 
         }
 
@@ -401,7 +406,7 @@ if (isset($_POST['login'])) {
 
         .invalid-feedback span {
             font-size: 13px;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif;
         }
 
         .input-field-login {
@@ -419,7 +424,7 @@ if (isset($_POST['login'])) {
             font-size: 12px;
             pointer-events: none;
             transition: 0.3s;
-            font-family: 'Poppins', sans-serif !important;
+            font-family: 'Poppins', sans-serif;
             font-weight: 400;
         }
 
@@ -450,12 +455,12 @@ if (isset($_POST['login'])) {
                 <div class="forms">
                     <div class="form login">
                         <h4 class=""
-                            style="  font-family: 'Poppins' , sans-serif !important;font-size:20px;color: #000; font-weight: 300 !important;text-transform:uppercase;  ">
+                            style="  font-family: 'Poppins' , sans-serif ;font-size:20px;color: #000; font-weight: 300 ;text-transform:uppercase;  ">
                             sign
                             in
                         </h4>
                         <p class=""
-                            style="font-family: 'Poppins' , sans-serif !important;font-size: 10px;color: #000; font-weight: 300 !important;text-transform:uppercase; ">
+                            style="font-family: 'Poppins' , sans-serif ;font-size: 10px;color: #000; font-weight: 300 ;text-transform:uppercase; ">
                             Hello, Welcome to
                             your
                             account.</p>
@@ -494,7 +499,7 @@ if (isset($_POST['login'])) {
                             </span>
                             <div class="radio outer-xs ">
                                 <a href="forgot-password.php" class="forgot-password pull-right"
-                                    style="text-decoration: underline;  font-size: 12px !important ;color: #000;font-family: 'Poppins' , sans-serif !important;font-weight: 300 !important ;text-transform:uppercase !important ; ">
+                                    style="text-decoration: underline;  font-size: 12px  ;color: #000;font-family: 'Poppins' , sans-serif ;font-weight: 300  ;text-transform:uppercase  ; ">
                                     Forgot
                                     your
                                     Password?</a>
@@ -510,11 +515,11 @@ if (isset($_POST['login'])) {
                     <!-- Registration Form -->
                     <div class="form signup">
                         <h4 class="checkout-subtitle"
-                            style="  font-family: 'Poppins' , sans-serif !important;font-size:20px;color: #000; font-weight: 300 !important;text-transform:uppercase;    ">
+                            style="  font-family: 'Poppins' , sans-serif ;font-size:20px;color: #000; font-weight: 300 ;text-transform:uppercase;    ">
                             create a
                             new account</h4>
                         <p class="text title-tag-line"
-                            style="font-family: 'Poppins' , sans-serif !important;font-size: 10px;color: #000; font-weight: 300 !important;text-transform:uppercase; ">
+                            style="font-family: 'Poppins' , sans-serif ;font-size: 10px;color: #000; font-weight: 300 ;text-transform:uppercase; ">
                             Create
                             your own Shopping account.</p>
                         <form class="register-form outer-top-xs needs-validation" novalidate role="form" method="post"
@@ -637,13 +642,13 @@ if (isset($_POST['login'])) {
             })
         })()
         </script>
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div>
             <div class="info-boxes wow fadeInUp ">
                 <div class="info-boxes-inner">
                     <div class="row">
                         <div class="col-md-6 col-sm-4 col-lg-4 ">
-                            <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class=" row  " style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                            <div class="info-box" style="box-shadow: 0 ;border:none ;">
+                                <div class=" row  " style="text-align: center; font-family: 'Poppins' , sans-serif ;font-size:25px;color:
                                                     #000; font-weight: 400; ">
                                     <div class="col-lg-12" style="margin-bottom: 10px; ">
                                         <svg width="30px" fill="#000000" viewBox="0 -64 640 640"
@@ -659,12 +664,12 @@ if (isset($_POST['login'])) {
                                         </svg>
                                     </div>
                                     <span class="col-lg-12"
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">Free
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">Free
                                         & Fast
                                         Delivery
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
                                         Shipping within 48 hours across India.
 
                                     </h6>
@@ -673,8 +678,8 @@ if (isset($_POST['login'])) {
                         </div><!-- .col -->
 
                         <div class="hidden-md col-sm-4 col-lg-4">
-                            <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                            <div class="info-box" style="box-shadow: 0 ;border:none ;">
+                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif ;font-size:25px;color:
                                                     #000; font-weight: 400; ">
                                     <div class="col-lg-12 " style="margin-bottom: 10px; ">
                                         <svg width="30px" fill="#000000" viewBox="0 0 56 56"
@@ -690,11 +695,11 @@ if (isset($_POST['login'])) {
                                         </svg>
                                     </div>
                                     <span class="col-lg-12 "
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;     ">
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;     ">
                                         Return Policy
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;  ">
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase  ;font-size: 13px;font-weight: 400;  ">
                                         Returns with 7 days.
 
                                     </h6>
@@ -703,8 +708,8 @@ if (isset($_POST['login'])) {
                         </div><!-- .col -->
 
                         <div class="col-md-6 col-sm-4 col-lg-4">
-                            <div class="info-box" style="box-shadow: 0 !important;border:none !important;">
-                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif !important;font-size:25px;color:
+                            <div class="info-box" style="box-shadow: 0 ;border:none ;">
+                                <div class="row" style="text-align: center; font-family: 'Poppins' , sans-serif ;font-size:25px;color:
                                                     #000; font-weight: 400; ">
                                     <div class=" col-lg-12" style="margin-bottom: 10px; ">
                                         <svg width="30px" viewBox=" 0 -2.5 20 20" version="1.1"
@@ -732,11 +737,11 @@ if (isset($_POST['login'])) {
                                         </svg>
                                     </div>
                                     <span class="col-lg-12"
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase;font-size: 14px;margin-bottom: 5px; font-weight: 500;    ">
                                         Contact us
                                     </span>
                                     <h6 class="col-lg-12"
-                                        style="font-family: 'Poppins' , sans-serif !important;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
+                                        style="font-family: 'Poppins' , sans-serif ;text-transform: uppercase  ;font-size: 13px;font-weight: 400;   ">
                                         Write us at example.com
                                     </h6>
                                 </div>

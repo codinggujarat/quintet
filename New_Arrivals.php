@@ -266,7 +266,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 </li>
                                 <li><a href="#MAN" data-toggle="tab">MAN</a>
                                 </li>
-                                <li><a href="#SmartPhone" data-toggle="tab">SmartPhone
+                                <li><a href="#KIDS" data-toggle="tab">KIDS
                                     </a></li>
                             </ul><!-- /.n av-tabs -->
                             <style>
@@ -665,33 +665,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </ul>
                                 </div>
                             </div>
-                            <div id="myfiltercard5" style="border:0 !important;">
-                                <div class="filtermenubar sortbybox"
-                                    style="padding: 0;border:0 !important; margin:0 !important;">
-                                    <ul>
-                                        <li><a href="#Apple" data-toggle="tab">Apple</a>
-                                        </li>
-                                        <li><a href="#Samsung" data-toggle="tab">Samsung</a>
-                                        </li>
-                                        <li><a href="#ZARA" data-toggle="tab">ZARA</a>
-                                        </li>
-                                        <li style="border-bottom: 1px solid black !important;"><a href="#NIKE"
-                                                data-toggle="tab">NIKE</a>
-                                        </li>
 
-                                    </ul>
-                                </div>
-                            </div>
                             <div id="myfiltercard6" style="border:0 !important;">
                                 <div class="filtermenubar sortbybox"
                                     style="padding: 0;border:0 !important; margin:0 !important;">
 
                                     <ul>
-                                        <li><a href="#WOMAN" data-toggle="tab">WOMAN</a>
+                                        <?php $sql = mysqli_query($con, "select id,categoryName  from category");
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
+                                        <li>
+                                            <a href="#<?php echo $row['categoryName']; ?>" data-toggle="tab">
+                                                <?php echo $row['categoryName']; ?></a>
                                         </li>
-                                        <li style="border-bottom: 1px solid black !important;"><a href="#MAN"
-                                                data-toggle="tab">MAN</a>
-                                        </li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                             </div>
@@ -714,19 +701,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class="product-slider">
                                     <style>
                                     .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
-
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: start !important;
-                                            flex-wrap: wrap;
-                                        }
+                                        display: grid;
+                                        grid-template-columns: repeat(6, 1fr);
+                                        grid-auto-rows: auto;
+                                        width: 100%;
                                     }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
@@ -741,14 +719,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         <style>
                                         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-                                        .products,
                                         .product {
-                                            width: 240px !important;
-                                        }
-
-                                        .item {
+                                            margin: 0;
+                                            padding: 0;
+                                            height: 100%;
+                                            width: auto !important;
                                             border: 1px solid black !important;
                                         }
+
 
                                         .name a {
                                             font-size: 0.999999999rem !important;
@@ -760,11 +738,28 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         }
 
 
+
+
+                                        @media only screen and (max-width: 1200px) {
+                                            .productimagetab {
+                                                grid-template-columns: repeat(5, 1fr);
+                                            }
+                                        }
+
+                                        @media only screen and (max-width: 1000px) {
+                                            .productimagetab {
+                                                grid-template-columns: repeat(4, 1fr);
+                                            }
+                                        }
+
                                         @media only screen and (max-width: 550px) {
+
+                                            .productimagetab {
+                                                grid-template-columns: repeat(2, 1fr);
+                                            }
 
                                             .products,
                                             .product {
-                                                width: 140px !important;
                                                 overflow: hidden !important;
                                                 text-overflow: ellipsis !important;
                                                 white-space: nowrap !important;
@@ -791,26 +786,18 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 font-size: 10px !important;
                                             }
 
-                                            .product-info .favorites {
-                                                display: none;
-                                            }
+
                                         }
 
                                         @media only screen and (max-width: 350px) {
 
-                                            .products,
-                                            .product {
-                                                width: 100% !important;
-                                            }
+
 
                                             .name {
                                                 width: 100% !important;
                                             }
 
-                                            .image {
-                                                width: 100% !important;
-                                                height: 100% !important;
-                                            }
+
                                         }
 
 
@@ -827,60 +814,57 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                             text-decoration: none;
                                         }
                                         </style>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image " style="background:#F2F3F8 !important; ">
-                                                        <div class="image " style="background:transparent !important;">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width=" 100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-                                                    </div><!-- /.product-image -->
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+
+                                        <div class="product ">
+                                            <div class="product-image " style="background:#F2F3F8 !important; ">
+                                                <div class="image " style="background:transparent !important;">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width=" 100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+                                            </div><!-- /.product-image -->
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
-                                            </div>
-                                        </div><!-- /.item -->
+                                        </div><!-- /.product -->
+
                                         <?php } ?>
 
                                     </div><!-- /.home-owl-carousel -->
@@ -890,92 +874,73 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
 
-                            <div class="tab-pane" id="SmartPhone">
+                            <div class="tab-pane" id="KIDS">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE category=11 ORDER BY productPrice ASC");
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE category=29 ORDER BY productPrice ASC");
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
                                         <?php } ?>
 
 
@@ -991,21 +956,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Shoes">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1017,65 +968,60 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
                                         <?php } ?>
 
 
@@ -1085,21 +1031,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="MAN">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1111,65 +1043,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -1178,21 +1106,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="WOMAN">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1204,64 +1118,57 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
                                         </div><!-- /.item -->
                                         <?php } ?>
 
@@ -1272,21 +1179,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="lowtohigh">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1296,65 +1189,60 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        </div><!-- /.item -->
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -1363,21 +1251,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="hightolow">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1387,65 +1261,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -1454,21 +1324,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="AtoZ">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1479,65 +1335,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -1546,21 +1398,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="ZtoA">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1570,65 +1408,60 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        </div><!-- /.product -->
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -1637,21 +1470,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="ZtoA">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -1661,455 +1480,72 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         ?>
 
 
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
                                 </div><!-- /.product-slider -->
                             </div>
-                            <div class="tab-pane" id="Apple">
-                                <div class="product-slider">
-                                    <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'Apple'");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-                                        ?>
-
-
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
-
-
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
-
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
-                            <div class="tab-pane" id="Samsung">
-                                <div class="product-slider">
-                                    <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
-
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'Samsung'");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-                                        ?>
-
-
-
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
-
-
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
-
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
-                            <div class="tab-pane" id="ZARA">
-                                <div class="product-slider">
-                                    <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
-
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'ZARA'");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-                                        ?>
-
-
-
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
-
-
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
-
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
-                            <div class="tab-pane" id="NIKE">
-                                <div class="product-slider">
-                                    <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
-
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productCompany = 'NIKE'");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-                                        ?>
-
-
-
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
-
-
-                                                    </div><!-- /.product-image -->
-
-
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
-
-
-                                                </div><!-- /.product -->
-
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
                             <div class="tab-pane" id="blackandwhiteandGray">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2117,65 +1553,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2184,21 +1616,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Blue">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2206,65 +1624,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2273,21 +1687,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Pink">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2295,65 +1695,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2362,21 +1758,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Red">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2384,65 +1766,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2451,21 +1829,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Green">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2473,65 +1837,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2540,21 +1900,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Silver">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2562,65 +1908,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2629,21 +1971,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="Yellow">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
@@ -2651,65 +1979,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product ">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="assets/images/blank.gif"
-                                                                    src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item --> <?php } ?>
+                                        <?php } ?>
 
 
                                     </div><!-- /.home-owl-carousel -->
@@ -2718,21 +2042,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="price3000to4000">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab" data-item="4">
                                         <?php
@@ -2743,64 +2053,60 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                             while ($row = mysqli_fetch_array($ret)) {
 
                                         ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
+
 
                                         <?php $cnt = $cnt + 1;
                                             } ?>
@@ -2817,21 +2123,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="price5000to10000">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab" data-item="4"> <?php
                                                                                 $ret = mysqli_query($con, "SELECT * FROM products WHERE  productPrice BETWEEN 5000 AND 10000");
@@ -2841,64 +2133,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                                                                     while ($row = mysqli_fetch_array($ret)) {
                                                                                 ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
+
 
                                         <?php $cnt = $cnt + 1;
                                                                                     } ?>
@@ -2915,21 +2204,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="price10000to20000">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab" data-item="4"> <?php
                                                                                 $ret = mysqli_query($con, "SELECT * FROM products WHERE  productPrice BETWEEN 10000 AND 20000");
@@ -2940,64 +2215,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                                                     while ($row = mysqli_fetch_array($ret)) {
 
                                                                                 ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
-
-                                                <div class="product">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
+
 
                                         <?php $cnt = $cnt + 1;
                                                                                     } ?>
@@ -3014,21 +2286,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="tab-pane" id="priceover10000">
                                 <div class="product-slider">
                                     <style>
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: start;
-                                        flex-wrap: wrap;
-                                    }
 
-                                    @media only screen and (max-width: 800px) {
-                                        .productimagetab {
-                                            display: flex;
-                                            align-items: center;
-                                            justify-content: center !important;
-                                            flex-wrap: wrap;
-                                        }
-                                    }
                                     </style>
                                     <div class="productimagetab" data-item="4"> <?php
                                                                                 $ret = mysqli_query($con, "SELECT * FROM products WHERE  productPrice > 20000");
@@ -3039,64 +2297,59 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                                                     while ($row = mysqli_fetch_array($ret)) {
                                                                                         # code...
                                                                                 ?>
-                                        <div class=" item item-carousel">
-                                            <div class="products">
 
-                                                <div class="product">
-                                                    <div class="product-image" style="background:#F2F3F8 !important;">
-                                                        <div class="image" style="background:transparent !important; ">
-                                                            <a
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                    width="100%" height="100%" alt=""></a>
-                                                        </div><!-- /.image -->
+                                        <div class="product">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
 
 
-                                                    </div><!-- /.product-image -->
+                                            </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left"
-                                                        style="position:relative; width:250px !important;padding-left:10px; ">
-                                                        <h3 class="name" style="margin-top:10px;">
-                                                            <a style="font-family: sans-serif, ' Poppins'
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                        </h3>
-                                                        <div class=" product-price" style="margin-top: -15px; ">
-                                                            <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                                ₹
-                                                                <span style="margin-left: 1px;">
-                                                                    <?php echo htmlentities($row['productPrice']); ?>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <div class="favorites">
-                                                            <a title="favourites"
-                                                                style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                                href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                                <svg fill="#000000" height="10px" width="10px"
-                                                                    version="1.1" id="Layer_1"
-                                                                    xmlns="http://www.w3.org/2000/svg"
-                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                    viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                    <g>
-                                                                        <g>
-                                                                            <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
-                                                                        </g>
-                                                                    </g>
-                                                                </svg>
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- /.product-info -->
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
 
 
-                                                </div><!-- /.product -->
+                                        </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
 
                                         <?php $cnt = $cnt + 1;
                                                                                     } ?>

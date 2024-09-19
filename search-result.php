@@ -219,7 +219,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 <div class=""
                                     style="width: 100%;padding-top: 50px;padding-left:10px; border-bottom:1px solid black;">
                                     <span class="    "
-                                        style="margin-left:20px;padding-bottom:20px; text-align: left;   font-family: 'Raleway',sans-serif !important; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 300;  ">
+                                        style="margin-left:20px;padding-bottom:20px; text-align: left;   font-family: 'Raleway',sans-serif !important; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 500;  ">
                                         WOMAN </span>
                                     <div class="col-lg-12 col-md-12 col-sm-12 btn-card-box">
                                         <div class="btn-card">
@@ -425,7 +425,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 <div class=""
                                     style="width: 100%;padding-top: 50px;padding-left:10px; border-bottom:1px solid black;">
                                     <span class="    "
-                                        style=" text-align: left;   font-family: 'Raleway',sans-serif; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 300;  ">
+                                        style="margin-left:20px;padding-bottom:20px; text-align: left;   font-family: 'Raleway',sans-serif !important; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 500;  ">
                                         MAN </span>
                                 </div>
                                 <div class="productimagetab">

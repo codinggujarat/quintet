@@ -6,7 +6,7 @@ footer {
     width: 100% !important;
     padding: 150px !important;
     /* margin: auto !important; */
-    background: white !important;
+    background: #ffffff !important;
 }
 
 .input_type_newsletter {
@@ -157,7 +157,7 @@ footer {
     }
 }
 </style>
-<footer>
+<footer style="background:#ffffff;">
     <div class="join_our_newsletter">
         <h1>
             join our newsletter

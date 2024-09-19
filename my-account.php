@@ -121,122 +121,23 @@ if (strlen($_SESSION['login']) == 0) {
 
     <!-- ============================================== HEADER : END ============================================== -->
 
-    <style>
-    .form-group input,
-    .form-group textarea {
-        border: 2px solid gray !important;
-        border: 2px solid gray;
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        height: 60px;
-        border-radius: 10px;
 
-        font-weight: 400;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-        border: 2px solid black !important;
-    }
-
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        font-weight: 400;
-        text-transform: capitalize;
-    }
-
-    .form-group input:focus {
-        border: 2px solid black !important;
-    }
-
-    .checkout-page-button {
-        background: #000 !important;
-        width: 100px !important;
-        color: #fff !important;
-        height: 40px !important;
-        font-size: 13px !important;
-        border-radius: 50px !important;
-        font-family: 'Poppins', sans-serif !important;
-        font-weight: 600 !important;
-    }
-
-    .checkout-page-button:hover {
-        color: #000;
-        border: 1px solid black;
-    }
-    </style>
     <div class="body-content outer-top-bd">
         <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class="checkout-box inner-bottom-sm">
                 <div class="row">
                     <?php include('includes/myaccount-sidebar.php'); ?>
-                    <div class="col-md-8 myprofile">
-                        <style>
-                        .myprofile {
-                            display: flex;
-                            align-items: center;
-                            justify-content: start;
-                        }
+                    <div class="col-md-8 col-sm-12 col-xs-12 myprofile">
 
-                        .myprofilecard {
-                            width: 800px;
-                            padding: 20px;
-                            margin-top: 10%;
-                        }
-
-                        .input-field {
-                            position: relative;
-                        }
-
-
-
-                        .input-field label {
-                            position: absolute;
-                            top: 50%;
-                            left: 15px;
-                            transform: translateY(-50%);
-                            color: #000;
-                            font-size: 15px;
-                            pointer-events: none;
-                            transition: 0.3s;
-                            font-family: 'Poppins', sans-serif !important;
-                            font-weight: 400;
-                        }
-
-                        input:focus {
-                            border: 2px solid #000;
-                        }
-
-                        input:focus~label,
-                        input:valid~label {
-                            top: 0;
-                            left: 15px;
-                            font-size: 16px;
-                            padding: 0 2px;
-                            background: #fff;
-                            color: #000;
-                        }
-
-                        .noallowtochage input {
-                            cursor: no-drop;
-                            background: #f2f3f8;
-                        }
-                        </style>
                         <div class="panel-group checkout-steps myprofilecard">
                             <!-- checkout-step-01  -->
-                            <div class="panel
-                            ">
+                            <div class="panel">
                                 <!-- panel-heading -->
                                 <div class=""
-                                    style="background: transparent !important ; border-bottom:none !important  ; ">
+                                    style="background: transparent !important ; border-bottom:0 !important  ; ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
                                             Account Details
                                         </a>
                                     </h4>
@@ -244,6 +145,7 @@ if (strlen($_SESSION['login']) == 0) {
                                 <!-- panel-heading -->
 
                                 <div>
+
                                     <!-- panel-body  -->
                                     <div class=" row">
                                         <div class="col-md-12 col-sm-12 already-registered-login">
@@ -310,7 +212,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     style="background: transparent !important ; border-bottom:none !important  ;  ">
                                     <h4 class="unicase-checkout-title">
                                         <a
-                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 20px !important  ;color: #000;text-transform:capitalize      !important  ;font-weight: 400 !important ;display: flex;align-items: center;justify-content: space-between;">
+                                            style="text-align: left;background: transparent !important ;  font-family: 'Poppins',sans-serif !important;font-size: 15px !important  ;color: #000;text-transform:uppercase !important  ;font-weight: 400 !important;display: flex;align-items: center;justify-content: space-between;">
                                             Change Password </a>
                                     </h4>
                                 </div>

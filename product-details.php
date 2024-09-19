@@ -67,12 +67,12 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/owl.transitions.css">
-    <link href="assets/css/lightbox.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="assets/css/owl.transitions.css"> -->
+    <!-- <link href="assets/css/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/rateit.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="assets/css/config.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/config.css"> -->
 
     <link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
     <link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="cnt-home">
+<body class="cnt-home" style="background:#ffffff;">
 
     <header class="header-style-1">
 
@@ -116,8 +116,8 @@ if (isset($_POST['submit'])) {
     </header>
 
     <!-- ============================================== HEADER : END ============================================== -->
-    <div class="body-content outer-top-xs">
-        <div class="" style="margin-bottom: 50px;  padding: 0;margin-left:50px;margin-right:50px;  ">
+    <div class="body-content " style="background:#ffffff;">
+        <div class="breadcrumbs" style="margin-bottom: 50px;  padding: 0;margin-left:50px;margin-right:50px;  ">
             <div class=" ">
                 <div>
                     <?php
@@ -196,6 +196,24 @@ if (isset($_POST['submit'])) {
                         .mobliediscription {
                             display: block !important;
                         }
+
+                        .breadcrumbs {
+                            display: none;
+                        }
+
+                    }
+
+                    @media only screen and (max-width: 500px) {
+                        .main-product-img {
+                            position: fixed;
+                            top: 10%;
+                            right: 0;
+                            z-index: -9999;
+                        }
+
+                        .body-content {
+                            margin-top: 150% !important;
+                        }
                     }
                     </style>
                     <div class="row">
@@ -224,12 +242,13 @@ if (isset($_POST['submit'])) {
                             }
                         }
                         </script>
+
                         <div class="col-xs-12 col-sm-12 col-md-1 gallery-holder"></div>
-                        <div class="col-xs-12 col-sm-12 col-md-3 gallery-holder">
-                            <div class="product-item-holder size-big single-product-gallery small-gallery">
-                                <div id="owl-single-product" style="border:0 !important ;">
-                                    <div class="single-product-gallery-item" id="slide1"
-                                        style="background:#F2F3F8 !important;">
+                        <div class="col-xs-12 col-sm-6 col-md-3 gallery-holder  main-product-img">
+                            <div class=" " style="width: 100% !important;">
+                                <div id="owl-single-product">
+                                    <div class="single-product-gallery-item " id="slide1"
+                                        style="background:#F2F3F8 !important;width: 100% !important;">
                                         <a data-lightbox="image-1"
                                             data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>">
@@ -296,7 +315,7 @@ if (isset($_POST['submit'])) {
 
                             </div>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-xs-12 col-md-1 col-sm-2">
                             <style>
                             .scrollbar {
                                 width: 100%;
@@ -312,7 +331,7 @@ if (isset($_POST['submit'])) {
                                 border: 1px solid black;
                             }
 
-                            @media only screen and (max-width: 1000px) {
+                            @media only screen and (max-width: 700px) {
 
                                 .scrollbar {
                                     width: 100%;
@@ -321,7 +340,7 @@ if (isset($_POST['submit'])) {
                                 }
 
                                 .scrollbar-img {
-                                    width: 100px;
+                                    width: 50px;
                                     height: 100%;
                                 }
                             }
@@ -392,9 +411,9 @@ if (isset($_POST['submit'])) {
                             </div>
                         </div>
 
-                        <div class="col-xs-12 col-sm-12 col-md-2 gallery-holder"></div>
+                        <div class="col-xs-12 col-sm-1 col-md-2 gallery-holder"></div>
 
-                        <div class='col-xs-12 col-sm-8 col-md-2 product-info-block'>
+                        <div class='col-xs-12 col-sm-4 col-md-2 product-info-block' style="background:#ffffff;">
                             <div class="product-info " style="height:100% !important;">
                                 <h1 class="name col-sm-12" style="margin-top: 20px !important;font-family:
                                     sans-serif, 'Poppins' !important;text-transform:uppercase;font-size: 12px;
@@ -556,20 +575,21 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                             </div>
-                        </div><!-- /.row -->
-                        <div class=" col-xs-12 col-sm-12 col-md-4 desktopDiscription mobliediscription">
-                            <div class="accordion">
-                                <div class="accordion-content">
-                                    <header>
-                                        <span class="title">COMPOSITION, CARE & ORIGIN COMPOSITION</span>
-                                        <i class="fa-solid fa-plus"></i>
-                                    </header>
-                                    <pre class="description">
+                            <div class="  col-md-12 desktopDiscription mobliediscription" style="background:#ffffff;">
+                                <div class="accordion">
+                                    <div class="accordion-content">
+                                        <header>
+                                            <span class="title">COMPOSITION, CARE & ORIGIN COMPOSITION</span>
+                                            <i class="fa-solid fa-plus"></i>
+                                        </header>
+                                        <pre class="description">
                                         <?php echo $row['productDescription']; ?>
                                     </pre>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </div><!-- /.row -->
+
                     </div><!-- /.price-container -->
                 </div><!-- /.product-info -->
             </div><!-- /.col-sm-7 -->
@@ -581,10 +601,11 @@ if (isset($_POST['submit'])) {
 
 
     .accordion {
-        width: 90%;
+        width: 100%;
         background: #FFF;
         padding: 7px;
-        margin: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         border: 1px solid black;
     }
 
@@ -654,7 +675,7 @@ if (isset($_POST['submit'])) {
                     $subcid = $row['subCategory'];
                 } ?>
     <!-- ============================================== UPSELL PRODUCTS ============================================== -->
-    <div class="section featured-product wow fadeInUp col-lg-12">
+    <div class="section featured-product  col-lg-12" style="background:#ffffff;">
 
         <style>
         .productimagetab {
@@ -668,7 +689,7 @@ if (isset($_POST['submit'])) {
             .productimagetab {
                 display: flex;
                 align-items: center;
-                justify-content: start !important;
+                justify-content: center !important;
                 flex-wrap: wrap;
             }
         }
@@ -731,7 +752,7 @@ if (isset($_POST['submit'])) {
                     '.responsiveCard'); // Select all elements with the class 'myBox'
 
                 boxes.forEach(function(box) {
-                    box.style.width = "210px"; // Toggle 'active' class for each box
+                    box.style.width = "230px"; // Toggle 'active' class for each box
                 });
                 var productName = document.querySelectorAll('.productName');
                 productName.forEach(function(productName) {
@@ -746,7 +767,7 @@ if (isset($_POST['submit'])) {
                     '.responsiveCard'); // Select all elements with the class 'myBox'
                 var productName = document.querySelectorAll('.productName');
                 boxes.forEach(function(box) {
-                    box.style.width = "140px"; // Toggle 'active' class for each box
+                    box.style.width = "100px"; // Toggle 'active' class for each box
                 });
                 productName.forEach(function(productName) {
                     productName.style.display = "none"; // Toggle 'active' class for each box
@@ -757,6 +778,7 @@ if (isset($_POST['submit'])) {
         </script>
         <style>
         .btn-card-box {
+            margin-top: -100px;
             padding: 20px;
             position: sticky;
             top: 12%;
@@ -813,7 +835,7 @@ if (isset($_POST['submit'])) {
             width: 100%;
         }
         </style>
-        <div class="productimagetab" data-item="4">
+        <div class="productimagetab">
             <?php
         $qry = mysqli_query($con, "select * from products where subCategory='$subcid' and category='$cid' ORDER BY RAND()");
         while ($rw = mysqli_fetch_array($qry)) {
@@ -824,7 +846,7 @@ if (isset($_POST['submit'])) {
             .product {
                 height: 100%;
                 margin: 0;
-                width: 240px;
+                width: 180px;
                 padding: 0;
                 flex-wrap: wrap;
                 height: 100%;
@@ -1098,7 +1120,7 @@ if (isset($_POST['submit'])) {
         </style>
 
         <div class=" col-lg-12 "
-            style=" overflow-y: auto; display: flex;align-items: center;justify-content: center    ;flex-wrap: wrap;  ">
+            style="margin-bottom: -20px; overflow-y: auto; display: flex;align-items: center;justify-content: center    ;flex-wrap: wrap;  ">
             <?php $qry = mysqli_query($con, "select * from productreviews where productId='$pid'");
         if ($num > 0) {
             while ($rvw = mysqli_fetch_array($qry)) { ?>
@@ -1677,7 +1699,6 @@ if (isset($_POST['submit'])) {
 
 
     <div class="clearfix"></div>
-    <?php include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>
@@ -1751,8 +1772,6 @@ if (isset($_POST['submit'])) {
         })
     }
     </script>
-
-
 
 
 </body>

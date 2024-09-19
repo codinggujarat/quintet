@@ -102,17 +102,21 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
     <div class="body-content outer-top-xs">
         <style>
+        .searchBoxSideBar {
+            display: none;
+        }
+
         .body-content {
             margin: 0 !important;
             padding: 0 !important;
         }
         </style>
-        <div class="search_Box">
-            <div class="top-search-holder wow fadeInUpBig ">
+        <div class="search_Box wow fadeInUpBig">
+            <div class="top-search-holder   ">
                 <div class="search-area">
                     <form name="search" method="post" action="search-result.php" autocomplete="off">
                         <div class="control-group ">
-                            <input class="search-field" name="product"
+                            <input class="search-field " name="product"
                                 placeholder="Search for an item, colour, collection..." required="required" />
                         </div>
                     </form>
@@ -188,7 +192,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             width: 100%;
         }
         </style>
-        <div class="box-card wow fadeInUpBig ">
+        <div class="box-card  wow fadeInUpBig">
             <?php
             $ret = mysqli_query($con, "SELECT * FROM products  where category ORDER BY RAND() ");
             while ($row = mysqli_fetch_array($ret)) {

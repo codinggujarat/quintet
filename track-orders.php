@@ -57,157 +57,53 @@ include('includes/config.php');
         <!-- ============================================== NAVBAR ============================================== -->
         <?php include('includes/menu-bar.php'); ?>
         <!-- ============================================== NAVBAR : END ============================================== -->
-        <?php include('includes/search.php'); ?>
 
     </header>
     <!-- ============================================== HEADER : END ============================================== -->
 
-    <style>
-    .form-group input {
-        border: 2px solid gray;
-        font-family: 'Poppins', sans-serif !important;
-        font-size: 15px;
-        color: #000;
-        font-weight: 400;
-        height: 60px;
-        border-radius: 10px;
-    }
-
-
-
-
-    .form-group input:focus {
-        border: 2px solid black !important;
-    }
-
-    .checkout-page-button {
-        background: #000 !important;
-        width: 200px !important;
-        color: #fff !important;
-        height: 50px !important;
-        font-size: 15px !important;
-        border-radius: 50px !important;
-        font-family: 'Poppins', sans-serif !important;
-        font-weight: 400 !important;
-    }
-
-    .checkout-page-button:hover {
-        color: #000;
-        border: 1px solid black;
-    }
-    </style>
-
     <div class="body-content outer-top-bd">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
-            <?php include('includes/myaccount-sidebar.php'); ?>
-            <div class="track-order-page ">
+        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  "><?php include('includes/myaccount-sidebar.php');
+                                                                                    ?><div class="track-order-page ">
                 <div class="row">
-                    <style>
-                    .myprofile {
-                        display: flex;
-                        align-items: center;
-                        justify-content: start;
-                        margin-top: 10%;
-                    }
-
-                    .myprofilecard {
-                        width: 800px;
-                        padding: 20px;
-                        margin-top: 10%;
-                    }
-
-                    .input-field {
-                        position: relative;
-                    }
-
-
-
-                    .input-field label {
-                        position: absolute;
-                        top: 50%;
-                        left: 15px;
-                        transform: translateY(-50%);
-                        color: #000;
-                        font-size: 15px;
-                        pointer-events: none;
-                        transition: 0.3s;
-                        font-family: 'Poppins', sans-serif !important;
-                        font-weight: 400;
-                    }
-
-                    input:focus {
-                        border: 2px solid #000;
-                    }
-
-                    input:focus~label,
-                    input:valid~label {
-                        top: 0;
-                        left: 15px;
-                        font-size: 16px;
-                        padding: 0 2px;
-                        background: #fff;
-                        color: #000;
-                    }
-
-                    .noallowtochage input {
-                        cursor: no-drop;
-                        background: #f2f3f8;
-                    }
-                    </style>
                     <div class="col-md-8 myprofile">
-
-                        <form class=" register-form  " style=" width: 600px; margin-top: 100px;" role=" form"
-                            method="post" action="order-details.php">
+                        <form class=" register-form  " style=" width: 600px; padding:20px;" role=" form" method="post"
+                            action="order-details.php">
                             <h2
-                                style="text-align: left ;text-transform:capitalize; font-family: 'Poppins', sans-serif !important;font-size:20px !important ;color: #000; font-weight: 400 ;    ">
-                                Track
-                                your Order</h2>
+                                style="margin-bottom: 20px; text-align: left ;text-transform:uppercase; font-family: 'Poppins', sans-serif !important;font-size:15px !important ;color: #000; font-weight: 400 ;    ">
+                                Track your Order</h2>
                             <span class="title-tag    "
-                                style="text-align: left;   font-family: 'Poppins',sans-serif; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 400;  ">Please
-                                enter your Order ID in the box below and press
-                                Enter. This was given to you on your receipt and in the confirmation email you should
-                                have
-                                received. </span>
-                            <span class="title-tag inner-top-vs inner-bottom-20   "
-                                style="text-align: left;   font-family: 'Poppins',sans-serif; font-size: 15px;color: #000; text-transform: capitalize  ;font-weight: 400;  ">Please
+                                style="text-align: left;   font-family: 'Poppins',sans-serif; font-size: 11px;color: #000; text-transform: uppercase  ;font-weight: 400;  ">Please
+                                enter your Order ID in the box below and press Enter. This was given to you on your
+                                receipt and in the confirmation email you should have received. </span><span
+                                class="title-tag inner-top-vs inner-bottom-20   "
+                                style="text-align: left;   font-family: 'Poppins',sans-serif; font-size: 11px;color: #000; text-transform: uppercase  ;font-weight: 400;  ">Please
                                 Enter your order number and Email to find your order</span>
-
-                            <div class="form-group input-field">
-                                <input type="text" class="form-control unicase-form-control text-input " name="orderid"
-                                    id="exampleOrderId1" required>
-                                <label>
-                                    What's your order number
-                                </label>
-                            </div>
-                            <div class=" form-group input-field">
-                                <input type="email" class="form-control unicase-form-control text-input" name="email"
-                                    id="exampleBillingEmail1" required>
-                                <label>
-                                    What's your Registered e-mail?
-                                </label>
-                            </div>
-                            <button type="submit" name="submit"
-                                class="btn-upper btn btn-primary checkout-page-button col-sm-12 ">
-                                Find your order
+                            <div class="form-group input-field"><input type="text"
+                                    class="form-control unicase-form-control text-input " name="orderid"
+                                    id="exampleOrderId1" required><label>What's your order number
+                                </label></div>
+                            <div class=" form-group input-field"><input type="email"
+                                    class="form-control unicase-form-control text-input" name="email"
+                                    id="exampleBillingEmail1" required><label>What's your Registered e-mail?
+                                </label></div><button type="submit" name="submit"
+                                class="btn-upper btn btn-primary checkout-page-button col-sm-12 ">Find your order
                             </button>
                         </form>
                     </div>
-                </div><!-- /.row -->
-            </div><!-- /.sigin-in-->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.sigin-in-->
         </div>
     </div>
-    <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+    <!--==============================================BRANDS CAROUSEL==============================================--><?php echo include('includes/brands-slider.php');
+                                                                                                                        ?><?php include('includes/footer.php');
 
-
-    <?php echo include('includes/brands-slider.php'); ?>
-    <?php include('includes/footer.php'); ?>
+                                                                                                                            ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>
-
     <script src="assets/js/bootstrap.min.js"></script>
-
     <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
     <script src="assets/js/owl.carousel.min.js"></script>
-
     <script src="assets/js/echo.min.js"></script>
     <script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/bootstrap-slider.min.js"></script>
@@ -216,30 +112,33 @@ include('includes/config.php');
     <script src="assets/js/bootstrap-select.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>
+    < !-- For demo purposes – can be removed on production -->
+        <script src="switchstylesheet/switchstylesheet.js"></script>
+        <script>
+        $(document).ready(function() {
+                $(".changecolor").switchstylesheet({
+                        seperator: "color"
+                    }
 
-    <!-- For demo purposes – can be removed on production -->
+                );
 
-    <script src="switchstylesheet/switchstylesheet.js"></script>
+                $('.show-theme-options').click(function() {
+                        $(this).parent().toggleClass('open');
+                        return false;
+                    }
 
-    <script>
-    $(document).ready(function() {
-        $(".changecolor").switchstylesheet({
-            seperator: "color"
-        });
-        $('.show-theme-options').click(function() {
-            $(this).parent().toggleClass('open');
-            return false;
-        });
-    });
+                );
+            }
 
-    $(window).bind("load", function() {
-        $('.show-theme-options').delay(2000).trigger('click');
-    });
-    </script>
-    <!-- For demo purposes – can be removed on production : End -->
+        );
 
+        $(window).bind("load", function() {
+                $('.show-theme-options').delay(2000).trigger('click');
+            }
 
-
+        );
+        </script>
+        < !-- For demo purposes – can be removed on production : End -->
 </body>
 
 </html>
