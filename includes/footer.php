@@ -109,6 +109,11 @@ footer {
     margin-bottom: 20px !important;
     font-family: 'Poppins', sans-serif !important;
     text-transform: uppercase !important;
+    cursor: default !important;
+}
+
+.footLink ul li:first-child a {
+    cursor: default !important;
 
 }
 
@@ -181,8 +186,8 @@ footer {
     <div class="social_media_newsletter">
         <div class="helpFoot footLink">
             <ul>
-                <li><a href="">Help</a></li>
-                <li><a href="">My Zara Account</a></li>
+                <li>Help</li>
+                <li><a href="/my-account.php">My Quintet Account</a></li>
                 <li><a href="">Items and Sizes</a></li>
                 <li><a href="">Gift Options</a></li>
                 <li><a href="">Shipping</a></li>
@@ -194,7 +199,7 @@ footer {
         </div>
         <div class="helpFoot footLink">
             <ul>
-                <li><a href="">Policies</a></li>
+                <li>Policies</li>
                 <li><a href="">Newsletter</a></li>
                 <li><a href="">Instagram</a></li>
                 <li><a href="">Facebook</a></li>
@@ -205,7 +210,7 @@ footer {
         </div>
         <div class="helpFoot footLink">
             <ul>
-                <li><a href="">Company</a></li>
+                <li>Company</li>
                 <li><a href="">About us</a></li>
                 <li><a href="">Join Life</a></li>
                 <li><a href="">Offices</a></li>
@@ -215,7 +220,7 @@ footer {
         </div>
         <div class="helpFoot footLink">
             <ul>
-                <li><a href="">Policies</a></li>
+                <li>Policies</li>
                 <li><a href="">Privacy policy</a></li>
                 <li><a href="">Purchase conditions</a></li>
                 <li><a href="">Gift Card Conditions</a></li>

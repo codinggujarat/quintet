@@ -244,7 +244,7 @@ if (isset($_POST['login'])) {
 
         .container .forms {
             display: flex;
-            align-items: center;
+            align-items: baseline;
             height: 100%;
             width: 200%;
             transition: height 0.2s ease;

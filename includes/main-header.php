@@ -159,6 +159,8 @@ body::-webkit-scrollbar {
 }
 
 
+
+
 .main-header.sticky .logo-holder .logo img {
     width: 340px;
 }
@@ -438,11 +440,13 @@ body::-webkit-scrollbar {
                         <path d="M5 9H13H19M5 15H19" stroke="#000000" stroke-width="1" stroke-linecap="round" />
                     </svg>
                 </div>
+
                 <div class="logo">
                     <a href="index">
                         <img id="logo" src="img/background2.svg" alt="">
                     </a>
                 </div>
+
                 <div class="searchandBagtopNav">
                     <div class="shoppingBagMobileView shoppingBagMobileViewSearchBar">
                         <a href="searchBar" style="border:0;background:transparent;">
@@ -467,6 +471,7 @@ body::-webkit-scrollbar {
                         </a>
                         <?php } ?>
                     </div>
+
                 </div>
 
             </div>
@@ -502,7 +507,29 @@ body::-webkit-scrollbar {
         </div><!-- /.row -->
 
     </div><!-- /.container -->
+    <div class="header-nav ">
+        <div class="nav-bg-classa">
+            <div class="nav-outers ">
+                <ul class="nav navbar-navs ">
+                    <li>
+                        <a href=" New_Arrivals.php">New
+                            Arrivals</a>
+                    </li>
+                    <?php $sql = mysqli_query($con, "select id,categoryName  from category limit 6");
+                    while ($row = mysqli_fetch_array($sql)) {
+                    ?>
 
+                    <li>
+                        <a href="category.php?cid=<?php echo $row['id']; ?>">
+                            <?php echo $row['categoryName']; ?>
+                        </a>
+
+                    </li>
+                    <?php } ?>
+                </ul><!-- /.navbar-navs -->
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

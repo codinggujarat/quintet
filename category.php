@@ -132,239 +132,133 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <div class="body-content outer-top-xs">
         <style>
         .body-content {
-            margin-top: 100px !important;
+            margin-top: 30px;
+        }
+
+        .categoryMenu {
+            margin-left: 27px;
+        }
+
+
+        @media only screen and (max-width: 800px) {
+
+            .body-content {
+                margin-top: 0px !important;
+            }
+
+            .categoryMenu {
+                margin-left: 0;
+            }
+
+
         }
         </style>
-        <div class='row outer-bottom-sm'>
-            <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class='row '>
+            <div class=" categoryMenu">
 
-                <div class="image">
-                    <?php $sql = mysqli_query($con, "select categoryName  from category where id='$cid'");
-                    while ($row = mysqli_fetch_array($sql)) {
-                    ?>
-
-                    <div class="excerpt " style="
-                    margin-left: 5px;
-                    ">
-                        <h1 style="text-align: left; font-family: 'Raleway' , sans-serif !important;
-                            text-transform: uppercase ; color: lightgray; font-size: 15px; text-align: center important;
-                            font-weight: 500 !important;margin-left: 5px; color: #000;">
-                            <?php echo htmlentities($row['categoryName']); ?>
-                        </h1>
-                    </div>
-                    <?php } ?>
-                </div>
                 <style>
+                .megamenu-horizontal {
+                    margin-left: 5px;
+                    display: block;
+                    margin-top: 20px;
+                    width: 100%;
+                    transition: all 0.3s linear;
+
+                }
+
+                .megamenu-horizontal::-webkit-scrollbar-track {
+                    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+                    background-color: #fff !important;
+                }
+
+                .megamenu-horizontal:hover.megamenu-horizontal::-webkit-scrollbar {
+                    display: block !important;
+
+                }
+
+                .megamenu-horizontal::-webkit-scrollbar {
+                    display: none !important;
+                    width: 2px !important;
+                    height: 2px !important;
+                }
+
+                .megamenu-horizontal::-webkit-scrollbar-thumb {
+                    border: 10px solid #000 !important;
+                }
+
                 .megamenu-horizontal ul li a:hover {
                     background: transparent;
                 }
 
+                .megamenu-horizontal ul li:first-child {
+                    margin-left: 0;
+                }
+
+                .megamenu-horizontal ul li {
+                    margin-left: 20px;
+                }
+
                 .megamenu-horizontal ul li a {
-                    padding: 5px 10px !important;
-                    border-radius: 0 !important;
-                    margin: 10px !important;
-                    font-size: 10px !important;
-                    text-transform: uppercase !important;
+                    padding: 5px 10px;
+                    border-radius: 0;
+                    margin: 5px;
                     font-size: 12px;
+                    text-transform: uppercase;
                     font-weight: 500;
-                    font-family: 'Raleway', sans-serif !important;
+                    font-family: 'Raleway', sans-serif;
                     font-weight: 600 !important;
                     color: #000 !important;
-                    border-color: #000 !important;
+                    border-color: #000;
                     border: 1px solid black;
                 }
 
                 .megamenu-horizontal ul li {
                     display: flex;
-                    align-items: center;
-                    justify-content: start;
-                    margin-bottom: 20px;
+                    width: 200%;
+                    align-items: start;
+                }
+
+                @media only screen and (max-width: 800px) {
+                    .megamenu-horizontal {
+                        overflow: scroll;
+                    }
                 }
                 </style>
-                <nav class=" yamm megamenu-horizontal" role="navigation">
-                    <ul class="nav">
-                        <li class="dropdown menu-item">
+                <nav class="  megamenu-horizontal">
+                    <ul class="">
+                        <li class=" menu-item">
                             <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid='$cid'");
 
                             while ($row = mysqli_fetch_array($sql)) {
                             ?>
-                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>" class=" dropdown-toggle">
+                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>">
                                 <?php echo $row['subcategory']; ?>
                             </a>
                             <?php } ?>
-
                         </li>
+
                     </ul>
                 </nav>
-                <div class="filterMENU">
-                    <ul class="nav">
-                        <li class="dropdown menu-item">
-                            <button class="active" data-toggle-form="myfiltercard1">
-                                Sort by
-                            </button>
-                            <button data-toggle-form="myfiltercard2">
-                                Colour
-                            </button>
-                            <button data-toggle-form="myfiltercard3">
-                                Price
-                            </button>
 
-                        </li>
-                    </ul>
-                </div>
-                <div id="myfiltercard1" style="border:0 !important;">
-                    <div class="filtermenubar sortbybox" style="padding: 0;border:0 !important; margin:0 !important;">
-                        <ul>
-                            <li><a class="menulink" href="#lowtohigh" data-toggle="tab">Price (Lowest
-                                    First)</a>
-                            </li>
-                            <li><a class="menulink" href="#hightolow" data-toggle="tab">Price (Highest
-                                    First)</a>
-                            </li>
-                            <li><a class="menulink" href="#AtoZ" data-toggle="tab">A to Z</a>
-                            </li>
-                            <li style="border-bottom: 1px solid black !important;"><a class="menulink" href="#ZtoA"
-                                    data-toggle="tab">Z to A</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="myfiltercard2">
-                    <div class="filtermenubar colors" style=" padding: 0 !important;margin: 0 !important;">
-                        <ul style="padding: 0 !important;margin: 0 !important;">
-                            <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                <a href="#all" data-toggle="tab">
 
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-                                        <div class="box"
-                                            style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);">
-                                        </div>
-                                    </div>
-                                    <span>All</span>
-                                </a>
-                            </li>
-
-                            <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                <a href="#blackandwhiteandGray" data-toggle="tab">
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-                                        <div class='box black '
-                                            style="background: linear-gradient(to right, black, white);">
-                                        </div>
-                                    </div>
-                                    <span>Black & White</span>
-                                </a>
-                            </li>
-                            <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                <a href=" #Blue" data-toggle="tab">
-                                    <div cla style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;" ss="">
-
-                                        <div class='box blue '></div>
-                                    </div>
-                                    <span>Blue</span>
-                                </a>
-                            </li>
-                            <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                <a href="#Pink" data-toggle="tab">
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-
-                                        <div class='box pink '></div>
-                                    </div>
-                                    <span>Pink</span>
-
-                                </a>
-                            </li>
-                            <li style="padding: 0 !important;margin: 0 !important;">
-                                <a href="#Red" data-toggle="tab">
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-
-                                        <div class='box red '></div>
-                                    </div>
-                                    <span>Red & Rose</span>
-                                </a>
-                            </li>
-                            <li
-                                style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;border-right: 0 !important;">
-                                <a href="#Green" data-toggle="tab">
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-
-                                        <div class='box green '></div>
-                                    </div>
-                                    <span>Green</span>
-                                </a>
-                            </li>
-                            <li style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;">
-                                <a href="#Yellow" data-toggle="tab">
-                                    <div class="" style="
-                                    display: flex;
-                    align-items: center;
-                    justify-content: center;">
-
-                                        <div class='box yellow '></div>
-                                    </div>
-                                    <span>Yellow</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div id="myfiltercard3" style="border: 0 !important;">
-                    <div class="filtermenubar sortbybox" style="padding: 0;border:0 !important; margin:0 !important;">
-                        <ul>
-                            <li><a class="menulink" href="#price3000to4000" data-toggle="tab">Price (2000 to
-                                    5000)</a>
-                            </li>
-                            <li><a class="menulink" href="#price5000to10000" data-toggle="tab">Price (5000
-                                    to 10000)</a>
-                            </li>
-                            <li><a class="menulink" href="#price10000to20000" data-toggle="tab">Price (10000
-                                    to
-                                    20000)</a>
-                            </li>
-                            <li style="border-bottom: 1px solid black !important;"><a class=" menulink"
-                                    href="#priceover10000" data-toggle="tab">Price
-                                    (over
-                                    10000)</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </div>
 
             <style>
             .filterMENU {
-                margin-top: -20px;
+                margin-left: 7px;
                 position: relative !important;
-                z-index: 9999999999999999999999999999999999999999 !important;
             }
 
             .filterMENU ul li button {
                 background: transparent;
                 padding: 5px 10px !important;
                 border-radius: 0 !important;
-                margin: 10px !important;
+                margin: 5px !important;
                 text-transform: uppercase !important;
                 font-size: 12px !important;
                 font-weight: 500;
                 font-family: 'Raleway', sans-serif !important;
-                font-weight: 600 !important;
+                font-weight: 600;
                 color: #000 !important;
                 border-color: #000 !important;
                 border: 1px solid black;
@@ -385,8 +279,9 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
             #myfiltercard1 {
                 position: absolute;
-                left: 2.3%;
-                width: 300px;
+                left: 0%;
+                width: 500px;
+                top: 100%;
                 background: white;
                 border: 1px solid black;
                 display: none;
@@ -395,8 +290,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
 
             #myfiltercard2 {
+                top: 100%;
+
                 position: absolute;
-                left: 8.3%;
+                left: 0%;
                 width: 500px;
                 background: white;
                 display: none;
@@ -404,9 +301,11 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
             }
 
             #myfiltercard3 {
+                top: 100%;
+
                 position: absolute;
-                left: 15%;
-                width: 300px;
+                left: 0%;
+                width: 500px;
 
                 background: white;
                 border: 1px solid black;
@@ -416,7 +315,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
             #myfiltercard4 {
                 position: absolute;
-                left: 20%;
+                left: 0%;
                 width: 300px;
 
                 background: white;
@@ -427,7 +326,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
             #myfiltercard5 {
                 position: absolute;
-                left: 28%;
+                left: 0%;
                 width: 300px;
 
                 background: white;
@@ -438,7 +337,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
             #myfiltercard6 {
                 position: absolute;
-                left: 33.5%;
+                left: 0%;
                 width: 300px;
 
                 background: white;
@@ -697,6 +596,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     display: none;
                 }
 
+                .filtermenubar {
+                    background: #ffffff;
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 30%;
+                }
             }
             </style>
 
@@ -797,6 +704,157 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                 <!-- ========================================== SECTION – HERO ========================================= -->
 
                 <div class="col-lg-12 col-md-12 col-sm-12 btn-card-box">
+                    <div class="filterMENU">
+                        <ul class="nav">
+                            <li class="dropdown menu-item">
+                                <button class="active" data-toggle-form="myfiltercard1">
+                                    Sort by
+                                </button>
+                                <button data-toggle-form="myfiltercard2">
+                                    Colour
+                                </button>
+                                <button data-toggle-form="myfiltercard3">
+                                    Price
+                                </button>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="myfiltercard1" style="border:0 !important;">
+                        <div class="filtermenubar sortbybox"
+                            style="padding: 0;border:0 !important; margin:0 !important;">
+                            <ul>
+                                <li><a class="menulink" href="#lowtohigh" data-toggle="tab">Price (Lowest
+                                        First)</a>
+                                </li>
+                                <li><a class="menulink" href="#hightolow" data-toggle="tab">Price (Highest
+                                        First)</a>
+                                </li>
+                                <li><a class="menulink" href="#AtoZ" data-toggle="tab">A to Z</a>
+                                </li>
+                                <li style="border-bottom: 1px solid black !important;"><a class="menulink" href="#ZtoA"
+                                        data-toggle="tab">Z to A</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="myfiltercard2">
+                        <div class="filtermenubar colors" style=" padding: 0 !important;margin: 0 !important;">
+                            <ul style="padding: 0 !important;margin: 0 !important;">
+                                <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
+                                    <a href="#all" data-toggle="tab">
+
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+                                            <div class="box"
+                                                style="background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);">
+                                            </div>
+                                        </div>
+                                        <span>All</span>
+                                    </a>
+                                </li>
+
+                                <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
+                                    <a href="#blackandwhiteandGray" data-toggle="tab">
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+                                            <div class='box black '
+                                                style="background: linear-gradient(to right, black, white);">
+                                            </div>
+                                        </div>
+                                        <span>Black & White</span>
+                                    </a>
+                                </li>
+                                <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
+                                    <a href=" #Blue" data-toggle="tab">
+                                        <div cla style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;" ss="">
+
+                                            <div class='box blue '></div>
+                                        </div>
+                                        <span>Blue</span>
+                                    </a>
+                                </li>
+                                <li style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
+                                    <a href="#Pink" data-toggle="tab">
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+
+                                            <div class='box pink '></div>
+                                        </div>
+                                        <span>Pink</span>
+
+                                    </a>
+                                </li>
+                                <li style="padding: 0 !important;margin: 0 !important;">
+                                    <a href="#Red" data-toggle="tab">
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+
+                                            <div class='box red '></div>
+                                        </div>
+                                        <span>Red & Rose</span>
+                                    </a>
+                                </li>
+                                <li
+                                    style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;border-right: 0 !important;">
+                                    <a href="#Green" data-toggle="tab">
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+
+                                            <div class='box green '></div>
+                                        </div>
+                                        <span>Green</span>
+                                    </a>
+                                </li>
+                                <li style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;">
+                                    <a href="#Yellow" data-toggle="tab">
+                                        <div class="" style="
+                                    display: flex;
+                    align-items: center;
+                    justify-content: center;">
+
+                                            <div class='box yellow '></div>
+                                        </div>
+                                        <span>Yellow</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="myfiltercard3" style="border: 0 !important;">
+                        <div class="filtermenubar sortbybox"
+                            style="padding: 0;border:0 !important; margin:0 !important;">
+                            <ul>
+                                <li><a class="menulink" href="#price3000to4000" data-toggle="tab">Price (2000 to
+                                        5000)</a>
+                                </li>
+                                <li><a class="menulink" href="#price5000to10000" data-toggle="tab">Price (5000
+                                        to 10000)</a>
+                                </li>
+                                <li><a class="menulink" href="#price10000to20000" data-toggle="tab">Price (10000
+                                        to
+                                        20000)</a>
+                                </li>
+                                <li style="border-bottom: 1px solid black !important;"><a class=" menulink"
+                                        href="#priceover10000" data-toggle="tab">Price
+                                        10000)</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="btn-card">
                         <svg id="MYGRID6" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
@@ -884,21 +942,20 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                 </script>
                 <style>
                 .btn-card-box {
-                    padding: 20px;
-                    position: sticky;
-                    top: 5%;
-                    background: transparent;
-                    z-index: 999;
-                }
-
-                .btn-card {
                     display: flex;
                     align-items: center;
-                    justify-content: end;
-                    padding: 0px 20px;
-
+                    justify-content: space-between;
+                    background: transparent;
+                    position: sticky;
+                    top: 5%;
+                    z-index: 9999;
+                    width: 100%;
                 }
 
+
+                .btn-card {
+                    margin-top: 10px;
+                }
 
                 .card .image {
                     background: #f2f3f8 !important;
@@ -907,10 +964,34 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     border: 1px solid black;
                 }
 
+                @media (max-width: 1200px) {
+                    .filterMENU ul li button {
+                        border: 0 solid black;
+                        font-weight: 400;
+                    }
+
+                    .filterMENU ul li button:focus {
+                        font-weight: 600 !important;
+                    }
+
+                    .filterMENU {
+                        margin-left: 0;
+                    }
+
+                    .btn-card-box {
+                        width: 100%;
+                        margin-left: -10px;
+                        margin-right: 0;
+                    }
+                }
+
                 @media (max-width: 767.98px) {
+
+
                     .card .image {
                         width: 220px;
                     }
+
                 }
 
                 @media (max-width: 500px) {
@@ -919,19 +1000,6 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     }
                 }
 
-                .box-card {
-                    display: flex;
-                    align-items: start;
-                    justify-content: center;
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                    padding: 0;
-                    flex-wrap: wrap;
-                    margin: 10px;
-                    height: 100%;
-
-                }
 
                 .responsiveCard {
                     height: 100vh;
@@ -1062,8 +1130,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 style="background:transparent !important;">
                                                 <a
                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                         width=" 100%" height="100%" alt=""></a>
                                             </div>
                                         </div>
@@ -1134,8 +1202,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1218,8 +1286,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1302,8 +1370,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1385,8 +1453,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1468,8 +1536,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1550,8 +1618,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1632,8 +1700,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1713,8 +1781,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1794,8 +1862,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1875,8 +1943,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -1956,8 +2024,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2038,8 +2106,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2122,8 +2190,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2204,8 +2272,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2287,8 +2355,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 
@@ -2370,8 +2438,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
 

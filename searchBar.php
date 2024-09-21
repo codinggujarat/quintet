@@ -75,6 +75,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         <![endif]-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -84,6 +86,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <!-- animated  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="lib/animate/animate.css">
+    <link rel="stylesheet" href="lib/animate/animate.min.css">
+    <script src="lib/wow/wow.js"></script>
+    <script src="lib/wow/wow.js"></script>
 </head>
 
 <body class="cnt-home" style="background: white !important;">
@@ -111,12 +117,12 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             padding: 0 !important;
         }
         </style>
-        <div class="search_Box wow fadeInUpBig">
+        <div class="search_Box ">
             <div class="top-search-holder   ">
                 <div class="search-area">
                     <form name="search" method="post" action="search-result.php" autocomplete="off">
                         <div class="control-group ">
-                            <input class="search-field " name="product"
+                            <input class="search-field   " name="product"
                                 placeholder="Search for an item, colour, collection..." required="required" />
                         </div>
                     </form>
@@ -133,16 +139,28 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         <style>
         .search_Box {
             position: sticky;
-            top: 25%;
-            margin-top: 200px;
+            top: 20%;
+            margin-top: 170px;
         }
 
         .btn-card-box {
             padding: 20px;
             position: sticky;
-            top: 33%;
+            top: 14%;
             background: transparent;
             z-index: 999;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .search_Box {
+                top: 10%;
+                margin-top: 0px;
+            }
+
+            .btn-card-box {
+                top: 9.5%;
+            }
+
         }
 
         .btn-card {
@@ -158,33 +176,17 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         }
 
         .card .image {
-            background: #f2f3f8 !important;
-            width: 300px;
+            width: auto;
             height: 100%;
             border: 1px solid black;
         }
 
-        @media (max-width: 767.98px) {
-            .card .image {
-                width: 220px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .card .image {
-                width: 150px;
-            }
-        }
 
         .box-card {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: auto;
             width: 100%;
-            flex-wrap: wrap;
-            margin: 10px;
-            height: 100%;
-
         }
 
         .responsiveCard {
@@ -192,7 +194,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             width: 100%;
         }
         </style>
-        <div class="box-card  wow fadeInUpBig">
+        <div class="box-card  ">
             <?php
             $ret = mysqli_query($con, "SELECT * FROM products  where category ORDER BY RAND() ");
             while ($row = mysqli_fetch_array($ret)) {
@@ -209,25 +211,61 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             <?php } ?>
         </div>
         <script>
+        // Click handler for MYGRID6 button
         document.getElementById('MYGRID6').addEventListener('click', function() {
+            var gridContainer = document.querySelector(
+                '.box-card'); // Assuming your grid container has this class
+
+            // Change the grid layout to 6 columns
+            gridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+
             var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+                '.box-card'); // Select all elements with the class 'box-card'
             boxes.forEach(function(box) {
-                box.style.width = "100%"; // Toggle 'active' class for each box
+                box.style.width = "100%"; // Adjust width of each box
+            });
+
+            var productName = document.querySelectorAll('.productName');
+            productName.forEach(function(productName) {
+                productName.style.display = "none"; // Hide product name
             });
         });
+
+        // Click handler for MYGRID2 button
         document.getElementById('MYGRID2').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+            var gridContainer = document.querySelector(
+                '.box-card'); // Assuming your grid container has this class
+
+            // Change the grid layout to 2 columns
+            gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
+
+            var boxes = document.querySelectorAll('.box-card');
             boxes.forEach(function(box) {
-                box.style.width = "240px"; // Toggle 'active' class for each box
+                box.style.width = "100%"; // Adjust width of each box
+            });
+
+            var productName = document.querySelectorAll('.productName');
+            productName.forEach(function(productName) {
+                productName.style.display = "none"; // Show product name
             });
         });
+
+        // Click handler for MYGRID12 button
         document.getElementById('MYGRID12').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+            var gridContainer = document.querySelector(
+                '.box-card'); // Assuming your grid container has this class
+
+            // Change the grid layout to 12 columns
+            gridContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
+
+            var boxes = document.querySelectorAll('.box-card');
             boxes.forEach(function(box) {
-                box.style.width = "150px"; // Toggle 'active' class for each box
+                box.style.width = "100%"; // Adjust width of each box
+            });
+
+            var productName = document.querySelectorAll('.productName');
+            productName.forEach(function(productName) {
+                productName.style.display = "none"; // Hide product name
             });
         });
         </script>
@@ -261,7 +299,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     }
     </style>
     <?php include('includes/footer.php'); ?>
-
 </body>
 
 </html>

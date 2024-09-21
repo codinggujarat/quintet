@@ -92,86 +92,30 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <div class="body-content outer-top-xs" id="top-banner-and-menu">
         <style>
         .body-content {
-            margin-top: 40px !important;
+            margin-top: 0px;
+        }
+
+        .categoryMenu {
+            margin-left: 27px;
+        }
+
+
+        @media only screen and (max-width: 800px) {
+
+            .body-content {
+                margin-top: 0px !important;
+            }
+
+            .categoryMenu {
+                margin-left: 0;
+            }
+
+
         }
         </style>
-        <div class="" style="  padding: 0;margin-left:40px;margin-right:40px; ">
+        <div>
             <div class="furniture-container homepage-container">
-                <div class="row">
-
-
-
-                    <div class="col-xs-12 col-sm-12 col-md-12 homebanner-holder ">
-                        <!-- ========================================== SECTION – HERO ========================================= -->
-                        <style>
-                        #owl-main .owl-pagination {
-                            background: transparent !important;
-                            bottom: -20px !important;
-                            padding: 5px !important;
-                        }
-
-                        #owl-main .owl-inner-pagination.owl-ui-md .owl-prev,
-                        #owl-main .owl-inner-pagination.owl-ui-md .owl-next {
-                            background: black !important;
-                        }
-
-                        #owl-main .owl-prev,
-                        #owl-main .owl-next {
-                            background: transparent !important;
-                            font-size: 50px !important;
-                        }
-
-                        .owl-carousel .owl-prev::before,
-                        .owl-carousel .owl-next::before {
-                            background: #F2F3F8 !important;
-                            padding: 3px 10px !important;
-                            border-radius: 50px !important;
-                            position: absolute !important;
-                            top: -3px !important;
-                            color: #000 !important;
-                            border: 1px solid black;
-                            z-index: 9999999999999;
-                            left: -3px !important;
-                        }
-
-
-                        .swiper {
-                            width: 100%;
-                            height: 100%;
-                        }
-
-                        .swiper-slide {
-                            text-align: center;
-                            font-size: 18px;
-                            width: 100%;
-                            height: 100%;
-                            background: #fff;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                        }
-
-                        .swiper-slide img {
-                            display: block;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: cover;
-                        }
-
-                        .swiper-button-next,
-                        .swiper-button-prev {
-                            height: 100%;
-                            color: #fff !important;
-                            top: 0;
-                            width: 30px;
-                        }
-                        </style>
-
-
-
-
-                    </div><!-- /.row -->
-
+                <div class="row outer-bottom-sm">
 
                     <!-- ============================================== SCROLL TABS ============================================== -->
                     <div id="product-tabs-slider" class="scroll-tabs   wow  " style="
@@ -180,7 +124,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 ">
 
                         <div class="more-info-tab clearfix"
-                            style="margin-top: 40px;border : 0 !important ;display: block !important ; overflow-x: auto !important ;   ">
+                            style="margin-top: 40px;border : 0 !important ;display: block !important ; ">
 
                             <style>
                             .more-info-tab {
@@ -189,8 +133,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 align-items: center !important;
                                 width: 100% !important;
                                 justify-content: start !important;
-                                overflow-x: scroll !important;
-                                overflow-y: hidden !important;
                                 width: 100% !important;
                                 /* position: sticky !important; */
                                 top: 0 !important;
@@ -202,15 +144,22 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 .more-info-tab {
                                     z-index: 99 !important;
                                 }
+
+                                .filtermenubar {
+                                    background: #ffffff;
+                                    position: fixed;
+                                    bottom: 0;
+                                    left: 0;
+                                    width: 100%;
+                                }
                             }
 
                             .nav-tabs {
+                                margin-left: 20px;
                                 display: flex;
                                 align-items: center;
                                 width: 100%;
                                 justify-content: start;
-                                overflow-x: scroll !important;
-                                overflow-y: hidden !important;
                             }
 
                             .nav-tabs::-webkit-scrollbar-track {
@@ -258,7 +207,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 border-color: #000 !important;
                             }
                             </style>
-                            <ul class=" nav nav-tabs  col-lg-12 col-sm-12" id=""
+                            <ul class=" nav nav-tabs  "
                                 style="width: 100% !important ;overflow-x : scroll !important  ;  text-align: center;border:0 !important; ">
                                 <li class="active  "><a href="#all" data-toggle="tab">view ALL</a>
                                 </li>
@@ -274,6 +223,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 margin-top: -20px;
                                 position: relative !important;
                                 z-index: 99 !important;
+                                margin-left: 20px;
                             }
 
                             .filterMENU ul li button {
@@ -325,8 +275,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard1 {
                                 position: absolute;
-                                left: 2.3%;
-                                width: 300px;
+                                left: 0%;
+                                width: 500px;
                                 background: white;
                                 border: 1px solid black;
                                 display: none;
@@ -336,7 +286,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard2 {
                                 position: absolute;
-                                left: 8.3%;
+                                left: 0%;
                                 width: 500px;
                                 background: white;
                                 display: none;
@@ -345,8 +295,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard3 {
                                 position: absolute;
-                                left: 15%;
-                                width: 300px;
+                                left: 0%;
+                                width: 500px;
 
                                 background: white;
                                 border: 1px solid black;
@@ -356,8 +306,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard4 {
                                 position: absolute;
-                                left: 20%;
-                                width: 300px;
+                                left: 0%;
+                                width: 500px;
 
                                 background: white;
                                 border: 1px solid black;
@@ -367,8 +317,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard5 {
                                 position: absolute;
-                                left: 28%;
-                                width: 300px;
+                                left: 0%;
+                                width: 500px;
 
                                 background: white;
                                 border: 1px solid black;
@@ -378,8 +328,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             #myfiltercard6 {
                                 position: absolute;
-                                left: 33.5%;
-                                width: 300px;
+                                left: 0%;
+                                width: 500px;
 
                                 background: white;
                                 border: 1px solid black;
@@ -513,9 +463,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <button data-toggle-form="myfiltercard4">
                                         Collection
                                     </button>
-                                    <button data-toggle-form="myfiltercard5">
-                                        Brand
-                                    </button>
                                     <button data-toggle-form="myfiltercard6">
                                         Gender
                                     </button>
@@ -555,89 +502,54 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <span>All</span>
                                             </a>
                                         </li>
-
+                                        <?php $sql = mysqli_query($con, "SELECT MIN(id) as id, productColor
+FROM products
+WHERE productColor NOT LIKE '%BLACK%'
+AND productColor NOT LIKE '%WHITE%'
+AND productColor NOT LIKE '%lightpink%'
+AND productColor NOT LIKE '%Skyblue%'
+AND productColor NOT LIKE '%Rose%'
+AND productColor NOT LIKE '%productcolor%'
+AND productColor NOT LIKE '%Navyblue%'
+AND productColor NOT LIKE '%BLACKISH%'
+GROUP BY productColor;
+");
+                                        while ($row = mysqli_fetch_array($sql)) {
+                                        ?>
                                         <li
                                             style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                            <a href="#blackandwhiteandGray" data-toggle="tab">
+                                            <a href="#<?php echo $row['productColor']; ?>" data-toggle="tab">
                                                 <div class=""
                                                     style="display: flex;align-items: center;justify-content: center;">
-                                                    <div class='box black '
-                                                        style="background: linear-gradient(to right, black, white);">
+                                                    <div class="box"
+                                                        style="background: <?php echo $row['productColor']; ?>;">
                                                     </div>
                                                 </div>
-                                                <span>Black & White</span>
+                                                <span><?php echo $row['productColor']; ?></span>
                                             </a>
                                         </li>
-                                        <li
-                                            style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                            <a href=" #Blue" data-toggle="tab">
-                                                <div cla
-                                                    style="display: flex;align-items: center;justify-content: center;"
-                                                    ss="">
+                                        <?php } ?>
 
-                                                    <div class='box blue '></div>
-                                                </div>
-                                                <span>Blue</span>
-                                            </a>
-                                        </li>
-                                        <li
-                                            style="padding: 0 !important;margin: 0 !important;border-right: 0 !important;">
-                                            <a href="#Pink" data-toggle="tab">
-                                                <div class=""
-                                                    style="display: flex;align-items: center;justify-content: center;">
 
-                                                    <div class='box pink '></div>
-                                                </div>
-                                                <span>Pink</span>
-
-                                            </a>
-                                        </li>
-                                        <li style="padding: 0 !important;margin: 0 !important;">
-                                            <a href="#Red" data-toggle="tab">
-                                                <div class=""
-                                                    style="display: flex;align-items: center;justify-content: center;">
-
-                                                    <div class='box red '></div>
-                                                </div>
-                                                <span>Red & Rose</span>
-                                            </a>
-                                        </li>
-                                        <li
-                                            style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;border-right: 0 !important;">
-                                            <a href="#Green" data-toggle="tab">
-                                                <div class=""
-                                                    style="display: flex;align-items: center;justify-content: center;">
-
-                                                    <div class='box green '></div>
-                                                </div>
-                                                <span>Green</span>
-                                            </a>
-                                        </li>
-                                        <li
-                                            style="padding: 0 !important;margin: 0 !important;border-top: 0 !important;">
-                                            <a href="#Yellow" data-toggle="tab">
-                                                <div class=""
-                                                    style="display: flex;align-items: center;justify-content: center;">
-
-                                                    <div class='box yellow '></div>
-                                                </div>
-                                                <span>Yellow</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div id="myfiltercard3" style="border: 0 !important;">
                                 <div class="filtermenubar sortbybox"
                                     style="padding: 0;border:0 !important; margin:0 !important;">
+
                                     <ul>
-                                        <li><a class="menulink" href="#price3000to4000" data-toggle="tab">Price (2000 to
+
+                                        <li><a class="menulink" href="#price3000to4000" data-toggle="tab">Price
+                                                (2000 to
                                                 5000)</a>
                                         </li>
-                                        <li><a class="menulink" href="#price5000to10000" data-toggle="tab">Price (5000
+                                        <li><a class="menulink" href="#price5000to10000" data-toggle="tab">Price
+                                                (5000
                                                 to 10000)</a>
                                         </li>
-                                        <li><a class="menulink" href="#price10000to20000" data-toggle="tab">Price (10000
+                                        <li><a class="menulink" href="#price10000to20000" data-toggle="tab">Price
+                                                (10000
                                                 to
                                                 20000)</a>
                                         </li>
@@ -649,7 +561,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </ul>
                                 </div>
                             </div>
-                            <div id="myfiltercard4" style="border:0 !important;">
+                            <div id="myfiltercard4"
+                                style=" border:0 !important;border-bottom: 1px solid black !important;">
                                 <div class="filtermenubar sortbybox"
                                     style="padding: 0;border:0 !important; margin:0 !important;">
                                     <ul>
@@ -666,7 +579,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 </div>
                             </div>
 
-                            <div id="myfiltercard6" style="border:0 !important;">
+                            <div id="myfiltercard6"
+                                style=" border:0 !important;border-bottom: 1px solid black !important;">
+
                                 <div class="filtermenubar sortbybox"
                                     style="padding: 0;border:0 !important; margin:0 !important;">
 
@@ -1620,7 +1535,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Blue', 'Skyblue')");
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Blue', 'Skyblue','Navyblue')");
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
@@ -1691,7 +1606,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Pink','Bright Pink')");
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Pink','Bright Pink','lightpink')");
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
@@ -1762,7 +1677,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </style>
                                     <div class="productimagetab " data-wow-delay="0.1s">
                                         <?php
-                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Red','Dusty Rose','Copper Red')");
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Red','Dusty Rose','Copper Red','Rose')");
                                         while ($row = mysqli_fetch_array($ret)) {
                                             # code...
                                         ?>
@@ -2023,6 +1938,290 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                                 <g>
                                                                     <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
 			h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+
+                                        </div><!-- /.product -->
+
+                                        <?php } ?>
+
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+                            <div class="tab-pane" id="maroon">
+                                <div class="product-slider">
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Maroon','maroon')");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+			h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+
+                                        </div><!-- /.product -->
+
+                                        <?php } ?>
+
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+                            <div class="tab-pane" id="Darkgreen">
+                                <div class="product-slider">
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('DARKGREEN','darkgreen')");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path
+                                                                        d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+
+                                        </div><!-- /.product -->
+
+                                        <?php } ?>
+
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+                            <div class="tab-pane" id="Khaki">
+                                <div class="product-slider">
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Khaki','KHAKI')");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path
+                                                                        d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+
+                                        </div><!-- /.product -->
+
+                                        <?php } ?>
+
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+                            <div class="tab-pane" id="Brown">
+                                <div class="product-slider">
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "SELECT * FROM products WHERE productColor IN ('Brown','BROWN')");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+                                        ?>
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="assets/images/blank.gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path
+                                                                        d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
                                                                 </g>
                                                             </g>
                                                         </svg>
