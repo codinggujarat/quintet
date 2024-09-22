@@ -132,7 +132,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <div class="body-content outer-top-xs">
         <style>
         .body-content {
-            margin-top: 30px;
+            margin-top: 50px;
         }
 
         .categoryMenu {

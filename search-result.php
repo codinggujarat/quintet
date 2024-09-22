@@ -117,12 +117,16 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
             <div class='row outer-bottom-sm'>
                 <div class='col-md-12'>
                     <!-- ========================================== SECTION – HERO ========================================= -->
-
+                    <style>
+                    .body-content {
+                        margin-top: 60px;
+                    }
+                    </style>
                     <div id="category" class="category-carousel ">
                         <div class="image">
                             <div class="" style="text-align: left; background-color: transparent ; padding-left:10px;">
                                 <h1
-                                    style="font-family: 'Raleway' sans-serif !important; text-transform:uppercase    ; color: #fff; font-size: 14px;font-weight: 300 !important;color: #000; ">
+                                    style="font-family: 'Poppins' sans-serif !important; text-transform:uppercase    ; color: #fff; font-size: 12px;font-weight: 400 !important;color: #000; ">
                                     If you're not happy with the results, please do another search.
                                 </h1>
                             </div>
@@ -148,21 +152,12 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
                                 .productimagetab {
-                                    display: flex;
-                                    align-items: center;
-                                    justify-content: start !important;
-                                    flex-wrap: wrap;
+                                    display: grid;
+                                    grid-template-columns: repeat(6, 1fr);
+                                    grid-auto-rows: auto;
                                     width: 100%;
                                 }
 
-                                @media only screen and (max-width: 800px) {
-                                    .productimagetab {
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center !important;
-                                        flex-wrap: wrap;
-                                    }
-                                }
 
                                 .btn-card-box {
                                     padding: 20px;
@@ -180,22 +175,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 }
 
                                 .card .image {
-                                    background: #f2f3f8 !important;
-                                    width: 100%;
-                                    height: 100%;
+                                    width: auto;
                                     border: 1px solid black;
-                                }
-
-                                @media (max-width: 767.98px) {
-                                    .card .image {
-                                        width: 220px;
-                                    }
-                                }
-
-                                @media (max-width: 500px) {
-                                    .card .image {
-                                        width: 150px;
-                                    }
                                 }
 
                                 .box-card {
@@ -211,8 +192,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 }
 
                                 .responsiveCard {
-                                    height: 100vh;
-                                    width: 100%;
+                                    margin: 0;
+                                    padding: 0;
                                 }
                                 </style>
 
@@ -261,12 +242,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
 
 
+
                                     .product {
                                         height: 100%;
-                                        margin: 0;
-                                        width: 300px;
-                                        padding: 0;
-                                        flex-wrap: wrap;
+                                        margin: 0 !important;
+                                        width: auto !important;
+                                        padding: 0 !important;
+                                        border: 1px solid black !important;
+
                                     }
 
                                     .item {
@@ -278,7 +261,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                     }
 
                                     .product-info {
-                                        width: 100%;
+                                        width: auto;
                                         border-top: 1px solid black;
 
                                     }
@@ -291,12 +274,24 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                     }
 
 
+                                    @media only screen and (max-width: 1200px) {
+                                        .productimagetab {
+                                            grid-template-columns: repeat(5, 1fr);
+                                        }
+                                    }
+
+                                    @media only screen and (max-width: 1000px) {
+                                        .productimagetab {
+                                            grid-template-columns: repeat(4, 1fr);
+                                        }
+                                    }
+
                                     @media only screen and (max-width: 550px) {
 
-
-                                        .product {
-                                            width: 210px;
+                                        .productimagetab {
+                                            grid-template-columns: repeat(2, 1fr);
                                         }
+
 
 
                                         .addtocart {
@@ -315,17 +310,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                             font-size: 10px !important;
                                         }
 
-                                        .product-info .favorites {
-                                            display: none;
-                                        }
+
                                     }
 
                                     @media only screen and (max-width: 350px) {
-
-                                        .products,
-                                        .product {
-                                            width: 100px !important;
-                                        }
 
                                         .name {
                                             width: 100% !important;
@@ -336,7 +324,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
                                     .product-info .favorites {
                                         position: absolute;
-                                        right: 5px;
+                                        right: 0;
                                         top: 10px;
                                         width: 20px;
                                         height: 20px;
@@ -349,53 +337,49 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                     </style>
 
 
-                                    <div class=" item item-carousel ">
-                                        <div class="products">
-                                            <div class="product responsiveCard">
-                                                <div class="product-image" style=" background:#F2F3F8 !important; ">
-                                                    <div class=" image " data-wow-delay="0.1s"
-                                                        style="background:transparent !important;">
-                                                        <a
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                            <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                width=" 100%" height="100%" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class=" product-info text-left productName"
-                                                    style="position:relative; padding-left:10px; ">
-                                                    <h3 class="name" style="margin-top:10px;">
-                                                        <a style="font-family: sans-serif, ' Poppins'
+                                    <div class="product responsiveCard">
+                                        <div class="product-image" style=" background:#F2F3F8 !important; ">
+                                            <div class=" image " data-wow-delay="0.1s"
+                                                style="background:transparent !important;">
+                                                <a
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        width=" 100%" height="100%" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class=" product-info text-left productName"
+                                            style="position:relative; padding-left:10px; ">
+                                            <h3 class="name" style="margin-top:10px;">
+                                                <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                    </h3>
-                                                    <div class=" product-price" style="margin-top: -15px; ">
-                                                        <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                            </h3>
+                                            <div class=" product-price" style="margin-top: -15px; ">
+                                                <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                            ₹
-                                                            <span style="margin-left: 1px;">
-                                                                <?php echo htmlentities($row['productPrice']); ?>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="favorites">
-                                                        <a title="favourites"
-                                                            style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                            <svg fill="#000000" height="10px" width="10px" version="1.1"
-                                                                id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                <g>
-                                                                    <g>
-                                                                        <path
-                                                                            d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
-                                                                    </g>
-                                                                </g>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                    ₹
+                                                    <span style="margin-left: 1px;">
+                                                        <?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="favorites">
+                                                <a title="favourites"
+                                                    style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                    <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                        <g>
+                                                            <g>
+                                                                <path
+                                                                    d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -436,53 +420,49 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                     $num = mysqli_num_rows($ret);
                                     if ($num > 0) {
                                         while ($row = mysqli_fetch_array($ret)) { ?>
-                                    <div class=" item item-carousel ">
-                                        <div class="products">
-                                            <div class="product responsiveCard">
-                                                <div class="product-image" style=" background:#F2F3F8 !important; ">
-                                                    <div class=" image " data-wow-delay="0.1s"
-                                                        style="background:transparent !important;">
-                                                        <a
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                            <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                                width=" 100%" height="100%" alt=""></a>
-                                                    </div>
-                                                </div>
-                                                <div class=" product-info text-left productName"
-                                                    style="position:relative; padding-left:10px; ">
-                                                    <h3 class="name" style="margin-top:10px;">
-                                                        <a style="font-family: sans-serif, ' Poppins'
+                                    <div class="product responsiveCard">
+                                        <div class="product-image" style=" background:#F2F3F8 !important; ">
+                                            <div class=" image " data-wow-delay="0.1s"
+                                                style="background:transparent !important;">
+                                                <a
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        width=" 100%" height="100%" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <div class=" product-info text-left productName"
+                                            style="position:relative; padding-left:10px; ">
+                                            <h3 class="name" style="margin-top:10px;">
+                                                <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                    </h3>
-                                                    <div class=" product-price" style="margin-top: -15px; ">
-                                                        <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                            </h3>
+                                            <div class=" product-price" style="margin-top: -15px; ">
+                                                <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                                            ₹
-                                                            <span style="margin-left: 1px;">
-                                                                <?php echo htmlentities($row['productPrice']); ?>
-                                                            </span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="favorites">
-                                                        <a title="favourites"
-                                                            style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                            href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                            <svg fill="#000000" height="10px" width="10px" version="1.1"
-                                                                id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                                viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                                <g>
-                                                                    <g>
-                                                                        <path
-                                                                            d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
-                                                                    </g>
-                                                                </g>
-                                                            </svg>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                    ₹
+                                                    <span style="margin-left: 1px;">
+                                                        <?php echo htmlentities($row['productPrice']); ?>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="favorites">
+                                                <a title="favourites"
+                                                    style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                    <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                        viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                        <g>
+                                                            <g>
+                                                                <path
+                                                                    d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -565,58 +545,64 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <!-- For demo purposes – can be removed on production : End -->
 
     <script>
+    // Click handler for MYGRID6 button
     document.getElementById('MYGRID6').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
 
-            boxes.forEach(function(box) {
-                    box.style.width = "100%"; // Toggle 'active' class for each box
-                }
+        // Change the grid layout to 6 columns
+        gridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
 
-            );
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "none"; // Toggle 'active' class for each box
-            });
-        }
+        var boxes = document.querySelectorAll(
+            '.productimagetab'); // Select all elements with the class 'productimagetab'
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
 
-    );
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "none"; // Hide product name
+        });
+    });
 
+    // Click handler for MYGRID2 button
     document.getElementById('MYGRID2').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
 
-            boxes.forEach(function(box) {
-                    box.style.width = "210px"; // Toggle 'active' class for each box
-                }
+        // Change the grid layout to 2 columns
+        gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
 
-            );
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "block"; // Toggle 'active' class for each box
-            });
-        }
+        var boxes = document.querySelectorAll('.productimagetab');
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
 
-    );
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "none"; // Show product name
+        });
+    });
 
+    // Click handler for MYGRID12 button
     document.getElementById('MYGRID12').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
 
-            boxes.forEach(function(box) {
-                    box.style.width = "130px"; // Toggle 'active' class for each box
-                }
+        // Change the grid layout to 12 columns
+        gridContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
 
-            );
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "none"; // Toggle 'active' class for each box
-            });
-        }
+        var boxes = document.querySelectorAll('.productimagetab');
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
 
-    );
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "none"; // Hide product name
+        });
+    });
     </script>
-
 </body>
 
 </html>

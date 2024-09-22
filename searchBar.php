@@ -27,7 +27,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SEARCH</title>
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
@@ -187,6 +187,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             grid-template-columns: repeat(6, 1fr);
             grid-auto-rows: auto;
             width: 100%;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .box-card {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .box-card {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media only screen and (max-width: 550px) {
+
+            .box-card {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
         .responsiveCard {

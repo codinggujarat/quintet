@@ -84,7 +84,7 @@ if (strlen($_SESSION['login']) == 0) {
     <!-- ============================================== HEADER : END ============================================== -->
 
     <div class="body-content outer-top-xs">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div>
             <div class="row inner-bottom-sm">
                 <?php include('includes/myaccount-sidebar.php'); ?>
                 <div class="shopping-cart">
@@ -103,10 +103,7 @@ if (strlen($_SESSION['login']) == 0) {
                                         </a>
                                     </h4>
                                 </div>
-                                <div class=" mywishlistcards" style="display: flex;
-                                            align-items: center;
-                                            justify-content: start;
-                                            flex-wrap: wrap;">
+                                <div class=" mywishlistcards">
                                     <?php $query = mysqli_query($con, "select products.productImageSix as pimg6,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity  as qty, orders.orderStatus as ostatus,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on  orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
                                         $cnt = 1;
 
@@ -116,12 +113,41 @@ if (strlen($_SESSION['login']) == 0) {
                                         <style>
                                         @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+                                        .mywishlistcards {
+                                            display: grid;
+                                            grid-template-columns: repeat(4, 1fr);
+                                            grid-auto-rows: auto;
+                                            width: 100%;
+                                            margin: 0 !important;
+                                            padding: 0 !important;
+                                        }
+
+                                        @media only screen and (max-width: 1200px) {
+                                            .mywishlistcards {
+                                                grid-template-columns: repeat(5, 1fr);
+                                            }
+                                        }
+
+                                        @media only screen and (max-width: 1000px) {
+                                            .mywishlistcards {
+                                                grid-template-columns: repeat(4, 1fr);
+                                            }
+                                        }
+
+                                        @media only screen and (max-width: 550px) {
+
+                                            .mywishlistcards {
+                                                grid-template-columns: repeat(2, 1fr);
+                                            }
+                                        }
 
                                         @media only screen and (max-width: 800px) {
                                             .mywishlistcards {
                                                 justify-content: center !important;
                                             }
                                         }
+
+
 
                                         .cart-product-sub-total {
                                             display: flex;
@@ -160,7 +186,9 @@ if (strlen($_SESSION['login']) == 0) {
 
                                         .col-card {
                                             border: 1px solid black;
-                                            width: 250px;
+                                            width: auto;
+                                            margin: 0;
+                                            padding: 0;
                                         }
 
                                         .name {
@@ -168,20 +196,6 @@ if (strlen($_SESSION['login']) == 0) {
                                             overflow: hidden !important;
                                             text-overflow: ellipsis !important;
                                             white-space: nowrap !important;
-                                        }
-
-                                        @media only screen and (max-width: 800px) {
-                                            .col-card {
-                                                border: 1px solid black;
-                                                width: 200px;
-                                            }
-                                        }
-
-                                        @media only screen and (max-width: 500px) {
-                                            .col-card {
-                                                border: 1px solid black;
-                                                width: 170px;
-                                            }
                                         }
                                         </style>
                                         <div class="col-card">

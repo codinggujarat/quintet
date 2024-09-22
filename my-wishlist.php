@@ -107,7 +107,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
     <div class="body-content outer-top-bd">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div class="" style="  padding: 0;margin-left:15px;margin-right:15px;  ">
             <div class="my-wishlist-page inner-bottom-sm">
                 <div class="row">
                     <div class=" my-wishlist">
@@ -124,10 +124,8 @@ if (strlen($_SESSION['login']) == 0) {
                                     style="font-size: 15px ;color:black ;   margin-left: 10px; "></i>
                             </h1>
                         </div>
-                        <div class=" mywishlistcards" style="display: flex;
-                                            align-items: center;
-                                            justify-content: start;
-                                            flex-wrap: wrap;">
+                        <div class=" mywishlistcards">
+
                             <?php
                                 $ret = mysqli_query($con, "select products.productAvailability as pAvailability ,products.productName as pname,products.productName as proid,products.productImageSix as pimage,products.productPrice as pprice,wishlist.productId as pid,wishlist.id as wid from wishlist join products on products.id=wishlist.productId where wishlist.userId='" . $_SESSION['id'] . "'");
                                 $num = mysqli_num_rows($ret);
@@ -136,6 +134,32 @@ if (strlen($_SESSION['login']) == 0) {
                                 ?>
                             <div class=" mywishlistcard">
                                 <style>
+                                .mywishlistcards {
+                                    display: grid;
+                                    grid-template-columns: repeat(6, 1fr);
+                                    grid-auto-rows: auto;
+                                    width: 100%;
+                                }
+
+                                @media only screen and (max-width: 1200px) {
+                                    .mywishlistcards {
+                                        grid-template-columns: repeat(5, 1fr);
+                                    }
+                                }
+
+                                @media only screen and (max-width: 1000px) {
+                                    .mywishlistcards {
+                                        grid-template-columns: repeat(4, 1fr);
+                                    }
+                                }
+
+                                @media only screen and (max-width: 550px) {
+
+                                    .mywishlistcards {
+                                        grid-template-columns: repeat(2, 1fr);
+                                    }
+                                }
+
                                 @media only screen and (max-width: 800px) {
                                     .mywishlistcards {
                                         justify-content: center !important;
@@ -179,7 +203,10 @@ if (strlen($_SESSION['login']) == 0) {
 
                                 .col-card {
                                     border: 1px solid black;
-                                    width: 240px;
+                                    width: auto;
+                                    margin: 0;
+                                    padding: 0;
+
                                 }
 
                                 .RemoveBook {
@@ -193,20 +220,6 @@ if (strlen($_SESSION['login']) == 0) {
                                     overflow: hidden !important;
                                     text-overflow: ellipsis !important;
                                     white-space: nowrap !important;
-                                }
-
-                                @media only screen and (max-width: 800px) {
-                                    .col-card {
-                                        border: 1px solid black;
-                                        width: 200px;
-                                    }
-                                }
-
-                                @media only screen and (max-width: 500px) {
-                                    .col-card {
-                                        border: 1px solid black;
-                                        width: 170px;
-                                    }
                                 }
                                 </style>
                                 <div class="col-card">

@@ -736,8 +736,7 @@ GROUP BY productColor;
                                                 <div class="image " style="background:transparent !important;">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
-                                                            src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="img/firstani1 (1).gif"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width=" 100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->

@@ -123,7 +123,7 @@ if (strlen($_SESSION['login']) == 0) {
 
 
     <div class="body-content outer-top-bd">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
+        <div>
             <div class="checkout-box inner-bottom-sm">
                 <div class="row">
                     <?php include('includes/myaccount-sidebar.php'); ?>

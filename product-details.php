@@ -67,12 +67,12 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/green.css">
     <link rel="stylesheet" href="assets/css/owl.carousel.css">
-    <!-- <link rel="stylesheet" href="assets/css/owl.transitions.css"> -->
-    <!-- <link href="assets/css/lightbox.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/owl.transitions.css">
+    <link href="assets/css/lightbox.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/animate.min.css">
     <link rel="stylesheet" href="assets/css/rateit.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css"> -->
-    <!-- <link rel="stylesheet" href="assets/css/config.css"> -->
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="assets/css/config.css">
 
     <link href="assets/css/green.css" rel="alternate stylesheet" title="Green color">
     <link href="assets/css/blue.css" rel="alternate stylesheet" title="Blue color">
@@ -252,7 +252,7 @@ if (isset($_POST['submit'])) {
                                         <a data-lightbox="image-1"
                                             data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
                                         </a>
                                     </div>
@@ -261,7 +261,7 @@ if (isset($_POST['submit'])) {
                                         <a data-lightbox="image-1"
                                             data-title="<?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
                                         </a>
                                     </div>
@@ -270,7 +270,7 @@ if (isset($_POST['submit'])) {
                                         <a data-lightbox="image-1"
                                             data-title="<?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>" />
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
                                         style="background:#F2F3F8 !important;">
                                         <a data-lightbox="image-1" data-title="Gallery"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>" />
                                         </a>
                                     </div><!-- /.single-product-gallery-item -->
@@ -288,7 +288,7 @@ if (isset($_POST['submit'])) {
                                         style="background:#F2F3F8 !important;">
                                         <a data-lightbox="image-1" data-title="Gallery"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>" />
                                         </a>
                                     </div>
@@ -296,7 +296,7 @@ if (isset($_POST['submit'])) {
                                         style="background:#F2F3F8 !important;">
                                         <a data-lightbox="image-1" data-title="Gallery"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>" />
                                         </a>
                                     </div>
@@ -304,7 +304,7 @@ if (isset($_POST['submit'])) {
                                         style="background:#F2F3F8 !important;">
                                         <a data-lightbox="image-1" data-title="Gallery"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>">
-                                            <img class="img-responsive" alt="" src="assets/images/blank.gif"
+                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>" />
                                         </a>
                                     </div>
@@ -349,7 +349,7 @@ if (isset($_POST['submit'])) {
                                 <div class="scrollbar-img">
                                     <a class=" horizontal-thumb active" data-target="#owl-single-product" data-slide="1"
                                         href="#slide1">
-                                        <img class="img-responsive" alt="" src="assets/images/blank.gif" width="100%"
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
                                             height="100%"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
                                     </a>
@@ -357,7 +357,7 @@ if (isset($_POST['submit'])) {
 
                                 <div class="scrollbar-img"> <a class="horizontal-thumb active"
                                         data-target="#owl-single-product" data-slide="1" href="#slide1">
-                                        <img class="img-responsive" alt="" src="assets/images/blank.gif" width="100%"
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
                                             height="100%"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
                                     </a>
@@ -365,7 +365,7 @@ if (isset($_POST['submit'])) {
 
                                 <div class="scrollbar-img"> <a class="horizontal-thumb"
                                         data-target="#owl-single-product" data-slide="2" href="#slide2">
-                                        <img class="img-responsive" alt="" src="assets/images/blank.gif" width="100%"
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
                                             height="100%"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>" />
                                     </a>
@@ -377,7 +377,7 @@ if (isset($_POST['submit'])) {
                                 <div class="scrollbar-img"> <a class="horizontal-thumb"
                                         data-target="#owl-single-product" data-slide="3" href="#slide3">
                                         <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="assets/images/blank.gif"
+                                            src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>" />
                                     </a>
                                 </div>
@@ -386,7 +386,7 @@ if (isset($_POST['submit'])) {
                                 <div class="scrollbar-img"> <a class="horizontal-thumb"
                                         data-target="#owl-single-product" data-slide="4" href="#slide4">
                                         <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="assets/images/blank.gif"
+                                            src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>" />
                                     </a>
                                 </div>
@@ -395,7 +395,7 @@ if (isset($_POST['submit'])) {
                                 <div class="scrollbar-img"> <a class="horizontal-thumb"
                                         data-target="#owl-single-product" data-slide="5" href="#slide5">
                                         <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="assets/images/blank.gif"
+                                            src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>" />
                                     </a>
                                 </div>
@@ -404,7 +404,7 @@ if (isset($_POST['submit'])) {
                                 <div class="scrollbar-img"> <a class="horizontal-thumb"
                                         data-target="#owl-single-product" data-slide="6" href="#slide6">
                                         <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="assets/images/blank.gif"
+                                            src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>" />
                                     </a>
                                 </div>
@@ -679,19 +679,10 @@ if (isset($_POST['submit'])) {
 
         <style>
         .productimagetab {
-            display: flex;
-            align-items: center;
-            justify-content: start;
-            flex-wrap: wrap;
-        }
-
-        @media only screen and (max-width: 800px) {
-            .productimagetab {
-                display: flex;
-                align-items: center;
-                justify-content: center !important;
-                flex-wrap: wrap;
-            }
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-auto-rows: auto;
+            width: 100%;
         }
         </style>
         <div class=" btn-card-box">
@@ -798,23 +789,11 @@ if (isset($_POST['submit'])) {
 
 
         .card .image {
-            background: #f2f3f8 !important;
-            width: 100%;
+            width: auto;
             height: 100%;
             border: 1px solid black;
         }
 
-        @media (max-width: 767.98px) {
-            .card .image {
-                width: 220px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .card .image {
-                width: 150px;
-            }
-        }
 
         .box-card {
             display: flex;
@@ -846,16 +825,33 @@ if (isset($_POST['submit'])) {
             .product {
                 height: 100%;
                 margin: 0;
-                width: 180px;
+                width: auto;
                 padding: 0;
                 flex-wrap: wrap;
                 height: 100%;
-
-            }
-
-            .item {
                 border: 1px solid black !important;
+
             }
+
+            @media only screen and (max-width: 1200px) {
+                .productimagetab {
+                    grid-template-columns: repeat(5, 1fr);
+                }
+            }
+
+            @media only screen and (max-width: 1000px) {
+                .productimagetab {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            @media only screen and (max-width: 550px) {
+
+                .productimagetab {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
 
             .name a {
                 font-size: 0.999999999rem !important;
@@ -876,11 +872,6 @@ if (isset($_POST['submit'])) {
 
 
             @media only screen and (max-width: 800px) {
-
-
-                .product {
-                    width: 210px;
-                }
 
 
                 .addtocart {
@@ -918,10 +909,6 @@ if (isset($_POST['submit'])) {
                     font-size: 10px !important;
                 }
 
-                .product {
-                    width: 140px;
-                }
-
                 .name {
                     width: 100% !important;
                 }
@@ -943,50 +930,45 @@ if (isset($_POST['submit'])) {
             }
             </style>
 
-            <div class=" item item-carousel ">
-                <div class="products">
-                    <div class="product responsiveCard">
-                        <div class="product-image" style=" background:#F2F3F8 !important; ">
-                            <div class=" image " data-wow-delay="0.1s" style="background:transparent !important;">
-                                <a href="product-details.php?pid=<?php echo htmlentities($rw['id']); ?>">
-                                    <img src="assets/images/blank.gif"
-                                        data-echo="admin/productimages/<?php echo htmlentities($rw['id']); ?>/<?php echo htmlentities($rw['productImageSix']); ?>"
-                                        width="100%" height="100%" alt="">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="product-info text-left productName"
-                            style="position:relative; padding-left:10px;border:0;border-top:1px solid black; ">
-                            <h3 class="name" style="margin-top:10px;">
-                                <a style="font-family: sans-serif, ' Poppins' !important;font-size:12px;font-weight:300 ;"
-                                    href="product-details.php?pid=<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['productName']); ?></a>
-                            </h3>
-                            <div class=" product-price" style="margin-top: -15px; ">
-                                <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+            <div class="product responsiveCard">
+                <div class="product-image" style=" background:#F2F3F8 !important; ">
+                    <div class=" image " data-wow-delay="0.1s" style="background:transparent !important;">
+                        <a href="product-details.php?pid=<?php echo htmlentities($rw['id']); ?>">
+                            <img src="img/firstani1 (1).gif"
+                                data-echo="admin/productimages/<?php echo htmlentities($rw['id']); ?>/<?php echo htmlentities($rw['productImageSix']); ?>"
+                                width="100%" height="100%" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="product-info text-left productName"
+                    style="position:relative; padding-left:10px;border:0;border-top:1px solid black; ">
+                    <h3 class="name" style="margin-top:10px;">
+                        <a style="font-family: sans-serif, ' Poppins' !important;font-size:12px;font-weight:300 ;"
+                            href="product-details.php?pid=<?php echo htmlentities($rw['id']); ?>"><?php echo htmlentities($rw['productName']); ?></a>
+                    </h3>
+                    <div class=" product-price" style="margin-top: -15px; ">
+                        <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
                                                 !important;font-weight:400;font-size: 10px; ">
-                                    ₹
-                                    <span style="margin-left: 1px;">
-                                        <?php echo htmlentities($rw['productPrice']); ?>
-                                    </span>
-                                </span>
-                            </div>
-                            <div class="favorites">
-                                <a title="favourites"
-                                    style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                    <svg fill="#000000" height="10px" width="10px" version="1.1" id="Layer_1"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                        <g>
-                                            <g>
-                                                <path
-                                                    d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
-                                            </g>
-                                        </g>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
+                            ₹
+                            <span style="margin-left: 1px;">
+                                <?php echo htmlentities($rw['productPrice']); ?>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="favorites">
+                        <a title="favourites" style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                            href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                            <svg fill="#000000" height="10px" width="10px" version="1.1" id="Layer_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692h274.308V457.476z" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
                     </div>
                 </div>
             </div>

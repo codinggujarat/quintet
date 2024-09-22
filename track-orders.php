@@ -62,9 +62,11 @@ include('includes/config.php');
     <!-- ============================================== HEADER : END ============================================== -->
 
     <div class="body-content outer-top-bd">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  "><?php include('includes/myaccount-sidebar.php');
-                                                                                    ?><div class="track-order-page ">
+        <div>
+            <div class="track-order-page ">
                 <div class="row">
+                    <?php include('includes/myaccount-sidebar.php');
+                    ?>
                     <div class="col-md-8 myprofile">
                         <form class=" register-form  " style=" width: 600px; padding:20px;" role=" form" method="post"
                             action="order-details.php">

@@ -178,7 +178,7 @@ include('includes/config.php');
 
                                         }
 
-                                        @media only screen and (max-width: 500px) {
+                                        @media only screen and (max-width: 550px) {
                                             .col-card {
                                                 border: 1px solid black;
                                                 width: 100%;
@@ -206,8 +206,9 @@ include('includes/config.php');
                                                 </a>
                                             </div>
                                             <div class="mywishlistcardimage">
-                                                <h4 class='cart-product-description' style="width: 120px; "><a
-                                                        style=" font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
+                                                <h4 class='cart-product-description'
+                                                    style="margin-left: 10px; width: 100%; "><a
+                                                        style="font-weight: 600; font-family: sans-serif, ' Poppins' !important;font-size: 12px;"
                                                         href="product-details.php?pid=<?php echo $row['opid']; ?>">
                                                         <?php echo $row['pname']; ?></a></h4>
                                             </div>
