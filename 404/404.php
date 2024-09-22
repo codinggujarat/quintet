@@ -171,7 +171,7 @@ if (isset($_POST['change'])) {
 
                     .logo a svg {
 
-                        width: 300px;
+                        width: 200px;
                     }
                 }
                 </style>
