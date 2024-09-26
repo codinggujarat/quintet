@@ -129,6 +129,19 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         background: #eee;
     }
 
+    .swiper-pagination::before,
+    .swiper-pagination::after {
+        background: #000;
+        color: #000;
+
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: #000;
+
+    }
+
     @media (max-width: 1100.98px) {
         .swiper-slide a {
             display: block;
@@ -144,75 +157,108 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <!-- ============================================== HEADER : END ============================================== -->
 
     <div class="body-content outer-top-xs">
-        <div class=" row">
-            <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                <!-- ========================================== SECTION – HERO ========================================= -->
-                <!-- Swiper -->
-                <div class=" swiper mySwiper2 swiper-v">
-                    <div class="swiper-wrapper" id="slider">
-                        <?php
-                        $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC LIMIT 3");
-                        while ($row = mysqli_fetch_array($ret)) {
-                            $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
-                        ?>
-                        <div class="swiper-slide slide">
-                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                            </a>
+
+        <div class="swiper mySwiper swiper-h">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper mySwiper2 swiper-v">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC LIMIT 2");
+                            while ($row = mysqli_fetch_array($ret)) {
+                                $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
+                            ?>
+                            <div class="swiper-slide slide">
+                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                </a>
+                            </div>
+                            <?php } ?>
                         </div>
-                        <?php } ?>
-                        <?php
-                        $ret = mysqli_query($con, "select * from products where category=10 ORDER BY ID DESC LIMIT 3");
-                        while ($row = mysqli_fetch_array($ret)) {
-                            # code...
-                        ?>
-                        <div class="swiper-slide ">
-                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                            </a>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper mySwiper2 swiper-v">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $ret = mysqli_query($con, "select * from products where category=10 ORDER BY ID DESC LIMIT 2");
+                            while ($row = mysqli_fetch_array($ret)) {
+                                $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
+                            ?>
+                            <div class="swiper-slide slide">
+                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                </a>
+                            </div>
+                            <?php } ?>
                         </div>
-                        <?php } ?>
-                        <?php
-                        $ret = mysqli_query($con, "select * from products where category=29 ORDER BY ID DESC LIMIT 2");
-                        while ($row = mysqli_fetch_array($ret)) {
-                            # code...
-                        ?>
-                        <div class="swiper-slide slide">
-                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                                <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>"
-                                    width=" 100%" height="100%" alt="">
-                            </a>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper mySwiper2 swiper-v">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $ret = mysqli_query($con, "select * from products where category=29 ORDER BY ID DESC LIMIT 2");
+                            while ($row = mysqli_fetch_array($ret)) {
+                                $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
+                            ?>
+                            <div class="swiper-slide slide">
+                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                        width=" 100%" height="100%" alt="">
+                                </a>
+                            </div>
+                            <?php } ?>
                         </div>
-                        <?php } ?>
+                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
+
         <!-- Swiper JS -->
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <!-- Initialize Swiper -->
         <script>
-        var swiper = new Swiper(".mySwiper", {});
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 50,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
         var swiper2 = new Swiper(".mySwiper2", {
             direction: "vertical",
+            spaceBetween: 50,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
             },
         });
         </script>
@@ -281,208 +327,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             </a>
         </div>
     </div> -->
-    <style>
-    model-viewer::-webkit-scrollbar {
-        display: none !important;
-    }
-
-    model-viewer {
-        width: 600px !important;
-        height: 600px !important;
-        overflow: hidden !important;
-    }
-
-    .model-viewer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-    }
-
-    .btn-card svg {
-        cursor: pointer;
-    }
-
-    .imgBox {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    @media only screen and (max-width:800px) {
-        .imgBox {
-            width: 50%;
-        }
-    }
-    </style>
-    <!-- 
-    <div class="col-lg-12 model-viewerbox" style="background-color:#f2f3f8;">
-        <h1
-            style="text-transform: uppercase;text-align: center;font-weight: 400;color: #000;  font-family: 'Raleway',sans-serif ;  ">
-            Take a closer
-            <span class="swipe" style="font-family: 'Raleway', sans-serif;-webkit-text-stroke: 3px white;
-                        color: transparent;
-                        font-weight: 900;  -webkit-text-stroke: 2px #000;">
-                Look..
-            </span>
-        </h1>
-        <div class="model-viewer wow zoomIn" data-wow-delay="0.5s">
-            <model-viewer camera-controls alt="Model" src="assets/360model/iphone_15_pro_max_-__glgt.glb">
-            </model-viewer>
-        </div>
-    </div> -->
-
-    <!-- <div class="col-lg-12 col-md-12 col-sm-12 btn-card-box">
-        <div class="btn-card">
-            <svg id="MYGRID6" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <rect x="4" y="4" width="16" height="16" stroke="black" stroke-width="1" stroke-linecap="none"
-                    stroke-linejoin="round" />
-            </svg>
-            <svg id="MYGRID2" width="20px" height="20px" viewBox="0 0 24 24" fill="none" style="margin-left: 10px;"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.5 3.5H10.5V20.5H3.5V3.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <path d="M13.5 3.5H20.5V20.5H13.5V3.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-            <svg id="MYGRID12" width="20px" height="20px" viewBox="0 0 24 24" fill="none" style="margin-left: 10px;"
-                xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.5 3.5H10.5V10.5H3.5V3.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <path d="M3.5 13.5H10.5V20.5H3.5V13.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <path d="M13.5 3.5H20.5V10.5H13.5V3.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                <path d="M13.5 13.5H20.5V20.5H13.5V13.5Z" stroke="#000000" stroke-width="1" stroke-linecap="round"
-                    stroke-linejoin="round" />
-            </svg>
-        </div>
-    </div>
-    <style>
-    .btn-card-box {
-        padding: 20px;
-        position: sticky;
-        top: 5%;
-        background: transparent;
-        z-index: 999;
-    }
-
-    .btn-card {
-        display: flex;
-        align-items: center;
-        justify-content: end;
-        padding: 0px 20px;
-
-    }
-
-
-    .card .image a img {
-        background: #f2f3f8 !important;
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        object-fit: cover;
-        height: 100%;
-    }
-
-    @media (max-width: 767.98px) {
-        .card .image {
-            width: 220px;
-        }
-
-        .box-card {
-            justify-content: start;
-        }
-
-    }
-
-    @media (max-width: 500px) {
-        .card .image {
-            width: 100%;
-        }
-    }
-
-    .box-card {
-        display: flex;
-        align-items: start;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        flex-wrap: wrap;
-    }
-    </style>
-
-    <div class="  ">
-        <h1 style=" padding-left:20px;padding:10px;font-size:15px;text-align: left;border-bottom:1px solid
-        black;font-weight: 400;color: #000; font-family: 'Raleway' ,sans-serif ; ">
-            NEW IN - MAN</h1>
-
-        <div class=" box-card wow fadeInUpBig ">
-            <?php $ret = mysqli_query($con, "SELECT * FROM products WHERE category=10  ORDER BY RAND() ");
-
-            while ($row = mysqli_fetch_array($ret)) {
-                # code... 
-            ?><div class=" card ">
-                <div class=" image responsiveCard"><a
-                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><img
-                            src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                            width=" 100%" height="100%" alt=""></a></div>
-            </div>
-            <?php
-            }
-
-            ?>
-        </div>
-    <!-- </div> -->
-    <script>
-    document.getElementById('MYGRID6').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
-
-            boxes.forEach(function(box) {
-                    box.style.width = "100%"; // Toggle 'active' class for each box
-                }
-
-            );
-        }
-
-    );
-
-    document.getElementById('MYGRID2').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
-
-            boxes.forEach(function(box) {
-                    box.style.width = "220px"; // Toggle 'active' class for each box
-                }
-
-            );
-        }
-
-    );
-
-    document.getElementById('MYGRID12').addEventListener('click', function() {
-            var boxes = document.querySelectorAll(
-                '.responsiveCard'); // Select all elements with the class 'myBox'
-
-            boxes.forEach(function(box) {
-                    box.style.width = "150px"; // Toggle 'active' class for each box
-                }
-
-            );
-        }
-
-    );
-    </script>
-
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>
@@ -526,75 +370,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
-    <script>
-    var swiper2 = new Swiper(".mySwiper2", {
-        direction: "vertical",
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-    });
-    </script>
-    <script>
-    var swiper = new Swiper(".mySwiper3", {
-        loop: true,
-        centerSlide: true,
-        centeredSlides: true,
-        fade: "true",
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: true,
-        },
-        grabCursor: "true",
-        freeMode: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
 
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-            },
-            700: {
-                slidesPerView: 1,
-            },
-            868: {
-                slidesPerView: 2,
-            },
-            1400: {
-                slidesPerView: 3,
-            },
-        },
-    });
-    </script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <script>
-    const scrollRevealOption = {
-        distance: "50px",
-        origin: "bottom",
-        duration: 500,
-    };
-
-    ScrollReveal().reveal(" .mySwiper ", {
-        ...scrollRevealOption,
-        origin: "right",
-        delay: 800,
-    });
-    ScrollReveal().reveal(" .bg-video-wrap video", {
-        ...scrollRevealOption,
-        origin: "bottom",
-        delay: 500,
-    });
-
-    ScrollReveal().reveal(" .section .retro-layout .featured-img", {
-        ...scrollRevealOption,
-        origin: "bottom",
-        delay: 500,
-    });
-    </script>
     <script>
     const images = <?php echo json_encode($images); ?>; // Make sure paths are correct
     console.log(images); // Debug image paths

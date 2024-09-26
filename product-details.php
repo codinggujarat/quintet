@@ -97,6 +97,9 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body class="cnt-home" style="background:#ffffff;">
@@ -204,15 +207,19 @@ if (isset($_POST['submit'])) {
                     }
 
                     @media only screen and (max-width: 500px) {
-                        .main-product-img {
+
+                        .main-product-img,
+                        .mySwiper2 {
                             position: fixed;
                             top: 10%;
-                            right: 0;
+                            left: 0;
+                            width: 100% !important;
+                            height: 100vh !important;
                             z-index: -9999;
                         }
 
                         .body-content {
-                            margin-top: 150% !important;
+                            margin-top: 130% !important;
                         }
                     }
                     </style>
@@ -243,12 +250,92 @@ if (isset($_POST['submit'])) {
                         }
                         </script>
 
-                        <div class="col-xs-12 col-sm-12 col-md-1 gallery-holder"></div>
-                        <div class="col-xs-12 col-sm-6 col-md-3 gallery-holder  main-product-img">
-                            <div class=" " style="width: 100% !important;">
-                                <div id="owl-single-product">
-                                    <div class="single-product-gallery-item " id="slide1"
-                                        style="background:#F2F3F8 !important;width: 100% !important;">
+                        <style>
+                        .mySwiper2 {
+                            width: 363px;
+                            height: 545px;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .mySwiper2 .swiper-wrapper {
+                            width: 100%;
+                            margin: 0;
+                            padding: 0;
+                            height: 100%;
+                        }
+
+                        .mySwiper {
+                            margin: 0;
+                            padding: 0;
+                            width: 200px;
+                        }
+
+                        .mySwiper .swiper-wrapper {
+                            display: block;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .mySwiper .swiper-slide {
+                            width: 100%;
+                            height: 100%;
+                            opacity: 0.4;
+                        }
+
+                        .mySwiper .swiper-slide-thumb-active {
+                            opacity: 1;
+                        }
+
+                        .swiper-slide img {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+
+                        .singlepro {
+                            display: flex;
+                            align-items: start;
+                            justify-content: start;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .product-info {
+                            border: 1px solid black;
+                            margin: 0;
+                            padding: 0;
+
+                        }
+
+                        .product-info-block {
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        @media only screen and (max-width: 550px) {
+                            .singlepro {
+                                flex-wrap: wrap;
+                            }
+
+                            .mySwiper {
+                                margin-left: 20px;
+                                padding: 0;
+                                width: 300px;
+                            }
+
+                            .mySwiper .swiper-wrapper {
+                                display: flex;
+                                align-items: center;
+                                justify-content: start;
+                            }
+                        }
+                        </style>
+                        <div class="singlepro col-xs-12 col-sm-8 col-md-5  ">
+                            <div class="swiper mySwiper2    main-product-img ">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
                                         <a data-lightbox="image-1"
                                             data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>">
@@ -256,164 +343,103 @@ if (isset($_POST['submit'])) {
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
                                         </a>
                                     </div>
-                                    <div class="single-product-gallery-item" id="slide1"
-                                        style="background:#F2F3F8 !important; ">
+                                    <div class="swiper-slide">
                                         <a data-lightbox="image-1"
-                                            data-title="<?php echo htmlentities($row['productName']); ?>"
-                                            href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>">
-                                            <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
-                                                data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
-                                        </a>
-                                    </div>
-                                    <div class="single-product-gallery-item" id="slide2"
-                                        style="background:#F2F3F8 !important;">
-                                        <a data-lightbox="image-1"
-                                            data-title="<?php echo htmlentities($row['productName']); ?>"
+                                            data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>">
                                             <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>" />
                                         </a>
-                                    </div><!-- /.single-product-gallery-item -->
-
-                                    <div class="single-product-gallery-item" id="slide3"
-                                        style="background:#F2F3F8 !important;">
-                                        <a data-lightbox="image-1" data-title="Gallery"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a data-lightbox="image-1"
+                                            data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>">
                                             <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>" />
                                         </a>
-                                    </div><!-- /.single-product-gallery-item -->
-
-                                    <div class="single-product-gallery-item" id="slide4"
-                                        style="background:#F2F3F8 !important;">
-                                        <a data-lightbox="image-1" data-title="Gallery"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a data-lightbox="image-1"
+                                            data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>">
                                             <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>" />
                                         </a>
                                     </div>
-                                    <div class="single-product-gallery-item" id="slide5"
-                                        style="background:#F2F3F8 !important;">
-                                        <a data-lightbox="image-1" data-title="Gallery"
+                                    <div class="swiper-slide">
+                                        <a data-lightbox="image-1" `
+                                            data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>">
                                             <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>" />
                                         </a>
                                     </div>
-                                    <div class="single-product-gallery-item" id="slide6"
-                                        style="background:#F2F3F8 !important;">
-                                        <a data-lightbox="image-1" data-title="Gallery"
+                                    <div class="swiper-slide">
+                                        <a data-lightbox="image-1"
+                                            data-title=" <?php echo htmlentities($row['productName']); ?>"
                                             href="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>">
                                             <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                                 data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>" />
                                         </a>
                                     </div>
-
-                                </div><!-- /.single-product-slider -->
-
-
-
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-md-1 col-sm-2">
-                            <style>
-                            .scrollbar {
-                                width: 100%;
-                                display: block;
-                            }
-
-                            .scrollbar-img {
-                                width: 40px;
-                                height: 100%;
-                            }
-
-                            .product-info {
-                                border: 1px solid black;
-                            }
-
-                            @media only screen and (max-width: 700px) {
-
-                                .scrollbar {
-                                    width: 100%;
-                                    display: flex;
-
-                                }
-
-                                .scrollbar-img {
-                                    width: 50px;
-                                    height: 100%;
-                                }
-                            }
-                            </style>
-                            <div class="scrollbar">
-                                <div class="scrollbar-img">
-                                    <a class=" horizontal-thumb active" data-target="#owl-single-product" data-slide="1"
-                                        href="#slide1">
-                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
-                                            height="100%"
+                            <div thumbsSlider="" class="swiper mySwiper   ">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
-                                    </a>
-                                </div>
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb active"
-                                        data-target="#owl-single-product" data-slide="1" href="#slide1">
-                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
-                                            height="100%"
-                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>" />
-                                    </a>
-                                </div>
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb"
-                                        data-target="#owl-single-product" data-slide="2" href="#slide2">
-                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif" width="100%"
-                                            height="100%"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>" />
-                                    </a>
-                                </div>
-
-
-
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb"
-                                        data-target="#owl-single-product" data-slide="3" href="#slide3">
-                                        <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="img/firstani1 (1).gif"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage3']); ?>" />
-                                    </a>
-                                </div>
-
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb"
-                                        data-target="#owl-single-product" data-slide="4" href="#slide4">
-                                        <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="img/firstani1 (1).gif"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFour']); ?>" />
-                                    </a>
-                                </div>
-
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb"
-                                        data-target="#owl-single-product" data-slide="5" href="#slide5">
-                                        <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="img/firstani1 (1).gif"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageFive']); ?>" />
-                                    </a>
-                                </div>
-
-
-                                <div class="scrollbar-img"> <a class="horizontal-thumb"
-                                        data-target="#owl-single-product" data-slide="6" href="#slide6">
-                                        <img class="img-responsive" width="100%" height="100%" alt=""
-                                            src="img/firstani1 (1).gif"
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive" alt="" src="img/firstani1 (1).gif"
                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>" />
-                                    </a>
+                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
 
-                        <div class="col-xs-12 col-sm-1 col-md-2 gallery-holder"></div>
+                        <!-- Swiper JS -->
+                        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-                        <div class='col-xs-12 col-sm-4 col-md-2 product-info-block' style="background:#ffffff;">
+                        <!-- Initialize Swiper -->
+                        <script>
+                        var swiper = new Swiper(".mySwiper", {
+
+                            slidesPerView: 6,
+                            freeMode: true,
+                            watchSlidesProgress: true,
+                        });
+                        var swiper2 = new Swiper(".mySwiper2", {
+                            direction: "vertical",
+                            navigation: {
+                                nextEl: ".swiper-button-next",
+                                prevEl: ".swiper-button-prev",
+                            },
+                            thumbs: {
+                                swiper: swiper,
+                            },
+                        });
+                        </script>
+                        <div class='col-xs-12 col-sm-4 col-md-3 product-info-block' style="background:#ffffff;">
                             <div class="product-info " style="height:100% !important;">
                                 <h1 class="name col-sm-12" style="margin-top: 20px !important;font-family:
                                     sans-serif, 'Poppins' !important;text-transform:uppercase;font-size: 12px;
@@ -589,7 +615,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div><!-- /.row -->
-
+                        <div class="col-xs-12 col-sm-4 col-md-1"></div>
                     </div><!-- /.price-container -->
                 </div><!-- /.product-info -->
             </div><!-- /.col-sm-7 -->
@@ -1738,7 +1764,8 @@ if (isset($_POST['submit'])) {
                 item.querySelector("i").classList.replace("fa-minus", "fa-plus");
             }
             removeOpen(
-                index); //calling the funtion and also passing the index number of the clicked header
+                index
+            ); //calling the funtion and also passing the index number of the clicked header
         })
     })
 

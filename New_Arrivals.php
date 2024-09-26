@@ -502,18 +502,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <span>All</span>
                                             </a>
                                         </li>
-                                        <?php $sql = mysqli_query($con, "SELECT MIN(id) as id, productColor
-FROM products
-WHERE productColor NOT LIKE '%BLACK%'
-AND productColor NOT LIKE '%WHITE%'
-AND productColor NOT LIKE '%lightpink%'
-AND productColor NOT LIKE '%Skyblue%'
-AND productColor NOT LIKE '%Rose%'
-AND productColor NOT LIKE '%productcolor%'
-AND productColor NOT LIKE '%Navyblue%'
-AND productColor NOT LIKE '%BLACKISH%'
-GROUP BY productColor;
-");
+                                        <?php $sql = mysqli_query($con, "SELECT MIN(id) as id, productColor FROM products WHERE productColor NOT LIKE '%BLACK%' AND productColor NOT LIKE '%WHITE%' AND productColor NOT LIKE '%lightpink%' AND productColor NOT LIKE '%Skyblue%' AND productColor NOT LIKE '%Rose%' AND productColor NOT LIKE '%productcolor%' AND productColor NOT LIKE '%Navyblue%' AND productColor NOT LIKE '%BLACKISH%' GROUP BY productColor;");
                                         while ($row = mysqli_fetch_array($sql)) {
                                         ?>
                                         <li
@@ -597,8 +586,44 @@ GROUP BY productColor;
                                     </ul>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="btn-card">
+                            <svg id="MYGRID6" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="4" width="16" height="16" stroke="black" stroke-width="1"
+                                    stroke-linecap="none" stroke-linejoin="round" />
+                            </svg>
+                            <svg id="MYGRID2" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                style="margin-left: 10px;" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 3.5H10.5V20.5H3.5V3.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.5 3.5H20.5V20.5H13.5V3.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <svg id="MYGRID12" width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                style="margin-left: 10px;" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5 3.5H10.5V10.5H3.5V3.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M3.5 13.5H10.5V20.5H3.5V13.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.5 3.5H20.5V10.5H13.5V3.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path d="M13.5 13.5H20.5V20.5H13.5V13.5Z" stroke="#000000" stroke-width="1"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
                         </div>
                         <style>
+                        .btn-card {
+                            width: 98%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: end;
+                            position: sticky;
+                            top: 15%;
+                            z-index: 999;
+                        }
+
                         .sortbybox ul li {
                             width: 100%;
                             border: 1px solid black;
@@ -617,7 +642,7 @@ GROUP BY productColor;
                                     <style>
                                     .productimagetab {
                                         display: grid;
-                                        grid-template-columns: repeat(6, 1fr);
+                                        grid-template-columns: repeat(2, 1fr);
                                         grid-auto-rows: auto;
                                         width: 100%;
                                     }
@@ -673,47 +698,33 @@ GROUP BY productColor;
                                                 grid-template-columns: repeat(2, 1fr);
                                             }
 
-                                            .products,
-                                            .product {
-                                                overflow: hidden !important;
-                                                text-overflow: ellipsis !important;
-                                                white-space: nowrap !important;
-                                            }
-
-                                            .image {
-                                                width: 100% !important;
-                                                height: 100% !important;
-                                            }
-
-                                            .addtocart {
-                                                display: none !important;
-                                            }
-
-
-                                            .name {
-                                                width: 140px !important;
-                                                overflow: hidden !important;
-                                                text-overflow: ellipsis !important;
-                                                white-space: nowrap !important;
-                                            }
-
-                                            .name a {
-                                                font-size: 10px !important;
-                                            }
-
-
                                         }
 
-                                        @media only screen and (max-width: 350px) {
-
-
-
-                                            .name {
-                                                width: 100% !important;
-                                            }
-
-
+                                        .product {
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
                                         }
+
+
+
+                                        .addtocart {
+                                            display: none !important;
+                                        }
+
+
+                                        .name {
+                                            width: 140px !important;
+                                            overflow: hidden !important;
+                                            text-overflow: ellipsis !important;
+                                            white-space: nowrap !important;
+                                        }
+
+                                        .name a {
+                                            font-size: 10px !important;
+                                        }
+
+
 
 
                                         .product-info .favorites {
@@ -742,7 +753,7 @@ GROUP BY productColor;
                                                 </div><!-- /.image -->
                                             </div><!-- /.product-image -->
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -818,7 +829,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -899,7 +910,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -974,7 +985,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1049,7 +1060,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1120,7 +1131,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1192,7 +1203,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1266,7 +1277,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1339,7 +1350,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1412,7 +1423,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1484,7 +1495,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1555,7 +1566,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1626,7 +1637,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1697,7 +1708,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1768,7 +1779,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1839,7 +1850,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1910,7 +1921,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -1981,7 +1992,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2052,7 +2063,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2123,7 +2134,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2194,7 +2205,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2267,7 +2278,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2348,7 +2359,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2430,7 +2441,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2511,7 +2522,7 @@ GROUP BY productColor;
 
 
                                             <div class="product-info text-left"
-                                                style="position:relative; width:250px !important;padding-left:10px; ">
+                                                style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
                                                     <a style="font-family: sans-serif, ' Poppins'
                                                 !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
@@ -2607,7 +2618,65 @@ GROUP BY productColor;
     });
     </script>
 
+    <script>
+    // Click handler for MYGRID6 button
+    document.getElementById('MYGRID6').addEventListener('click', function() {
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
 
+        // Change the grid layout to 6 columns
+        gridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+
+        var boxes = document.querySelectorAll(
+            '.productimagetab'); // Select all elements with the class 'productimagetab'
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
+
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "none"; // Hide product name
+        });
+    });
+
+    // Click handler for MYGRID2 button
+    document.getElementById('MYGRID2').addEventListener('click', function() {
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
+
+        // Change the grid layout to 2 columns
+        gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
+
+        var boxes = document.querySelectorAll('.productimagetab');
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
+
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "block"; // Show product name
+        });
+    });
+
+    // Click handler for MYGRID12 button
+    document.getElementById('MYGRID12').addEventListener('click', function() {
+        var gridContainer = document.querySelector(
+            '.productimagetab'); // Assuming your grid container has this class
+
+        // Change the grid layout to 12 columns
+        gridContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
+
+        var boxes = document.querySelectorAll('.productimagetab');
+        boxes.forEach(function(box) {
+            box.style.width = "100%"; // Adjust width of each box
+        });
+
+        var productName = document.querySelectorAll('.productName');
+        productName.forEach(function(productName) {
+            productName.style.display = "none"; // Hide product name
+        });
+    });
+    </script>
 </body>
 
 </html>
