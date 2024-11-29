@@ -132,39 +132,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 
 
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-    }
+    
     </style>
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">

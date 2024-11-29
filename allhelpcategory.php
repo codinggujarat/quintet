@@ -351,9 +351,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             </h1>
                             <div class="topicGroup">
                                 <ul>
-                                    <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
-                                    <li><a href="OrderStatus">ORDER STATUS</a></li>
-                                    <li><a href="HowToReturn">HOW TO RETURN</a></li>
+                                    <li><a href="ItemsAvailability.php">ITEMS AVAILABILITY</a></li>
+                                    <li><a href="OrderStatus.php">ORDER STATUS</a></li>
+                                    <li><a href="HowToReturn.php">HOW TO RETURN</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -365,35 +365,35 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>MY QUINTET ACCOUNT</li>
-                                        <li><a href="registrationandlogin">REGISTRATION AND LOG IN</a></li>
-                                        <li><a href="profilemanagement">MANAGING MY PROFILE</a></li>
-                                        <li><a href="myfavourites">MY FAVOURITES</a></li>
+                                        <li><a href="registrationandlogin.php">REGISTRATION AND LOG IN</a></li>
+                                        <li><a href="profilemanagement.php">MANAGING MY PROFILE</a></li>
+                                        <li><a href="myfavourites.php">MY FAVOURITES</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>ITEMS AND SIZES</li>
-                                        <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
-                                        <li><a href="whatsmysize">WHAT’S MY SIZE?</a></li>
-                                        <li><a href="compositionandcare">COMPOSITION AND CARE</a></li>
-                                        <li><a href="itemswarranty">ITEMS WARRANTY</a></li>
-                                        <li><a href="pricingpolicy">PRICING POLICY</a></li>
-                                        <li><a href="withdrawnitems">WITHDRAWN ITEMS</a></li>
+                                        <li><a href="ItemsAvailability.php">ITEMS AVAILABILITY</a></li>
+                                        <li><a href="whatsmysize.php">WHAT’S MY SIZE?</a></li>
+                                        <li><a href="compositionandcare.php">COMPOSITION AND CARE</a></li>
+                                        <li><a href="itemswarranty.php">ITEMS WARRANTY</a></li>
+                                        <li><a href="pricingpolicy.php">PRICING POLICY</a></li>
+                                        <li><a href="withdrawnitems.php">WITHDRAWN ITEMS</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>GIFT OPTIONS</li>
-                                        <li><a href="GiftCard">GIFT CARD</a></li>
-                                        <li><a href="giftpackaging">GIFT PACKAGING</a></li>
+                                        <li><a href="GiftCard.php">GIFT CARD</a></li>
+                                        <li><a href="giftpackaging.php">GIFT PACKAGING</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>SHIPPING</li>
-                                        <li><a href="shippingmethodsTimesandcosts">SHIPPING METHODS, TIMES AND
+                                        <li><a href="shippingmethodsTimesandcosts.php">SHIPPING METHODS, TIMES AND
                                                 COSTS</a></li>
-                                        <li><a href="OrdersInSeveralShipments">ORDERS IN SEVERAL SHIPMENTS</a>
+                                        <li><a href="OrdersInSeveralShipments.php">ORDERS IN SEVERAL SHIPMENTS</a>
                                         </li>
                                         <li><a href="WhereDoWeShip">WHERE DO WE SHIP?</a></li>
                                     </ul>
@@ -401,34 +401,36 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>PAYMENTS AND INVOICES</li>
-                                        <li><a href="PaymentMethods">PAYMENT METHODS</a></li>
+                                        <li><a href="PaymentMethods.php">PAYMENT METHODS</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>MY PURCHASES</li>
-                                        <li><a href="OnlineShopping ">ONLINE SHOPPING</a></li>
-                                        <li><a href="OrderStatus">ORDER STATUS</a></li>
-                                        <li><a href="ChangeOrCancelAnOnlineOrder">CHANGE OR CANCEL AN ONLINE ORDER</a>
+                                        <li><a href="OnlineShopping.php">ONLINE SHOPPING</a></li>
+                                        <li><a href="OrderStatus.php">ORDER STATUS</a></li>
+                                        <li><a href="ChangeOrCancelAnOnlineOrder.php">CHANGE OR CANCEL AN ONLINE
+                                                ORDER</a>
                                         </li>
-                                        <li><a href="IssuesWithMyOrder">ISSUES WITH MY ORDER</a></li>
-                                        <li><a href="In_storePurchases">IN-STORE PURCHASES</a></li>
-                                        <li><a href="OnlinePurchaseFromAStoreDevice">ONLINE PURCHASE FROM A STORE
+                                        <li><a href="IssuesWithMyOrder.php">ISSUES WITH MY ORDER</a></li>
+                                        <li><a href="In_storePurchases.php">IN-STORE PURCHASES</a></li>
+                                        <li><a href="OnlinePurchaseFromAStoreDevice.php">ONLINE PURCHASE FROM A STORE
                                                 DEVICE</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>EXCHANGES, RETURNS AND REFUNDS</li>
-                                        <li><a href="HowToReturn">HOW TO RETURN</a></li>
-                                        <li><a href="HowToExchange">HOW TO EXCHANGE</a></li>
-                                        <li><a href="SpecialReturnConditions">SPECIAL RETURN CONDITIONS</a></li>
+                                        <li><a href="HowToReturn.php">HOW TO RETURN</a></li>
+                                        <li><a href="HowToExchange.php">HOW TO EXCHANGE</a></li>
+                                        <li><a href="SpecialReturnConditions.php">SPECIAL RETURN CONDITIONS</a></li>
                                     </ul>
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
                                         <li>QUINTET EXPERIENCES</li>
-                                        <li><a href="OurUsedClothingCollectionProgramme">OUR USED CLOTHING COLLECTION
+                                        <li><a href="OurUsedClothingCollectionProgramme.php">OUR USED CLOTHING
+                                                COLLECTION
                                                 PROGRAMME</a></li>
                                         <li><a href="Newsletter">NEWSLETTER</a></li>
                                     </ul>
@@ -512,9 +514,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="registrationandlogin">REGISTRATION AND LOG IN</a></li>
-                                        <li><a href="profilemanagement">MANAGING MY PROFILE</a></li>
-                                        <li><a href="myfavourites">MY FAVOURITES</a></li>
+                                        <li><a href="registrationandlogin.php">REGISTRATION AND LOG IN</a></li>
+                                        <li><a href="profilemanagement.php">MANAGING MY PROFILE</a></li>
+                                        <li><a href="myfavourites.php">MY FAVOURITES</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -527,12 +529,12 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             <div class="description">
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="ItemsAvailability">ITEMS AVAILABILITY</a></li>
-                                        <li><a href="whatsmysize">WHAT’S MY SIZE?</a></li>
-                                        <li><a href="compositionandcare">COMPOSITION AND CARE</a></li>
-                                        <li><a href="itemswarranty">ITEMS WARRANTY</a></li>
-                                        <li><a href="pricingpolicy">PRICING POLICY</a></li>
-                                        <li><a href="withdrawnitems">WITHDRAWN ITEMS</a></li>
+                                        <li><a href="ItemsAvailability.php">ITEMS AVAILABILITY</a></li>
+                                        <li><a href="whatsmysize.php">WHAT’S MY SIZE?</a></li>
+                                        <li><a href="compositionandcare.php">COMPOSITION AND CARE</a></li>
+                                        <li><a href="itemswarranty.php">ITEMS WARRANTY</a></li>
+                                        <li><a href="pricingpolicy.php">PRICING POLICY</a></li>
+                                        <li><a href="withdrawnitems.php">WITHDRAWN ITEMS</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -546,8 +548,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="GiftCard">GIFT CARD</a></li>
-                                        <li><a href="giftpackaging">GIFT PACKAGING</a></li>
+                                        <li><a href="GiftCard.php">GIFT CARD</a></li>
+                                        <li><a href="giftpackaging.php">GIFT PACKAGING</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -561,11 +563,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="shippingmethodsTimesandcosts">SHIPPING METHODS, TIMES AND
+                                        <li><a href="shippingmethodsTimesandcosts.php">SHIPPING METHODS, TIMES AND
                                                 COSTS</a></li>
-                                        <li><a href="OrdersInSeveralShipments">ORDERS IN SEVERAL SHIPMENTS</a>
+                                        <li><a href="OrdersInSeveralShipments.php">ORDERS IN SEVERAL SHIPMENTS</a>
                                         </li>
-                                        <li><a href="WhereDoWeShip">WHERE DO WE SHIP?</a></li>
+                                        <li><a href="WhereDoWeShip.php">WHERE DO WE SHIP?</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -579,7 +581,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="PaymentMethods">PAYMENT METHODS</a></li>
+                                        <li><a href="PaymentMethods.php">PAYMENT METHODS</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -593,14 +595,14 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="OnlineShopping ">ONLINE SHOPPING</a></li>
-                                        <li><a href="OrderStatus">ORDER STATUS</a></li>
-                                        <li><a href="ChangeOrCancelAnOnlineOrder">CHANGE OR CANCEL AN ONLINE
+                                        <li><a href="OnlineShopping.php">ONLINE SHOPPING</a></li>
+                                        <li><a href="OrderStatus.php">ORDER STATUS</a></li>
+                                        <li><a href="ChangeOrCancelAnOnlineOrder.php">CHANGE OR CANCEL AN ONLINE
                                                 ORDER</a>
                                         </li>
-                                        <li><a href="IssuesWithMyOrder">ISSUES WITH MY ORDER</a></li>
-                                        <li><a href="In_storePurchases">IN-STORE PURCHASES</a></li>
-                                        <li><a href="OnlinePurchaseFromAStoreDevice">ONLINE PURCHASE FROM A STORE
+                                        <li><a href="IssuesWithMyOrder.php">ISSUES WITH MY ORDER</a></li>
+                                        <li><a href="In_storePurchases.php">IN-STORE PURCHASES</a></li>
+                                        <li><a href="OnlinePurchaseFromAStoreDevice.php">ONLINE PURCHASE FROM A STORE
                                                 DEVICE</a></li>
                                     </ul>
                                 </div>
@@ -615,9 +617,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="HowToReturn">HOW TO RETURN</a></li>
-                                        <li><a href="HowToExchange">HOW TO EXCHANGE</a></li>
-                                        <li><a href="SpecialReturnConditions">SPECIAL RETURN CONDITIONS</a></li>
+                                        <li><a href="HowToReturn.php">HOW TO RETURN</a></li>
+                                        <li><a href="HowToExchange.php">HOW TO EXCHANGE</a></li>
+                                        <li><a href="SpecialReturnConditions.php">SPECIAL RETURN CONDITIONS</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -631,9 +633,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                 <div class="small_topicBox mobileview">
                                     <ul>
-                                        <li><a href="OurUsedClothingCollectionProgramme">OUR USED CLOTHING
+                                        <li><a href="OurUsedClothingCollectionProgramme.php">OUR USED CLOTHING
                                                 COLLECTION PROGRAMME</a></li>
-                                        <li><a href="Newsletter">NEWSLETTER</a></li>
+                                        <li><a href="Newsletter.php">NEWSLETTER</a></li>
                                     </ul>
                                 </div>
                             </div>

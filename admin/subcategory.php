@@ -128,42 +128,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
     }
-
-
-
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-    }
     </style>
 </head>
 
@@ -178,8 +142,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
                         <div class="centerCard">
-
-                            <div class="card ">
+                            <div class="card p-0">
                                 <div class="card-body">
                                     <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
                                         class="text-uppercase">
@@ -279,64 +242,68 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 </div>
                             </div>
                         </div>
-                        <div class="card p-5">
-                            <div class="table-responsive">
-                                <style>
-                                table thead tr th,
-                                table tbody tr td {
-                                    font-size: 13px !important;
-                                    font-weight: 500 !important;
-                                    text-transform: uppercase !important;
-                                    color: #000 !important;
-                                }
-                                </style>
-                                <table id="datatable" class="table table-striped  " data-toggle="data-table">
+                        <div class="col-sm-12 mt-5">
+                            <div class="card p-0 ">
+                                <div class="table-responsive p-3">
+                                    <style>
+                                    table thead tr th,
+                                    table tbody tr td {
+                                        font-size: 13px !important;
+                                        font-weight: 500 !important;
+                                        text-transform: capitalize !important;
+                                        color: #000 !important;
+                                    }
+                                    </style>
+                                    <table id="datatable" class="table table-striped  " data-toggle="data-table">
 
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Category</th>
-                                            <th>Description</th>
-                                            <th>Creation date</th>
-                                            <th>Last Updated</th>
-                                            <th style="width: 50px !important ; ">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Category</th>
+                                                <th>Description</th>
+                                                <th>Creation date</th>
+                                                <th>Last Updated</th>
+                                                <th style="width: 50px !important ; ">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
 
-                                        <?php $query = mysqli_query($con, "select subcategory.id,category.categoryName,subcategory.subcategory,subcategory.creationDate,subcategory.updationDate from subcategory join category on category.id=subcategory.categoryid");
-                                            $cnt = 1;
-                                            while ($row = mysqli_fetch_array($query)) {
-                                            ?>
-                                        <tr>
-                                            <td><?php echo htmlentities($cnt); ?></td>
-                                            <td><?php echo htmlentities($row['categoryName']); ?></td>
-                                            <td><?php echo htmlentities($row['subcategory']); ?></td>
-                                            <td> <?php echo htmlentities($row['creationDate']); ?></td>
-                                            <td><?php echo htmlentities($row['updationDate']); ?></td>
-                                            <td>
-                                                <a href="edit-subcategory.php?id=<?php echo $row['id'] ?>"
-                                                    style="   border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; ">
-                                                    <i class='bx bxs-edit' style="font-size: 15px; color: black; "></i>
-                                                </a>
-                                                <a href="subcategory.php?id=<?php echo $row['id'] ?>&del=delete"
-                                                    onClick="return confirm('Are you sure you want to delete?')"
-                                                    style="   border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; ">
-                                                    <i class='bx bxs-trash' style="font-size: 15px; color: black; "></i>
-                                                </a>
-                                            </td>
+                                            <?php $query = mysqli_query($con, "select subcategory.id,category.categoryName,subcategory.subcategory,subcategory.creationDate,subcategory.updationDate from subcategory join category on category.id=subcategory.categoryid");
+                                                $cnt = 1;
+                                                while ($row = mysqli_fetch_array($query)) {
+                                                ?>
+                                            <tr>
+                                                <td><?php echo htmlentities($cnt); ?></td>
+                                                <td><?php echo htmlentities($row['categoryName']); ?></td>
+                                                <td><?php echo htmlentities($row['subcategory']); ?></td>
+                                                <td> <?php echo htmlentities($row['creationDate']); ?></td>
+                                                <td><?php echo htmlentities($row['updationDate']); ?></td>
+                                                <td>
+                                                    <a href="edit-subcategory.php?id=<?php echo $row['id'] ?>"
+                                                        style="   border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; ">
+                                                        <i class='bx bxs-edit'
+                                                            style="font-size: 15px; color: black; "></i>
+                                                    </a>
+                                                    <a href="subcategory.php?id=<?php echo $row['id'] ?>&del=delete"
+                                                        onClick="return confirm('Are you sure you want to delete?')"
+                                                        style="   border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; ">
+                                                        <i class='bx bxs-trash'
+                                                            style="font-size: 15px; color: black; "></i>
+                                                    </a>
+                                                </td>
 
 
-                                        </tr>
-                                        <?php $cnt = $cnt + 1;
-                                            } ?>
+                                            </tr>
+                                            <?php $cnt = $cnt + 1;
+                                                } ?>
 
-                                </table>
+                                    </table>
+                                </div>
                             </div>
+
+
+
                         </div>
-
-
-
                     </div>
                     <!--/.content-->
                 </div>

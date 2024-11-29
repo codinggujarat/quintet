@@ -124,42 +124,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
     }
-
-
-
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-    }
     </style>
 </head>
 
@@ -168,17 +132,18 @@ if (strlen($_SESSION['alogin']) == 0) {
     <main class="main-content">
         <div ss="position-relative iq-banner">
             <?php include('include/header.php'); ?>
-
             <div class="coner-fc content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
                         <div class="card ">
                             <div class="card-body">
-                                <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
+                                <h3 style="
+    font-size: 17px !important;
+                                font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
                                     class="text-uppercase">
                                     manage users
                                 </h3>
-                                <div class="module-body " style="overflow-x:auto !important ;">
+                                <div class="module-body " style=" overflow-x:auto !important ;">
                                     <?php if (isset($_GET['del'])) { ?>
                                     <div class=" alert alert-error">
                                         <h6>
@@ -212,14 +177,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     table tbody tr td {
                                         font-size: 13px !important;
                                         font-weight: 500 !important;
-                                        text-transform: uppercase !important;
+                                        text-transform: capitalize !important;
                                         color: #000 !important;
                                     }
                                     </style>
-                                    <div class="card p-5">
+                                    <div class="card p-0">
                                         <div class="table-responsive">
-                                            <table id="datatable" class="table table-striped  "
-                                                data-toggle="data-table">
+                                            <table id="datatable" class="table   " data-toggle="data-table">
                                                 <thead>
                                                     <tr>
                                                         <th>#</th>

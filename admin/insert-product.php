@@ -15,6 +15,8 @@ if (strlen($_SESSION['alogin']) == 0) {
         $productdescription = $_POST['productDescription'];
         $productscharge = $_POST['productShippingcharge'];
         $productcolor = $_POST['productColor'];
+        $productcare = $_POST['ProductCare'];
+        $productSizes = $_POST['productSizes'];
         $productavailability = $_POST['productAvailability'];
         $productimage1 = $_FILES["productimage1"]["name"];
         $productimage2 = $_FILES["productimage2"]["name"];
@@ -37,7 +39,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         move_uploaded_file($_FILES["productimageFour"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageFour"]["name"]);
         move_uploaded_file($_FILES["productimageFive"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageFive"]["name"]);
         move_uploaded_file($_FILES["productimageSix"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageSix"]["name"]);
-        $sql = mysqli_query($con, "insert into products(category,subCategory,productName,productCompany,productPrice,productDescription,shippingCharge,productAvailability,productColor,productImage1,productImage2,productImage3,productImageFour,productImageFive,productImageSix,productPriceBeforeDiscount) values('$category','$subcat','$productname','$productcompany','$productprice','$productdescription','$productscharge','$productavailability','productcolor','$productimage1','$productimage2','$productimage3','$productimageFour','$productimageFive','$productimageSix','$productpricebd')");
+        $sql = mysqli_query($con, "insert into products(category,subCategory,ProductCare,productSizes,productName,productCompany,productPrice,productDescription,shippingCharge,productAvailability,productColor,productImage1,productImage2,productImage3,productImageFour,productImageFive,productImageSix,productPriceBeforeDiscount) values('$category','$subcat','$productname','$productcompany','$productcare','$productSizes','$productprice','$productdescription','$productscharge','$productavailability','productcolor','$productimage1','$productimage2','$productimage3','$productimageFour','$productimageFive','$productimageSix','$productpricebd')");
         $_SESSION['msg'] = "Product Inserted Successfully !!";
     }
 
@@ -154,42 +156,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
     }
-
-
-
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-    }
     </style>
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -228,9 +194,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
                         <div class="centerCard">
-                            <div class="card p-lg-3" style="width:700px ;">
+                            <div class="card p-0" style="width:700px ;">
                                 <div class="card-body">
-                                    <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
+                                    <h3 style="font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
                                         class="text-uppercase">
                                         insert product
                                     </h3>
@@ -353,7 +319,19 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     After
                                                     Discount(Selling Price)</label>
                                             </div>
+                                            <div class="control-group   mb-4" style="position: relative;">
 
+                                                <label for="size">Select Size:</label>
+                                                <select name="productSizes" id="size">
+                                                    <option value="Select Size">
+                                                        Select Size
+                                                    </option>
+                                                    <option value="S">Small</option>
+                                                    <option value="M">Medium</option>
+                                                    <option value="L">Large</option>
+                                                    <option value="XL">Extra Large</option>
+                                                </select>
+                                            </div>
                                             <div class="control-group input-field-login mb-4">
                                                 <textarea name="productDescription" rows="12"
                                                     class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
@@ -361,6 +339,13 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             </textarea>
                                                 <label>Product
                                                     Description</label>
+                                            </div>
+                                            <div class="control-group input-field-login mb-4">
+                                                <textarea name="ProductCare" placeholder="Enter Product Description"
+                                                    rows="6" class="span8 tip">
+                                            </textarea>
+                                                <label>Product
+                                                    Care</label>
                                             </div>
 
                                             <div class="control-group input-field-login mb-4">

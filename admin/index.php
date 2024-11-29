@@ -55,27 +55,36 @@ if (isset($_POST['submit'])) {
 
     input {
 
-        height: 60px !important;
+        height: 50px !important;
         width: 100% !important;
         outline: none !important;
-        font-size: 12px !important;
-        border-radius: 10px !important;
+        font-size: 16px !important;
         border: 1px solid #000 !important;
         transition: all 0.3s ease !important;
         outline: o !important;
+        color: #000;
+        font-weight: bold !important;
         background: #fff !important;
     }
 
     input:focus {
         box-shadow: none !important;
-        border-color: #9b59b6;
+        border: 2px solid #000 !important;
+
     }
     </style>
 
 
 
-    <div class="wrapper ">
+    <div class=" wrapper">
+
         <style>
+        .wrapper {
+            background: #f2f3f8 !important;
+            width: 100%;
+            height: 90vh;
+        }
+
         .module-login,
         form,
         .module-body,
@@ -117,7 +126,7 @@ if (isset($_POST['submit'])) {
 
         input:focus,
         textarea:focus {
-            border: 2px solid #000;
+            border: 2px solid #000 !important;
         }
 
         input:focus~label,
@@ -139,14 +148,13 @@ if (isset($_POST['submit'])) {
         </style>
         <div class="container">
             <div class="row" style="display: flex;align-items: center;justify-content: center;height: 80vh;     ">
-                <div class="module module-login " style="width: 500px; padding: 30px;border-radius: 20px; 
-                    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px
-                    -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
+                <div class="module module-login " style="width: 350px; padding: 10px;border-radius: 20px; 
+                   ">
                     <form class="form-vertical" method="post">
                         <div class="module-head">
-                            <h1 style="font-size: 40px !important ;font-weight: 400 !important ; text-align: left;  ">
-                                Sign In</h1>
-
+                            <h1
+                                style="font-size: 20px !important ;text-transform:capitalize;font-weight: 400 !important ; text-align: left;  ">
+                                Admin Panel | Sign In</h1>
                             <span
                                 style="font-size: 15px; color:black;text-align: center !important ; padding: 0px;font-weight: 500;   ">
                                 <?php echo htmlentities($_SESSION['errmsg']); ?><?php echo htmlentities($_SESSION['errmsg'] = ""); ?>
@@ -156,7 +164,7 @@ if (isset($_POST['submit'])) {
                             <div class="control-group">
                                 <div class="controls row-fluid input-field-login">
                                     <input class="span12 form-control" type="text" id="inputEmail" name="username"
-                                        style="background-color: #f2f3f8;">
+                                        style="background-color: #f2f3f8;" required>
                                     <label>
                                         What's your username? </label>
                                 </div>
@@ -164,7 +172,7 @@ if (isset($_POST['submit'])) {
                             <div class="control-group">
                                 <div class="controls row-fluid input-field-login">
                                     <input class="span12" type="password" id="inputPassword" name="password"
-                                        style="background-color: #f2f3f8;">
+                                        style="background-color: #f2f3f8;" required>
                                     <label>
                                         Your password?</label>
                                 </div>
@@ -184,11 +192,14 @@ if (isset($_POST['submit'])) {
     </div>
     <style>
     .checkout-page-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: #000 !important;
         width: 100% !important;
         color: #fff !important;
-        height: 50px !important;
-        font-size: 18px !important;
+        height: 40px !important;
+        font-size: 15px !important;
         border-radius: 10px !important;
         font-family: 'Raleway', sans-serif !important;
         font-weight: 400 !important;

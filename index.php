@@ -164,7 +164,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     <div class="swiper mySwiper2 swiper-v">
                         <div class="swiper-wrapper">
                             <?php
-                            $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC LIMIT 2");
+                            $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC LIMIT 10");
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
@@ -180,6 +180,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             </div>
                             <?php } ?>
                         </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
@@ -187,7 +190,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     <div class="swiper mySwiper2 swiper-v">
                         <div class="swiper-wrapper">
                             <?php
-                            $ret = mysqli_query($con, "select * from products where category=10 ORDER BY ID DESC LIMIT 2");
+                            $ret = mysqli_query($con, "select * from products where category=10 ORDER BY ID DESC LIMIT 10");
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
@@ -203,14 +206,16 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             </div>
                             <?php } ?>
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="swiper mySwiper2 swiper-v">
                         <div class="swiper-wrapper">
                             <?php
-                            $ret = mysqli_query($con, "select * from products where category=29 ORDER BY ID DESC LIMIT 2");
+                            $ret = mysqli_query($con, "select * from products where category=29 ORDER BY ID DESC LIMIT 10");
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
@@ -226,7 +231,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             </div>
                             <?php } ?>
                         </div>
-                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
                     </div>
                 </div>
             </div>
@@ -242,7 +249,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             spaceBetween: 50,
             pagination: {
                 el: ".swiper-pagination",
-                clickable: true,
+                type: "fraction",
             },
             navigation: {
                 nextEl: ".swiper-button-next",
@@ -314,6 +321,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         font-weight: 700;
     }
     </style>
+
     <!-- <div class="col-lg-12 ">
         <div class="bg-video-wrap">
             <video src="assets/video/large_2x.mp4" loop muted autoplay>

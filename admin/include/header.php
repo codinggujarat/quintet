@@ -19,24 +19,9 @@
                             </h4> -->
              <div class="dropdown">
 
-                 <a href="#" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     <img src="./images/user1.png" style=" width: 50px !important;
-                            height: 50px !important;
-                            border-radius: 50% !important;
-                            border: 1px solid black !important; 
-                            background: #0dcaf0 !important ; 
-                            " />
+                 <a href="/shopping" type="button">
+                     <img src="./images/QUINTET12.png" style=" width: 100% !important;height: 50px !important;" />
                  </a>
-                 <style>
-                 .dropdown-menu {
-                     top: 50px !important;
-                     left: -130px !important;
-                 }
-                 </style>
-                 <ul class="dropdown-menu">
-                     <li><a class="dropdown-item" href="change-password.php">Change Password</a></li>
-                     <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                 </ul>
              </div>
          </div>
      </div>

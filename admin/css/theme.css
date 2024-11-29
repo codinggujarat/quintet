@@ -10,7 +10,7 @@ All Rights Reserved.
 
 body {
 	font-size: 13px;
-	background: #f2f2f8 !important;
+	background: #fff !important;
 	color: #777
 }
 
@@ -227,7 +227,7 @@ body [class*=" icon-"] {
 }
 
 .module {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	border-radius: 3px;
@@ -1447,7 +1447,7 @@ input[type=submit].btn-block {
 }
 
 .module-body {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 	padding: 15px
 }
 
@@ -2274,22 +2274,22 @@ input[type=submit].btn-block {
 }
 
 .wrapper {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 }
 
 select {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 	height: 40px !important;
 	border: 1px solid black !important;
 }
 
 .module-head {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 }
 
 input,
 textarea {
-	background: #f2f2f8 !important;
+	background: #fff !important;
 	width: 100% !important;
 	border: 1px solid black !important;
 	outline: none !important;
@@ -2311,7 +2311,6 @@ select:focus {
 }
 
 table {
-	background: #f2f2f8 !important;
 	border-collapse: collapse !important;
 	border-spacing: 0 !important;
 	width: 100% !important;
@@ -2336,7 +2335,7 @@ table {
 }
 
 .datatable-1 {
-	background: #f2f2f8 !important;
+	background: transparent !important;
 	width: 100% !important;
 	overflow-x: auto !important;
 }

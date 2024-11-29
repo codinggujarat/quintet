@@ -4,6 +4,7 @@
 ?>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://api.fontshare.com/v2/css?f[]=panchang@300,500&f[]=cabinet-grotesk@300&display=swap");
 
 .body-content {
     margin-top: 50px;
@@ -102,10 +103,10 @@
     z-index: 1;
     margin-left: 20px;
     color: #000;
-    font-size: 15px;
+    font-size: 16px;
     font-family: 'Poppins', sans-serif;
     transition: all 0.2s ease;
-    font-weight: 400;
+    font-weight: 300;
 }
 
 
@@ -138,6 +139,10 @@ section .content {
     overflow-x: hidden;
     overflow-y: auto;
     border-bottom: 1px solid black;
+}
+
+section .content::-webkit-scrollbar {
+    display: none;
 }
 
 #home:checked~section .content-1,
@@ -199,6 +204,7 @@ section .content p {
         left: -100%;
         position: fixed;
         display: block;
+        overflow: auto;
     }
 
     .myaccount-links {
@@ -212,7 +218,7 @@ section .content p {
         display: block;
         background-color: white;
         z-index: 9999;
-        transition: 0.5s linear;
+        transition: 0.2s linear;
         overflow-y: auto;
         overflow-x: hidden;
     }
@@ -399,19 +405,20 @@ section .content p {
             <li class=" fav-bag-side" style="margin-top: 40px;"></li>
             <?php if (strlen($_SESSION['login'])) { ?>
             <li class="fav-bag-side logInOut"
-                style="font-size: 12px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
+                style="font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
                 <a href="my-account.php">
-                    <span>Hi, </span>
-                    <span>&nbsp;<?php echo htmlentities($_SESSION['username']); ?></span>
-                    <i class='bx bx-user' style="font-size: 20px;margin-left:10px;"></i>
+                    <span style="font-size: 13px !important;">Hi, </span>
+                    <span
+                        style="font-size: 13px !important;">&nbsp;<?php echo htmlentities($_SESSION['username']); ?></span>
+                    <i class='bx bx-user' style="font-size: 13px;margin-left:10px;"></i>
                 </a>
             </li>
             <?php } else { ?>
             <li class="fav-bag-side logInOut"
-                style="font-size: 12px !important;font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
+                style="font-family: 'Raleway',sans-serif; color: #000;text-transform: uppercase      !important  ;">
                 <a href="my-account.php">
-                    <span>my account</span>
-                    <i class='bx bx-user' style="font-size: 20px;margin-left:10px;"></i>
+                    <span style="font-size: 13px !important;">my account</span>
+                    <i class='bx bx-user' style="font-size: 13px;margin-left:10px;"></i>
                 </a>
             </li>
             <?php } ?>
@@ -419,21 +426,24 @@ section .content p {
                 <input type="radio" name="slider" checked id="home">
                 <input type="radio" name="slider" id="blog">
                 <input type="radio" name="slider" id="code">
-                <nav>
+                <nav style="padding: 20px;">
                     <label for="home" class="home">WOMAN</label>
                     <label for="blog" class="blog">MAN</label>
                     <label for="code" class="code">KIDS</label>
                 </nav>
-                <section>
+                <section style="padding: 20px;">
                     <div class="content content-1">
                         <ul class="responsive_Nav_Link">
+                            <li style="margin-top: 15px;margin-bottom: 45px;">
+                                <a href="category.php?cid=8">///new</a>
+                            </li>
                             <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8");
 
                             while ($row = mysqli_fetch_array($sql)) {
                             ?>
-                            <li>
+                            <li style="margin-top: 15px;">
                                 <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                    style="font-size: 15px !important; width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    style="font-size: 16px !important; width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
                                     <?php echo $row['subcategory']; ?>
                                 </a>
                             </li>
@@ -442,13 +452,16 @@ section .content p {
                     </div>
                     <div class=" content content-2">
                         <ul class="responsive_Nav_Link">
+                            <li style="margin-top: 15px;margin-bottom: 45px;">
+                                <a href="category.php?cid=10">///new</a>
+                            </li>
                             <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=10");
 
                             while ($row = mysqli_fetch_array($sql)) {
                             ?>
-                            <li>
+                            <li style="margin-top: 15px;">
                                 <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                    style="font-size: 15px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    style="font-size: 16px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
                                     <?php echo $row['subcategory']; ?>
                                 </a>
                             </li>
@@ -457,13 +470,16 @@ section .content p {
                     </div>
                     <div class="content content-3">
                         <ul class="responsive_Nav_Link">
+                            <li style="margin-top: 15px;margin-bottom: 45px;">
+                                <a href="category.php?cid=29">///new</a>
+                            </li>
                             <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=29");
 
                             while ($row = mysqli_fetch_array($sql)) {
                             ?>
-                            <li>
+                            <li style="margin-top: 15px;">
                                 <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                    style="font-size: 15px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                    style="font-size: 16px !important;width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
                                     <?php echo $row['subcategory']; ?>
                                 </a>
                             </li>
@@ -524,15 +540,15 @@ section .content p {
             <?php } ?>
 
             <?php if (strlen($_SESSION['login']) == 0) { ?>
-            <li class=""><a href="login">
-                    <i class='bx bx-arrow-from-right'></i>
-                    <span class="linkLog">LOG IN</span>
+            <li class=""><a href="login.php">
+                    <i class='bx bx-arrow-from-right '></i>
+                    <span class="linkLog backtext" id="backtext">LOG IN</span>
                 </a>
             </li>
             <?php } else { ?>
             <li class="fav-bag-side">
                 <?php if (strlen($_SESSION['login'])) { ?>
-                <a href="track-orders">
+                <a href="track-orders.php">
                     <i class='bx bx-right-top-arrow-circle'></i>
                     <span class="key">
                         Track
@@ -542,7 +558,7 @@ section .content p {
             </li>
             <li class="">
                 <?php if (strlen($_SESSION['login'])) { ?>
-                <a href="allhelpcategory">
+                <a href="allhelpcategory.php">
                     <span class="key">
                         Help
                     </span>
@@ -550,7 +566,7 @@ section .content p {
                 <?php } ?>
             </li>
 
-            <li class=" fav-bag-side"><a href="logout">
+            <li class=" fav-bag-side"><a href="logout.php">
                     <i class='bx bx-arrow-to-right'></i>
                     <span class="linkLog">Logout</span>
                 </a>
@@ -668,13 +684,13 @@ section .content p {
                             </svg>
                             <li style="margin-top: 50px !important;">
                                 <div class="bag">
-                                    <div>
+                                    <div style="text-transform:uppercase;">
                                         shopping bag (0)
                                     </div>
                                 </div>
                                 <div class=" cart-item" style="width: 100%;">
                                     <h4
-                                        style="margin-left: 10%; padding:5px 10px; font-size: 12px; font-family: 'Poppins' ,sans-serif !important ; font-weight: 400 !important ;text-align: center; color: #000;text-transform: uppercase ; ">
+                                        style=" font-size: 12px; font-family: 'Poppins' ,sans-serif !important ; font-weight: 400 !important ;text-align: center; color: #000;text-transform: uppercase ; ">
                                         Your shopping basket is empty.</h4>
                                 </div>
                             </li>

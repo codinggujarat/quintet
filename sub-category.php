@@ -99,6 +99,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://api.fontshare.com/v2/css?f[]=panchang@300,500&f[]=cabinet-grotesk@300&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="cnt-home">
@@ -164,8 +166,8 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                             while ($row = mysqli_fetch_array($sql)) {
                             ?>
                             <div class="excerpt " style=" margin-left: 5px; ">
-                                <h1 style="padding: 5px 10px; border: 1px solid black; text-align: left; font-family: 'Raleway' , sans-serif !important;
-                                text-transform: uppercase ; color: lightgray; font-size: 13px; text-align: center important;
+                                <h1 style="padding: 5px 10px; border: 1px solid black; text-align: left; font-family: 'Poppins', sans-serif;
+                                text-transform: uppercase ; color: lightgray; font-size: 12px; text-align: center important;
                                 font-weight: 500 !important;margin-left: 5px; color: #000;">
                                     <?php echo htmlentities($row['subcategory']); ?>
                                 </h1>
@@ -269,7 +271,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         top: 5%;
                         width: 97%;
                         background: transparent;
-                        z-index: 999;
+                        z-index: 9;
                         margin-left: 20px;
                     }
 
@@ -429,6 +431,34 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                         .product-info .favorites a {
                                             text-decoration: none;
                                         }
+
+                                        .product-image:hover .moreBtnview {
+                                            display: block;
+                                        }
+
+
+                                        .moreBtnview {
+                                            position: absolute;
+                                            bottom: 10px;
+                                            left: 50%;
+                                            display: none;
+                                            transform: translate(-50%);
+                                            cursor: pointer;
+                                        }
+
+                                        .moreBtnview a {
+                                            border-radius: 50px;
+                                            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+                                            display: flex;
+                                            height: 30px;
+                                            width: 30px;
+                                            align-items: center;
+                                            justify-content: center;
+                                        }
+
+                                        .product-image {
+                                            position: relative;
+                                        }
                                         </style>
 
                                         <div class="product responsiveCard">
@@ -437,9 +467,24 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     style="background:transparent !important;">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width=" 100%" height="100%" alt=""></a>
+                                                </div>
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class=" product-info text-left productName"

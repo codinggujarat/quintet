@@ -154,42 +154,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
     }
-
-
-
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
-    }
     </style>
     <style>
     .checkbox {
@@ -221,21 +185,139 @@ if (strlen($_SESSION['alogin']) == 0) {
         justify-content: end;
     }
     </style>
+
 </head>
 
 
 <body>
     <?php include('include/sidebar.php'); ?>
 
+    <style>
+    .input-field-login input {
 
+        height: 50px !important;
+        width: 100% !important;
+        outline: none !important;
+        font-size: 16px !important;
+        border: 1px solid #000 !important;
+        transition: all 0.3s ease !important;
+        outline: o !important;
+        color: #000;
+        font-weight: bold !important;
+        background: #fff !important;
+
+    }
+
+    .checkout-page-button {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #000 !important;
+        width: 100% !important;
+        color: #fff !important;
+        height: 40px !important;
+        font-size: 15px !important;
+        border-radius: 10px !important;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 400 !important;
+    }
+
+    .checkout-page-button:hover {
+        color: #fff !important;
+        border: 1px solid black !important;
+    }
+
+    .input-field-login {
+        position: relative;
+    }
+
+
+
+    .input-field-login label {
+        font-family: 'Raleway', sans-serif !important;
+        font-size: 17px;
+        color: #000;
+        font-weight: 600;
+        text-transform: capitalize !important;
+    }
+
+    .input-field-login label {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #000;
+        font-size: 15px;
+        pointer-events: none;
+        transition: 0.3s;
+        font-family: 'Raleway', sans-serif !important;
+        font-weight: 500;
+
+    }
+
+    input:focus,
+    textarea:focus {
+        border: 2px solid #000 !important;
+    }
+
+    input:focus~label,
+    textarea:focus~label,
+    input:valid~label,
+    textarea:valid~label {
+        top: 0;
+        left: 15px;
+        font-size: 16px;
+        padding: 0 2px;
+        background: #fff;
+        color: #000;
+    }
+
+    .noallowtochage input {
+        cursor: no-drop;
+        background: #f2f3f8;
+    }
+
+    .alert {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f2f3f8;
+        border: 1px solid black;
+        height: 20px;
+        margin-top: 30px;
+        border-radius: 0;
+        margin-bottom: 30px;
+    }
+
+
+    .alert button {
+        border: 0;
+        outline: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+    }
+
+    .alert span {
+        font-weight: bold;
+    }
+
+    .alert span,
+    .alert h6 {
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+    </style>
 
     <main class="main-content">
+
         <div class="position-relative iq-banner">
             <?php include('include/header.php'); ?>
 
-            <div class="conatiner-fluid content-inner mt-5 py-0 d-flex align-items-center justify-content-center">
-                <div class="module bg-white p-5 rounded-3"
-                    style="width:500px;box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;">
+            <div class="conatiner-fluid content-inner mt-5 py-0 d-flex align-items-center justify-content-center"
+                style="height: 100vh; display: flex;align-items:center; justify-content:center;  ">
+                <div class="module bg-white p-5 rounded-3" style="width:400px;">
                     <div class="module-head">
                         <h4 class="text-capitalize "
                             style="font-size:25px;text-align:left; font-weight: 600;font-family: 'Raleway',sans-serif  ;  ">
@@ -271,8 +353,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                         <?php } ?>
                         <br />
 
-                        <form class="form-horizontal row-fluid " name="chngpwd" method="post"
-                            onSubmit="return valid();">
+                        <form class="form-horizontal row-fluid " name="chngpwd" method="post" onSubmit="return valid();"
+                            action="">
 
                             <div class="control-group mb-3 input-field-login">
                                 <input type="password" name="password"

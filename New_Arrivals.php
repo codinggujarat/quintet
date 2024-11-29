@@ -72,6 +72,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+
     <!-- animated  -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
@@ -92,7 +93,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <div class="body-content outer-top-xs" id="top-banner-and-menu">
         <style>
         .body-content {
-            margin-top: 0px;
+            margin-top: 30px;
         }
 
         .categoryMenu {
@@ -103,7 +104,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         @media only screen and (max-width: 800px) {
 
             .body-content {
-                margin-top: 0px !important;
+                margin-top: 30px !important;
             }
 
             .categoryMenu {
@@ -192,6 +193,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                             .nav-tabs li a:focus {
                                 font-weight: 500 !important;
+                                background-color: #000 !important;
+                                color: #fff !important;
                             }
 
                             .nav-tabs li a {
@@ -205,6 +208,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 font-weight: 400 !important;
                                 color: #000 !important;
                                 border-color: #000 !important;
+                                transition: 0.2s all linear;
+
                             }
                             </style>
                             <ul class=" nav nav-tabs  "
@@ -238,10 +243,13 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 color: #000 !important;
                                 border-color: #000 !important;
                                 border: 1px solid black;
+                                transition: 0.2s all linear;
                             }
 
                             .filterMENU ul li button:focus {
                                 font-weight: 500 !important;
+                                background-color: #000 !important;
+                                color: #fff !important;
                             }
 
                             .filterMENU ul li {
@@ -575,14 +583,11 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     style="padding: 0;border:0 !important; margin:0 !important;">
 
                                     <ul>
-                                        <?php $sql = mysqli_query($con, "select id,categoryName  from category");
-                                        while ($row = mysqli_fetch_array($sql)) {
-                                        ?>
-                                        <li>
-                                            <a href="#<?php echo $row['categoryName']; ?>" data-toggle="tab">
-                                                <?php echo $row['categoryName']; ?></a>
+                                        <li><a class=" menulink" href="#MAN" data-toggle="tab">MAN</a>
                                         </li>
-                                        <?php } ?>
+                                        <li style="border-bottom: 1px solid black !important;"><a class=" menulink"
+                                                href="#WOMAN" data-toggle="tab">WOMAN</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -635,14 +640,27 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                         </style>
 
 
-
+                        <style>
+                        .productimagetab {
+                            display: grid;
+                            grid-template-columns: repeat(6, 1fr);
+                            grid-auto-rows: auto;
+                            width: 100%;
+                        }
+                        </style>
                         <div class="tab-content outer-top-xs" style="background: white !important   ; ">
                             <div class="tab-pane in active" id="all">
                                 <div class="product-slider">
+                                    <div class="" style="margin-left: 20px;">
+                                        <h1
+                                            style="font-size: 18px; color: #000; font-weight: 300;font-family: 'Cabinet Grotesk', sans-serif;">
+                                            VIEW ALL
+                                        </h1>
+                                    </div>
                                     <style>
                                     .productimagetab {
                                         display: grid;
-                                        grid-template-columns: repeat(2, 1fr);
+                                        grid-template-columns: repeat(6, 1fr);
                                         grid-auto-rows: auto;
                                         width: 100%;
                                     }
@@ -722,7 +740,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                         .name a {
                                             font-size: 10px !important;
+
                                         }
+
 
 
 
@@ -739,6 +759,38 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                         .product-info .favorites a {
                                             text-decoration: none;
                                         }
+
+                                        .product-image:hover .moreBtnview {
+                                            display: block;
+                                        }
+
+
+                                        .moreBtnview {
+                                            position: absolute;
+                                            bottom: 10px;
+                                            left: 50%;
+                                            display: none;
+                                            transform: translate(-50%);
+                                            cursor: pointer;
+                                        }
+
+                                        .moreBtnview a {
+                                            border-radius: 50px;
+                                            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+                                            display: flex;
+                                            height: 30px;
+                                            width: 30px;
+                                            align-items: center;
+                                            justify-content: center;
+                                        }
+
+                                        .product-image {
+                                            position: relative;
+                                        }
+
+                                        .name a:hover {
+                                            text-decoration: underline !important;
+                                        }
                                         </style>
 
 
@@ -751,7 +803,213 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width=" 100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
                                             </div><!-- /.product-image -->
+                                            <div class="product-info text-left productName"
+                                                style="position:relative; padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path
+                                                                        d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692	h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+
+                                        </div><!-- /.product -->
+
+                                        <?php } ?>
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+
+
+
+
+                            <div class="tab-pane " id="WOMAN">
+                                <div class="product-slider">
+                                    <div class="" style="margin-left: 20px;">
+                                        <h1
+                                            style="font-size: 18px; color: #000; font-weight: 300;font-family: 'Cabinet Grotesk', sans-serif;">
+                                            WOMAN
+                                        </h1>
+                                    </div>
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "select * from products where category=8 ORDER BY RAND() ");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+
+
+                                        ?>
+
+
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="img/firstani1 (1).gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+
+                                            </div><!-- /.product-image -->
+
+
+                                            <div class="product-info text-left"
+                                                style="position:relative; padding-left:10px; ">
+                                                <h3 class="name" style="margin-top:10px;">
+                                                    <a style="font-family: sans-serif, ' Poppins'
+                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
+                                                </h3>
+                                                <div class=" product-price" style="margin-top: -15px; ">
+                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
+                                                !important;font-weight:400;font-size: 10px; ">
+                                                        ₹
+                                                        <span style="margin-left: 1px;">
+                                                            <?php echo htmlentities($row['productPrice']); ?>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="favorites">
+                                                    <a title="favourites"
+                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
+                                                            <g>
+                                                                <g>
+                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
+			h274.308V457.476z" />
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                            </div><!-- /.product-info -->
+
+                                        </div><!-- /.item -->
+                                        <?php } ?>
+
+
+                                    </div><!-- /.home-owl-carousel -->
+                                </div><!-- /.product-slider -->
+                            </div>
+                            <div class="tab-pane " id="MAN">
+                                <div class="product-slider">
+                                    <div class="" style="margin-left: 20px;">
+                                        <h1
+                                            style="font-size: 18px; color: #000; font-weight: 300;font-family: 'Cabinet Grotesk', sans-serif;">
+                                            MAN
+                                        </h1>
+                                    </div>
+                                    <style>
+
+                                    </style>
+                                    <div class="productimagetab " data-wow-delay="0.1s">
+                                        <?php
+                                        $ret = mysqli_query($con, "select * from products where category=10 ORDER BY RAND() ");
+                                        while ($row = mysqli_fetch_array($ret)) {
+                                            # code...
+
+
+                                        ?>
+
+
+
+                                        <div class="product ">
+                                            <div class="product-image" style="background:#F2F3F8 !important;">
+                                                <div class="image" style="background:transparent !important; ">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <img src="img/firstani1 (1).gif"
+                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                            width="100%" height="100%" alt=""></a>
+                                                </div><!-- /.image -->
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+
+                                            </div><!-- /.product-image -->
+
+
                                             <div class="product-info text-left"
                                                 style="position:relative; padding-left:10px; ">
                                                 <h3 class="name" style="margin-top:10px;">
@@ -792,15 +1050,18 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
                                         <?php } ?>
 
+
                                     </div><!-- /.home-owl-carousel -->
                                 </div><!-- /.product-slider -->
                             </div>
-
-
-
-
-                            <div class="tab-pane" id="KIDS">
+                            <div class="tab-pane " id="KIDS">
                                 <div class="product-slider">
+                                    <div class="" style="margin-left: 20px;">
+                                        <h1
+                                            style="font-size: 18px; color: #000; font-weight: 300;font-family: 'Cabinet Grotesk', sans-serif;">
+                                            KIDS
+                                        </h1>
+                                    </div>
                                     <style>
 
                                     </style>
@@ -818,12 +1079,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -899,12 +1174,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -953,154 +1242,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     </div><!-- /.home-owl-carousel -->
                                 </div><!-- /.product-slider -->
                             </div>
-                            <div class="tab-pane" id="MAN">
-                                <div class="product-slider">
-                                    <style>
 
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "select * from products where category=10 ORDER BY RAND() ");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-
-
-                                        ?>
-
-
-
-                                        <div class="product ">
-                                            <div class="product-image" style="background:#F2F3F8 !important;">
-                                                <div class="image" style="background:transparent !important; ">
-                                                    <a
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
-                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            width="100%" height="100%" alt=""></a>
-                                                </div><!-- /.image -->
-
-
-                                            </div><!-- /.product-image -->
-
-
-                                            <div class="product-info text-left"
-                                                style="position:relative; padding-left:10px; ">
-                                                <h3 class="name" style="margin-top:10px;">
-                                                    <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                </h3>
-                                                <div class=" product-price" style="margin-top: -15px; ">
-                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                        ₹
-                                                        <span style="margin-left: 1px;">
-                                                            <?php echo htmlentities($row['productPrice']); ?>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                                <div class="favorites">
-                                                    <a title="favourites"
-                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
-                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                            <g>
-                                                                <g>
-                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                </g>
-                                                            </g>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                            </div><!-- /.product-info -->
-
-
-                                        </div><!-- /.product -->
-
-                                        <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
-                            <div class="tab-pane" id="WOMAN">
-                                <div class="product-slider">
-                                    <style>
-
-                                    </style>
-                                    <div class="productimagetab " data-wow-delay="0.1s">
-                                        <?php
-                                        $ret = mysqli_query($con, "select * from products where category=8 ORDER BY RAND() ");
-                                        while ($row = mysqli_fetch_array($ret)) {
-                                            # code...
-
-
-                                        ?>
-
-
-
-                                        <div class="product ">
-                                            <div class="product-image" style="background:#F2F3F8 !important;">
-                                                <div class="image" style="background:transparent !important; ">
-                                                    <a
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
-                                                            src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            width="100%" height="100%" alt=""></a>
-                                                </div><!-- /.image -->
-
-
-                                            </div><!-- /.product-image -->
-
-
-                                            <div class="product-info text-left"
-                                                style="position:relative; padding-left:10px; ">
-                                                <h3 class="name" style="margin-top:10px;">
-                                                    <a style="font-family: sans-serif, ' Poppins'
-                                                !important;font-size:11px;font-weight:300 !important ; text-transform: uppercase; color: #000; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>"><?php echo htmlentities($row['productName']); ?></a>
-                                                </h3>
-                                                <div class=" product-price" style="margin-top: -15px; ">
-                                                    <span class="price" style=" color:#333;font-family: sans-serif, ' Poppins'
-                                                !important;font-weight:400;font-size: 10px; ">
-                                                        ₹
-                                                        <span style="margin-left: 1px;">
-                                                            <?php echo htmlentities($row['productPrice']); ?>
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                                <div class="favorites">
-                                                    <a title="favourites"
-                                                        style="   border-radius: 0 !important ; font-size: 12px !important ; "
-                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
-                                                            id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
-                                                            viewBox="0 0 507.447 507.447" xml:space="preserve">
-                                                            <g>
-                                                                <g>
-                                                                    <path d="M96.877,0v507.447l156.846-168.091L410.57,507.447V0H96.877z M390.877,457.476L253.724,310.49L116.57,457.476V19.692
-			h274.308V457.476z" />
-                                                                </g>
-                                                            </g>
-                                                        </svg>
-                                                    </a>
-                                                </div>
-                                            </div><!-- /.product-info -->
-
-                                        </div><!-- /.item -->
-                                        <?php } ?>
-
-
-                                    </div><!-- /.home-owl-carousel -->
-                                </div><!-- /.product-slider -->
-                            </div>
                             <div class="tab-pane" id="lowtohigh">
                                 <div class="product-slider">
                                     <style>
@@ -1120,12 +1262,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1192,12 +1348,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1266,12 +1436,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1339,12 +1523,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1412,12 +1610,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1484,12 +1696,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1555,12 +1781,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1626,12 +1866,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1697,12 +1951,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1768,12 +2036,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1839,12 +2121,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1910,12 +2206,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1981,12 +2291,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2052,12 +2376,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2123,12 +2461,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2194,12 +2546,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="assets/images/blank.gif"
+                                                        <img src="img/firstani1 (1).gif"
                                                             src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 

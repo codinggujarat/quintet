@@ -143,7 +143,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
         @media only screen and (max-width: 800px) {
 
             .body-content {
-                margin-top: 0px !important;
+                margin-top: 50px !important;
             }
 
             .categoryMenu {
@@ -262,9 +262,16 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                 color: #000 !important;
                 border-color: #000 !important;
                 border: 1px solid black;
+
+                transition: 0.2s all linear;
             }
 
+
             .filterMENU ul li button:focus {
+                color: #fff !important;
+
+
+                background-color: #000 !important;
                 font-weight: 800 !important;
             }
 
@@ -948,7 +955,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                     background: transparent;
                     position: sticky;
                     top: 5%;
-                    z-index: 9999;
+                    z-index: 9;
                     width: 100%;
                 }
 
@@ -1013,7 +1020,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                             <style>
                             .productimagetab {
                                 display: grid;
-                                grid-template-columns: repeat(2, 1fr);
+                                grid-template-columns: repeat(6, 1fr);
                                 grid-auto-rows: auto;
                                 width: 100%;
                             }
@@ -1039,9 +1046,10 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
                                 }
 
+                                /* 
                                 .item {
                                     border: 1px solid black !important;
-                                }
+                                } */
 
                                 .name a {
                                     font-size: 0.999999999rem !important;
@@ -1060,6 +1068,9 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                     white-space: nowrap !important;
                                 }
 
+                                .name a:hover {
+                                    text-decoration: underline !important;
+                                }
 
                                 @media only screen and (max-width: 1200px) {
                                     .productimagetab {
@@ -1121,6 +1132,34 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                 .product-info .favorites a {
                                     text-decoration: none;
                                 }
+
+                                .product-image:hover .moreBtnview {
+                                    display: block;
+                                }
+
+
+                                .moreBtnview {
+                                    position: absolute;
+                                    bottom: 10px;
+                                    left: 50%;
+                                    display: none;
+                                    transform: translate(-50%);
+                                    cursor: pointer;
+                                }
+
+                                .moreBtnview a {
+                                    border-radius: 50px;
+                                    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+                                    display: flex;
+                                    height: 30px;
+                                    width: 30px;
+                                    align-items: center;
+                                    justify-content: center;
+                                }
+
+                                .product-image {
+                                    position: relative;
+                                }
                                 </style>
 
                                 <div class="products">
@@ -1133,6 +1172,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                         data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                         width=" 100%" height="100%" alt=""></a>
+                                            </div>
+                                            <div class="moreBtnview">
+                                                <a
+                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                    <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455 455"
+                                                        xml:space="preserve">
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            <polygon
+                                                                points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                            </polygon>
+                                                        </g>
+                                                    </svg>
+                                                </a>
                                             </div>
                                         </div>
                                         <div class=" product-info text-left productName"
@@ -1206,7 +1260,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1290,7 +1358,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1374,7 +1456,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1457,7 +1553,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1540,7 +1650,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1622,7 +1746,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1704,7 +1842,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1785,7 +1937,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1866,7 +2032,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -1947,7 +2127,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2028,7 +2222,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2110,7 +2318,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2194,7 +2416,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2276,7 +2512,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2359,7 +2609,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 
@@ -2442,7 +2706,21 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                             data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
-
+                                                <div class="moreBtnview">
+                                                    <a
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                            viewBox="0 0 455 455" xml:space="preserve">
+                                                            <g id="SVGRepo_iconCarrier">
+                                                                <polygon
+                                                                    points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 455,242.5 ">
+                                                                </polygon>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </div>
 
                                             </div><!-- /.product-image -->
 

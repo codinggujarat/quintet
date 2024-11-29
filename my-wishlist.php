@@ -170,8 +170,6 @@ if (strlen($_SESSION['login']) == 0) {
                                     display: flex;
                                     align-items: center;
                                     justify-content: space-between;
-                                    padding-left: 10px;
-                                    padding-right: 10px;
                                 }
 
                                 .cart-product-sub-total span {
@@ -215,7 +213,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     top: 0;
                                 }
 
-                                .name {
+                                .product-name {
                                     width: 80% !important;
                                     overflow: hidden !important;
                                     text-overflow: ellipsis !important;

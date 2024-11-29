@@ -149,10 +149,10 @@ if (isset($_POST['shipupdate'])) {
     <?php include('includes/search.php'); ?>
 
     <div class="body-content outer-top-xs">
-        <div class="" style="  padding: 0;margin-left:50px;margin-right:50px;  ">
-            <div class="row inner-bottom-sm">
-                <div class="shopping-cart">
-                    <div class="col-md-12 col-sm-12 shopping-cart-table ">
+        <div class="" style="  padding: 0;margin-left:0px;margin-right:0;  ">
+            <div class="">
+                <div class="">
+                    <div class=" shopping-cart-table " style="width: 100%;">
                         <h1 style=" font-family: 'Raleway' ,sans-serif;font-size: 14px !important ;color:
                                 #000;text-transform: uppercase ;font-weight: 500 !important ;">
                             shopping bag
@@ -197,6 +197,7 @@ if (isset($_POST['shipupdate'])) {
                                     z-index: 99999999 !important;
                                     right: 0 !important;
                                     bottom: 0 !important;
+
                                 }
 
                                 .cart-btns {
@@ -255,7 +256,7 @@ if (isset($_POST['shipupdate'])) {
 
                         </div>
                     </div><!-- /.shopping-cart-table -->
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="mywishlistcards">
                         <?php
                                     $pdtid = array();
                                     $sql = "SELECT * FROM products WHERE id IN(";
@@ -276,14 +277,13 @@ if (isset($_POST['shipupdate'])) {
                                             array_push($pdtid, $row['id']);
                                             //print_r($_SESSION['pid'])=$pdtid;exit;
                         ?>
-                        <div class="m-t-20 col-xxl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12 mywishlistcard">
+                        <div class=" mywishlistcard">
                             <style>
-                            .mywishlistcard {
-                                display: flex;
-                                align-items: center;
-                                justify-content: start;
-                                flex-wrap: wrap;
-
+                            .mywishlistcards {
+                                display: grid;
+                                grid-template-columns: repeat(6, 1fr);
+                                grid-auto-rows: auto;
+                                width: 100%;
                             }
 
 
@@ -292,6 +292,32 @@ if (isset($_POST['shipupdate'])) {
                                     justify-content: center;
                                 }
                             }
+
+                            @media only screen and (max-width: 1200px) {
+                                .mywishlistcards {
+                                    grid-template-columns: repeat(5, 1fr);
+                                }
+                            }
+
+                            @media only screen and (max-width: 1000px) {
+                                .mywishlistcards {
+                                    grid-template-columns: repeat(4, 1fr);
+                                }
+                            }
+
+                            @media only screen and (max-width: 550px) {
+
+                                .mywishlistcards {
+                                    grid-template-columns: repeat(2, 1fr);
+                                }
+                            }
+
+                            @media only screen and (max-width: 800px) {
+                                .mywishlistcards {
+                                    justify-content: center !important;
+                                }
+                            }
+
 
                             .cart-product-sub-total {
                                 display: flex;
@@ -308,10 +334,69 @@ if (isset($_POST['shipupdate'])) {
                             }
 
                             .mywishlistcardimage {
-                                width: 220px !important;
+                                width: 100% !important;
                                 height: 100% !important;
                                 background: white !important;
                                 object-fit: cover;
+                            }
+
+                            .mywishlistcardimage .entry-thumbnail img {
+                                border-bottom: 1px solid black;
+                            }
+
+                            .col-card {
+                                border: 1px solid black;
+                                width: auto;
+                                margin: 0;
+                                padding: 0;
+
+                            }
+
+                            .product-name {
+                                width: 80% !important;
+                                overflow: hidden !important;
+                                text-overflow: ellipsis !important;
+                                white-space: nowrap !important;
+                            }
+
+                            .cart-product-sub-total {
+                                padding-left: 10px;
+                                padding-right: 10px;
+                            }
+
+                            .arrows {
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                width: 150px;
+                            }
+
+                            .quantity {
+                                position: absolute;
+                                top: 0;
+                                width: 30px;
+                                height: 30px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-left: 60px;
+
+                            }
+
+                            .plus,
+                            .minus {
+                                border: 1px solid black;
+                                padding: 4px;
+                                width: 50px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 30px;
+                                cursor: pointer;
+                            }
+
+                            .quant-input input {
+                                padding-left: 10px !important;
                             }
                             </style>
                             <div class="col-card">
@@ -323,159 +408,197 @@ if (isset($_POST['shipupdate'])) {
                                     </a>
                                 </div>
                                 <div class="mywishlistcardimage">
-                                    <h4 class='cart-product-description'><a
-                                            style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
-                                            href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
-                                                                                                                                    $_SESSION['sid'] = $pd;
-                                                                                                                                    ?></a>
-                                    </h4>
-                                    <div class="mywishlistcardimage">
-                                        <div class="row">
-                                            <div class="col-sm-4">
-                                                <div class="rating rateit-small"></div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
-                                                        $num = mysqli_num_rows($rt); {
-                                                        ?>
-                                                <div class="reviews" style="color:black;">
-                                                    ( <?php echo htmlentities($num); ?> Reviews )
+                                    <div class="" style="position: relative;">
+                                        <h4 class='cart-product-description product-name' style="padding-left: 10px;"><a
+                                                style=" font-size: 12px; font-family: sans-serif, ' Poppins' !important;"
+                                                href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>"><?php echo $row['productName'];
+                                                                                                                                        $_SESSION['sid'] = $pd;
+                                                                                                                                        ?></a>
+                                        </h4>
+
+                                        <div class="mywishlistcardimage" style="padding-left: 10px;">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="rating rateit-small"></div>
                                                 </div>
-                                                <?php } ?>
-                                            </div>
-                                        </div><!-- /.row -->
-                                    </div>
-                                    <div class="mywishlistcardimage">
-                                        <div class="quant-input">
-                                            <div class="arrows">
-                                                <div class="arrow plus gradient"><span class="ir"><i
-                                                            class="icon fa fa-sort-asc"></i></span></div>
-                                                <div class="arrow minus gradient"><span class="ir"><i
-                                                            class="icon fa fa-sort-desc"></i></span></div>
-                                            </div>
-                                            <input type="text" style="border: 1px solid black;"
-                                                value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>"
-                                                name="quantity[<?php echo $row['id']; ?>]">
-
+                                                <div class="col-sm-6">
+                                                    <?php $rt = mysqli_query($con, "select * from productreviews where productId='$pd'");
+                                                            $num = mysqli_num_rows($rt); {
+                                                            ?>
+                                                    <div class="reviews" style="color:black;">
+                                                        ( <?php echo htmlentities($num); ?> Reviews )
+                                                    </div>
+                                                    <?php } ?>
+                                                </div>
+                                            </div><!-- /.row -->
                                         </div>
-                                    </div>
-
-                                    <div class="mywishlistcardimage">
-                                        <h4 class="cart-product-sub-total">
-                                            <span>Price Per unit</span>
-                                            <span class="cart-sub-total-price"
-                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-
-                                                <?php echo "Rs" . " " . $row['productPrice']; ?>.00</span>
-                                        </h4>
-                                        <h4 class="cart-product-sub-total">
-                                            <span>
-                                                Shipping cost
-                                            </span>
-                                            <span class="cart-sub-total-price"
-                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-
-
-                                                <?php echo "Rs" . " " . $row['shippingCharge']; ?>.00</span>
-                                        </h4>
-
-                                        <h4 class="cart-product-sub-total">
-                                            <span>
-                                                Total
-                                            </span>
-                                            <span class="cart-grand-total-price"
-                                                style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
-
-                                                <?php echo ($_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge']); ?>.00</span>
-                                        </h4>
-                                    </div>
-                                    <div class="mywishlistcardimage">
-                                        <style>
-                                        .switch {
-                                            position: relative;
-                                            display: inline-block;
-                                            width: 30px;
-                                            height: 18px;
-                                        }
-
-                                        .switch input {
-                                            display: none;
-                                        }
-
-                                        .slider {
-                                            position: absolute;
-                                            cursor: pointer;
-                                            top: 0;
-                                            left: 0;
-                                            right: 0;
-                                            bottom: 0;
-                                            background-color: #ccc;
-                                            -webkit-transition: .4s;
-                                            transition: .4s;
-                                        }
-
-                                        .slider:before {
-                                            position: absolute;
-                                            content: "";
-                                            height: 13px;
-                                            width: 13px;
-                                            left: 4px;
-                                            bottom: 3px;
-                                            background-color: white;
-                                            -webkit-transition: .4s;
-                                            transition: .4s;
-                                        }
-
-                                        input:checked+.slider {
-                                            background-color: #000;
-                                        }
-
-                                        input:focus+.slider {
-                                            box-shadow: 0 0 1px #2196F3;
-                                        }
-
-                                        input:checked+.slider:before {
-                                            -webkit-transform: translateX(10px);
-                                            -ms-transform: translateX(10px);
-                                            transform: translateX(10px);
-                                        }
-
-                                        /* Rounded sliders */
-                                        .slider.round {
-                                            border-radius: 34px;
-                                        }
-
-                                        .slider.round:before {
-                                            border-radius: 50%;
-                                        }
-                                        </style>
-                                        <div class="" style="padding:10px;background:#fff !important;display: flex;
-                                align-items: center;
-                                justify-content:space-between;">
-                                            <div class="">
-                                                <a class="btn " title="favourites"
-                                                    style="border: 1px solid black;  background:#F2F3F8 ;width: 0;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ; "
-                                                    href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                    <i class="fa-regular fa-bookmark"
-                                                        style=" color:#000 ;font-weight: 500;"></i>
-                                                    </span>
-                                                </a>
+                                        <div class="mywishlistcardimage"
+                                            style="padding-left: 10px;padding-right: 10px;">
+                                            <div class="quant-input" style="position: relative;">
+                                                <div class="arrows">
+                                                    <div class="arrow plus gradient">
+                                                        <span class="ir">
+                                                            <i class="icon fa fa-plus"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="arrow minus gradient">
+                                                        <span class="ir">
+                                                            <i class="icon fa fa-minus"></i>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <input type="text" style="border: 1px solid black;" class="quantity"
+                                                    value="<?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>"
+                                                    name="quantity[<?php echo $row['id']; ?>]">
                                             </div>
+                                        </div>
+
+                                        <div class="mywishlistcardimage">
+                                            <h4 class="cart-product-sub-total">
+                                                <span>
+                                                    product size
+                                                </span>
+                                                <span class="cart-sub-total-price"
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+
+                                                    <?php echo htmlentities($row['productSizes']); ?></span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>
+                                                    product color
+                                                </span>
+                                                <span class="cart-sub-total-price"
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <?php echo htmlentities($row['productColor']); ?></span>
+                                                <span class="color-box"
+                                                    style="padding: 0; margin: 0; border: 1px solid black; width: 25px;height: 25px; background: <?php echo htmlentities($row['productColor']); ?>;  ">
+
+                                                </span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>Price Per unit</span>
+                                                <span class="cart-sub-total-price"
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+                                                    <?php echo "Rs" . " " . $row['productPrice']; ?>.00</span>
+                                            </h4>
+                                            <h4 class="cart-product-sub-total">
+                                                <span>
+                                                    Shipping cost
+                                                </span>
+                                                <span class="cart-sub-total-price"
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+
+                                                    <?php echo "Rs" . " " . $row['shippingCharge']; ?>.00</span>
+                                            </h4>
+
+                                            <h4 class="cart-product-sub-total">
+                                                <span>
+                                                    Total
+                                                </span>
+                                                <span class="cart-grand-total-price"
+                                                    style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+
+                                                    <?php echo ($_SESSION['cart'][$row['id']]['quantity'] * $row['productPrice'] + $row['shippingCharge']); ?>.00</span>
+                                            </h4>
+                                        </div>
+                                        <div class="mywishlistcardimage">
+                                            <style>
+                                            .switch {
+                                                position: relative;
+                                                display: inline-block;
+                                                width: 30px;
+                                                height: 18px;
+                                            }
+
+                                            .switch input {
+                                                display: none;
+                                            }
+
+                                            .slider {
+                                                position: absolute;
+                                                cursor: pointer;
+                                                top: 0;
+                                                left: 0;
+                                                right: 0;
+                                                bottom: 0;
+                                                background-color: #ccc;
+                                                -webkit-transition: .4s;
+                                                transition: .4s;
+                                            }
+
+                                            .slider:before {
+                                                position: absolute;
+                                                content: "";
+                                                height: 13px;
+                                                width: 13px;
+                                                left: 4px;
+                                                bottom: 3px;
+                                                background-color: white;
+                                                -webkit-transition: .4s;
+                                                transition: .4s;
+                                            }
+
+                                            input:checked+.slider {
+                                                background-color: #000;
+                                            }
+
+                                            input:focus+.slider {
+                                                box-shadow: 0 0 1px #2196F3;
+                                            }
+
+                                            input:checked+.slider:before {
+                                                -webkit-transform: translateX(10px);
+                                                -ms-transform: translateX(10px);
+                                                transform: translateX(10px);
+                                            }
+
+                                            /* Rounded sliders */
+                                            .slider.round {
+                                                border-radius: 34px;
+                                            }
+
+                                            .slider.round:before {
+                                                border-radius: 50%;
+                                            }
+
+                                            .favourites {
+                                                position: absolute;
+                                                right: 10px;
+                                                top: 0;
+                                                background-color: white;
+                                            }
+                                            </style>
                                             <div class="" style="padding:10px;background:#fff !important;display: flex;
                                 align-items: center;
                                 justify-content:space-between;">
+                                                <div class="">
+                                                    <a class="btn favourites" title="favourites"
+                                                        style="border: 0px solid black;  background:#fff ;width: 0;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ; "
+                                                        href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
+                                                        <i class="fa-regular fa-bookmark"
+                                                            style=" color:#000 ;font-weight: 500;"></i>
+                                                        </span>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                            <div class="" style="padding: 0; margin: 0; width: 100%; border-top: 1px solid black; padding:10px;background:#fff !important;display: flex;
+                                align-items: center;
+                                justify-content:start;">
                                                 <label class="switch">
                                                     <input type="checkbox" name="remove_code[]"
-                                                        value="<?php echo htmlentities($row['id']); ?>">
+                                                        value="<?php echo htmlentities($row['id']); ?>" id="">
                                                     <span class="slider round"></span>
                                                 </label>
-                                                <p
+                                                <label
                                                     style="font-family: 'Raleway', sans-serif !important;font-weight: 700;margin-left: 10px;margin-top: 5px;text-transform: uppercase;">
                                                     remove
-                                                </p>
+                                                </label>
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>

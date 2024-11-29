@@ -1,5 +1,5 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
 @import url('https: //cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css');
 
@@ -7,13 +7,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
+    box-shadow: none !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 .item-name {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 15px !important;
-    font-weight: 600 !important;
+    font-weight: 400 !important;
 }
 
 input:focus {
@@ -35,6 +36,21 @@ textarea:focus {
 
 .input-field-login {
     position: relative;
+}
+
+.input-field-login input {
+
+    height: 50px !important;
+    width: 100% !important;
+    outline: none !important;
+    font-size: 16px !important;
+    border: 1px solid #000 !important;
+    transition: all 0.3s ease !important;
+    outline: o !important;
+    color: #000;
+    font-weight: bold !important;
+    background: #fff !important;
+
 }
 
 
@@ -103,7 +119,7 @@ select:valid~label {
     font-weight: 600 !important;
     padding: 10px 20px !important;
     width: 100% !important;
-    height: 60px !important;
+    height: 50px !important;
     box-shadow: 0 !important;
     /* border-radius: 10px !important; */
 }
@@ -144,19 +160,25 @@ select:valid~label {
 
 .centerCard {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
 }
 
 .centerCard .card {
     border-radius: 10px;
-    width: 500px;
+    width: 400px;
     padding: 20px;
 }
 
 .centerCard .card .card-body h3 {
-    font-size: 20px;
+    font-size: 17px !important;
     text-transform: uppercase !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.main-content {
+    background: #f2f3f8;
+    height: 100%;
 }
 
 .imgLable {
@@ -180,22 +202,20 @@ select:valid~label {
 }
 
 .nav-link svg {
-    background: #f2f3f8 !important;
+    background: transparent !important;
     padding: 5px;
     border-radius: 50px;
 }
 
 .logOut {
-    background: #f2f3f8 !important;
+    background: #000 !important;
+    color: white;
 }
 
 
 
-.logOut:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset !important;
-}
 
-.logOut:hover svg {
+.logOut svg {
     background-color: transparent !important;
 }
 
@@ -225,13 +245,19 @@ select:valid~label {
     font-weight: bold;
 }
 
+.card {
+    box-shadow: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
 .alert span,
 .alert h6 {
     text-transform: uppercase;
     font-size: 13px;
 }
 </style>
-<aside class="sidebar sidebar-default sidebar-white  sidebar-base navs-rounded-all " style="background:#fff; ">
+<aside class="sidebar sidebar-default sidebar-white  sidebar-base navs-rounded-all " style="background:#fff;">
     <div class="sidebar-header d-flex align-items-center justify-content-start">
         <a href="index.php" class="navbar-brand">
             <!--Logo start-->
@@ -264,7 +290,7 @@ select:valid~label {
                 </svg>
             </i>
         </div>
-        <div class="sidebar-toggle" data-toggle="sidebar" data-active="true" style="background: #0dcaf0;">
+        <div class="sidebar-toggle" data-toggle="sidebar" data-active="true" style="background: #000;">
             <i class="icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" stroke-width="1.5"
@@ -281,7 +307,7 @@ select:valid~label {
             <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
                 <li class="nav-item static-item">
                     <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                        <span class="default-icon text-capitalize"
+                        <span class="default-icon text-uppercase"
                             style="color: #000;font-size: 14px;font-weight: 600; ">order's
                             management</span>
                         <span class="mini-icon">-</span>
@@ -308,7 +334,7 @@ select:valid~label {
                                     stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">Order's</span>
+                        <span class="item-name text-uppercase text-black">Order's</span>
                         <i class="right-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -320,7 +346,7 @@ select:valid~label {
                     <ul class="sub-nav collapse" id="horizontal-menu" data-bs-parent="#sidebar-menu">
                         <li class="nav-item mb-1">
                             <a class="nav-link rounded-5  text-black bg-transparent " href="todays-orders.php">
-                                <span class="item-name text-capitalize text-black "> Today's Orders </span>
+                                <span class="item-name text-uppercase text-black "> Today's Orders </span>
                                 <?php
                                 $f1 = "00:00:00";
                                 $from = date('Y-m-d') . " " . $f1;
@@ -337,7 +363,7 @@ select:valid~label {
                         <li class="nav-item mb-1">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="pending-orders.php">
 
-                                <span class="item-name text-capitalize text-black">Pending Orders</span>
+                                <span class="item-name text-uppercase text-black">Pending Orders</span>
                                 <?php
                                 $status = 'Delivered';
                                 $ret = mysqli_query($con, "SELECT * FROM Orders where orderStatus!='$status' || orderStatus is null ");
@@ -349,7 +375,7 @@ select:valid~label {
                         </li>
                         <li class="nav-item mb-1">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="delivered-orders.php">
-                                <span class="item-name text-capitalize text-black">Delivered Orders</span>
+                                <span class="item-name text-uppercase text-black">Delivered Orders</span>
                                 <?php
                                 $status = 'Delivered';
                                 $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
@@ -367,7 +393,7 @@ select:valid~label {
                 </li>
                 <!-- <li class="nav-item static-item">
                     <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                        <span class="default-icon text-capitalize  "
+                        <span class="default-icon text-uppercase  "
                             style="color: #000;font-size: 14px;font-weight: 600; ">Pages</span>
                         <span class="mini-icon">-</span>
                     </a>
@@ -409,7 +435,7 @@ select:valid~label {
                             </svg>
                         </i>
 
-                        <span class="item-name text-capitalize text-black">Manage users</span>
+                        <span class="item-name text-uppercase text-black">Manage users</span>
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -429,7 +455,7 @@ select:valid~label {
                             </svg>
 
                         </i>
-                        <span class="item-name text-capitalize text-black">Create Category</span>
+                        <span class="item-name text-uppercase text-black">Create Category</span>
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -451,7 +477,7 @@ select:valid~label {
                                     stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">Sub Category</span>
+                        <span class="item-name text-uppercase text-black">Sub Category</span>
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -475,7 +501,7 @@ select:valid~label {
                                     stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">Insert Product</span>
+                        <span class="item-name text-uppercase text-black">Insert Product</span>
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -497,7 +523,7 @@ select:valid~label {
                                     stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">Manage Products</span>
+                        <span class="item-name text-uppercase text-black">Manage Products</span>
                     </a>
                 </li>
                 <li class="nav-item mb-1">
@@ -516,11 +542,31 @@ select:valid~label {
                                     stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">User Login Log</span>
+                        <span class="item-name text-uppercase text-black">User Login Log</span>
                     </a>
                 </li>
-                <li class="nav-item  mt-5 ">
-                    <a class="nav-link rounded-5  text-black bg-white logOut" href="logout.php">
+                <hr style="border: 1px solid black;">
+                <li class="nav-item mb-1">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="change-password.php">
+                        <i class="icon">
+
+                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.9849 15.3462C8.11731 15.3462 4.81445 15.931 4.81445 18.2729C4.81445 20.6148 8.09636 21.2205 11.9849 21.2205C15.8525 21.2205 19.1545 20.6348 19.1545 18.2938C19.1545 15.9529 15.8735 15.3462 11.9849 15.3462Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.9849 12.0059C14.523 12.0059 16.5801 9.94779 16.5801 7.40969C16.5801 4.8716 14.523 2.81445 11.9849 2.81445C9.44679 2.81445 7.3887 4.8716 7.3887 7.40969C7.38013 9.93922 9.42394 11.9973 11.9525 12.0059H11.9849Z"
+                                    stroke="currentColor" stroke-width="1.42857" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Change Password</span>
+                    </a>
+                </li>
+                <li class=" nav-item  ">
+                    <a class=" nav-link rounded-5 text-white bg-black logOut" href="logout.php">
                         <i class="icon">
 
                             <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
@@ -528,14 +574,15 @@ select:valid~label {
                                 <path
                                     d="M15.016 7.38948V6.45648C15.016 4.42148 13.366 2.77148 11.331 2.77148H6.45597C4.42197 2.77148 2.77197 4.42148 2.77197 6.45648V17.5865C2.77197 19.6215 4.42197 21.2715 6.45597 21.2715H11.341C13.37 21.2715 15.016 19.6265 15.016 17.5975V16.6545"
                                     stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
+                                    stroke-linejoin="round">
+                                </path>
                                 <path d="M21.8096 12.0215H9.76855" stroke="currentColor" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round"></path>
                                 <path d="M18.8813 9.1062L21.8093 12.0212L18.8813 14.9372" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </i>
-                        <span class="item-name text-capitalize text-black">Logout</span>
+                        <span class="item-name text-uppercase text-white">Logout</span>
                     </a>
                 </li>
 

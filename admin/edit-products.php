@@ -11,12 +11,14 @@ if (strlen($_SESSION['alogin']) == 0) {
         $productname = $_POST['productName'];
         $productcompany = $_POST['productCompany'];
         $productprice = $_POST['productprice'];
+        $productcare = $_POST['ProductCare'];
+        $productSizes = $_POST['productSizes'];
         $productpricebd = $_POST['productpricebd'];
         $productdescription = $_POST['productDescription'];
         $productscharge = $_POST['productShippingcharge'];
         $productavailability = $_POST['productAvailability'];
         $productcolor = $_POST['productColor'];
-        $sql = mysqli_query($con, "update  products set category='$category',subCategory='$subcat',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productColor='$productcolor',productPriceBeforeDiscount='$productpricebd' where id='$pid' ");
+        $sql = mysqli_query($con, "update  products set category='$category',subCategory='$subcat',productcare='$productcare',productSizes='$productSizes',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productColor='$productcolor',productPriceBeforeDiscount='$productpricebd' where id='$pid' ");
         $_SESSION['msg'] = "Product Updated Successfully !!";
     }
 
@@ -132,42 +134,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-link-hover-color: #2e46ba;
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
-    }
-
-
-
-    .navbar-nav .nav-item .nav-link {
-        overflow: visible;
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
-        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        -webkit-transition: color .4s;
-        transition: color .4s;
-    }
-
-
-    @keyframes eff24-move {
-        30% {
-            -webkit-transform: translate3d(0, -10px, 0);
-        }
-
-        100% {
-            -webkit-transform: rotate(0deg);
-        }
-    }
-
-    .navbar-nav .nav-item .nav-link:hover {
-        -webkit-animation-name: eff24-move;
-        animation-name: eff24-move;
-        -webkit-animation-duration: 0.9s;
-        animation-duration: 0.9s;
-        -webkit-animation-timing-function: ease-in-out;
-        animation-timing-function: ease-in-out;
-        -webkit-animation-iteration-count: 1;
-        animation-iteration-count: 1;
-
     }
     </style>
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
@@ -362,16 +328,36 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                 <label class="imgLable">Product
                                                     Price</label>
                                             </div>
+                                            <div class="control-group   mb-4" style="position: relative;">
 
+                                                <label for="size">Select Size:</label>
+                                                <select name="productSizes" id="size">
+                                                    <option value="<?php echo htmlentities($row['productSizes']); ?>">
+                                                        <?php echo htmlentities($row['productSizes']); ?>
+                                                    </option>
+                                                    <option value="S">Small</option>
+                                                    <option value="M">Medium</option>
+                                                    <option value="L">Large</option>
+                                                    <option value="XL">Extra Large</option>
+                                                </select>
+                                            </div>
                                             <div class="control-group mb-4" style="position: relative;">
                                                 <textarea name="productDescription"
                                                     placeholder="Enter Product Description" rows="6"
                                                     class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
                                                     required style="outline: 0  !important ;border: 1px solid black; ">
                                                 <?php echo htmlentities($row['productDescription']); ?>
+                                            </textarea>
                                                 <label class="imgLable">Product
                                                     Description</label>
-</textarea>
+                                            </div>
+
+                                            <div class="control-group mb-4" style="position: relative;">
+                                                <textarea name="ProductCare" placeholder="Enter Product Description"
+                                                    rows="6" class="span8 tip">
+                                                <?php echo htmlentities($row['ProductCare']); ?>
+                                            </textarea>
+                                                <label class="imgLable">Product Care</label>
                                             </div>
 
                                             <div class="control-group mb-4" style="position: relative;">

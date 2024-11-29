@@ -32,10 +32,6 @@ footer {
 }
 
 .input_type_newsletter label {
-    position: absolute !important;
-    top: 50% !important;
-    left: 15px !important;
-    transform: translateY(-50%) !important;
     color: #000 !important;
     font-size: 12px !important;
     pointer-events: none !important;
@@ -43,7 +39,11 @@ footer {
     font-family: 'Poppins', sans-serif !important;
     text-transform: uppercase !important;
     font-weight: 300 !important;
-
+    border: 1px solid black;
+    padding: 20px 20px;
+    width: 50%;
+    color: #fff !important;
+    background: black;
 }
 
 .input_type_newsletter input {
@@ -169,8 +169,9 @@ footer {
         </h1>
     </div>
     <div class="input_type_newsletter ">
-        <input type="text" name="" id="" required>
-        <label for="">ENTER YOUR EMAIL ADDRESS HERE</label>
+        <a href="joinournewsletter.php">
+            <label for="">ENTER YOUR EMAIL ADDRESS HERE</label>
+        </a>
     </div>
     <div class="social_media_newsletter">
         <ul>

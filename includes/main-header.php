@@ -117,7 +117,7 @@ body::-webkit-scrollbar {
     display: flex;
     padding-bottom: 300px;
     right: -200%;
-    transition: 0.5s linear;
+    transition: all 0.1s linear;
     position: fixed;
     top: 0;
     right: 0;
@@ -135,6 +135,13 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.logo-holder .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+}
+
 .logo-holder .logo img {
     width: 500px;
     transition: all 0.5s linear;
@@ -143,7 +150,7 @@ body::-webkit-scrollbar {
 
 
 .main-header:hover {
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
 }
 
 .main-header {
@@ -183,9 +190,14 @@ body::-webkit-scrollbar {
 
 
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
+
+    .logo-holder .logo {
+        width: 35% !important;
+    }
+
     .logo-holder .logo img {
-        width: 300px;
+        width: 190px;
     }
 
     .main-header.sticky .logo-holder .logo img {
@@ -245,6 +257,8 @@ body::-webkit-scrollbar {
 
 }
 
+
+
 @media only screen and (max-width:450px) {
     .shoppingBagMobileViewSearchBar {
         position: fixed;
@@ -258,6 +272,10 @@ body::-webkit-scrollbar {
 
     .shoppingBagMobileViewSearchBar a {
         color: #fff;
+    }
+
+    .logo {
+        display: none;
     }
 
 }
@@ -304,7 +322,7 @@ body::-webkit-scrollbar {
     padding-top: 50px;
     padding-bottom: 300px;
     right: -200%;
-    transition: 0.5s linear;
+    transition: all 0.1s linear;
     border: 1px solid black;
 }
 
@@ -377,9 +395,9 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff !important;
+    background: #000 !important;
     width: 400px !important;
-    color: #000 !important;
+    color: #fff !important;
     height: 50px !important;
     font-size: 12px !important;
     border-radius: 0 !important;
@@ -428,13 +446,28 @@ body::-webkit-scrollbar {
         display: block;
     }
 }
+
+.mobileSearchbar {
+    display: none;
+}
+
+@media only screen and (max-width:500px) {
+    .side-menu {
+        width: 100% !important;
+    }
+
+    .mobileSearchbar {
+        display: none;
+    }
+}
 </style>
 <div class="main-header sticky-top">
     <div class="" style=" padding: 0;margin:0 30px; ">
         <div class=" navbar_Nav">
 
             <div class="logo-holder">
-                <div style=" margin:0 !important;margin-left: -20px !important;padding:0; " class=" responsive-search">
+                <div style="cursor: pointer; margin:0 !important;margin-left: -20px !important;padding:0; "
+                    class=" responsive-search">
                     <svg class="responsive-search " height="30px" width="30px" onclick="openAccount()"
                         viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 9H13H19M5 15H19" stroke="#000000" stroke-width="1" stroke-linecap="round" />
@@ -442,17 +475,25 @@ body::-webkit-scrollbar {
                 </div>
 
                 <div class="logo">
-                    <a href="index">
+                    <svg class=" menubarmain" height="30px" width="30px" onclick="openmenuBar()" viewBox="0 0 24 24"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 9H13H19M5 15H19" stroke="#000000" stroke-width="1" stroke-linecap="round" />
+                    </svg>
+                    <a href="index.php">
                         <img id="logo" src="img/background2.svg" alt="">
                     </a>
                 </div>
 
                 <div class="searchandBagtopNav">
                     <div class="shoppingBagMobileView shoppingBagMobileViewSearchBar">
-                        <a href="searchBar" style="border:0;background:transparent;">
+                        <a href="searchBar.php" style="border:0;background:transparent;">
                             <i class='bx bx-search'></i>
+                        </a>
+                    </div>
+                    <div class="mobileSearchbar">
+                        <a href="searchBar.php" style="border:0;background:transparent;">
                             <span class="key">
-                                search
+                                <i class='bx bx-search' style="font-size: 15px;"></i>
                             </span>
                         </a>
                     </div>
@@ -475,7 +516,256 @@ body::-webkit-scrollbar {
                 </div>
 
             </div>
+            <div class="outercontainerbox">
+                <div class="containerMenubar">
+                    <svg width="20px" height="20px" class=" closemenuBar " viewBox="0 0 24 24" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" onclick="closemenuBar()">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                            stroke-width="0.096">
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                    <div class="contentDesktop">
+                        <input type="radio" name="slider" checked id="woman">
+                        <input type="radio" name="slider" id="man">
+                        <input type="radio" name="slider" id="kids">
+                        <div class="list">
+                            <label for="woman" class="woman">
+                                WOMAN </label>
+                            <label for="man" class="man">
+                                MAN </label>
+                            <label for="kids" class="kids">
+                                KIDS </label>
+                        </div>
+                        <div class="text-content">
+                            <div class="woman text">
+                                <ul class="responsive_Nav_Link_desktop">
+                                    <li style="margin-top: 15px;margin-bottom: 45px;">
+                                        <a href="category.php?cid=8">///new</a>
+                                    </li>
+                                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8");
 
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                    ?>
+                                    <li style="margin-top: 15px;">
+                                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                            <?php echo $row['subcategory']; ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <div class="man text">
+                                <ul class="responsive_Nav_Link_desktop">
+                                    <li style="margin-top: 15px;margin-bottom: 45px;">
+                                        <a href="category.php?cid=10">///new</a>
+                                    </li>
+                                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=10");
+
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                    ?>
+                                    <li style="margin-top: 15px;">
+                                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                            <?php echo $row['subcategory']; ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <div class="kids text">
+                                <ul class="responsive_Nav_Link_desktop">
+                                    <li style="margin-top: 15px;margin-bottom: 45px;">
+                                        <a href="category.php?cid=29">///new</a>
+                                    </li>
+                                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=29");
+
+                                    while ($row = mysqli_fetch_array($sql)) {
+                                    ?>
+                                    <li style="margin-top: 15px;">
+                                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                            <?php echo $row['subcategory']; ?>
+                                        </a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
+            .outercontainerbox {
+                position: fixed;
+                left: 0;
+                bottom: -100%;
+                right: 0;
+                width: 100%;
+                height: 100vh;
+                background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+                z-index: 99;
+            }
+
+            .containerMenubar {
+                padding: 20px;
+                max-width: 450px;
+                width: 100%;
+                background: #fff;
+                border: 1px solid black;
+                position: fixed;
+                left: 10%;
+                bottom: -100%;
+                /* bottom: 0; */
+                padding: 30px;
+                transition: all 1s linear;
+            }
+
+            .closemenuBar {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                cursor: pointer;
+                z-index: 999;
+            }
+
+
+            .contentDesktop {
+                display: block;
+            }
+
+            .contentDesktop .list {
+                width: 100%;
+                position: relative;
+                border-bottom: 1px solid black;
+                margin: 0;
+                padding: 20px 0;
+            }
+
+            .contentDesktop .list label:first-child {
+                margin-left: 0;
+            }
+
+            .contentDesktop .list label {
+                font-size: 16px;
+                font-weight: 300;
+                margin-left: 15px;
+                cursor: pointer;
+                transition: all 0.5s ease;
+                color: #000;
+                font-family: 'Poppins', sans-serif;
+                text-transform: uppercase;
+                z-index: 12;
+            }
+
+            #woman:checked~.list label.woman,
+            #man:checked~.list label.man,
+            #kids:checked~.list label.kids,
+            #code:checked~.list label.code,
+            #about:checked~.list label.about {
+                color: #000;
+                font-weight: 600;
+            }
+
+
+
+
+            .contentDesktop .text-content {
+                width: 80%;
+                height: 100%;
+            }
+
+            .contentDesktop .text {
+                display: none;
+                height: 400px;
+                overflow: scroll;
+            }
+
+            .contentDesktop .text::-webkit-scrollbar {
+                display: none;
+            }
+
+            .contentDesktop .text-content .woman {
+                display: block;
+
+            }
+
+
+
+            #woman:checked~.text-content .woman,
+            #man:checked~.text-content .man,
+            #kids:checked~.text-content .kids,
+            #code:checked~.text-content .code,
+            #about:checked~.text-content .about {
+                display: block;
+
+            }
+
+            #man:checked~.text-content .woman,
+            #kids:checked~.text-content .woman,
+            #code:checked~.text-content .woman,
+            #about:checked~.text-content .woman {
+                display: none;
+            }
+
+            .contentDesktop input {
+                display: none;
+            }
+
+            .responsive_Nav_Link_desktop li {
+                list-style-type: none;
+            }
+
+            .menubarmain {
+                display: block;
+                cursor: pointer;
+                z-index: 99999 !important;
+            }
+
+            .responsive_Nav_Link_desktop li a {
+                margin-top: 10px;
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #000;
+                font-family: 'Poppins', sans-serif;
+                text-decoration: none;
+            }
+
+            @media only screen and (max-width: 800px) {
+
+                .containerMenubar,
+                .outercontainerbox,
+                .menubarmain {
+                    display: none !important;
+                    opacity: 0;
+                }
+
+            }
+            </style>
+            <script>
+            function openmenuBar() {
+                document.querySelector(".containerMenubar").style.bottom = "0";
+                document.querySelector(".outercontainerbox").style.bottom = "0";
+
+            }
+
+            function closemenuBar() {
+                document.querySelector(".containerMenubar").style.bottom = "-100%";
+                document.querySelector(".outercontainerbox").style.bottom = "-100%";
+            }
+            </script>
             <style>
             .myWishlist i {
                 font-size: 30px;

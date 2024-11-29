@@ -116,37 +116,127 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             margin: 0 !important;
             padding: 0 !important;
         }
+
+        .marquee {
+            margin: 0em 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .marquee-box-one {
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 500px;
+            margin-bottom: 20px;
+        }
+
+        .marquee-content-one {
+            display: flex;
+            gap: 20px;
+            animation: scroll-one 120s linear infinite;
+        }
+
+        .marquee-content-one {
+            background-color: #fff;
+        }
+
+        .marquee-box-two {
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 3em 0 6em 0;
+        }
+
+
+        .marquee-text {
+            white-space: nowrap;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 400;
+            flex-shrink: 0;
+            font-family: 'Poppins', sans-serif;
+            padding: 7px;
+            border: 1px solid black;
+            color: #000;
+            display: flex;
+            align-items: center;
+            user-select: none;
+        }
+
+        .marquee-text:hover {
+            color: gray;
+            border: 1px solid gray;
+
+        }
+
+        @keyframes scroll-one {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @keyframes scroll-two {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
         </style>
-        <div class="search_Box ">
-            <div class="top-search-holder   ">
+        <div class="search_Box">
+            <div class="top-search-holder">
+                <h1>What are you looking for?</h1>
+
+                <div class="marquee">
+                    <div class="marquee-box-one">
+                        <div class="marquee-content-one">
+                            <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8 OR categoryid=10 OR categoryid=29");
+
+                            while ($row = mysqli_fetch_array($sql)) {
+                            ?>
+                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                                style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                                <h2 class="marquee-text"><?php echo htmlentities($row['subcategory']); ?></h2>
+                            </a>
+                            <?php } ?>
+                        </div>
+                    </div> <!-- marquee-box-one -->
+
+                </div> <!-- marquee -->
                 <div class="search-area">
                     <form name="search" method="post" action="search-result.php" autocomplete="off">
-                        <div class="control-group ">
-                            <input class="search-field   " name="product"
-                                placeholder="Search for an item, colour, collection..." required="required" />
+                        <div class="control-group searchgroup">
+                            <input class="   " name="product" placeholder="Search ..." required="required" />
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class=" btn-card-box">
-            <div class="btn-card">
-                <i id="MYGRID6" class='bx bx-square'></i>
-                <i id="MYGRID2" class='bx bx-grid-alt icon'></i>
-                <i id="MYGRID12" class='bx bx-grid'></i>
-            </div>
-        </div>
+
         <style>
-        .search_Box {
-            position: sticky;
-            top: 20%;
-            margin-top: 170px;
+        .top-search-holder h1 {
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            color: #000;
+            font-weight: 300;
+            text-align: center;
+            margin-top: 200px;
+            margin-bottom: 20px;
         }
 
         .btn-card-box {
             padding: 20px;
-            position: sticky;
-            top: 14%;
             background: transparent;
             z-index: 999;
         }
@@ -213,8 +303,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             height: 100vh;
             width: 100%;
         }
+
+        .box-card .SearchHeading {
+            padding: 20px;
+            font-size: 12px;
+            color: #000;
+            font-weight: 300;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
         </style>
-        <div class="box-card  ">
+        <div class="box-card ">
+            <h1 class="SearchHeading">You might be interested in</h1>
+        </div>
+        <div class="box-card ">
             <?php
             $ret = mysqli_query($con, "SELECT * FROM products  where category ORDER BY RAND() ");
             while ($row = mysqli_fetch_array($ret)) {
@@ -230,95 +332,54 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             </div>
             <?php } ?>
         </div>
-        <script>
-        // Click handler for MYGRID6 button
-        document.getElementById('MYGRID6').addEventListener('click', function() {
-            var gridContainer = document.querySelector(
-                '.box-card'); // Assuming your grid container has this class
-
-            // Change the grid layout to 6 columns
-            gridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
-
-            var boxes = document.querySelectorAll(
-                '.box-card'); // Select all elements with the class 'box-card'
-            boxes.forEach(function(box) {
-                box.style.width = "100%"; // Adjust width of each box
-            });
-
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "none"; // Hide product name
-            });
-        });
-
-        // Click handler for MYGRID2 button
-        document.getElementById('MYGRID2').addEventListener('click', function() {
-            var gridContainer = document.querySelector(
-                '.box-card'); // Assuming your grid container has this class
-
-            // Change the grid layout to 2 columns
-            gridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
-
-            var boxes = document.querySelectorAll('.box-card');
-            boxes.forEach(function(box) {
-                box.style.width = "100%"; // Adjust width of each box
-            });
-
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "none"; // Show product name
-            });
-        });
-
-        // Click handler for MYGRID12 button
-        document.getElementById('MYGRID12').addEventListener('click', function() {
-            var gridContainer = document.querySelector(
-                '.box-card'); // Assuming your grid container has this class
-
-            // Change the grid layout to 12 columns
-            gridContainer.style.gridTemplateColumns = "repeat(7, 1fr)";
-
-            var boxes = document.querySelectorAll('.box-card');
-            boxes.forEach(function(box) {
-                box.style.width = "100%"; // Adjust width of each box
-            });
-
-            var productName = document.querySelectorAll('.productName');
-            productName.forEach(function(productName) {
-                productName.style.display = "none"; // Hide product name
-            });
-        });
-        </script>
     </div>
 
     <style>
-    .control-group form {
-
+    .search-area {
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: center;
         width: 100%;
     }
 
-    .control-group .search-field {
-        width: 110% !important;
+    .search-area form {
+        width: 400px;
+    }
+
+    .searchgroup input {
+        width: 100% !important;
         height: 100% !important;
-        padding: 20px !important;
         color: #000 !important;
         font-weight: 400 !important;
-        border-left: 0;
-        border-right: 0;
+        border: 1px solid black;
+        text-transform: uppercase;
+        border-right: 0 !important;
+        border-top: 0 !important;
+        border-left: 0 !important;
+        padding: 20px 170px;
+    }
+
+
+
+    .searchgroup input::placeholder {
+        color: #000 !important;
+        font-weight: 300;
+        font-size: 15px;
         text-transform: uppercase;
     }
 
-    .control-group .search-field::placeholder {
-        color: #000 !important;
-        font-weight: 300;
-        font-size: 12px;
-        text-transform: uppercase;
+    .searchgroup input:focus::placeholder {
+        display: none;
+    }
+
+    .searchgroup input:focus,
+    .searchgroup input:active {
+        border: none !important;
+
     }
     </style>
     <?php include('includes/footer.php'); ?>
+
 </body>
 
 </html>
