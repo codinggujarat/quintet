@@ -82,17 +82,41 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 <body class="cnt-home">
 
+    <header class="header-style-1">
+        <?php include('includes/top-header.php'); ?>
+        <?php include('includes/main-header.php'); ?>
+        <?php include('includes/menu-bar.php'); ?>
 
+        <?php include('includes/search.php'); ?>
+    </header>
 
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    @media only screen and (max-width: 800px) {
+        .logo a svg {
+
+            width: 300px;
+        }
+    }
+
+    @media only screen and (max-width: 500px) {
+        .container {
+            width: 90%;
+        }
+
+        .logo a svg {
+
+            width: 200px;
+        }
+    }
 
     .wrapperForm {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
-        background-color: black;
+        background-color: #f1f3f8;
     }
 
     .wrapperForm form {
@@ -103,6 +127,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         width: 500px;
         border: 1px solid white;
         height: 300px;
+        background-color: #000;
         margin: 0;
         padding: 20px;
     }
