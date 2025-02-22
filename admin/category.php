@@ -142,8 +142,9 @@ if (strlen($_SESSION['alogin']) == 0) {
 
 
     <main class="main-content">
-        <div ss="position-relative iq-banner">
+        <div class="position-relative iq-banner">
             <?php include('include/header.php'); ?>
+            <?php include_once('include/topstorebar.php'); ?>
             <div class="conatiner-fluid content-inner mt-5 py-0 ">
                 <div class=" row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">

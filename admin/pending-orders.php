@@ -141,7 +141,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <main class="main-content">
         <div ss="position-relative iq-banner">
             <?php include('include/header.php'); ?>
-
+            <?php include_once('include/topstorebar.php'); ?>
             <div class="coner-fc content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
@@ -234,8 +234,8 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         </td>
                                                         <td><?php echo htmlentities($row['orderdate']); ?></td>
                                                         <td>
-                                                            <a href="updateorder.php?oid=<?php echo htmlentities($row['id']); ?>"
-                                                                title="Update order" target="_blank"
+                                                            <a href="order-details.php?oid=<?php echo htmlentities($row['id']); ?>"
+                                                                title=" Update order" target="_blank"
                                                                 style="  border: 1px solid black ; padding: 10px;;border-radius: 50px; "><i
                                                                     class='bx bxs-edit'
                                                                     style="font-size: 20px; color: black; "></i>

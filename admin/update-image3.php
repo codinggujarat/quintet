@@ -129,10 +129,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-code-color: #d63384;
         --bs-highlight-bg: #fcf8e3
     }
-
-
-
-    
     </style>
     <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -166,7 +162,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <main class="main-content">
         <div ss="position-relative iq-banner">
             <?php include('include/header.php'); ?>
-
+            <?php include_once('include/topstorebar.php'); ?>
             <div class="conatiner-fluid content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">

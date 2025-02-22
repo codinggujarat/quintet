@@ -304,7 +304,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.10));
     }
 
-    .bg-video-wrap a h1 {
+    .bg- -wrap a h1 {
         text-align: center;
         color: #fff;
         position: absolute;
@@ -335,6 +335,38 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             </a>
         </div>
     </div> -->
+    <style>
+    .diff-store {
+        position: fixed;
+        bottom: 4%;
+        left: 50%;
+        background: white;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translate(-50%);
+        z-index: 99999999999999999;
+        border-radius: 50px;
+    }
+
+    .storeOne a h1 {
+        font-size: 15px;
+        font-weight: bold;
+        color: #000;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    </style>
+
+    <div class="diff-store">
+        <div class="storeOne">
+            <a href="http://localhost/QUINTET/">
+                <h1>QUINTET SHOP </h1>
+            </a>
+        </div>
+    </div>
     <?php include('includes/footer.php'); ?>
 
     <script src="assets/js/jquery-1.11.1.min.js"></script>
@@ -348,7 +380,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <script src="assets/js/jquery.easing-1.3.min.js"></script>
     <script src="assets/js/bootstrap-slider.min.js"></script>
     <script src="assets/js/jquery.rateit.min.js"></script>
-    <script type="text/javascript" src="assets/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="assets/js/lghtbox.min.js"></script>
     <script src="assets/js/bootstrap-select.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/scripts.js"></script>

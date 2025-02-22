@@ -301,6 +301,7 @@ select:valid~label {
             </i>
         </div>
     </div>
+
     <div class="sidebar-body pt-0 data-scrollbar">
         <div class="sidebar-list">
             <!-- Sidebar Menu Start -->
@@ -311,6 +312,33 @@ select:valid~label {
                             style="color: #000;font-size: 14px;font-weight: 600; ">order's
                             management</span>
                         <span class="mini-icon">-</span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="dashboard.php">
+                        <i class="icon">
+                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M3 6.5C3 3.87479 3.02811 3 6.5 3C9.97189 3 10 3.87479 10 6.5C10 9.12521 10.0111 10 6.5 10C2.98893 10 3 9.12521 3 6.5Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14 6.5C14 3.87479 14.0281 3 17.5 3C20.9719 3 21 3.87479 21 6.5C21 9.12521 21.0111 10 17.5 10C13.9889 10 14 9.12521 14 6.5Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M3 17.5C3 14.8748 3.02811 14 6.5 14C9.97189 14 10 14.8748 10 17.5C10 20.1252 10.0111 21 6.5 21C2.98893 21 3 20.1252 3 17.5Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14 17.5C14 14.8748 14.0281 14 17.5 14C20.9719 14 21 14.8748 21 17.5C21 20.1252 21.0111 21 17.5 21C13.9889 21 14 20.1252 14 17.5Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+
+                        <span class="item-name text-uppercase text-black">Dashboard</span>
                     </a>
                 </li>
                 <li class="nav-item text-black "
@@ -374,6 +402,54 @@ select:valid~label {
                             </a>
                         </li>
                         <li class="nav-item mb-1">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="packed-orders.php">
+                                <span class="item-name text-uppercase text-black">Packed Orders</span>
+                                <?php
+                                $status = 'Packed';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="Dispatched-orders.php">
+                                <span class="item-name text-uppercase text-black">Dispatched Orders</span>
+                                <?php
+                                $status = 'Dispatched';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="intransit-orders.php">
+                                <span class="item-name text-uppercase text-black">In Transit Orders</span>
+                                <?php
+                                $status = 'In Transit';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="OutForDelivery-orders.php">
+                                <span class="item-name text-uppercase text-black">Out For Delivery <br> Orders</span>
+                                <?php
+                                $status = 'Out For Delivery';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
+                        <li class="nav-item mb-1">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="delivered-orders.php">
                                 <span class="item-name text-uppercase text-black">Delivered Orders</span>
                                 <?php
@@ -385,19 +461,23 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="cancelled-orders.php">
+                                <span class="item-name text-uppercase text-black">cancelled Orders</span>
+                                <?php
+                                $status = 'Cancelled';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 
-                <li>
-                    <hr class="hr-horizontal">
-                </li>
-                <!-- <li class="nav-item static-item">
-                    <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                        <span class="default-icon text-uppercase  "
-                            style="color: #000;font-size: 14px;font-weight: 600; ">Pages</span>
-                        <span class="mini-icon">-</span>
-                    </a>
-                </li> -->
+
+
                 <li class="nav-item mb-1">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="manage-users.php">
                         <i class="icon">

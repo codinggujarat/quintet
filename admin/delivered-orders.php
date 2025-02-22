@@ -141,7 +141,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         <div ss="position-relative iq-banner">
             <!--Nav Start-->
             <?php include('include/header.php'); ?>
-
+            <?php include_once('include/topstorebar.php'); ?>
             <div class="coner-fluid content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">

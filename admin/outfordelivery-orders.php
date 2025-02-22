@@ -7,10 +7,6 @@ if (strlen($_SESSION['alogin']) == 0) {
     date_default_timezone_set('Asia/Kolkata'); // change according timezone
     $currentTime = date('d-m-Y h:i:s A', time());
 
-    if (isset($_GET['del'])) {
-        mysqli_query($con, "delete from products where id = '" . $_GET['id'] . "'");
-        $_SESSION['delmsg'] = "Product deleted !!";
-    }
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +15,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin| Manage Users</title>
+    <title>Admin| Out For Delivery Orders</title>
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="assets2.0/css/core/libs.min.css" />
 
@@ -125,102 +121,117 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-highlight-bg: #fcf8e3
     }
     </style>
+    <script language="javascript" type="text/javascript">
+    var popUpWin = 0;
+
+    function popUpWindow(URLStr, left, top, width, height) {
+        if (popUpWin) {
+            if (!popUpWin.closed) popUpWin.close();
+        }
+        popUpWin = open(URLStr, 'popUpWin',
+            'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,copyhistory=yes,width=' +
+            600 + ',height=' + 600 + ',left=' + left + ', top=' + top + ',screenX=' + left + ',screenY=' + top + '');
+    }
+    </script>
 </head>
 
 <body>
     <?php include('include/sidebar.php'); ?>
     <main class="main-content">
         <div ss="position-relative iq-banner">
+            <!--Nav Start-->
             <?php include('include/header.php'); ?>
             <?php include_once('include/topstorebar.php'); ?>
-            <div class="coner-fc content-inner mt-5 py-0 ">
+
+            <div class="coner-fluid content-inner mt-5 py-0 ">
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
-                        <div class="card ">
+                        <div class="card p-0">
                             <div class="card-body">
-                                <h3 style="
-    font-size: 17px !important;
-                                font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
-                                    class="text-uppercase">
-                                    manage users
+                                <h3 style="font-size: 17px; font-family: ' Poppins',sans-serif ;font-weight: 400 !important ; "
+                                    class=" text-uppercase">Out For Delivery Orders
+
                                 </h3>
-                                <div class="module-body " style=" overflow-x:auto !important ;">
-                                    <?php if (isset($_GET['del'])) { ?>
-                                    <div class=" alert alert-error">
-                                        <h6>
-                                            <span>Oh snap!</span>
+                                <div class="module">
+                                    <div class="module-body ">
+                                        <?php if (isset($_GET['del'])) { ?>
+                                        <div class="alert alert-error">
+                                            <button type="button" class="close" data-dismiss="alert">×</button>
+                                            <strong>Oh snap!</strong>
                                             <?php echo htmlentities($_SESSION['delmsg']); ?>
                                             <?php echo htmlentities($_SESSION['delmsg'] = ""); ?>
-                                        </h6>
-                                        <button type="button" class="close" data-dismiss="alert">
-                                            <svg fill="#000000" height="12px" width="12px" version="1.1" id="Capa_1"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490"
-                                                xml:space="preserve">
-                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
-                                                    stroke-linejoin="round"></g>
-                                                <g id="SVGRepo_iconCarrier">
-                                                    <polygon
-                                                        points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 ">
-                                                    </polygon>
-                                                </g>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                    <?php } ?>
+                                        </div>
+                                        <?php } ?>
 
-                                    <br />
+                                        <br />
+                                        <style>
+                                        table thead tr th,
+                                        table tbody tr td {
+                                            font-size: 13px !important;
+                                            font-weight: 500 !important;
+                                            text-transform: capitalize !important;
+                                            color: #000 !important;
+                                        }
+                                        </style>
+                                        <div class="card p-0">
+                                            <div class="table-responsive">
+                                                <table id="datatable" class="table table-striped  "
+                                                    data-toggle="data-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>#</th>
+                                                            <th> Name</th>
+                                                            <th width="50">Email /Contact no</th>
+                                                            <th>Shipping Address</th>
+                                                            <th>Product </th>
+                                                            <th>Qty </th>
+                                                            <th>Amount </th>
+                                                            <th>Order Date</th>
+                                                            <th>Action</th>
 
 
-                                    <style>
-                                    table thead tr th,
-                                    table tbody tr td {
-                                        font-size: 13px !important;
-                                        font-weight: 500 !important;
-                                        text-transform: capitalize !important;
-                                        color: #000 !important;
-                                    }
-                                    </style>
-                                    <div class="card p-0">
-                                        <div class="table-responsive">
-                                            <table id="datatable" class="table   " data-toggle="data-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th> Name</th>
-                                                        <th>Email </th>
-                                                        <th>Contact no</th>
-                                                        <th>Shippping Address/City/State/Pincode </th>
-                                                        <th>Billing Address/City/State/Pincode </th>
-                                                        <th>Reg. Date </th>
-                                                        <th>Reg. Date </th>
+                                                        </tr>
+                                                    </thead>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                                    <tbody>
+                                                        <?php
+                                                            $st = 'Out For Delivery';
+                                                            $query = mysqli_query($con, "select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderStatus='$st'");
+                                                            $cnt = 1;
+                                                            while ($row = mysqli_fetch_array($query)) {
+                                                            ?>
+                                                        <tr>
+                                                            <td><?php echo htmlentities($cnt); ?></td>
+                                                            <td><?php echo htmlentities($row['username']); ?></td>
+                                                            <td>
+                                                                <p><?php echo htmlentities($row['useremail']); ?></p>
 
-                                                    <?php $query = mysqli_query($con, "select * from users");
-                                                        $cnt = 1;
-                                                        while ($row = mysqli_fetch_array($query)) {
-                                                        ?>
-                                                    <tr>
-                                                        <td><?php echo htmlentities($cnt); ?></td>
-                                                        <td><?php echo htmlentities($row['name']); ?></td>
-                                                        <td><?php echo htmlentities($row['email']); ?></td>
-                                                        <td> <?php echo htmlentities($row['contactno']); ?></td>
-                                                        <td><?php echo htmlentities($row['shippingAddress'] . "," . $row['shippingCity'] . "," . $row['shippingState'] . "-" . $row['shippingPincode']); ?>
-                                                        </td>
-                                                        <td><?php echo htmlentities($row['billingAddress'] . "," . $row['billingCity'] . "," . $row['billingState'] . "-" . $row['billingPincode']); ?>
-                                                        </td>
-                                                        <td><?php echo htmlentities($row['regDate']); ?></td>
-                                                        <td> <a href="user-orders.php?uid=<?php echo $row['id'] ?>&&uname=<?php echo htmlentities($row['name']); ?>"
-                                                                target="_blank">View Orders</a>
-                                                        </td>
+                                                                <p><?php echo htmlentities($row['usercontact']); ?></p>
+                                                            </td>
+
+                                                            <td><?php echo htmlentities($row['shippingaddress'] . "," . $row['shippingcity'] . "," . $row['shippingstate'] . "-" . $row['shippingpincode']); ?>
+                                                            </td>
+                                                            <td><?php echo htmlentities($row['productname']); ?></td>
+                                                            <td><?php echo htmlentities($row['quantity']); ?></td>
+                                                            <td><?php echo htmlentities($row['quantity'] * $row['productprice'] + $row['shippingcharge']); ?>
+                                                            </td>
+                                                            <td><?php echo htmlentities($row['orderdate']); ?></td>
+                                                            <td>
+                                                                <a href="order-details.php?oid=<?php echo htmlentities($row['id']); ?>"
+                                                                    title="Update order" target="_blank"
+                                                                    style="   height: 50px; border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; "><i
+                                                                        class='bx bxs-edit'
+                                                                        style="font-size: 20px; color: black; "></i>
+                                                                </a>
+                                                            </td>
+
+                                                        </tr>
+
                                                         <?php $cnt = $cnt + 1;
-                                                        } ?>
-
-                                            </table>
+                                                            } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +242,6 @@ if (strlen($_SESSION['alogin']) == 0) {
             </div>
         </div>
     </main>
-
     <?php include('include/footer.php'); ?>
 
     <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

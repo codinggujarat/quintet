@@ -1,2 +1,2 @@
-ErrorDocument 404 /shopping/404/404.php
-ErrorDocument 500 /shopping/404/500.php
+ErrorDocument 404 /QUINTET_FASHION/404/404.php
+ErrorDocument 500 /QUINTET_FASHION/404/500.php

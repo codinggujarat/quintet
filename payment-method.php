@@ -110,12 +110,12 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 on delivery</span>
                                                         </div>
                                                     </label>
-                                                    <label for="two" class="box second">
+                                                    <label for="two" class="box second" onclick="qrshow()">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
-                                                                style="text-transform: uppercase; font-family: 'Raleway',sans-serif;">Internet
-                                                                Banking</span>
+                                                                style="text-transform: uppercase; font-family: 'Raleway',sans-serif;">QR
+                                                                Method</span>
                                                         </div>
                                                     </label>
                                                     <!-- <label for="three" class="box third">
@@ -195,7 +195,10 @@ if (strlen($_SESSION['login']) == 0) {
                                         #three:checked~label.third .circle {
                                             border-color: black;
                                             background: #fff;
+                                        }
 
+                                        #two:checked~label.second .qrbox {
+                                            display: block;
                                         }
 
                                         .card label.box .plan {
@@ -224,6 +227,157 @@ if (strlen($_SESSION['login']) == 0) {
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
         </div><!-- /.container -->
     </div><!-- /.body-content -->
+    <style>
+    .qrbox {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        display: none;
+        background: white;
+        z-index: 999999;
+        border: 1px solid black;
+    }
+
+
+    .qrbox-in {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .qrbox .qrbox-in .qr-section,
+    .qrbox .qrbox-in .form-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 500px;
+    }
+
+    .qrbox img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .qrbox-in .form-section input,
+    textarea {
+        width: 100%;
+        border: 1px solid black;
+        outline: none;
+        box-sizing: 0;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .qrbox-in .form-section input::placeholder {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+
+    .qrbox-in .form-section button {
+        border: 1px solid black;
+        outline: 0;
+        box-shadow: 0;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        background: white;
+    }
+
+    .btn-group-form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .btn-group-form .cancel {
+        background-color: black !important;
+        color: #fff !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .qrbox-in {
+            flex-wrap: wrap-reverse;
+        }
+    }
+
+    .form-section h1 {
+        font-size: 40px;
+        font-weight: 300;
+        color: #000;
+        font-family: 'Poppins', sans-serif;
+    }
+    </style>
+    <div class="qrbox">
+        <div class="qrbox-in">
+            <div class="form-section">
+                <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
+
+                    <h1>LOGIN INFO / QR SCAN</h1>
+                    <!-- REQUIRED: Your Access key here. Don't worry this can be public -->
+                    <input type="hidden" name="access_key" value="bb3d4094-9e73-4604-82b8-51af279f9f23">
+
+                    <!-- Optional: Subject an be prefilled using type="hidden"
+       or type="text" for normal user submitted input -->
+                    <input type="hidden" name="subject" value="QR & USER INFO ">
+
+                    <!-- Optional: From Name you want to see in the email
+       Default is "Notifications". you can overwrite here -->
+                    <input type="hidden" name="from_name" value="QUINTET">
+
+                    <!-- Optional: Custom Redirection or Thank you Page
+       Make sure you add full URL including https:// -->
+                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+
+                    <!-- Custom Form Data: Form data you wish to receive in email. -->
+                    <input type="email" name="email" placeholder="What's your Login e-mail?" required>
+                    <input type="text" name="Name" placeholder="What's your Login Name?" required>
+                    <input type="text" name="Phone Number" placeholder="What's your Login PhoneNumber?" required>
+
+                    <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
+                    <div class="h-captcha" data-captcha="true"></div>
+                    <!-- Google reCaptcha & Cloudflare Turnstile:
+                    This feature is available for paid users only -->
+                    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
+                    <div class="cf-turnstile" data-sitekey="bb3d4094-9e73-4604-82b8-51af279f9f23"></div>
+
+                    <div class="btn-group-form">
+                        <button type="submit">Submit Form</button>
+                        <button class=" cancel">cancel Form</button>
+                    </div>
+                </form>
+
+                <!-- Required only if you are using hCaptcha or Advanced File Upload. -->
+                <script src="https://web3forms.com/client/script.js" async defer></script>
+
+            </div>
+            <div class="qr-section">
+                <img src="img/QUINTETqr.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <script>
+    function qrshow() {
+        let qrBox = document.querySelector(".qrbox");
+
+        if (qrBox) {
+            qrBox.style.display = "block";
+        }
+    }
+
+    let cancel = document.querySelector(".cancel");
+    cancel.addEventListener('click', () => {
+        let qrBox = document.querySelector(".qrbox");
+        qrBox.style.display = "none";
+
+    })
+    </script>
     <?php echo include('includes/brands-slider.php'); ?>
     <?php include('includes/footer.php'); ?>
     <script src="assets/js/jquery-1.11.1.min.js"></script>

@@ -15,7 +15,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin| Today's Orders</title>
+    <title>Admin| In Transit Orders</title>
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="assets2.0/css/core/libs.min.css" />
 
@@ -139,111 +139,160 @@ if (strlen($_SESSION['alogin']) == 0) {
     <?php include('include/sidebar.php'); ?>
     <main class="main-content">
         <div ss="position-relative iq-banner">
+            <!--Nav Start-->
             <?php include('include/header.php'); ?>
             <?php include_once('include/topstorebar.php'); ?>
-            <div class="coner-fluid content-inner mt-5 py-0 ">
-                <div class="row" style=" margin-top: 100px !important;">
-                    <div class="col-sm-12">
-                        <div class="card p-0">
-                            <div class="card-body">
-                                <h3 style="font-size: 17px; font-family: 'poppins',sans-serif ;font-weight: 400 !important ; "
-                                    class="text-uppercase">Today's Orders
-                                </h3>
+            <div class="wrapper">
+                <div class="container mt-5">
+                    <div class="row">
+                        <div class="span9">
+                            <div class="content">
                                 <div class="module">
-                                    <div class="module-body" style="overflow-x:auto !important ;">
-                                        <?php if (isset($_GET['del'])) { ?>
-                                        <div class="alert alert-error">
-                                            <button type="button" class="close" data-dismiss="alert">×</button>
-                                            <strong>Oh snap!</strong>
-                                            <?php echo htmlentities($_SESSION['delmsg']); ?>
-                                            <?php echo htmlentities($_SESSION['delmsg'] = ""); ?>
-                                        </div>
-                                        <?php } ?>
+                                    <div class="module-head">
+                                        <h3>Order Details #<?php echo intval($_GET['oid']); ?></h3>
+                                    </div>
+                                    <div class="module-body table">
 
-                                        <br />
+
                                         <style>
-                                        table thead tr th,
-                                        table tbody tr td {
-                                            font-size: 13px !important;
-                                            font-weight: 500 !important;
-                                            text-transform: capitalize !important;
-                                            color: #000 !important;
+                                        table {
+                                            border-radius: 20px !important;
                                         }
                                         </style>
-                                        <div class="card p-5">
-                                            <div class="table-responsive"></div>
-                                            <table id="datatable" class="table table-striped  "
-                                                data-toggle="data-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th> Name</th>
-                                                        <th>Email /Contact no</th>
-                                                        <th>Shipping Address</th>
-                                                        <th>Product </th>
-                                                        <th>Qty </th>
-                                                        <th>Amount </th>
-                                                        <th>Order Date</th>
-                                                        <th>Action</th>
-
-
-                                                    </tr>
-                                                </thead>
+                                        <div class="table-responsive mt-5">
+                                            <table cellpadding="0" cellspacing="0"
+                                                class="datatable-1 table table-bordered bg-white	 display table-responsive">
 
                                                 <tbody>
                                                     <?php
-                                                        $f1 = "00:00:00";
-                                                        $from = date('Y-m-d') . " " . $f1;
-                                                        $t1 = "23:59:59";
-                                                        $to = date('Y-m-d') . " " . $t1;
-                                                        $query = mysqli_query($con, "select users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,orders.id as id  from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.orderDate Between '$from' and '$to'");
+                                                        $orderid = intval($_GET['oid']);
+                                                        $query = mysqli_query($con, "select orders.id as oid,users.name as username,users.email as useremail,users.contactno as usercontact,users.shippingAddress as shippingaddress,users.shippingCity as shippingcity,users.shippingState as shippingstate,users.shippingPincode as shippingpincode,products.productName as productname,products.shippingCharge as shippingcharge,orders.quantity as quantity,orders.orderDate as orderdate,products.productPrice as productprice,billingAddress,billingState,billingCity,billingPincode,products.id as pid,productImage1,shippingcharge from orders join users on  orders.userId=users.id join products on products.id=orders.productId where orders.id='$orderid'");
                                                         $cnt = 1;
                                                         while ($row = mysqli_fetch_array($query)) {
                                                         ?>
                                                     <tr>
-                                                        <td><?php echo htmlentities($cnt); ?></td>
-                                                        <td><?php echo htmlentities($row['username']); ?></td>
-                                                        <td>
-                                                            <p><?php echo htmlentities($row['useremail']); ?></p>
-
-                                                            <p><?php echo htmlentities($row['usercontact']); ?></p>
-                                                        </td>
-
-                                                        <td><?php echo htmlentities($row['shippingaddress'] . "," . $row['shippingcity'] . "," . $row['shippingstate'] . "-" . $row['shippingpincode']); ?>
-                                                        </td>
-                                                        <td><?php echo htmlentities($row['productname']); ?></td>
-                                                        <td><?php echo htmlentities($row['quantity']); ?></td>
-                                                        <td><?php echo htmlentities($row['quantity'] * $row['productprice'] + $row['shippingcharge']); ?>
-                                                        </td>
+                                                        <th>Order Id</th>
+                                                        <td><?php echo htmlentities($row['oid']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Order Date</th>
                                                         <td><?php echo htmlentities($row['orderdate']); ?></td>
-                                                        <td style="display: block;align-items: center;justify-content: space-between   ;
-                                                height: 50px;  "> <a
-                                                                href="updateorder.php?oid=<?php echo htmlentities($row['id']); ?>"
-                                                                title="Update order" target="_blank"
-                                                                style="display: flex;align-items: center;justify-content: center;    border: 1px solid black ; padding: 10px;height: 20px;width: 20px;border-radius: 50px; ">
-                                                                <i class='bx bxs-edit'
-                                                                    style="font-size: 15px; color: black; "></i>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Username</th>
+                                                        <td><?php echo htmlentities($row['username']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>User Contact Details</th>
+                                                        <td><?php echo htmlentities($row['useremail']); ?>/<?php echo htmlentities($row['usercontact']); ?>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <th>User Shipping Details</th>
 
-                                                    <?php $cnt = $cnt + 1;
-                                                        } ?>
+                                                        <td><?php echo htmlentities($row['billingAddress'] . "," . $row['billingCity'] . "," . $row['billingState'] . "-" . $row['shippingpincode']); ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>User Billing Details</th>
+
+                                                        <td><?php echo htmlentities($row['shippingaddress'] . "," . $row['shippingcity'] . "," . $row['shippingstate'] . "-" . $row['billingPincode']); ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Product Name</th>
+                                                        <td><?php echo htmlentities($row['productname']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Product Image</th>
+                                                        <td><img src="productimages/<?php echo htmlentities($row['pid'] . "/" . $row['productImage1']); ?>"
+                                                                width="100"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Product Quantity</th>
+                                                        <td><?php echo htmlentities($row['quantity']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Product Price</th>
+                                                        <td><?php echo htmlentities($row['productprice']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Shipping Charge</th>
+                                                        <td> <?php echo htmlentities($row['shippingcharge']); ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Grand Total</th>
+                                                        <td><?php echo htmlentities($row['quantity'] * $row['productprice'] + $row['shippingcharge']); ?>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
+                                            <?php $cnt = $cnt + 1;
+                                                        } ?>
+
+                                            <?php
+                                            $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$orderid'");
+                                            $count = mysqli_num_rows($ret);
+
+                                            ?>
+
+                                            <table cellpadding="0" cellspacing="0"
+                                                class="table table-bordered bg-white table-striped"
+                                                style="margin-top:1%;">
+                                                <?php if ($count > 0) { ?>
+                                                <tr>
+                                                    <th colspan="4"
+                                                        style="text-transform: uppercase; color:black; font-size:16px;">
+                                                        Order
+                                                        History</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Remark</th>
+                                                    <th>Status</th>
+                                                    <th>Date</th>
+                                                </tr>
+                                                <?php while ($row = mysqli_fetch_array($ret)) { ?>
+
+
+                                                <tr>
+                                                    <td><?php echo $row['remark']; ?></td>
+                                                    <td><?php echo $row['status']; ?></td>
+                                                    <td><?php echo $row['postingDate']; ?></td>
+                                                </tr>
+
+                                                <?php }
+                                                } ?>
+
+
+
+                                                <tr>
+                                                    <td colspan="4"> <a
+                                                            href="updateorder.php?oid=<?php echo htmlentities($orderid); ?>"
+                                                            title="Update order" target="_blank"
+                                                            class="btn btn-dark text-uppercase">Take
+                                                            Action</a>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+
                                         </div>
                                     </div>
                                 </div>
+
+
+
                             </div>
+                            <!--/.content-->
                         </div>
+                        <!--/.span9-->
                     </div>
                 </div>
+                <!--/.container-->
             </div>
+            <!--/.wrapper-->
         </div>
     </main>
-
-
-    <?php include('include/footer.php'); ?>
-
     <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
     <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -289,5 +338,4 @@ if (strlen($_SESSION['alogin']) == 0) {
     <script src="assets2.0/js/hope-ui.js" defer></script>
 
 </body>
-
 <?php } ?>
