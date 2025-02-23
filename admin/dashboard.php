@@ -61,9 +61,18 @@ from orders;");
     $results9 = mysqli_fetch_array($ret9);
     $tloss = $results9['formatted_loss'];
 
-    $ret10 = mysqli_query($con, "SELECT  CASE  WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18))) >= 1000000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18))) / 1000000, 1), 'M') WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18))) >= 1000 THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18))) / 1000, 1), 'K') ELSE SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18))) END AS formatted_gross_profit FROM orders o JOIN products p ON o.productid = p.id;");
+    $ret10 = mysqli_query($con, "SELECT 
+    CASE 
+        WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000000 
+        THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000000, 1), 'M')
+        WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000 
+        THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000, 1), 'K')
+        ELSE SUM(p.productPrice * 0.18 * o.quantity)
+    END AS formatted_total_gst
+FROM orders o
+JOIN products p ON o.productid = p.id");
     $results10 = mysqli_fetch_array($ret10);
-    $tGrossProfit = $results10['formatted_gross_profit'];
+    $tGrossProfit = $results10['formatted_total_gst'];
 
     $ret11 = mysqli_query($con, "SELECT  CASE  WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000000, 1), 'M') WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000, 1), 'K')  ELSE SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) END AS formatted_net_profit FROM orders o JOIN products p ON o.productid = p.id");
     $results11 = mysqli_fetch_array($ret11);
