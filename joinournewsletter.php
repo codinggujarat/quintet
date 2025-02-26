@@ -244,6 +244,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) { //validating user email
                     $subject = "Exciting Deals & New Arrivals at QUINTET!";
                     $header = "Exclusive Offers Just for You!";
+                    $header .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
                     $message = "Hello,
 
 We hope you're having a fantastic day! At QUINTET, 
