@@ -171,7 +171,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="control-group">
                                 <div class="controls row-fluid input-field-login">
-                                    <input class="span12" type="password" id="inputPassword" name="password"
+                                    <input class="span12 password" type="password" id="inputPassword" name="password"
                                         style="background-color: #f2f3f8;" required>
                                     <label>
                                         Your password?</label>
@@ -185,11 +185,47 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                        <span class="checkbox">
+                            <input type="checkbox" id="checks" class="eye-icon" />
+                            <label for="checks">Show Password</label>
+                        </span>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <style>
+    .checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        margin-left: 20px;
+    }
+
+    .checkbox input {
+        height: 20px !important;
+        width: 20px !important;
+        accent-color: #000;
+    }
+
+    .checkbox label {
+        font-size: 18px !important;
+        color: #000;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-weight: 500;
+        font-family: 'Raleway', sans-serif !important;
+    }
+
+    .radio {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+    </style>
+
     <style>
     .checkout-page-button {
         display: flex;
@@ -211,7 +247,38 @@ if (isset($_POST['submit'])) {
     }
     </style>
     <!--/.wrapper-->
+    <script>
+    const container = document.querySelector(".container"),
+        pwFields = document.querySelectorAll(".password"),
+        signUp = document.querySelector(".signup-link"),
+        login = document.querySelector(".login-link");
 
+
+
+
+
+    const forms = document.querySelector(".forms"),
+        pwShowHide = document.querySelectorAll(".eye-icon");
+    pwShowHide.forEach(eyeIcon => {
+        eyeIcon.addEventListener("click", () => {
+            let pwFields = eyeIcon.parentElement.parentElement
+                .querySelectorAll(".password");
+
+            pwFields.forEach(password => {
+                if (password.type === "password") {
+                    password.type = "text";
+                    eyeIcon.classList.replace("bx-hide",
+                        "bx-show");
+                    return;
+                }
+                password.type = "password";
+                eyeIcon.classList.replace("bx-show",
+                    "bx-hide");
+            })
+
+        })
+    })
+    </script>
 
     <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>

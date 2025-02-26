@@ -89,9 +89,9 @@ if (strlen($_SESSION['login']) == 0) {
                                 <style>
                                 </style>
                                 <div id="collapseOne" class="panel-collapse collapse in"
-                                    style="display: flex;align-items: center;justify-content: center;   ">
+                                    style=" display: flex;align-items: center;justify-content: center;   ">
                                     <!-- panel-body  -->
-                                    <div class="panel-body">
+                                    <div class="panel-body" style="background-color: #000;">
                                         <form name="payment" method="post" class="col-lg-12 col-md-12 col-sm-12"
                                             style="width:500px; padding: 50px;   ">
                                             <div class="card">
@@ -110,7 +110,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                                 on delivery</span>
                                                         </div>
                                                     </label>
-                                                    <label for="two" class="box second" onclick="qrshow()">
+                                                    <label for="two" class="box second " onclick="qrshow()">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
@@ -139,7 +139,9 @@ if (strlen($_SESSION['login']) == 0) {
                                                 font-size: 20px !important;
                                                 border-radius: 0 !important;
                                                 font-family: 'Raleway', sans-serif !important;
-                                                font-weight: 400 !important;
+                                                font-weight: 500 !important;
+                                                text-transform: uppercase;
+                                                font-size: 14px !important;
                                             }
 
                                             .btn-primary:hover {
@@ -312,10 +314,16 @@ if (strlen($_SESSION['login']) == 0) {
         color: #000;
         font-family: 'Poppins', sans-serif;
     }
+
+    .disabled-input {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
     </style>
     <div class="qrbox">
         <div class="qrbox-in">
             <div class="form-section">
+
                 <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
 
                     <h1>LOGIN INFO / QR SCAN</h1>
@@ -333,13 +341,21 @@ if (strlen($_SESSION['login']) == 0) {
                     <!-- Optional: Custom Redirection or Thank you Page
        Make sure you add full URL including https:// -->
                     <input type="hidden" name="redirect" value="https://web3forms.com/success">
-
-
+                    <?php
+                        $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                        while ($row = mysqli_fetch_array($query)) {
+                        ?>
                     <!-- Custom Form Data: Form data you wish to receive in email. -->
-                    <input type="email" name="email" placeholder="What's your Login e-mail?" required>
-                    <input type="text" name="Name" placeholder="What's your Login Name?" required>
-                    <input type="text" name="Phone Number" placeholder="What's your Login PhoneNumber?" required>
+                    <input type="email" class="disabled-input" name="email" id="exampleInputEmail1"
+                        value="<?php echo $row['email']; ?>" placeholder="What's your Login e-mail?">
+                    <input type="text" class="disabled-input" name="name"
+                        value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?">
+                    <input type="text" class="disabled-input" name="Phone Number"
+                        value="<?php echo $row['contactno']; ?>" min="0" max="10" maxlength="10"
+                        placeholder="What's your Login PhoneNumber?">
 
+                    <?php } ?>
+                    <input type="number" name="UTR Number" placeholder="What's your UTR Number?" required>
                     <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
                     <div class="h-captcha" data-captcha="true"></div>
                     <!-- Google reCaptcha & Cloudflare Turnstile:

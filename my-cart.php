@@ -153,8 +153,8 @@ if (isset($_POST['shipupdate'])) {
             <div class="">
                 <div class="">
                     <div class=" shopping-cart-table " style="width: 100%;">
-                        <h1 style=" font-family: 'Raleway' ,sans-serif;font-size: 14px !important ;color:
-                                #000;text-transform: uppercase ;font-weight: 500 !important ;">
+                        <h1 style=" font-family: 'Poppins' ,sans-serif;font-size: 14px !important ;color:
+                                #000;text-transform: uppercase ;font-weight: 400 !important ;">
                             shopping bag
                             <i class='bx bx-shopping-bag'
                                 style="font-size: 15px ;color:black ;   margin-left: 10px; "></i>
@@ -166,7 +166,7 @@ if (isset($_POST['shipupdate'])) {
                                 ?>
 
                                 <style>
-                                @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+                                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap');
 
                                 .item,
                                 .last-item {
@@ -175,7 +175,7 @@ if (isset($_POST['shipupdate'])) {
                                     text-transform: uppercase;
                                     font-weight: normal;
                                     border: 0 !important;
-                                    font-family: 'Raleway', sans-serif !important;
+                                    font-family: 'Poppins', sans-serif !important;
                                 }
 
                                 .form-group input,
@@ -215,12 +215,12 @@ if (isset($_POST['shipupdate'])) {
 
                                     <div class="cart-btns">
                                         <span class=""
-                                            style="font-family: 'Raleway', sans-serif !important;display: flex;align-items: center;justify-content: space-between;   ">
+                                            style="font-family: 'Poppins', sans-serif !important;display: flex;align-items: center;justify-content: space-between;   ">
                                             <a href="index.php" class="btn  border-0"
-                                                style="border-radius: 0  !important;font-weight: 500 !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;">Continue
+                                                style="border-radius: 0  !important;font-weight: 400 !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;">Continue
                                                 Shopping</a>
                                             <input type="submit" name="submit"
-                                                style="text-transform: uppercase;font-weight: 500 !important;border-radius: 0  !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;"
+                                                style="text-transform: uppercase;font-weight: 400 !important;border-radius: 0  !important;color:white !important ;padding: 10px 20px !important; font-size:15px !important; background: #000 !important;"
                                                 value="Update shopping cart" class="btn ">
                                         </span>
                                     </div>
@@ -329,7 +329,7 @@ if (isset($_POST['shipupdate'])) {
                                 font-size: 12px;
                                 text-transform: uppercase;
                                 font-weight: 600 !important;
-                                font-family: 'Raleway', sans-serif !important;
+                                font-family: 'Poppins', sans-serif !important;
                                 color: #000 !important;
                             }
 
@@ -579,7 +579,7 @@ if (isset($_POST['shipupdate'])) {
                                                         style="border: 0px solid black;  background:#fff ;width: 0;border-radius: 0 !important ;padding: 10px 20px; font-size: 12px !important ;display: flex;align-items: center;justify-content: center; height: 30px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
                                                         <i class="fa-regular fa-bookmark"
-                                                            style=" color:#000 ;font-weight: 500;"></i>
+                                                            style=" color:#000 ;font-weight: 400;"></i>
                                                         </span>
                                                     </a>
                                                 </div>
@@ -594,7 +594,7 @@ if (isset($_POST['shipupdate'])) {
                                                     <span class="slider round"></span>
                                                 </label>
                                                 <label
-                                                    style="font-family: 'Raleway', sans-serif !important;font-weight: 700;margin-left: 10px;margin-top: 5px;text-transform: uppercase;">
+                                                    style="font-family: 'Poppins', sans-serif !important;font-weight: 700;margin-left: 10px;margin-top: 5px;text-transform: uppercase;">
                                                     remove
                                                 </label>
                                             </div>
@@ -619,10 +619,19 @@ if (isset($_POST['shipupdate'])) {
                             <div class="cart-grand-total"
                                 style="display: flex; align-items: center;justify-content: space-between;font-family: sans-serif, 'Poppins' !important;font-size: 14px;color:
                                         #000; font-weight: 400;text-transform: uppercase  ;padding:20px;border:1px solid black; ">
+                                GST
+                                <span class="inner-left-md" style="font-weight: 400;text-transform: uppercase  ;">
+                                    +0.18%
+                                </span>
+                            </div>
+                            <div class="cart-grand-total"
+                                style="display: flex; align-items: center;justify-content: space-between;font-family: sans-serif, 'Poppins' !important;font-size: 14px;color:
+                                        #000; font-weight: 400;text-transform: uppercase  ;padding:20px;border:1px solid black; ">
                                 Grand Total
                                 <span class="inner-left-md"
                                     style="font-weight: 400;text-transform: uppercase  ;"><?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
                             </div>
+
                             <div class="cart-checkout-btn ">
                                 <button type="submit" name="ordersubmit" class="btn " style="   background: #000 !important;;
                             width: 100% !important;
@@ -643,24 +652,31 @@ if (isset($_POST['shipupdate'])) {
                             align-items: center;
                             justify-content: center;
                             height: 100%;
+                            width: 50%;
+                        }
+
+                        @media only screen and (max-width: 800px) {
+                            .estimate-ship-tax {
+                                width: 100%;
+                            }
                         }
 
                         .form-group input {
-                            border: 2px solid gray;
-                            font-family: 'Raleway', sans-serif !important;
+                            border: 2px solid black;
+                            font-family: 'Poppins', sans-serif !important;
                             font-size: 15px;
                             color: #000;
-                            font-weight: 600;
-                            text-transform: capitalize;
+                            font-weight: 400;
+                            text-transform: uppercase !important;
                         }
 
 
                         .form-group input::placeholder {
-                            font-family: 'Raleway', sans-serif !important;
-                            font-size: 15px !important;
+                            font-family: 'Poppins', sans-serif !important;
+                            font-size: 11px !important;
                             color: #000 !important;
                             font-weight: 600 !important;
-                            text-transform: capitalize !important;
+                            text-transform: uppercase !important;
                         }
 
                         .form-group input:focus {
@@ -669,29 +685,27 @@ if (isset($_POST['shipupdate'])) {
 
                         .checkout-page-button {
                             background: #000 !important;
-                            width: 50% !important;
+                            width: 150px !important;
                             color: #fff !important;
                             height: 50px !important;
-                            font-size: 15px !important;
+                            font-size: 14px !important;
                             border-radius: 0 !important;
-                            font-family: 'Raleway', sans-serif !important;
+                            font-family: 'Poppins', sans-serif !important;
                             font-weight: 400 !important;
                         }
 
-                        .checkout-page-button:hover {
-                            color: #000 !important;
-                            border: 1px solid black !important;
-                        }
+                        /* .checkout-page-button:hover {} */
                         </style>
 
 
 
-                        <table class="table     ">
+                        <table class="table    "">
                             <thead>
                                 <tr>
                                     <th>
                                         <span class=""
-                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 600;text-transform:capitalize   ;  ">Billing
+                                            style=" font-family: 'Poppins' , sans-serif;font-size: 25px;color: #000;
+                            font-weight: 400;text-transform:uppercase ; ">Billing
 
                                             Address</span>
                                     </th>
@@ -700,156 +714,156 @@ if (isset($_POST['shipupdate'])) {
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div class="form-group">
-                                            <?php
-                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                            while ($row = mysqli_fetch_array($query)) {
-                                            ?>
+                                        <div class=" form-group">
+                            <?php
+                                    $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                    while ($row = mysqli_fetch_array($query)) {
+                            ?>
 
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing Address"
-                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
-                                                    Address<span>*</span></label>
-                                                <textarea class=" form-control unicase-form-control text-input"
-                                                    name="billingaddress"
-                                                    required="required"><?php echo $row['billingAddress']; ?></textarea>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing State "
-                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
-                                                    State
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="bilingstate" name="bilingstate"
-                                                    value="<?php echo $row['billingState']; ?>" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing City"
-                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
-                                                    City
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="billingcity" name="billingcity" required="required"
-                                                    value="<?php echo $row['billingCity']; ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing Pincode"
-                                                    style="font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize; ">Billing
-                                                    Pincode
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="billingpincode" name="billingpincode" required="required"
-                                                    value="<?php echo $row['billingPincode']; ?>">
-                                            </div>
-
-
-                                            <button type="submit" name="update"
-                                                class="btn-upper btn btn-primary checkout-page-button">Update</button>
-
-                                            <?php } ?>
-
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody><!-- /tbody -->
-                        </table><!-- /table -->
-                    </div>
-
-                    <div class="col-md-5 col-sm-12 estimate-ship-tax">
-                        <table class="table ">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <span class="estimate-title"
-                                            style=" font-family: 'Raleway' , sans-serif;font-size: 30px;color: #000;  font-weight: 600;text-transform:capitalize   ;  ">Shipping
-                                            Address</span>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="form-group">
-                                            <?php
-                                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                                            while ($row = mysqli_fetch_array($query)) {
-                                            ?>
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="Shipping Address"
-                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
-                                                    Address<span>*</span></label>
-                                                <textarea class="form-control unicase-form-control text-input"
-                                                    name="shippingaddress"
-                                                    required="required"><?php echo $row['shippingAddress']; ?></textarea>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing State "
-                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
-                                                    State
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="shippingstate" name="shippingstate"
-                                                    value="<?php echo $row['shippingState']; ?>" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing City"
-                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
-                                                    City
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="shippingcity" name="shippingcity" required="required"
-                                                    value="<?php echo $row['shippingCity']; ?>">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="info-title" for="Billing Pincode"
-                                                    style=" font-family: 'Raleway' , sans-serif !important;font-size: 17px;color: #000; font-weight: 500;text-transform: capitalize;  ">Shipping
-                                                    Pincode
-                                                    <span>*</span></label>
-                                                <input type="text" class="form-control unicase-form-control text-input"
-                                                    id="shippingpincode" name="shippingpincode" required="required"
-                                                    value="<?php echo $row['shippingPincode']; ?>">
-                                            </div>
-
-
-                                            <button type="submit" name="shipupdate"
-                                                class="btn-upper btn btn-primary checkout-page-button">Update</button>
-                                            <?php } ?>
-
-
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            </tbody><!-- /tbody -->
-                        </table><!-- /table -->
-                    </div>
-                    <div class="col-md-12 col-sm-12 cart-shopping-total">
-
-                        <?php } else { ?>
-                        <div style="height:50vh !important ; ">
-                            <div>
-
-
-                                <h4 style=" font-size: 15px;font-weight: 300 !important ;color:black; text-transform:
-                                        uppercase; ">
-                                    Your shopping basket is empty
-                                </h4>
+                            <div class="form-group">
+                                <label class="info-title" for="Billing Address"
+                                    style="font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase; ">Billing
+                                    Address<span>*</span></label>
+                                <textarea class=" form-control unicase-form-control text-input"
+                                    style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000 ; font-weight: 400;text-transform: uppercase;  "
+                                    name="billingaddress"
+                                    required="required"><?php echo $row['billingAddress']; ?></textarea>
                             </div>
-                        </div>
-                        <?php } ?>
+
+
+
+                            <div class="form-group">
+                                <label class="info-title" for="Billing State "
+                                    style="font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase; ">Billing
+                                    State
+                                    <span>*</span></label>
+                                <input type="text" class="form-control unicase-form-control text-input" id="bilingstate"
+                                    name="bilingstate" value="<?php echo $row['billingState']; ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title" for="Billing City"
+                                    style="font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase; ">Billing
+                                    City
+                                    <span>*</span></label>
+                                <input type="text" class="form-control unicase-form-control text-input" id="billingcity"
+                                    name="billingcity" required="required" value="<?php echo $row['billingCity']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label class="info-title" for="Billing Pincode"
+                                    style="font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase; ">Billing
+                                    Pincode
+                                    <span>*</span></label>
+                                <input type="text" class="form-control unicase-form-control text-input"
+                                    id="billingpincode" name="billingpincode" required="required"
+                                    value="<?php echo $row['billingPincode']; ?>">
+                            </div>
+
+
+                            <button type="submit" name="update"
+                                class="btn-upper btn btn-primary checkout-page-button">Update</button>
+
+                            <?php } ?>
+
                     </div>
+
+                    </td>
+                    </tr>
+                    </tbody><!-- /tbody -->
+                    </table><!-- /table -->
+                </div>
+
+                <div class="col-md-5 col-sm-12 estimate-ship-tax">
+                    <table class="table ">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class="estimate-title"
+                                        style=" font-family: 'Poppins' , sans-serif;font-size: 25px;color: #000;  font-weight: 400;text-transform:uppercase   ;  ">Shipping
+                                        Address</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="form-group">
+                                        <?php
+                                        $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                                        while ($row = mysqli_fetch_array($query)) {
+                                        ?>
+
+                                        <div class="form-group">
+                                            <label class="info-title" for="Shipping Address"
+                                                style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000 ; font-weight: 400;text-transform: uppercase;  ">Shipping
+                                                Address<span>*</span></label>
+                                            <textarea class="form-control unicase-form-control text-input"
+                                                name="shippingaddress"
+                                                style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000 ; font-weight: 400;text-transform: uppercase;  "
+                                                required="required"><?php echo $row['shippingAddress']; ?></textarea>
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label class="info-title" for="Billing State "
+                                                style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase;  ">Shipping
+                                                State
+                                                <span>*</span></label>
+                                            <input type="text" class="form-control unicase-form-control text-input"
+                                                id="shippingstate" name="shippingstate"
+                                                value="<?php echo $row['shippingState']; ?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title" for="Billing City"
+                                                style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase;  ">Shipping
+                                                City
+                                                <span>*</span></label>
+                                            <input type="text" class="form-control unicase-form-control text-input"
+                                                id="shippingcity" name="shippingcity" required="required"
+                                                value="<?php echo $row['shippingCity']; ?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="info-title" for="Billing Pincode"
+                                                style=" font-family: 'Poppins' , sans-serif !important;font-size: 15px;color: #000; font-weight: 400;text-transform: uppercase;  ">Shipping
+                                                Pincode
+                                                <span>*</span></label>
+                                            <input type="text" class="form-control unicase-form-control text-input"
+                                                id="shippingpincode" name="shippingpincode" required="required"
+                                                value="<?php echo $row['shippingPincode']; ?>">
+                                        </div>
+
+
+                                        <button type="submit" name="shipupdate"
+                                            class="btn-upper btn btn-primary checkout-page-button">Update</button>
+                                        <?php } ?>
+
+
+                                    </div>
+
+                                </td>
+                            </tr>
+                        </tbody><!-- /tbody -->
+                    </table><!-- /table -->
+                </div>
+                <div class="col-md-12 col-sm-12 cart-shopping-total">
+
+                    <?php } else { ?>
+                    <div style="height:50vh !important ; ">
+                        <div>
+
+
+                            <h4 style=" font-size: 15px;font-weight: 300 !important ;color:black; text-transform:
+                                        uppercase; ">
+                                Your shopping basket is empty
+                            </h4>
+                        </div>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
-            </form>
         </div>
+        </form>
+    </div>
     </div>
     <?php include('includes/footer.php'); ?>
 

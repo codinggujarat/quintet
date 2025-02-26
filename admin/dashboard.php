@@ -593,9 +593,9 @@ JOIN products p ON o.productid = p.id");
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5 mt-3 mb-4 wow animated fadeIn">
-                                <div class="row">
-                                    <div class="col-md-6">
+                            <div class="col-lg-5 ">
+                                <div class="row mt-3 mb-4 wow animated fadeIn">
+                                    <div class="col-md-6 mb-4">
                                         <div class="card bg-white">
                                             <div class="card-body">
                                                 <div class="d-flex flex-column align-items-between">
@@ -651,15 +651,15 @@ JOIN products p ON o.productid = p.id");
                                     </div>
                                 </div>
                                 <div class="row mt-3 mb-4 wow animated fadeIn">
-                                    <div class="col-md-6 ">
+                                    <div class="col-md-6 mb-4">
                                         <div class="card bg-white">
                                             <div class="card-body">
                                                 <div class="d-flex flex-column align-items-between">
                                                     <div>
                                                         <div class="d-flex">
-                                                            <div class="bg-soft-success text-white p-3 rounded">
+                                                            <div class="bg-soft-info text-white p-3 rounded">
 
-                                                                <svg class="icon-25 text-success"
+                                                                <svg class="icon-25 text-info"
                                                                     xmlns="http://www.w3.org/2000/svg" width="25px"
                                                                     fill="none" viewBox="0 0 24 24"
                                                                     stroke="currentColor">
@@ -718,14 +718,14 @@ JOIN products p ON o.productid = p.id");
                                     </div>
                                 </div>
                                 <div class="row mt-3 mb-4 wow animated fadeIn">
-                                    <div class="col-md-6 ">
+                                    <div class="col-md-6 mb-4">
                                         <div class="card bg-white">
                                             <div class="card-body">
                                                 <div class="d-flex flex-column align-items-between">
                                                     <div>
                                                         <div class="d-flex">
-                                                            <div class="bg-soft-success text-white p-3 rounded">
-                                                                <svg class="icon-25 text-success"
+                                                            <div class="bg-soft-secondary text-white p-3 rounded">
+                                                                <svg class="icon-25 text-secondary"
                                                                     xmlns="http://www.w3.org/2000/svg" width="25px"
                                                                     fill="none" viewBox="0 0 24 24"
                                                                     stroke="currentColor">
@@ -755,8 +755,8 @@ JOIN products p ON o.productid = p.id");
                                                 <div class="d-flex flex-column align-items-between">
                                                     <div>
                                                         <div class="d-flex">
-                                                            <div class="bg-soft-success text-white p-3 rounded">
-                                                                <svg class="icon-25 text-success"
+                                                            <div class="bg-soft-dark text-white p-3 rounded">
+                                                                <svg class="icon-25 text-dark"
                                                                     xmlns="http://www.w3.org/2000/svg" width="25px"
                                                                     fill="none" viewBox="0 0 24 24"
                                                                     stroke="currentColor">

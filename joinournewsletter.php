@@ -242,11 +242,36 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             if (isset($_POST['subscribe'])) { //if subscribe btn clicked
                 $userEmail = $_POST['email']; //getting user entered email
                 if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) { //validating user email
-                    $subject = "Thanks for Subscribing us - CodingNepal";
-                    $message = "Thanks for subscribing to our blog. You'll always receive updates from us. And we won't share and sell your information.";
-                    $sender = "From: shahiprem7890@gmail.com";
+                    $subject = "Exciting Deals & New Arrivals at QUINTET!";
+                    $header = "Exclusive Offers Just for You!";
+                    $message = "Hello,
+
+We hope you're having a fantastic day! At QUINTET, 
+we're always bringing you the best products at unbeatable prices. 
+This month, we have some exciting new arrivals 
+and exclusive discounts that you don’t want to miss!
+
+✨ What's New?
+
+Fresh styles and trendy products just added!
+Limited-time discounts on top categories.
+Special offers for our loyal customers!
+
+🎁 Special Offer:
+Get an extra 10% OFF on your first order this month! Use code QUINTET10 at checkout.
+
+🛍️ Shop Now & Save Big!
+Visit our website and grab your favorites before they’re gone!
+Shop Now
+
+Stay connected with us for more updates, flash sales, and exclusive perks. Follow 
+us on social media and subscribe for more exciting deals!
+
+Happy Shopping!
+The QUINTET Team";
+                    $sender = "From: quintetonline@gmail.com";
                     //php function to send mail
-                    if (mail($userEmail, $subject, $message, $sender)) {
+                    if (mail($userEmail, $subject, $message, $sender, $header)) {
             ?>
             <!-- show sucess message once email send successfully -->
             <div class="alert success-alert">

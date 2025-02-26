@@ -152,7 +152,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                             <div class="card  p-0">
                                 <div class="card-body">
                                     <h3 style="font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
-                                        class="text-uppercase">Category
+                                        class="text-uppercase">Create Category
                                     </h3>
 
                                     <?php if (isset($_POST['submit'])) { ?>
@@ -165,7 +165,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <?php echo htmlentities($_SESSION['msg'] = ""); ?>
                                         </h6>
                                         <button type="button" class="close" data-dismiss="alert">
-                                            <svg fill="#000000" height="12px" width="12px" version="1.1" id="Capa_1"
+                                            <vg fill="#000000" height="12px" width="12px" version="1.1" id="Capa_1"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 490 490"
                                                 xml:space="preserve">
@@ -177,7 +177,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337 ">
                                                     </polygon>
                                                 </g>
-                                            </svg>
+                                                </svg>
                                         </button>
                                     </div>
                                     <?php } ?>
@@ -249,7 +249,12 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     color: #000 !important;
                                 }
                                 </style>
+
                                 <table id=" datatable" class="table table-striped  " data-toggle="data-table">
+                                    <h5 style="font-size:17px;font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
+                                        class="ms-2 mb-3 text-uppercase">manage Category
+                                    </h5>
+
                                     <thead>
                                         <tr>
                                             <th>#</th>

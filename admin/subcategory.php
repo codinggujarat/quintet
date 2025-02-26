@@ -255,7 +255,9 @@ if (strlen($_SESSION['alogin']) == 0) {
                                     }
                                     </style>
                                     <table id="datatable" class="table table-striped  " data-toggle="data-table">
-
+                                        <h5 style="font-size:17px;font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
+                                            class="ms-2 mb-3 text-uppercase">manage subCategory
+                                        </h5>
                                         <thead>
                                             <tr>
                                                 <th>#</th>
