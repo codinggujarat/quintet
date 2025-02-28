@@ -12,6 +12,7 @@ if (strlen($_SESSION['login']) == 0) {
         header('location:order-history.php');
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -130,7 +131,67 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <input type="submit" value="submit" name="submit" class="btn btn-primary">
+                                            <div class="outer-submit-box" id="submit-box">
+                                                <div class="submit-box">
+                                                    <h1>Payment successful!!</h1>
+                                                    <h3>Thank you for your purchase.</h3>
+                                                    <input type="submit" value="submit" name="submit"
+                                                        class="btn btn-primary">
+                                                </div>
+                                            </div>
+                                            <script>
+                                            function toggleBox() {
+                                                let box = document.getElementById("submit-box");
+                                                box.style.display = (box.style.display === "none" || box.style
+                                                    .display === "") ? "block" : "none";
+                                            }
+                                            </script>
                                             <style>
+                                            .outer-submit-box {
+                                                position: fixed !important;
+                                                top: 50%;
+                                                left: 50%;
+                                                width: 100%;
+                                                height: 100%;
+                                                background-color: #fff;
+                                                transform: translate(-50%, -50%);
+                                                z-index: 999999999999999990 !important;
+                                                display: none;
+                                            }
+
+                                            .submit-box {
+                                                background: #000;
+                                                position: absolute;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                                width: 300px;
+                                                border: 1px solid black;
+                                                padding: 20px;
+
+                                            }
+
+                                            .submit-box h1 {
+                                                text-transform: uppercase;
+                                                font-size: 20px;
+                                                text-align: center;
+                                                color: #fff;
+                                                font-weight: 300;
+                                            }
+
+                                            .submit-box h3 {
+                                                text-transform: uppercase;
+                                                font-size: 15px !important;
+                                                text-align: center;
+                                                color: #fff;
+                                                font-family: 'Poppins', sans-serif !important;
+                                                font-weight: 300;
+                                            }
+
+                                            .submit-box input {
+                                                border: 1px solid black;
+                                            }
+
                                             .btn-primary {
                                                 background: #F2F3F8 !important;
                                                 width: 100% !important;
@@ -236,7 +297,7 @@ if (strlen($_SESSION['login']) == 0) {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: none;
         background: white;
         z-index: 999999;
@@ -305,6 +366,7 @@ if (strlen($_SESSION['login']) == 0) {
     @media only screen and (max-width: 600px) {
         .qrbox-in {
             flex-wrap: wrap-reverse;
+            overflow: scroll;
         }
     }
 
@@ -319,14 +381,50 @@ if (strlen($_SESSION['login']) == 0) {
         background-color: #000 !important;
         color: #fff !important;
     }
+
+    .qrcodeclass {
+        width: 100%;
+    }
+
+    .qrcodeclass h2 {
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-size: 13px;
+        font-family: 'Poppins', sans-serif;
+        padding: 10px;
+    }
+
+    .qrboxforscan {
+        width: 100%;
+    }
+
+    .qrcodemain h1 {
+        font-size: 40px;
+        font-weight: 300;
+        color: #000;
+        font-family: 'Poppins', sans-serif;
+
+    }
     </style>
+    <script>
+    function qrshow() {
+        let qrBox = document.querySelector(".qrbox");
+
+        if (qrBox) {
+            qrBox.style.display = "block";
+        }
+    }
+    </script>
     <div class="qrbox">
         <div class="qrbox-in">
             <div class="form-section">
 
                 <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
 
-                    <h1>LOGIN INFO / QR SCAN</h1>
+                    <h1>LOGIN INFO </h1>
                     <!-- REQUIRED: Your Access key here. Don't worry this can be public -->
                     <input type="hidden" name="access_key" value="bb3d4094-9e73-4604-82b8-51af279f9f23">
 
@@ -340,7 +438,6 @@ if (strlen($_SESSION['login']) == 0) {
 
                     <!-- Optional: Custom Redirection or Thank you Page
        Make sure you add full URL including https:// -->
-                    <input type="hidden" name="redirect" value="https://web3forms.com/success">
                     <?php
                         $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
                         while ($row = mysqli_fetch_array($query)) {
@@ -364,7 +461,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <div class="cf-turnstile" data-sitekey="bb3d4094-9e73-4604-82b8-51af279f9f23"></div>
 
                     <div class="btn-group-form">
-                        <button type="submit">Submit Form</button>
+                        <button type="submit" onclick="toggleBox()">Submit Form</button>
                         <button class=" cancel">cancel Form</button>
                     </div>
                 </form>
@@ -374,19 +471,48 @@ if (strlen($_SESSION['login']) == 0) {
 
             </div>
             <div class="qr-section">
-                <img src="img/QUINTETqr.jpg" alt="">
+
+                <?php
+                    include 'phpqrcode/qrlib.php';
+
+
+                    // Fetch product name and price from URL parameters
+
+                    // UPI Payment details
+                    $upi_id = "amannayak2911@oksbi"; // Replace with your UPI ID
+                    $name = "Aman Nayak"; // Merchant or Payee name
+                    $note = "Payment for $product_name"; // Payment note
+
+                    // UPI payment URL format
+                    $upi_url = "upi://pay?pa=$upi_id&pn=$name&am=$amount&cu=INR&tn=$note";
+
+                    // Directory to store QR codes
+                    $directory = "qrcodes/";
+                    if (!is_dir($directory)) {
+                        mkdir($directory, 0777, true);
+                    }
+
+                    // File path for the generated QR code
+                    $filename = $directory . 'upi_qr.png';
+
+                    // Generate and save the QR code
+                    QRcode::png($upi_url, $filename, QR_ECLEVEL_L, 10, 2);
+
+                    // Display QR code image with product details
+                    echo "<div class='qrcodemain'>";
+                    echo "<h1> / QR INFO</h1>";
+                    echo "<div class='qrcodeclass'>";
+                    echo "<h2>UIP ID: $upi_id</h2>";
+                    echo "</div>";
+                    echo "<div class='qrboxforscan'>";
+                    echo "<img src='$filename' alt='UPI QR Code'>";
+                    echo "</div>";
+                    echo "</div>";
+                    ?>
             </div>
         </div>
     </div>
     <script>
-    function qrshow() {
-        let qrBox = document.querySelector(".qrbox");
-
-        if (qrBox) {
-            qrBox.style.display = "block";
-        }
-    }
-
     let cancel = document.querySelector(".cancel");
     cancel.addEventListener('click', () => {
         let qrBox = document.querySelector(".qrbox");

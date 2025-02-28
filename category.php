@@ -1149,7 +1149,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
 
                                 .moreBtnview a {
                                     border-radius: 50px;
-                                    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+                                    background: linear-gradient(rgba(4, 4, 4, 0.8), rgba(48, 37, 37, 0.8)) !important;
                                     display: flex;
                                     height: 30px;
                                     width: 30px;
@@ -1169,14 +1169,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 style="background:transparent !important;">
                                                 <a
                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                         width=" 100%" height="100%" alt=""></a>
                                             </div>
                                             <div class="moreBtnview">
                                                 <a
                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                    <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                    <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                         xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455 455"
                                                         xml:space="preserve">
@@ -1209,7 +1209,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <a title="favourites"
                                                     style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                     href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                    <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                    <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                         id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                         xmlns:xlink="http://www.w3.org/1999/xlink"
                                                         viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1256,14 +1256,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1299,7 +1299,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1354,14 +1354,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1397,7 +1397,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1452,14 +1452,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1495,7 +1495,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1549,14 +1549,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1592,7 +1592,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1646,14 +1646,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1689,7 +1689,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1742,14 +1742,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1785,7 +1785,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1838,14 +1838,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1881,7 +1881,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -1933,14 +1933,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -1976,7 +1976,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2028,14 +2028,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2071,7 +2071,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2123,14 +2123,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2166,7 +2166,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2218,14 +2218,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2261,7 +2261,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2314,14 +2314,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2357,7 +2357,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2412,14 +2412,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2455,7 +2455,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2508,14 +2508,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2551,7 +2551,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2605,14 +2605,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2648,7 +2648,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
@@ -2702,14 +2702,14 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                 <div class="image" style="background:transparent !important; ">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                                             width="100%" height="100%" alt=""></a>
                                                 </div><!-- /.image -->
                                                 <div class="moreBtnview">
                                                     <a
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                                        <svg fill="#000000" width="10px" version="1.1" id="Layer_1"
+                                                        <svg fill="#fff" width="10px" version="1.1" id="Layer_1"
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 455 455" xml:space="preserve">
@@ -2745,7 +2745,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#000000" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">

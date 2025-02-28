@@ -403,7 +403,7 @@ if (isset($_POST['shipupdate'])) {
                                 <div class="mywishlistcardimage">
                                     <a class="entry-thumbnail"
                                         href="product-details.php?pid=<?php echo htmlentities($pd = $row['id']); ?>">
-                                        <img src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
+                                        <img src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImageSix']; ?>"
                                             alt="" width="100%" height="100%">
                                     </a>
                                 </div>

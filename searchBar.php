@@ -325,8 +325,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             <div class="card ">
                 <div class="image  responsiveCard">
                     <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                        <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                             width=" 100%" height="100%" alt=""></a>
                 </div>
             </div>

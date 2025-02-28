@@ -622,7 +622,7 @@ section .content p {
                                 <div class=" cart-item  wow fadeUpBig" style="margin: 0;padding:0;">
                                     <div class="image">
                                         <a href=" product-details?pid=<?php echo $row['id']; ?>"><img
-                                                src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImage1']; ?>"
+                                                src="admin/productimages/<?php echo $row['id']; ?>/<?php echo $row['productImageSix']; ?>"
                                                 width="100%" height="100%" alt=""></a>
                                     </div>
 
@@ -664,7 +664,7 @@ section .content p {
                                         <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
                                 </div>
                                 <div class="total_btn">
-                                    <a href="my-cart" class="a ">
+                                    <a href="my-cart.php" class="a ">
                                         MY BAG </a>
                                 </div>
                             </div><!-- /.cart-total-->

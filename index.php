@@ -22,6 +22,45 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
 ?>
+<script>
+function openFullScreen() {
+    let elem = document.documentElement;
+
+    if (!document.fullscreenElement &&
+        !document.mozFullScreenElement &&
+        !document.webkitFullscreenElement &&
+        !document.msFullscreenElement) {
+
+        // Enter full screen
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+    } else {
+        // Exit full screen
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
+
+// Auto enter full screen on page load
+window.onload = function() {
+    openFullScreen();
+};
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -173,8 +212,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                         width=" 100%" height="100%" alt="">
                                 </a>
                             </div>
@@ -199,8 +238,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                         width=" 100%" height="100%" alt="">
                                 </a>
                             </div>
@@ -224,8 +263,8 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                     <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
                                         width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
                                         width=" 100%" height="100%" alt="">
                                 </a>
                             </div>
@@ -336,35 +375,86 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         </div>
     </div> -->
     <style>
-    .diff-store {
-        position: fixed;
-        bottom: 4%;
+    .center-btn {
+        position: absolute;
+        top: 95%;
         left: 50%;
-        background: white;
-        width: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: translate(-50%);
-        z-index: 99999999999999999;
-        border-radius: 50px;
+        transform: translate(-50%, -50%);
+        z-index: 9999999999999999999;
     }
 
-    .storeOne a h1 {
-        font-size: 15px;
-        font-weight: bold;
-        color: #000;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        margin-bottom: 15px;
+    /* Note that you only needs to edit the config to customize the button! */
+
+    .plusButton {
+        /* Config start */
+        --plus_sideLength: 2.5rem;
+        --plus_topRightTriangleSideLength: 0.9rem;
+        /* Config end */
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white;
+        width: var(--plus_sideLength);
+        height: var(--plus_sideLength);
+        background-color: #000000;
+        overflow: hidden;
+    }
+
+    .plusButton::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+        border-style: solid;
+        border-color: transparent white transparent transparent;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.2s;
+    }
+
+    .plusButton:hover {
+        cursor: pointer;
+    }
+
+    .plusButton:hover::before {
+        --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+    }
+
+    .plusButton:focus-visible::before {
+        --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+    }
+
+    .plusButton>.plusIcon {
+        fill: white;
+        width: calc(var(--plus_sideLength) * 0.7);
+        height: calc(var(--plus_sideLength) * 0.7);
+        z-index: 1;
+        transition-timing-function: ease-in-out;
+        transition-duration: 0.2s;
+    }
+
+    .plusButton:hover>.plusIcon {
+        fill: black;
+        transform: rotate(180deg);
+    }
+
+    .plusButton:focus-visible>.plusIcon {
+        fill: black;
+        transform: rotate(180deg);
     }
     </style>
 
-    <div class="diff-store">
-        <div class="storeOne">
-            <a href="http://localhost/QUINTET/">
-                <h1>QUINTET SHOP </h1>
-            </a>
+    <div class="center-btn">
+        <div tabindex="0" class="plusButton" onclick="openFullScreen()">
+            <svg class="plusIcon " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                <g mask="url(#mask0_21_345)">
+                    <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
+                    </path>
+                </g>
+            </svg>
         </div>
     </div>
     <?php include('includes/footer.php'); ?>
