@@ -521,13 +521,13 @@ body::-webkit-scrollbar {
                     <svg width="20px" height="20px" class=" closemenuBar " viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg" onclick="closemenuBar()">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC"
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#ddd"
                             stroke-width="0.096">
-                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#fff" stroke-width="1"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                         <g id="SVGRepo_iconCarrier">
-                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000000" stroke-width="1"
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#fff" stroke-width="1"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
@@ -623,7 +623,7 @@ body::-webkit-scrollbar {
                 padding: 20px;
                 max-width: 450px;
                 width: 100%;
-                background: #fff;
+                background: #000;
                 border: 1px solid black;
                 position: fixed;
                 left: 10%;
@@ -664,10 +664,11 @@ body::-webkit-scrollbar {
                 margin-left: 15px;
                 cursor: pointer;
                 transition: all 0.5s ease;
-                color: #000;
+                color: #fff;
                 font-family: 'Poppins', sans-serif;
                 text-transform: uppercase;
                 z-index: 12;
+                transition: 0.4s all linear;
             }
 
             #woman:checked~.list label.woman,
@@ -677,6 +678,8 @@ body::-webkit-scrollbar {
             #about:checked~.list label.about {
                 color: #000;
                 font-weight: 600;
+                background-color: white;
+                padding: 4px;
             }
 
 
@@ -738,7 +741,7 @@ body::-webkit-scrollbar {
                 margin-top: 10px;
                 font-size: 13px;
                 text-transform: uppercase;
-                color: #000;
+                color: #fff;
                 font-family: 'Poppins', sans-serif;
                 text-decoration: none;
             }

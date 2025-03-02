@@ -22,44 +22,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
 ?>
-<script>
-function openFullScreen() {
-    let elem = document.documentElement;
 
-    if (!document.fullscreenElement &&
-        !document.mozFullScreenElement &&
-        !document.webkitFullscreenElement &&
-        !document.msFullscreenElement) {
-
-        // Enter full screen
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen();
-        } else if (elem.mozRequestFullScreen) {
-            elem.mozRequestFullScreen();
-        } else if (elem.webkitRequestFullscreen) {
-            elem.webkitRequestFullscreen();
-        } else if (elem.msRequestFullscreen) {
-            elem.msRequestFullscreen();
-        }
-    } else {
-        // Exit full screen
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
-        } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-        } else if (document.webkitExitFullscreen) {
-            document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-            document.msExitFullscreen();
-        }
-    }
-}
-
-// Auto enter full screen on page load
-window.onload = function() {
-    openFullScreen();
-};
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -310,145 +273,51 @@ window.onload = function() {
         </script>
         <!-- ========================================= SECTION – HERO : END ========================================= -->
         <!-- ============================================== INFO BOXES ============================================== -->
+        <style>
+        .social_media_newsletter ul li {
+            margin-left: 20px;
+            text-transform: uppercase;
+        }
 
 
-    </div>
-    <!-- /.row -->
-    <!-- <div class="container">
+        .social_media_newsletter ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
 
-            </div> -->
-    <style>
-    .bg-video-wrap {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: 100vh;
-    }
+        .social_media_newsletter a {
+            color: #000 !important;
+        }
 
-    video {
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-
-    }
-
-    .overlay {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-size: 3px 3px;
-        z-index: 2;
-        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.10));
-    }
-
-    .bg- -wrap a h1 {
-        text-align: center;
-        color: #fff;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        z-index: 3;
-        font-size: 30px;
-        max-width: 400px;
-        width: 100%;
-        height: 50px;
-        font-weight: 700;
-    }
-    </style>
-
-    <!-- <div class="col-lg-12 ">
-        <div class="bg-video-wrap">
-            <video src="assets/video/large_2x.mp4" loop muted autoplay>
-            </video>
-            <a href="product-details.php?pid=22">
-                <div class="overlay">
-                </div>
-                <h1>
-                    Big, bigger &and; faster
-                </h1>
-            </a>
+        .social_media_newsletter a h3 {
+            font-size: 14px;
+        }
+        </style>
+        <div class="col-lg-12"
+            style=" display: flex;
+            align-items: center;
+            justify-content: center;text-align:center;height: 100vh !important; position: sticky !important;width: 100%;background:white;padding: 20px;">
+            <div class="social_media_newsletter">
+                <a href="joinournewsletter.php">
+                    <h3>JOIN OUR NEWSLETTER</h3>
+                </a>
+                <ul>
+                    <li>Follow us</li>
+                    <li><a href="">Instagram</a></li>
+                    <li><a href="">Facebook</a></li>
+                    <li><a href="">X</a></li>
+                    <li><a href="">Pinterest</a></li>
+                    <li><a href="">Youtube</a></li>
+                    <li><a href="">Spotify</a></li>
+                </ul>
+            </div>
         </div>
-    </div> -->
-    <style>
-    .center-btn {
-        position: absolute;
-        top: 95%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 9999999999999999999;
-    }
-
-    /* Note that you only needs to edit the config to customize the button! */
-
-    .plusButton {
-        /* Config start */
-        --plus_sideLength: 2.5rem;
-        --plus_topRightTriangleSideLength: 0.9rem;
-        /* Config end */
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid white;
-        width: var(--plus_sideLength);
-        height: var(--plus_sideLength);
-        background-color: #000000;
-        overflow: hidden;
-    }
-
-    .plusButton::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        right: 0;
-        width: 0;
-        height: 0;
-        border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
-        border-style: solid;
-        border-color: transparent white transparent transparent;
-        transition-timing-function: ease-in-out;
-        transition-duration: 0.2s;
-    }
-
-    .plusButton:hover {
-        cursor: pointer;
-    }
-
-    .plusButton:hover::before {
-        --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
-    }
-
-    .plusButton:focus-visible::before {
-        --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
-    }
-
-    .plusButton>.plusIcon {
-        fill: white;
-        width: calc(var(--plus_sideLength) * 0.7);
-        height: calc(var(--plus_sideLength) * 0.7);
-        z-index: 1;
-        transition-timing-function: ease-in-out;
-        transition-duration: 0.2s;
-    }
-
-    .plusButton:hover>.plusIcon {
-        fill: black;
-        transform: rotate(180deg);
-    }
-
-    .plusButton:focus-visible>.plusIcon {
-        fill: black;
-        transform: rotate(180deg);
-    }
-    </style>
+    </div>
 
     <div class="center-btn">
-        <div tabindex="0" class="plusButton" onclick="openFullScreen()">
+        <div tabindex="0" class="plusButton" id="fullscreenBtn" onclick="openFullScreen()">
             <svg class="plusIcon " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                 <g mask="url(#mask0_21_345)">
                     <path d="M13.75 23.75V16.25H6.25V13.75H13.75V6.25H16.25V13.75H23.75V16.25H16.25V23.75H13.75Z">
@@ -457,23 +326,42 @@ window.onload = function() {
             </svg>
         </div>
     </div>
-    <?php include('includes/footer.php'); ?>
 
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Check if fullscreen session is stored
+        if (sessionStorage.getItem("fullscreen") === "true") {
+            enterFullscreen();
+        }
 
-    <script src="assets/js/bootstrap.min.js"></script>
+        document.getElementById("fullscreenBtn").addEventListener("click", function() {
+            enterFullscreen();
+            sessionStorage.setItem("fullscreen", "true"); // Store fullscreen session
+        });
 
-    <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
+        // Function to enter fullscreen
+        function enterFullscreen() {
+            let elem = document.documentElement;
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari & Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        }
 
-    <script src="assets/js/echo.min.js"></script>
-    <script src="assets/js/jquery.easing-1.3.min.js"></script>
-    <script src="assets/js/bootstrap-slider.min.js"></script>
-    <script src="assets/js/jquery.rateit.min.js"></script>
-    <script type="text/javascript" src="assets/js/lghtbox.min.js"></script>
-    <script src="assets/js/bootstrap-select.min.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/scripts.js"></script>
+        // Event listener for fullscreen exit
+        document.addEventListener("fullscreenchange", function() {
+            if (!document.fullscreenElement) {
+                sessionStorage.removeItem("fullscreen"); // Remove session if fullscreen exits
+            }
+        });
+    });
+    </script>
+
 
     <!-- For demo purposes – can be removed on production -->
 

@@ -7,6 +7,7 @@ footer {
     padding: 150px !important;
     /* margin: auto !important; */
     background: #ffffff !important;
+    position: sticky !important;
 }
 
 .input_type_newsletter {
@@ -188,14 +189,14 @@ footer {
         <div class="helpFoot footLink">
             <ul>
                 <li>Help</li>
-                <li><a href="/my-account.php">My Quintet Account</a></li>
-                <li><a href="">Items and Sizes</a></li>
-                <li><a href="">Gift Options</a></li>
-                <li><a href="">Shipping</a></li>
-                <li><a href="">Payment and Invoices</a></li>
-                <li><a href="">My purchases</a></li>
-                <li><a href="">Exchanges, returns and refunds</a></li>
-                <li><a href="">Zara Experiencies</a></li>
+                <li><a href="registrationandlogin.php">My Quintet Account</a></li>
+                <li><a href="ItemsAvailability.php">Items and Sizes</a></li>
+                <li><a href="GiftCard.php">Gift Options</a></li>
+                <li><a href="shippingmethodsTimesandcosts.php">Shipping</a></li>
+                <li><a href="PaymentMethods.php">Payment and Invoices</a></li>
+                <li><a href="OnlineShopping.php">My purchases</a></li>
+                <li><a href="HowToReturn.php">Exchanges, returns and refunds</a></li>
+                <li><a href="">Quintet Experiencies</a></li>
             </ul>
         </div>
         <div class="helpFoot footLink">
