@@ -30,6 +30,7 @@ if (strlen($_SESSION['login']) == 0) {
         }
     }
 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

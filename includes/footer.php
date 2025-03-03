@@ -7,7 +7,6 @@ footer {
     padding: 150px !important;
     /* margin: auto !important; */
     background: #ffffff !important;
-    position: sticky !important;
 }
 
 .input_type_newsletter {

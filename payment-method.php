@@ -475,8 +475,13 @@ if (strlen($_SESSION['login']) == 0) {
                 <?php
                     include 'phpqrcode/qrlib.php';
 
-
                     // Fetch product name and price from URL parameters
+
+                    // Fetch product name from URL parameters
+                    $product_name = isset($_GET['product']) ? $_GET['product'] : "Default Product";
+
+                    // Use Grand Total price from session instead of URL parameter
+                    $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
 
                     // UPI Payment details
                     $upi_id = "amannayak2911@oksbi"; // Replace with your UPI ID
@@ -497,6 +502,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                     // Generate and save the QR code
                     QRcode::png($upi_url, $filename, QR_ECLEVEL_L, 10, 2);
+
 
                     // Display QR code image with product details
                     echo "<div class='qrcodemain'>";

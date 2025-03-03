@@ -22,6 +22,22 @@ function f3() {
     <title>Order Tracking Details</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <link href="anuj.css" rel="stylesheet" type="text/css">
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="admin/assets2.0/css/core/libs.min.css" />
+
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/hope-ui.min.css?v=2.0.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/custom.min.css?v=2.0.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/dark.min.css" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/customizer.min.css" />
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -34,15 +50,13 @@ function f3() {
     <style>
     .center_Div {
         position: absolute;
-        top: 50%;
         left: 50%;
+        top: 50%;
         transform: translate(-50%, -50%);
-        border: 1px solid black;
-        padding: 20px;
+        height: 100% !important;
         text-transform: uppercase;
         font-family: 'Chillax', sans-serif;
         font-weight: lighter;
-        width: 400px;
         color: #000 !important;
     }
 
@@ -69,74 +83,59 @@ function f3() {
         font-weight: bold;
         padding-bottom: 10px;
     }
+
+
+    .card {
+        background-color: white !important;
+    }
+
+    @media (max-width: 600px) {
+        .center_Div {
+            position: relative;
+        }
+    }
     </style>
 </head>
 
 <body>
+    <div class="center_Div bg-white">
+        <div class="col-lg-12 col-sm-12 col-md-12 h-100 bg-white">
+            <div class="card orderDiv bg-white">
+                <div class="card-header d-flex justify-content-between">
+                    <div class="header-title">
+                        <h3 class="card-title fw-normal">Update Order !
+                            <?php echo $oid; ?>
+                        </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="iq-timeline0 m-0 d-flex align-items-center justify-content-between position-relative">
+                        <ul class="list-inline p-0 m-0">
+                            <?php
+                            $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
+                            while ($row = mysqli_fetch_array($ret)) {
+                            ?>
+                            <li>
 
-    <div class="center_Div">
-        <form name="updateticket" id="updateticket" method="post">
-            <table width="100%">
-                <tr>
-                    <td colspan="2" class="fontkink2">
-                        <div class="fontpink2"> Order Tracking Details !</div>
-                    </td>
-                </tr>
+                                <div class="timeline-dots timeline-dot1 border-dark text-dark">
+                                </div>
+                                <h6 class="float-left mb-1 fw-bold bg-black text-white p-2">
+                                    <?php echo $row['status']; ?>
+                                </h6>
+                                <small class="float-right mt-1 fw-bold"><?php echo $row['postingDate']; ?></small>
+                                <div class="d-inline-block w-100 fw-bold">
+                                    <p><?php echo $row['remark']; ?>
+                                    </p>
+                                </div>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <?php
-                $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
-                $num = mysqli_num_rows($ret);
-                if ($num > 0) {
-                    while ($row = mysqli_fetch_array($ret)) {
-                ?>
-                <tr height="50">
-                    <td class="fontkink1 ">order Id :</td>
-                    <td class="fontkink"><?php echo $oid; ?></td>
-                </tr>
-                <tr height="20">
-                    <td class="fontkink1">At Date :</td>
-                    <td class="fontkink"><?php echo $row['postingDate']; ?></td>
-                </tr>
-                <tr height="20">
-                    <td class="fontkink1">Status:</td>
-                    <td class="fontkink statusT"><?php echo $row['status']; ?></td>
-                </tr>
-                <tr height="20">
-                    <td class="fontkink1">Remark:</td>
-                    <td class="fontkink"><?php echo $row['remark']; ?></td>
-                </tr>
-
-
-                <tr>
-                    <td colspan="2">
-                        <hr />
-                    </td>
-                </tr>
-                <?php }
-                } else {
-                    ?>
-                <tr>
-                    <td colspan="2">Order Not Process Yet</td>
-                </tr>
-                <?php  }
-                $st = 'Delivered';
-                $rt = mysqli_query($con, "SELECT * FROM orders WHERE id='$oid'");
-                while ($num = mysqli_fetch_array($rt)) {
-                    $currrentSt = $num['orderStatus'];
-                }
-                if ($st == $currrentSt) { ?>
-                <tr>
-                    <td colspan="2" class="fontkink2" style="padding-left:0px;">
-                        <div class="fontpink3"> Product Delivered successfully</div>
-                    </td>
-                </tr>
-                <?php }
-
-                ?>
-            </table>
-        </form>
     </div>
-
 </body>
 
 </html>
