@@ -111,7 +111,7 @@ body::-webkit-scrollbar {
 .side-menu {
     overflow-y: scroll !important;
     font-family: sans-serif, 'Poppins' !important;
-    width: 400px;
+    width: 600px;
     background: white !important;
     padding-top: 50px;
     display: flex;
@@ -307,8 +307,8 @@ body::-webkit-scrollbar {
 
 .side-menu .bx-x {
     position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
+    top: 0px !important;
+    left: 5px !important;
     font-size: 30px !important;
     color: #000 !important;
     font-weight: 400 !important;
@@ -318,11 +318,11 @@ body::-webkit-scrollbar {
     overflow-y: scroll !important;
     font-family: sans-serif, 'Poppins' !important;
     background: white !important;
-    width: 400px;
+    width: 800px;
     padding-top: 50px;
     padding-bottom: 300px;
     right: -200%;
-    transition: all 0.1s linear;
+    transition: all 0.5s linear;
     border: 1px solid black;
 }
 
@@ -364,47 +364,40 @@ body::-webkit-scrollbar {
     border-right: 1px solid black !important;
 }
 
-.cart-total {
-    background: #fff;
-    width: 400px;
-    position: fixed;
-    bottom: 0%;
-}
 
 .total {
-    border: 0 solid black;
-    border-top: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
+    position: absolute !important;
+    bottom: 8% !important;
+    right: 0 !important;
+    width: 100% !important;
+    font-size: 15px !important;
+    font-weight: 350 !important;
+    color: #fff !important;
+    padding: 20px !important;
 }
 
 .total h5 {
     font-weight: 400;
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 15px !important;
     text-transform: uppercase;
     color: #000;
 }
 
 .total_btn .a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000 !important;
-    width: 400px !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    background-color: #000 !important;
+    width: 100% !important;
+    text-align: center !important;
+    font-size: 15px !important;
+    font-weight: 350 !important;
     color: #fff !important;
-    height: 50px !important;
-    font-size: 12px !important;
-    border-radius: 0 !important;
-    font-weight: 500 !important;
-    border: 1px solid black;
-    border-left: 0;
-    margin-top: 20px !important;
+    padding: 20px !important;
 }
 </style>
 
@@ -475,7 +468,7 @@ body::-webkit-scrollbar {
                 </div>
 
                 <div class="logo">
-                    <svg class=" menubarmain" height="30px" width="30px" onclick="openmenuBar()" viewBox="0 0 24 24"
+                    <svg class=" menubarmain" height="50px" width="50px" onclick="openmenuBar()" viewBox="0 0 24 24"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 9H13H19M5 15H19" stroke="#000000" stroke-width="1" stroke-linecap="round" />
                     </svg>
@@ -518,16 +511,16 @@ body::-webkit-scrollbar {
             </div>
             <div class="outercontainerbox">
                 <div class="containerMenubar">
-                    <svg width="20px" height="20px" class=" closemenuBar " viewBox="0 0 24 24" fill="none"
+                    <svg width="50px" height="50px" class="closemenuBar" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg" onclick="closemenuBar()">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#ddd"
                             stroke-width="0.096">
-                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#fff" stroke-width="1"
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000" stroke-width="1"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                         <g id="SVGRepo_iconCarrier">
-                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#fff" stroke-width="1"
+                            <path d="M19 5L5 19M5 5L9.5 9.5M12 12L19 19" stroke="#000" stroke-width="1"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
@@ -610,9 +603,8 @@ body::-webkit-scrollbar {
 
             .outercontainerbox {
                 position: fixed;
-                left: 0;
-                bottom: -100%;
-                right: 0;
+                left: -200%;
+                bottom: 0;
                 width: 100%;
                 height: 100vh;
                 background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
@@ -621,24 +613,26 @@ body::-webkit-scrollbar {
 
             .containerMenubar {
                 padding: 20px;
-                max-width: 450px;
+                max-width: 600px;
                 width: 100%;
-                background: #000;
+                height: 100vh;
+                background: #fff;
                 border: 1px solid black;
                 position: fixed;
-                left: 10%;
-                bottom: -100%;
+                left: -200%;
+                bottom: 0;
                 /* bottom: 0; */
                 padding: 30px;
+                z-index: 99 !important;
                 transition: all 1s linear;
             }
 
             .closemenuBar {
                 position: absolute;
                 right: 10px;
-                top: 10px;
+                top: 50%;
                 cursor: pointer;
-                z-index: 999;
+                z-index: 99999999 !important;
             }
 
 
@@ -659,16 +653,16 @@ body::-webkit-scrollbar {
             }
 
             .contentDesktop .list label {
-                font-size: 16px;
+                font-size: 20px;
                 font-weight: 300;
                 margin-left: 15px;
                 cursor: pointer;
                 transition: all 0.5s ease;
-                color: #fff;
+                color: #000;
                 font-family: 'Poppins', sans-serif;
                 text-transform: uppercase;
                 z-index: 12;
-                transition: 0.4s all linear;
+                transition: 0.1s all linear;
             }
 
             #woman:checked~.list label.woman,
@@ -678,7 +672,6 @@ body::-webkit-scrollbar {
             #about:checked~.list label.about {
                 color: #000;
                 font-weight: 600;
-                background-color: white;
                 padding: 4px;
             }
 
@@ -734,14 +727,14 @@ body::-webkit-scrollbar {
             .menubarmain {
                 display: block;
                 cursor: pointer;
-                z-index: 99999 !important;
+                z-index: 9 !important;
             }
 
             .responsive_Nav_Link_desktop li a {
                 margin-top: 10px;
-                font-size: 13px;
+                font-size: 20px;
                 text-transform: uppercase;
-                color: #fff;
+                color: #000;
                 font-family: 'Poppins', sans-serif;
                 text-decoration: none;
             }
@@ -759,14 +752,14 @@ body::-webkit-scrollbar {
             </style>
             <script>
             function openmenuBar() {
-                document.querySelector(".containerMenubar").style.bottom = "0";
-                document.querySelector(".outercontainerbox").style.bottom = "0";
+                document.querySelector(".containerMenubar").style.left = "0";
+                document.querySelector(".outercontainerbox").style.left = "0";
 
             }
 
             function closemenuBar() {
-                document.querySelector(".containerMenubar").style.bottom = "-100%";
-                document.querySelector(".outercontainerbox").style.bottom = "-100%";
+                document.querySelector(".containerMenubar").style.left = "-100%";
+                document.querySelector(".outercontainerbox").style.left = "-100%";
             }
             </script>
             <style>
