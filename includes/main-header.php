@@ -324,10 +324,11 @@ body::-webkit-scrollbar {
     right: -200%;
     transition: all 0.5s linear;
     border: 1px solid black;
+    flex-wrap: wrap;
 }
 
 .side-menu .cart-item .image a img {
-    width: 199px;
+    width: 265.66px;
     border: 1px solid black !important;
     border-left: 0 !important;
     border-right: 1px solid black !important;
@@ -336,7 +337,6 @@ body::-webkit-scrollbar {
 
 .side-menu .cart-pra .cartText {
     margin: 0;
-
     width: 100px !important;
     font-size: 10px !important;
     overflow: hidden !important;
@@ -364,12 +364,16 @@ body::-webkit-scrollbar {
     border-right: 1px solid black !important;
 }
 
+.cart-total {
+    width: 100%;
+}
+
 
 .total {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: absolute !important;
+    position: sticky !important;
     bottom: 8% !important;
     right: 0 !important;
     width: 100% !important;
@@ -387,17 +391,28 @@ body::-webkit-scrollbar {
     color: #000;
 }
 
+.total .a {
+    background-color: #000;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 350;
+    color: #fff;
+    margin-top: 30px;
+    padding: 20px;
+}
+
 .total_btn .a {
-    position: absolute !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    background-color: #000 !important;
-    width: 100% !important;
-    text-align: center !important;
-    font-size: 15px !important;
-    font-weight: 350 !important;
-    color: #fff !important;
-    padding: 20px !important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 350;
+    color: #fff;
+    padding: 20px;
 }
 </style>
 
@@ -435,6 +450,7 @@ body::-webkit-scrollbar {
 }
 
 @media only screen and (max-width: 1000px) {
+
     .shoppingBagMobileView a {
         display: block;
     }
@@ -592,7 +608,43 @@ body::-webkit-scrollbar {
                                 </ul>
                             </div>
                         </div>
+                        <div style="width:100%;height:20px;">
+                            <style>
+                            .menuBarLinks {
+                                position: absolute;
+                                bottom: 5%;
+                            }
+
+                            .menuBarLinks li {
+                                margin-top: 10px;
+                            }
+
+                            .menuBarLinks li a {
+                                font-size: 20px;
+                                text-transform: uppercase;
+                                color: #000;
+                            }
+                            </style>
+                            <ul class="menuBarLinks">
+                                <li>
+                                    <a href="joinournewsletter.php">
+                                        JOIN OUR NEWSLETTER
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="ContactUs.php">
+                                        Contact Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="allhelpcategory.php">
+                                        Help
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
 
             </div>

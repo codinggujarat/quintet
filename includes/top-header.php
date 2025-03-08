@@ -633,29 +633,38 @@ section .content p {
                                             <a href=" product-details?pid=<?php echo $row['id']; ?>">
                                                 <?php echo $row['productName']; ?></a>
                                         </h6>
-                                        <h6>
-                                            <span>
-                                                ₹
-                                            </span>
-                                            <span>
-                                                <?php echo ($row['productPrice'] + $row['shippingCharge']); ?>
-                                            </span>
-                                        </h6>
-                                        <h6>
-                                            <span>
-                                                Qty.
-                                            </span>
-                                            <span>
-                                                <?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>
-                                            </span>
-                                        </h6>
+                                        <div style="justify-content: space-between; display: flex;">
+                                            <div>
+                                                <h6 style="font-weight: bold; text-transform: uppercase;color:#000;">
+                                                    ₹ PRICE
+                                                </h6>
+                                            </div>
+                                            <div>
+                                                <h6 Style="font-weight: bold; text-transform: uppercase;color:#000;">
+                                                    <?php echo ($row['productPrice'] + $row['shippingCharge']); ?>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: -13px; justify-content: space-between; display: flex;">
+                                            <div>
+
+                                                <H6 style="font-weight: bold; text-transform: uppercase;color:#000;">
+                                                    quantity:
+                                                </H6>
+                                            </div>
+                                            <div>
+                                                <H6 Style="font-weight: bold; text-transform: uppercase;color:#000;">
+                                                    <?php echo $_SESSION['cart'][$row['id']]['quantity']; ?>
+                                                </H6>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <?php }
                                 } ?>
                             </li>
                             <div class=" cart-total ">
-                                <div class="total">
+                                <div class=" total">
                                     <h5>
                                         Total :
                                     </h5>
@@ -665,25 +674,15 @@ section .content p {
                                         ₹
                                         <?php echo $_SESSION['tp'] = "$totalprice" . ".00"; ?></span>
                                 </div>
-                                <div class="total_btn">
-                                    <a href="my-cart.php" class="a" style="
-                                    position: absolute !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    background-color: #000 !important;
-    width: 100% !important;
-    text-align: center !important;
-    font-size: 15px !important;
-    font-weight: 350 !important;
-    color: #fff !important;
-    padding: 20px !important;">
+                                <div class="total">
+                                    <a href="my-cart.php" class="a">
                                         MY BAG </a>
                                 </div>
                             </div><!-- /.cart-total-->
                         </ul><!-- /.dropdown-menu-->
                     </div><!-- /.dropdown-cart -->
                     <?php } else { ?>
-                    <div class="dropdown dropdown-cart cartBtn">
+                    <div class=" dropdown dropdown-cart cartBtn">
                         <ul class="side-menu"
                             style=" display: flex !important;align-items: center !important;justify-content: center !important;">
                             <svg width="50px" height="50px" class="bx-x" viewBox="0 0 24 24" fill="none"

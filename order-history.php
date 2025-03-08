@@ -288,6 +288,31 @@ if (strlen($_SESSION['login']) == 0) {
                                                         style="font-size: 15px; margin-left: 10px;"></i>
                                                 </a>
                                             </div>
+
+                                            <?php
+                                                    $shortStatus = substr(htmlentities($row['ostatus']), 0, 10);
+                                                    if ($shortStatus != 'cancelled' && $shortStatus != 'delivered') { ?>
+                                            <form method="post"
+                                                action="cancelorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
+                                                <button type="submit" class="Cancelbtn"
+                                                    onclick="return confirm('Are you sure you want to cancel this order?');">
+                                                    Cancel Order
+                                                </button>
+                                            </form>
+                                            <?php } ?>
+
+
+
+                                            <style>
+                                            .Cancelbtn {
+                                                width: 100%;
+                                                background: #000;
+                                                color: #fff;
+                                                text-transform: uppercase;
+                                                font-family: 'Poppins', sans-serif;
+                                                padding: 10px;
+                                            }
+                                            </style>
                                         </div>
                                     </div>
                                     <?php $cnt = $cnt + 1;
