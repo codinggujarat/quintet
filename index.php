@@ -441,8 +441,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     setInterval(changeBackground, 2500);
     changeBackground();
     </script>
+    <?php
+    include('includes/bot.php');
 
-
+    ?>
 </body>
 
 </html>
