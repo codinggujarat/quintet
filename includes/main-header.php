@@ -318,7 +318,7 @@ body::-webkit-scrollbar {
     overflow-y: scroll !important;
     font-family: sans-serif, 'Poppins' !important;
     background: white !important;
-    width: 800px;
+    max-width: 800px;
     padding-top: 50px;
     padding-bottom: 300px;
     right: -200%;
@@ -337,7 +337,7 @@ body::-webkit-scrollbar {
 
 .side-menu .cart-pra .cartText {
     margin: 0;
-    width: 100px !important;
+    width: 100px;
     font-size: 10px !important;
     overflow: hidden !important;
     overflow: hidden !important;
@@ -467,6 +467,28 @@ body::-webkit-scrollbar {
 
     .mobileSearchbar {
         display: none;
+    }
+
+    .cart-item {
+        display: flex;
+        width: 100%;
+    }
+
+    .cart-pra {
+        border: 1px solid black !important;
+        width: 100%;
+    }
+
+    .side-menu .cart-pra .cartText {
+        width: 200px;
+        text-align: left !important;
+    }
+
+    .cart-pra .cartText a {
+        text-align: left !important;
+        font-size: 12px !important;
+        font-weight: bold !important;
+        color: #000 !important;
     }
 }
 </style>
