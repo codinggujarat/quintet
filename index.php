@@ -166,7 +166,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     <div class="swiper mySwiper2 swiper-v">
                         <div class="swiper-wrapper">
                             <?php
-                            $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC LIMIT 10");
+                            $ret = mysqli_query($con, "select * from products where category=8 ORDER BY ID DESC");
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
