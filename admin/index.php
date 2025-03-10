@@ -178,6 +178,10 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
+                         <span class="checkbox">
+                            <input type="checkbox" id="checks" class="eye-icon" />
+                            <label for="checks">Show Password</label>
+                        </span>
                         <div class="module-foot" style="background: transparent ; border: 0 !important ;  ">
                             <div class="control-group">
                                 <div class="controls clearfix" style="background: #fff !important  ;">
@@ -185,10 +189,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
-                        <span class="checkbox">
-                            <input type="checkbox" id="checks" class="eye-icon" />
-                            <label for="checks">Show Password</label>
-                        </span>
+                       
                     </form>
                 </div>
             </div>

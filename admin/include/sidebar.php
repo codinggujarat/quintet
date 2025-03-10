@@ -609,6 +609,34 @@ select:valid~label {
                 <li class="nav-item mb-1">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="user-logs.php">
                         <i class="icon">
+                            <svg class="color" width="35" viewBox="-0.5 0 25 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M14.665 9.605H2.995C2.715 9.605 2.495 9.825 2.495 10.105V15.265C2.495 15.545 2.715 15.765 2.995 15.765H4.495V18.505L7.16501 15.765H14.665C14.945 15.765 15.165 15.545 15.165 15.265V10.105C15.165 9.825 14.935 9.605 14.665 9.605Z"
+                                        stroke="#0F0F0F" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M15.175 12.655H15.165" stroke="#0F0F0F" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path
+                                        d="M8.83496 7.575V6.995C8.83496 6.715 9.05496 6.495 9.33496 6.495H21.005C21.275 6.495 21.505 6.715 21.505 6.995V12.325C21.505 12.505 21.365 12.655 21.185 12.655H19.505"
+                                        stroke="#0F0F0F" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M8.83496 9.605V9.575" stroke="#0F0F0F" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                    <path d="M19.505 12.655V15.385L16.835 12.655" stroke="#0F0F0F"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </g>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Manage Chatbot </span>
+                    </a>
+                </li>
+                <li class="nav-item mb-1">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="user-logs.php">
+                        <i class="icon">
 
                             <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
