@@ -194,7 +194,6 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <th>Shippping Address/City/State/Pincode </th>
                                                         <th>Billing Address/City/State/Pincode </th>
                                                         <th>Reg. Date </th>
-                                                        <th>Reg. Date </th>
 
                                                     </tr>
                                                 </thead>
@@ -214,9 +213,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <td><?php echo htmlentities($row['billingAddress'] . "," . $row['billingCity'] . "," . $row['billingState'] . "-" . $row['billingPincode']); ?>
                                                         </td>
                                                         <td><?php echo htmlentities($row['regDate']); ?></td>
-                                                        <td> <a href="user-orders.php?uid=<?php echo $row['id'] ?>&&uname=<?php echo htmlentities($row['name']); ?>"
-                                                                target="_blank">View Orders</a>
-                                                        </td>
+
                                                         <?php $cnt = $cnt + 1;
                                                         } ?>
 

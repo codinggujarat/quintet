@@ -49,17 +49,19 @@ $(document).ready(function() {
         $(".botform").append($msg);
         $("#data").val('');
 
-        // start ajax code
+        // Start AJAX code
         $.ajax({
             url: 'includes/message.php',
             type: 'POST',
-            data: 'text=' + $value,
+            data: {
+                text: $value
+            },
             success: function(result) {
                 $replay =
-                    '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>' +
-                    result + '</p></div></div>';
+                    '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header">' +
+                    result + '</div></div>';
                 $(".botform").append($replay);
-                // when chat goes down the scroll bar automatically comes to the bottom
+                // Scroll to bottom when new message is added
                 $(".botform").scrollTop($(".botform")[0].scrollHeight);
             }
         });

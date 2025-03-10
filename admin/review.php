@@ -138,7 +138,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                 <h3 style=" font-size: 17px !important;
                                 font-family: 'Poppins',sans-serif ;font-weight: 400 !important ; "
                                     class="text-uppercase">
-                                    manage Chatbot Query/Reply
+                                    Manage Product's Reviews
                                 </h3>
 
                                 <div class="module-body " style=" overflow-x:auto !important ;">
@@ -157,6 +157,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <table id="datatable" class="table   " data-toggle="data-table">
                                                 <thead>
                                                     <tr>
+                                                        <th>#</th>
                                                         <th>ID</th>
                                                         <th>Product ID</th>
                                                         <th>Product Name</th>
@@ -175,15 +176,18 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <?php
                                                     // Fetch chatbot data
                                                     $result = mysqli_query($con, "SELECT pr.*, p.productName    FROM productreviews pr LEFT JOIN products p ON pr.productId = p.id ORDER BY pr.reviewDate DESC");
-                                                    while ($row = mysqli_fetch_assoc($result)) { ?>
+                                                    $cnt = 1;
+                                                    while ($row = mysqli_fetch_assoc($result)) {
+                                                    ?>
                                                     <tr>
+                                                        <td><?php echo htmlentities($cnt); ?></td>
                                                         <td><?php echo $row['id']; ?></td>
                                                         <td><?php echo $row['productId']; ?></td>
                                                         <td><?php echo htmlspecialchars($row['productName'] ?? 'Unknown'); ?>
                                                         </td>
-                                                        <td><?php echo $row['quality']; ?></td>
-                                                        <td><?php echo $row['price']; ?></td>
-                                                        <td><?php echo $row['value']; ?></td>
+                                                        <td><?php echo $row['quality']; ?>/5 star</td>
+                                                        <td><?php echo $row['price']; ?> /5 star</td>
+                                                        <td><?php echo $row['value']; ?>/5 star</td>
                                                         <td><?php echo htmlspecialchars($row['name']); ?></td>
                                                         <td class="summary"
                                                             title="<?php echo htmlspecialchars($row['summary']); ?>">
@@ -193,14 +197,44 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                             title="<?php echo htmlspecialchars($row['review']); ?>">
                                                             <?php echo nl2br(htmlspecialchars($row['review'])); ?>
                                                         </td>
+
                                                         <td>
                                                             <?php echo $row['reviewDate']; ?></td>
                                                         <td>
-                                                            <a href=" review-delete.php?id=<?php echo $row['id']; ?>"
-                                                                onclick="return confirm('Are you sure?')">Delete</a>
+                                                            <div style="float:right;">
+                                                                <a class="btn btn-sm btn-icon text-black"
+                                                                    data-bs-toggle="tooltip" title="Delete User"
+                                                                    href=" review-delete.php?id=<?php echo $row['id']; ?>"
+                                                                    onclick="return confirm('Are you sure?')">
+                                                                    <span class="btn-inner">
+                                                                        <svg class="icon-20" width="20"
+                                                                            viewBox="0 0 24 24" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            stroke="currentColor">
+                                                                            <path
+                                                                                d="M19.3248 9.46826C19.3248 9.46826 18.7818 16.2033 18.4668 19.0403C18.3168 20.3953 17.4798 21.1893 16.1088 21.2143C13.4998 21.2613 10.8878 21.2643 8.27979 21.2093C6.96079 21.1823 6.13779 20.3783 5.99079 19.0473C5.67379 16.1853 5.13379 9.46826 5.13379 9.46826"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round">
+                                                                            </path>
+                                                                            <path d="M20.708 6.23975H3.75"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round"></path>
+                                                                            <path
+                                                                                d="M17.4406 6.23973C16.6556 6.23973 15.9796 5.68473 15.8256 4.91573L15.5826 3.69973C15.4326 3.13873 14.9246 2.75073 14.3456 2.75073H10.1126C9.53358 2.75073 9.02558 3.13873 8.87558 3.69973L8.63258 4.91573C8.47858 5.68473 7.80258 6.23973 7.01758 6.23973"
+                                                                                stroke="currentColor" stroke-width="1.5"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round">
+                                                                            </path>
+                                                                        </svg>
+                                                                    </span>
+                                                                </a>
+                                                            </div>
                                                         </td>
                                                     </tr>
-                                                    <?php } ?>
+                                                    <?php $cnt = $cnt + 1;
+                                                    } ?>
                                             </table>
                                         </div>
                                     </div>
@@ -212,14 +246,15 @@ if (strlen($_SESSION['alogin']) == 0) {
             </div>
         </div>
     </main>
+
     <style>
     /* Set fixed width for review and summary columns */
     td.summary,
     th.summary {
-        width: 10px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        width: 10px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
     }
 
     td.review,
