@@ -9,7 +9,18 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0">
     <script src="script.js" defer></script>
     <button class="chatbot-toggler" aria-label="Toggle Chatbot">
-        <span class="material-symbols-rounded">mode_comment</span>
+        <span class="material-symbols-rounded">
+            <svg fill="#ffffff" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60" xml:space="preserve" stroke="#000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <path
+                        d="M59.949,58.684L55.104,44.15C57.654,39.702,59,34.647,59,29.5C59,13.233,45.767,0,29.5,0S0,13.233,0,29.5S13.233,59,29.5,59 c4.64,0,9.257-1.108,13.378-3.208l15.867,4.176C58.83,59.989,58.915,60,59,60c0.272,0,0.538-0.112,0.729-0.316 C59.98,59.416,60.065,59.032,59.949,58.684z M16,21.015h14c0.552,0,1,0.448,1,1s-0.448,1-1,1H16c-0.552,0-1-0.448-1-1 S15.448,21.015,16,21.015z M43,39.015H16c-0.552,0-1-0.448-1-1s0.448-1,1-1h27c0.552,0,1,0.448,1,1S43.552,39.015,43,39.015z M43,31.015H16c-0.552,0-1-0.448-1-1s0.448-1,1-1h27c0.552,0,1,0.448,1,1S43.552,31.015,43,31.015z">
+                    </path>
+                </g>
+            </svg>
+        </span>
         <span class="material-symbols-outlined">close</span>
     </button>
 
@@ -18,12 +29,12 @@
     </div>
     <div class="botwrapper">
         <div class="title">
-            <img src="img/QUINTET.png" alt="">
+            <img src="assets/favicon/QUINTETBOT.png" alt="">
         </div>
         <div class="botform">
             <div class="bot-inbox inbox">
                 <div class="icon">
-                    <i class="fas fa-user"></i>
+                    <img src="assets/favicon/android-chrome-192x192.png" alt="">
                 </div>
                 <div class="msg-header">
                     <p>Hello there, how can I help you?</p>
@@ -58,7 +69,7 @@ $(document).ready(function() {
             },
             success: function(result) {
                 $replay =
-                    '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header">' +
+                    '<div class="bot-inbox inbox"><div class="icon"><img src="assets/favicon/android-chrome-192x192.png" alt=""></div><div class="msg-header">' +
                     result + '</div></div>';
                 $(".botform").append($replay);
                 // Scroll to bottom when new message is added
@@ -105,7 +116,6 @@ $(document).ready(function() {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     right: 1%;
     bottom: 10%;
-
     z-index: 999999999999999999999999999999999999999999999999999999999999999999 !important;
     width: 370px;
     background: #fff;
@@ -117,14 +127,16 @@ $(document).ready(function() {
 
 .botwrapper .title img {
     padding: 20px;
-    width: 200px;
+    width: 50%;
 }
 
 .botwrapper .title {
     background: #000;
     color: #fff;
     text-transform: uppercase;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 20px;
     font-weight: 500;
     line-height: 60px;
@@ -150,9 +162,17 @@ $(document).ready(function() {
     margin: 13px 0;
 }
 
+.botwrapper .botform .inbox .icon img {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
 .botwrapper .botform .inbox .icon {
     height: 40px;
     width: 40px;
+    object-fit: cover;
     color: #fff;
     text-align: center;
     text-transform: uppercase;
@@ -165,22 +185,14 @@ $(document).ready(function() {
 .botwrapper .botform .inbox .msg-header {
     max-width: 53%;
     margin-left: 10px;
-}
-
-.botform .inbox .msg-header p {
     color: #fff;
-    text-transform: uppercase;
+    word-break: break-all !important;
     background: #000;
-    border-radius: 10px;
     padding: 8px 10px;
-    font-size: 10px;
-    word-break: break-all;
+    text-transform: uppercase;
+
 }
 
-.botform .user-inbox .msg-header p {
-    color: #fff;
-    background: #555;
-}
 
 .botwrapper .typing-field {
     display: flex;
@@ -191,7 +203,6 @@ $(document).ready(function() {
     justify-content: space-evenly;
     background: #fff;
     border: 3px solid #000;
-    border-radius: 50px;
     margin: 20px;
 }
 
@@ -232,7 +243,7 @@ $(document).ready(function() {
     right: 5px;
     top: 50%;
     height: 35px;
-    width: 35px;
+    width: 50px;
     color: #fff;
     font-size: 12px;
     text-transform: uppercase;
@@ -240,7 +251,6 @@ $(document).ready(function() {
     outline: none;
     opacity: 0;
     pointer-events: none;
-    border-radius: 50px;
     background: #000;
     border: 1px solid #000;
     transform: translateY(-50%);
@@ -266,21 +276,23 @@ $(document).ready(function() {
     bottom: 1%;
     right: 1%;
     background: #000;
-    color: white;
+    color: black;
     border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border: 1px solid white;
     font-size: 24px;
     z-index: 999999999999999999999999999999999999999999999 !important;
 }
 
 .chatbot-toggler span {
     display: none;
+    font-size: 18px;
+    color: #fff !important;
 }
 
 .chatbot-toggler .material-symbols-rounded {
