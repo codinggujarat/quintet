@@ -444,15 +444,21 @@ if (strlen($_SESSION['login']) == 0) {
                         ?>
                     <!-- Custom Form Data: Form data you wish to receive in email. -->
                     <input type="email" class="disabled-input" name="email" id="exampleInputEmail1"
-                        value="<?php echo $row['email']; ?>" placeholder="What's your Login e-mail?">
+                        value="<?php echo $row['email']; ?>" placeholder="What's your Login e-mail?" readonly>
                     <input type="text" class="disabled-input" name="name"
-                        value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?">
-                    <input type="text" class="disabled-input" name="Phone Number"
+                        value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?"
+                        readonly>
+                    <input type="text" class="disabled-input" name="mobile_number"
                         value="<?php echo $row['contactno']; ?>" min="0" max="10" maxlength="10"
-                        placeholder="What's your Login PhoneNumber?">
+                        placeholder="What's your Login PhoneNumber?" readonly>
 
                     <?php } ?>
-                    <input type="number" name="UTR Number" placeholder="What's your UTR Number?" required>
+
+                    <input type="number" name="amount" class="disabled-input" value="<?php echo
+                                                                                            $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
+                                                                                            "  $amount"; ?>" readonly>
+                    <input type="number" name="utr_number" placeholder="What's your UTR Number?" required>
+
                     <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
                     <div class="h-captcha" data-captcha="true"></div>
                     <!-- Google reCaptcha & Cloudflare Turnstile:

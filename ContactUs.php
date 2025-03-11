@@ -27,6 +27,23 @@ if (isset($_POST['change'])) {
     }
 }
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $phone_number = mysqli_real_escape_string($con, $_POST['phone_number']);
+    $website_url = mysqli_real_escape_string($con, $_POST['website_url']);
+    $message = mysqli_real_escape_string($con, $_POST['message']);
+
+    $query = "INSERT INTO contact_us (name, email, phone_number, website_url, message) 
+              VALUES ('$name', '$email', '$phone_number', '$website_url', '$message')";
+
+    if (mysqli_query($con, $query)) {
+        echo "<script>alert('Message submitted successfully!');</script>";
+    } else {
+        echo "<script>alert('Error submitting message.');</script>";
+    }
+}
+
 
 ?>
 
@@ -125,8 +142,6 @@ if (isset($_POST['change'])) {
 
     <div class="body-content outer-top-bd">
         <div>
-            <!-- Required only if you are using hCaptcha or Advanced File Upload. -->
-            <script src="https://web3forms.com/client/script.js" async defer></script>
             <style>
             .header {
                 display: flex;
@@ -150,141 +165,72 @@ if (isset($_POST['change'])) {
                 </svg>
             </div>
             <div class=" wrapper-main">
-                <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
-                    <input type="hidden" name="access_key" value="d9e6a827-ddef-4b16-9c77-716c9ff9bb64"
-                        autocomplete="off"">
+                <form method="POST" autocomplete="off">
                     <div class=" dbl-field">
-                    <div class="field input-field-login">
-                        <input type="text" name="First Name" id="fullname" required autocomplete="off">
+                        <div class="field input-field-login">
+                            <input type="text" name="name" id="fullname" required autocomplete="off">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                    stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <label>What's Your Name?</label>
+                        </div>
+                        <div class="field input-field-login">
+                            <input type="email" name="email" id="email" required autocomplete="off">
+                            <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" stroke="#000000">
+                                <g id="SVGRepo_bgCarrier" stroke-width="1"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="" stroke-linejoin="" stroke="#CCCCCC"
+                                    stroke-width="1"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <polygon points="56 20 32 12 8 20 8 52 56 52 56 20"></polygon>
+                                    <polyline points="48 28 32 36 16 28"></polyline>
+                                </g>
+                            </svg>
+                            <label>What's Your E-mail?</label>
+                        </div>
+                    </div>
+                    <div class="dbl-field">
+                        <div class="field input-field-login">
+                            <input type="text" name="phone_number" id="phone" required autocomplete="off">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+                                    stroke="#000000" stroke-width="1" stroke-linecap="" stroke-linejoin="" />
+                            </svg>
+                            <label>Phone Number</label>
+                        </div>
+                        <div class="field input-field-login">
+                            <input type="text" name="website_url" id="website" required>
+                            <svg width="20px" height="20px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"
+                                style="enable-background:new 0 0 192 192" xml:space="preserve">
+                                <path
+                                    d="M84 128.6H54.6C36.6 128.6 22 114 22 96c0-9 3.7-17.2 9.6-23.1 5.9-5.9 14.1-9.6 23.1-9.6H84m24 65.3h29.4c9 0 17.2-3.7 23.1-9.6 5.9-5.9 9.6-14.1 9.6-23.1 0-18-14.6-32.6-32.6-32.6H108M67.9 96h56.2"
+                                    style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10" />
+                            </svg>
+                            <label>website Url</label>
+                        </div>
+                    </div>
+                    <div class="message input-field-login">
+                        <textarea id="message" name="message" required autocomplete="off"></textarea>
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M5 21C5 17.134 8.13401 14 12 14C15.866 14 19 17.134 19 21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z"
+                                d="M3 7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2Z"
                                 stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <label>What's Your Name?</label>
+                        <label>message</label>
                     </div>
-                    <div class="field input-field-login">
-                        <input type="email" name="email" id="email" required autocomplete="off">
-                        <svg width="20px" height="20px" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" stroke="#000000">
-                            <g id="SVGRepo_bgCarrier" stroke-width="1"></g>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="" stroke-linejoin="" stroke="#CCCCCC"
-                                stroke-width="1"></g>
-                            <g id="SVGRepo_iconCarrier">
-                                <polygon points="56 20 32 12 8 20 8 52 56 52 56 20"></polygon>
-                                <polyline points="48 28 32 36 16 28"></polyline>
-                            </g>
-                        </svg>
-                        <label>What's Your E-mail?</label>
+                    <div class="button-area">
+                        <button type="submit">Send Message</button>
+                        <span></span>
                     </div>
+                </form>
             </div>
-            <!-- Optional: Subject an be prefilled using type="hidden"
-       or type="text" for normal user submitted input -->
-            <input type="hidden" name="subject" value="New Submission from Web3Forms">
-            <!-- Optional: From Name you want to see in the email
-       Default is "Notifications". you can overwrite here -->
-            <input type="hidden" name="from_name" value="Quintet">
-            <!-- Optional: Default replyto will be "email" field (if available)
-       you may overwrite replyto with different email here -->
-            <input type="hidden" name="replyto" value="customer@example.com">
-            <!-- Optional: But Recommended: To Prevent SPAM Submission.
-       Make sure its hidden by default -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-            <div class="dbl-field">
-                <div class="field input-field-login">
-                    <input type="text" name="Phone Number" id="phone" required autocomplete="off">
-                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
-                            stroke="#000000" stroke-width="1" stroke-linecap="" stroke-linejoin="" />
-                    </svg>
-                    <label>Phone Number</label>
-                </div>
-                <div class="field input-field-login">
-                    <input type="text" name="website" id="website" required>
-                    <svg width="20px" height="20px" viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"
-                        style="enable-background:new 0 0 192 192" xml:space="preserve">
-                        <path
-                            d="M84 128.6H54.6C36.6 128.6 22 114 22 96c0-9 3.7-17.2 9.6-23.1 5.9-5.9 14.1-9.6 23.1-9.6H84m24 65.3h29.4c9 0 17.2-3.7 23.1-9.6 5.9-5.9 9.6-14.1 9.6-23.1 0-18-14.6-32.6-32.6-32.6H108M67.9 96h56.2"
-                            style="fill:none;stroke:#000000;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10" />
-                    </svg>
-                    <label>website Url</label>
-                </div>
-            </div>
-            <div class="message input-field-login">
-                <textarea id="message" name="message" required autocomplete="off"></textarea>
-                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3 7.2C3 6.07989 3 5.51984 3.21799 5.09202C3.40973 4.71569 3.71569 4.40973 4.09202 4.21799C4.51984 4 5.0799 4 6.2 4H17.8C18.9201 4 19.4802 4 19.908 4.21799C20.2843 4.40973 20.5903 4.71569 20.782 5.09202C21 5.51984 21 6.0799 21 7.2V20L17.6757 18.3378C17.4237 18.2118 17.2977 18.1488 17.1656 18.1044C17.0484 18.065 16.9277 18.0365 16.8052 18.0193C16.6672 18 16.5263 18 16.2446 18H6.2C5.07989 18 4.51984 18 4.09202 17.782C3.71569 17.5903 3.40973 17.2843 3.21799 16.908C3 16.4802 3 15.9201 3 14.8V7.2Z"
-                        stroke="#000000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-                <label>message</label>
-            </div>
-            <!-- Honeypot Spam Protection -->
-            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-            <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
-            <div class="h-captcha" data-captcha="true"></div>
-            <!-- Google reCaptcha & Cloudflare Turnstile:
-       This feature is available for paid users only -->
-            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-            <div class="cf-turnstile" data-sitekey="<YOUR_SITE_KEY>"></div>
-            <div class="button-area">
-                <button type="submit">Send Message</button>
-                <span></span>
-            </div>
-            </form>
         </div>
-        <script src="https://web3forms.com/client/script.js" async defer></script>
-        <script>
-        const form = document.getElementById('form');
-        const result = document.getElementById('result');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-            result.innerHTML = "Please wait..."
-            result.style.fontSize = "20px";
-            result.style.color = "black";
-
-            fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: json
-                })
-                .then(async (response) => {
-                    let json = await response.json();
-                    if (response.status == 200) {
-                        result.innerHTML = `Form submitted successfully`;
-                        result.style.fontSize = "20px";
-                        result.style.color = "black";
-                    } else {
-                        console.log(response);
-                        result.innerHTML = json.message;
-                        result.style.fontSize = "20px";
-                        result.style.color = "red";
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
-                    result.innerHTML = "Something went wrong!";
-                })
-                .then(function() {
-                    form.reset();
-                    setTimeout(() => {
-                        result.style.display = "none";
-                    }, 3000);
-                });
-        });
-        </script>
-        <!-- create a new account -->
-
-    </div><!-- /.row -->
-    </div>
     </div>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
