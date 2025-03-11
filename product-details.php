@@ -192,6 +192,10 @@
 
                     <div class='col-md-12'>
                         <style>
+                        #logo {
+                            opacity: 0;
+                        }
+
                         .productDescription2 {
                             width: 100%;
                             height: 100%;
@@ -199,6 +203,11 @@
                             margin: 0 !important;
                             font-family: 'Poppins', sans-serif !important;
                             font-weight: 400 !important;
+                        }
+
+                        .body-content {
+                            padding: 0;
+                            margin-top: 0% !important;
                         }
 
                         .productDescription2 img {
@@ -266,8 +275,8 @@
 
                         .mainrowpro {
                             display: flex !important;
-                            align-items: start !important;
-                            justify-content: start !important;
+                            align-items: center !important;
+                            justify-content: center !important;
                         }
 
                         @media only screen and (max-width: 500px) {
@@ -286,20 +295,7 @@
                         }
                         </style>
                         <div class=" row mainrowpro">
-                            <div class=" col-xs-0 col-sm-0 col-md-3 desktopDiscription"
-                                style="position: relative !important;display:flex;justify-content: center !important;padding-left:5%; align-items: center !important; ">
-                                <div class="col-xs-12 col-sm-12 col-md-3 gallery-holder productDescription2">
-                                    <div class="product-tab productDescription" id="more"
-                                        style="background:#fff;border: 0 !important ; ">
-                                        <p class="text "
-                                            style="font-family: 'Poppins', sans-serif !important;font-weight: 400 !important;text-transform:uppercase;font-size: 12px  !important ; font-weight: 400 !important ;padding:10px;font-family: 'Raleway' , sans-serif ; color:black;">
-                                            <?php echo $row['productDescription']; ?>
-                                            <hr>
-                                        </p>
-                                    </div>
-                                    <button class="more" onclick="more()">view more...</button>
-                                </div>
-                            </div>
+
                             <script>
                             function more() {
                                 isvisible = document.getElementById("more").style.height = "492px";
@@ -318,8 +314,8 @@
                             }
 
                             .mySwiper2 {
-                                width: 350px;
-                                height: 500px;
+                                width: 500px;
+                                height: 100vh;
                                 margin: 0;
                                 padding: 0;
                             }
@@ -446,10 +442,10 @@
                             }
 
                             .product-info-block {
-                                width: 350px;
+                                width: 400px;
                             }
                             </style>
-                            <div class="singlepro col-xs-12 col-sm-8 col-md-5  ">
+                            <div class="singlepro col-xs-12 col-sm-8 col-md-6  ">
                                 <div class="swiper mySwiper2  main-product-img ">
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
@@ -573,11 +569,11 @@
                                 },
                             });
                             </script>
-                            <div class='col-xs-12 col-sm-4 col-md-2 product-info-block'
+                            <div class='col-xs-12 col-sm-4 col-md-6 product-info-block'
                                 style="padding: 0 !important; margin: 0 !important; background:#ffffff;">
                                 <div class="product-info " style="height:100% !important;">
                                     <h1 class="name col-sm-12" style="margin-top: 20px !important;font-family:
-                                    sans-serif, 'Poppins' !important;text-transform:uppercase;font-size: 12px;
+                                    sans-serif, 'Poppins' !important;text-transform:uppercase;font-size: 15px;
                                     font-weight: 400;color: #000; ">
                                         <?php echo htmlentities($row['productName']); ?>
                                     </h1>
@@ -603,7 +599,7 @@
                                     </div>
                                     <div class=" stock-container info-container col-sm-12">
                                         <p
-                                            style="margin-top:5px;font-family: 'Poppins',sans-serif !important;color: #000; font-size: 10px;font-weight: normal;font-weight: 200">
+                                            style="margin-top:5px;font-family: 'Poppins',sans-serif !important;color: #000 !important; font-size: 10px;font-weight: normal;font-weight: 5s00">
                                             MRP incl. of all taxes</p>
                                         <hr style="border-top: 1px solid black;">
 
@@ -636,15 +632,15 @@
                                     </div>
                                     <div class=" stock-container info-container col-sm-12">
                                         <p
-                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:capitalize ;">
+                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:uppercase ;">
                                             <?php echo $row['ProductCare']; ?>
                                         </p>
                                         <p
-                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:capitalize ;">
+                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:uppercase ;">
                                             Check in-store availability
                                         </p>
                                         <p
-                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:capitalize ;">
+                                            style="margin:0;padding:0;  font-family: 'Poppins', sans-serif !important;font-weight: 300 !important; font-size: 10px; color: #000;text-transform:uppercase ;">
                                             SHIPPING, EXCHANGES AND RETURNS
                                         </p>
                                         <hr style="border-top: 1px solid black;">
@@ -662,14 +658,14 @@
                                             <div class="">
                                                 <div class="stock-box">
                                                     <span class="label"
-                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 11px; color: #000;text-transform:capitalize ;  ">Availability
+                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 11px; color: #000;text-transform:uppercase ;  ">Availability
                                                         : </span>
                                                 </div>
                                             </div>
                                             <div class=" ">
                                                 <div class="stock-box">
                                                     <span class="value"
-                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 12px; color: #000;text-transform:capitalize ;"><?php echo htmlentities($row['productAvailability']); ?></span>
+                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 12px; color: #000;text-transform:uppercase ;"><?php echo htmlentities($row['productAvailability']); ?></span>
                                                 </div>
                                             </div>
                                         </div><!-- /.row -->
@@ -683,7 +679,7 @@
                                             <div class="" style="border: 0 !important;">
                                                 <div class="stock-box">
                                                     <span class="label"
-                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 12px; color: #000;text-transform:capitalize; ">
+                                                        style="  font-family: 'Poppins', sans-serif !important;font-weight: 400 !important; font-size: 12px; color: #000;text-transform:uppercase; ">
                                                         Brand
                                                         :</span>
                                                 </div>
@@ -728,8 +724,9 @@
                                                     <div class="stock-box" style="border: 0 !important;">
                                                         <span class="label"
                                                             style=" font-weight: 400;  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000;text-transform:capitalize; ">
-                                                            Colour
-                                                            :<?php echo htmlentities($row['productColor']); ?>
+                                                            <span
+                                                                style=" font-weight: 500;  font-family: 'Raleway', sans-serif; font-size: 12px; color: #000 !important;text-transform:uppercase; ">Colour:</span>
+                                                            <?php echo htmlentities($row['productColor']); ?>
                                                         </span>
                                                     </div>
                                                 </div>
@@ -847,11 +844,206 @@
                                                 <i class="fa-solid fa-plus"></i>
                                             </header>
                                             <pre class="description">
-                                        <?php echo $row['productDescription']; ?>
-                                    </pre>
+                                                <?php echo $row['productDescription']; ?>
+                                            </pre>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="  col-md-12 desktopDiscription "
+                                    style="width:100% !important;background:#ffffff;margin-top: 20px;">
+                                    <button class="open-btn">Composition, care & origin</h1>
+                                </div>
+                                <div class="  col-md-12 desktopDiscription "
+                                    style="width:100% !important;background:#ffffff;">
+                                    <button class="open-btnReturn">SHIPPING, EXCHANGES AND RETURNS
+                                        </h1>
+                                </div>
+
+                                <style>
+                                .open-btn,
+                                .open-btnReturn {
+                                    border: 0 solid black;
+                                    outline: 0;
+                                    box-shadow: 0;
+                                    text-transform: uppercase;
+                                    color: #000;
+                                    font-family: 'Poppins', sans-serif;
+                                    text-align: left;
+                                    width: 100%;
+                                    font-size: 12px;
+                                    padding: 10px;
+                                    font-weight: 400;
+                                    background: transparent;
+                                }
+
+                                .ouertCare,
+                                .ouertCareReturn {
+                                    position: fixed;
+                                    top: 0;
+                                    right: -100%;
+                                    width: 100%;
+                                    height: 100vh;
+                                    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+                                    z-index: 999999999999999999999999 !important;
+                                    transition: 0.5s all linear;
+                                }
+
+                                .inncrCare {
+                                    position: fixed;
+                                    top: 0;
+                                    right: -100%;
+                                    max-width: 400px;
+                                    width: 100%;
+                                    height: 100vh;
+                                    background-color: white;
+                                    z-index: 999999999999999999999999990 !important;
+                                    padding: 20px;
+                                    overflow-y: scroll;
+                                    transition: 0.5s all linear;
+
+                                }
+
+                                .inncrCareReturn {
+                                    position: fixed;
+                                    top: 0;
+                                    right: -100%;
+                                    max-width: 600px;
+                                    width: 100%;
+                                    height: 100vh;
+                                    background-color: white;
+                                    z-index: 999999999999999999999999990 !important;
+                                    padding: 20px;
+                                    overflow-y: scroll;
+                                    transition: 0.5s all linear;
+
+                                }
+
+                                .inncrCare img {
+                                    width: 100%;
+
+                                }
+
+                                .inncrCareReturn img {
+                                    width: 100%;
+
+                                }
+
+                                .inncrCare .bx-x,
+                                .inncrCareReturn .bx-x {
+                                    font-size: 30px;
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    padding: 10px 20px;
+                                }
+
+                                .ouertCare.active,
+                                .inncrCare.active,
+                                .ouertCareReturn.active,
+                                .inncrCareReturn.active {
+                                    right: 0;
+                                }
+                                </style>
+                                <div class=" ouertCare ">
+                                </div>
+                                <div class=" inncrCare">
+                                    <i class='bx bx-x close-btn'></i>
+                                    <div class="product-tab " style="background:#fff;border: 0 !important ; ">
+                                        <p class="text "
+                                            style="font-family: 'Poppins', sans-serif !important;font-weight: 400 !important;text-transform:uppercase;font-size: 12px  !important ; font-weight: 400 !important ;padding:10px;font-family: 'Raleway' , sans-serif ; color:black;">
+                                            <?php echo $row['productDescription']; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <style>
+                                .returnCard {
+                                    font-family: 'Poppins', sans-serif !important;
+                                    font-weight: 400 !important;
+                                    text-transform: uppercase;
+                                    padding: 10px;
+                                    font-family: 'Raleway', sans-serif;
+                                    color: black;
+                                }
+
+                                .returnCard h1 {
+                                    margin-top: 40px;
+                                    font-weight: 400;
+                                    font-size: 15px !important;
+                                }
+
+                                .returnCard a {
+                                    background-color: #000;
+                                    color: #fff;
+                                    padding: 5px;
+                                }
+                                </style>
+                                <div class=" ouertCareReturn ">
+                                </div>
+                                <div class=" inncrCareReturn">
+                                    <i class='bx bx-x close-btnReturn'></i>
+                                    <div class="product-tab returnCard "
+                                        style="background:#fff;border: 0 !important ; ">
+
+                                        <h1>SHIPPING</h1>
+                                        <h1> SHIPPING TO A QUINTET STORE - FREE</h1>
+                                        Delivery in 3-5 working days.
+
+                                        <h1>HOME DELIVERY</h1>
+                                        <p>
+                                            Delivery in 2-8 working days - ₹ 290.00
+                                            Shipping will be free for orders over ₹ 2,990 only for non-discounted items.
+                                        </p>
+
+                                        <h1>EXCHANGES AND RETURNS</h1>
+                                        <p>
+                                            You have 30 days from the shipping date to return your purchase from
+                                            quintetonline.com.
+                                        </p>
+                                        <h1>RETURNS TO A QUINTET STORE - FREE</h1>
+                                        <h1>HOME COLLECTION - ₹ 100</h1>
+                                        <p>
+                                            The cost of the return applies to each request and will be deducted from the
+                                            refund amount.
+                                        </p>
+                                        <h6>
+                                            For more information, we suggest you go to the <a
+                                                href="allhelpcategory.php#alltopicscroll">Help</a> section.
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <script>
+                                const inncrCare = document.querySelector(".inncrCare");
+                                const ouertCare = document.querySelector(".ouertCare");
+                                const openBtn = document.querySelector(".open-btn");
+                                const closeBtn = document.querySelector(".close-btn");
+
+                                openBtn.addEventListener("click", () => {
+                                    inncrCare.classList.add("active");
+                                    ouertCare.classList.add("active");
+                                });
+
+                                closeBtn.addEventListener("click", () => {
+                                    inncrCare.classList.remove("active");
+                                    ouertCare.classList.remove("active");
+                                });
+                                </script>
+                                <script>
+                                const inncrCareReturn = document.querySelector(".inncrCareReturn");
+                                const ouertCareReturn = document.querySelector(".ouertCareReturn");
+                                const openBtnReturn = document.querySelector(".open-btnReturn");
+                                const closeBtnReturn = document.querySelector(".close-btnReturn");
+
+                                openBtnReturn.addEventListener("click", () => {
+                                    inncrCareReturn.classList.add("active");
+                                    ouertCareReturn.classList.add("active");
+                                });
+
+                                closeBtnReturn.addEventListener("click", () => {
+                                    inncrCareReturn.classList.remove("active");
+                                    ouertCareReturn.classList.remove("active");
+                                });
+                                </script>
                             </div><!-- /.row -->
                         </div><!-- /.price-container -->
                     </div><!-- /.product-info -->
@@ -1134,7 +1326,7 @@
 
                 .product-info {
                     width: 100%;
-                    border-top: 1px solid black;
+                    border: 1px solid black;
 
                 }
 
@@ -2011,6 +2203,8 @@
                 </div>
             </div>
         </div>
+
+
         <!--==============================================UPSELL PRODUCTS :
         END==============================================-->
 
