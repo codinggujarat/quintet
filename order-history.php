@@ -289,9 +289,10 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </a>
                                             </div>
 
+
                                             <?php
                                                     $shortStatus = substr(htmlentities($row['ostatus']), 0, 10);
-                                                    if ($shortStatus != 'cancelled' && $shortStatus != 'Delivered') { ?>
+                                                    if ($shortStatus != 'Delivered' && $shortStatus == 'return order') { ?>
                                             <form method="post"
                                                 action="cancelorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
                                                 <button type="submit" class="Cancelbtn"
@@ -301,7 +302,17 @@ if (strlen($_SESSION['login']) == 0) {
                                             </form>
                                             <?php } ?>
 
-
+                                            <?php
+                                                    $shortStatus = substr(htmlentities($row['ostatus']), 0, 10);
+                                                    if ($shortStatus == 'Delivered' || $shortStatus == 'return order') { ?>
+                                            <form method="post"
+                                                action="returnorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
+                                                <button type="submit" class="Cancelbtn"
+                                                    onclick="return confirm('Are you sure you want to cancel this order?');">
+                                                    Return Order
+                                                </button>
+                                            </form>
+                                            <?php } ?>
 
                                             <style>
                                             .Cancelbtn {

@@ -314,7 +314,7 @@ select:valid~label {
                         <span class="mini-icon">-</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="dashboard.php">
                         <i class="icon">
                             <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
@@ -372,7 +372,7 @@ select:valid~label {
                         </i>
                     </a>
                     <ul class="sub-nav collapse" id="horizontal-menu" data-bs-parent="#sidebar-menu">
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent " href="todays-orders.php">
                                 <span class="item-name text-uppercase text-black "> Today's Orders </span>
                                 <?php
@@ -388,7 +388,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="pending-orders.php">
 
                                 <span class="item-name text-uppercase text-black">Pending Orders</span>
@@ -401,7 +401,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="packed-orders.php">
                                 <span class="item-name text-uppercase text-black">Packed Orders</span>
                                 <?php
@@ -413,7 +413,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="Dispatched-orders.php">
                                 <span class="item-name text-uppercase text-black">Dispatched Orders</span>
                                 <?php
@@ -425,7 +425,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="intransit-orders.php">
                                 <span class="item-name text-uppercase text-black">In Transit Orders</span>
                                 <?php
@@ -437,7 +437,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="OutForDelivery-orders.php">
                                 <span class="item-name text-uppercase text-black">Out For Delivery <br> Orders</span>
                                 <?php
@@ -449,7 +449,7 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="delivered-orders.php">
                                 <span class="item-name text-uppercase text-black">Delivered Orders</span>
                                 <?php
@@ -461,11 +461,23 @@ select:valid~label {
                                 <?php } ?>
                             </a>
                         </li>
-                        <li class="nav-item mb-1">
+                        <li class="nav-item ">
                             <a class="nav-link rounded-5  text-black bg-transparent" href="cancelled-orders.php">
                                 <span class="item-name text-uppercase text-black">cancelled Orders</span>
                                 <?php
                                 $status = 'Cancelled';
+                                $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
+                                $num1 = mysqli_num_rows($rt); { ?>
+                                <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
+                                    style="  height: 20px;width: 20px;background-color: #000;   color: #fff;font-weight: 400;  background: #0dcaf0 !important ;   "><?php echo htmlentities($num1); ?></b>
+                                <?php } ?>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="cancelled-orders.php">
+                                <span class="item-name text-uppercase text-black">Return Orders</span>
+                                <?php
+                                $status = 'return order';
                                 $rt = mysqli_query($con, "SELECT * FROM Orders where orderStatus='$status'");
                                 $num1 = mysqli_num_rows($rt); { ?>
                                 <b class=" label  rounded-5  d-flex align-items-center justify-content-center  pb-1 bg-info"
@@ -478,7 +490,7 @@ select:valid~label {
 
 
 
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="manage-users.php">
                         <i class="icon">
 
@@ -518,7 +530,7 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage users</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="category.php">
                         <i class="icon">
 
@@ -538,7 +550,7 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Create Category</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="subcategory.php">
                         <i class="icon">
 
@@ -560,7 +572,7 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Sub Category</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="insert-product.php">
                         <i class="icon">
 
@@ -584,7 +596,7 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Insert Product</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="manage-products.php">
                         <i class="icon">
 
@@ -606,7 +618,29 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Products</span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="payments.php">
+                        <i class="icon">
+                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.6389 14.3957H17.5906C16.1042 14.3948 14.8993 13.1909 14.8984 11.7045C14.8984 10.218 16.1042 9.01409 17.5906 9.01318H21.6389"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M18.049 11.6429H17.7373" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.74766 3H16.3911C19.2892 3 21.6388 5.34951 21.6388 8.24766V15.4247C21.6388 18.3229 19.2892 20.6724 16.3911 20.6724H7.74766C4.84951 20.6724 2.5 18.3229 2.5 15.4247V8.24766C2.5 5.34951 4.84951 3 7.74766 3Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M7.03516 7.5382H12.4341" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Manage Payments </span>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="chatbot.php">
                         <i class="icon">
                             <svg class="color" width="35" viewBox="-0.5 0 25 25" fill="none"
@@ -634,7 +668,25 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Chatbot </span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="feedback.php">
+                        <i class="icon">
+                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.7476 20.4428H21.0002" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M11.021 6.00098L16.4732 10.1881" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Manage Feedback </span>
+                    </a>
+                </li>
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="contactUs.php">
                         <i class="icon">
                             <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
@@ -654,29 +706,8 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Contact </span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
-                    <a class="nav-link rounded-5  text-black bg-transparent" href="payments.php">
-                        <i class="icon">
-                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M21.6389 14.3957H17.5906C16.1042 14.3948 14.8993 13.1909 14.8984 11.7045C14.8984 10.218 16.1042 9.01409 17.5906 9.01318H21.6389"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path d="M18.049 11.6429H17.7373" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                                <path fill-rule="evenodd" clip-rule="evenodd"
-                                    d="M7.74766 3H16.3911C19.2892 3 21.6388 5.34951 21.6388 8.24766V15.4247C21.6388 18.3229 19.2892 20.6724 16.3911 20.6724H7.74766C4.84951 20.6724 2.5 18.3229 2.5 15.4247V8.24766C2.5 5.34951 4.84951 3 7.74766 3Z"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                <path d="M7.03516 7.5382H12.4341" stroke="currentColor" stroke-width="1.5"
-                                    stroke-linecap="round" stroke-linejoin="round"></path>
-                            </svg>
-                        </i>
-                        <span class="item-name text-uppercase text-black">Manage Payments </span>
-                    </a>
-                </li>
-                <li class="nav-item mb-1">
+
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="review.php">
                         <i class="icon">
                             <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
@@ -691,7 +722,7 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Reviews </span>
                     </a>
                 </li>
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="user-logs.php">
                         <i class="icon">
 
@@ -711,7 +742,7 @@ select:valid~label {
                     </a>
                 </li>
                 <hr style="border: 1px solid black;">
-                <li class="nav-item mb-1">
+                <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="change-password.php">
                         <i class="icon">
 

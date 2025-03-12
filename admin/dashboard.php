@@ -10,7 +10,8 @@ count(if(orderStatus='Dispatched',  0,null)) as dispatchedorders,
 count(if(orderStatus='In Transit',  0,null)) as intransitorders,
 count(if(orderStatus='Out For Delivery', 0,null)) as outfdorders,
 count(if(orderStatus='Delivered', 0,null)) as deliveredorders,
-count(if(orderStatus='Cancelled', 0,null)) as cancelledorders 
+count(if(orderStatus='Cancelled', 0,null)) as cancelledorders,
+count(if(orderStatus='return order', 0,null)) as returnorders 
 from orders;");
     $results = mysqli_fetch_array($ret);
     $porders = $results['packedorders'];
@@ -19,6 +20,7 @@ from orders;");
     $otforders = $results['outfdorders'];
     $deliveredorders = $results['deliveredorders'];
     $cancelledorders = $results['cancelledorders'];
+    $returnorders = $results['returnorders'];
     //COde for Registered users
     $ret1 = mysqli_query($con, "select count(id) as totalusers from users;");
     $results1 = mysqli_fetch_array($ret1);
@@ -501,7 +503,7 @@ JOIN products p ON o.productid = p.id");
                                                     <p class="mb-0 text-uppercase">Padding Orders</p>
                                                     <?php
                                                         $status = 'Delivered';
-                                                        $ret = mysqli_query($con, "SELECT * FROM Orders where orderStatus!='$status' || orderStatus is null ");
+                                                        $ret = mysqli_query($con, "SELECT * FROM Orders where orderStatus!='$status' &&  orderStatus!='Cancelled' &&  orderStatus!='return order' || orderStatus is null ");
                                                         $num = mysqli_num_rows($ret); { ?>
                                                     <h4><?php echo htmlentities($num); ?></h4>
                                                 </div>
@@ -586,6 +588,18 @@ JOIN products p ON o.productid = p.id");
                                                     <div class="progress-bar bg-success" data-toggle="progress-bar"
                                                         role="progressbar"
                                                         aria-valuenow="<?php echo $cancelledorders; ?>"
+                                                        aria-valuemin="0" aria-valuemax="<?php echo $torder; ?>"></div>
+                                                </div>
+                                            </div>
+                                            <div class="pb-3">
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <p class="mb-0 text-uppercase">return Orders</p>
+                                                    <h4><?php echo $returnorders; ?></h4>
+                                                </div>
+                                                <div class="progress bg-soft-success shadow-none w-100"
+                                                    style="height: 10px">
+                                                    <div class="progress-bar bg-success" data-toggle="progress-bar"
+                                                        role="progressbar" aria-valuenow="<?php echo $returnorders; ?>"
                                                         aria-valuemin="0" aria-valuemax="<?php echo $torder; ?>"></div>
                                                 </div>
                                             </div>
