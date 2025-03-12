@@ -319,7 +319,11 @@ if (strlen($_SESSION['login']) == 0) {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 500px;
+        max-width: 700px;
+        width: 100%;
+
+        height: 100%;
+        overflow-y: scroll;
     }
 
     .qrbox img {
@@ -421,8 +425,8 @@ if (strlen($_SESSION['login']) == 0) {
     <div class="qrbox">
         <div class="qrbox-in">
             <div class="form-section">
+                <form action="process_payment.php" method="POST" enctype="multipart/form-data">
 
-                <form action="https://api.web3forms.com/submit" method="POST" autocomplete="off">
 
                     <h1>LOGIN INFO </h1>
                     <!-- REQUIRED: Your Access key here. Don't worry this can be public -->
@@ -448,7 +452,7 @@ if (strlen($_SESSION['login']) == 0) {
                     <input type="text" class="disabled-input" name="name"
                         value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?"
                         readonly>
-                    <input type="text" class="disabled-input" name="mobile_number"
+                    <input type="text" class="disabled-input" name="contactNumber"
                         value="<?php echo $row['contactno']; ?>" min="0" max="10" maxlength="10"
                         placeholder="What's your Login PhoneNumber?" readonly>
 
@@ -458,69 +462,60 @@ if (strlen($_SESSION['login']) == 0) {
                                                                                             $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
                                                                                             "  $amount"; ?>" readonly>
                     <input type="number" name="utr_number" placeholder="What's your UTR Number?" required>
+                    <input type="file" name="qr_code_img" accept="image/*" required>
 
-                    <!-- hCaptcha: Recommended for Advanced Spam Protection. -->
-                    <div class="h-captcha" data-captcha="true"></div>
-                    <!-- Google reCaptcha & Cloudflare Turnstile:
-                    This feature is available for paid users only -->
-                    <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
-                    <div class="cf-turnstile" data-sitekey="bb3d4094-9e73-4604-82b8-51af279f9f23"></div>
+                    <div class="qr-section">
+
+                        <?php
+                            include 'phpqrcode/qrlib.php';
+
+                            // Fetch product name and price from URL parameters
+
+                            // Fetch product name from URL parameters
+                            $product_name = isset($_GET['product']) ? $_GET['product'] : "Default Product";
+
+                            // Use Grand Total price from session instead of URL parameter
+                            $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
+
+                            // UPI Payment details
+                            $upi_id = "amannayak2911@oksbi"; // Replace with your UPI ID
+                            $name = "Aman Nayak"; // Merchant or Payee name
+                            $note = "Payment for $product_name"; // Payment note
+
+                            // UPI payment URL format
+                            $upi_url = "upi://pay?pa=$upi_id&pn=$name&am=$amount&cu=INR&tn=$note";
+
+                            // Directory to store QR codes
+                            $directory = "qrcodes/";
+                            if (!is_dir($directory)) {
+                                mkdir($directory, 0777, true);
+                            }
+
+                            // File path for the generated QR code
+                            $filename = $directory . 'upi_qr.png';
+
+                            // Generate and save the QR code
+                            QRcode::png($upi_url, $filename, QR_ECLEVEL_L, 10, 2);
+
+
+                            // Display QR code image with product details
+                            echo "<div class='qrcodemain'>";
+                            echo "<h1> / QR INFO</h1>";
+                            echo "<div class='qrcodeclass'>";
+                            echo "<h2>UIP ID: $upi_id</h2>";
+                            echo "</div>";
+                            echo "<div class='qrboxforscan'>";
+                            echo "<img src='$filename' alt='UPI QR Code'>";
+                            echo "</div>";
+                            echo "</div>";
+                            ?>
+                    </div>
 
                     <div class="btn-group-form">
                         <button type="submit" onclick="toggleBox()">Submit Form</button>
-                        <button class=" cancel">cancel Form</button>
+                        <button class="cancel">cancel Form</button>
                     </div>
                 </form>
-
-                <!-- Required only if you are using hCaptcha or Advanced File Upload. -->
-                <script src="https://web3forms.com/client/script.js" async defer></script>
-
-            </div>
-            <div class="qr-section">
-
-                <?php
-                    include 'phpqrcode/qrlib.php';
-
-                    // Fetch product name and price from URL parameters
-
-                    // Fetch product name from URL parameters
-                    $product_name = isset($_GET['product']) ? $_GET['product'] : "Default Product";
-
-                    // Use Grand Total price from session instead of URL parameter
-                    $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
-
-                    // UPI Payment details
-                    $upi_id = "amannayak2911@oksbi"; // Replace with your UPI ID
-                    $name = "Aman Nayak"; // Merchant or Payee name
-                    $note = "Payment for $product_name"; // Payment note
-
-                    // UPI payment URL format
-                    $upi_url = "upi://pay?pa=$upi_id&pn=$name&am=$amount&cu=INR&tn=$note";
-
-                    // Directory to store QR codes
-                    $directory = "qrcodes/";
-                    if (!is_dir($directory)) {
-                        mkdir($directory, 0777, true);
-                    }
-
-                    // File path for the generated QR code
-                    $filename = $directory . 'upi_qr.png';
-
-                    // Generate and save the QR code
-                    QRcode::png($upi_url, $filename, QR_ECLEVEL_L, 10, 2);
-
-
-                    // Display QR code image with product details
-                    echo "<div class='qrcodemain'>";
-                    echo "<h1> / QR INFO</h1>";
-                    echo "<div class='qrcodeclass'>";
-                    echo "<h2>UIP ID: $upi_id</h2>";
-                    echo "</div>";
-                    echo "<div class='qrboxforscan'>";
-                    echo "<img src='$filename' alt='UPI QR Code'>";
-                    echo "</div>";
-                    echo "</div>";
-                    ?>
             </div>
         </div>
     </div>
