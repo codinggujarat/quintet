@@ -892,6 +892,126 @@ body::-webkit-scrollbar {
     </div>
 </div>
 
+<style>
+.main-header-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    height: 70px;
+    z-index: 9999999999999999999999999999999999999999999999999999 !important;
+    display: none;
+}
+
+.main-header-nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px;
+}
+
+.main-header-nav ul li .cart {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+    .main-header-mobile {
+        display: block;
+    }
+
+    .main-header {
+        display: none;
+
+    }
+}
+</style>
+<div class="main-header-mobile">
+    <div class="main-header-nav">
+        <ul>
+            <li>
+                <a href="index.php">
+                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.15722 20.7714V17.7047C9.1572 16.9246 9.79312 16.2908 10.581 16.2856H13.4671C14.2587 16.2856 14.9005 16.9209 14.9005 17.7047V17.7047V20.7809C14.9003 21.4432 15.4343 21.9845 16.103 22H18.0271C19.9451 22 21.5 20.4607 21.5 18.5618V18.5618V9.83784C21.4898 9.09083 21.1355 8.38935 20.538 7.93303L13.9577 2.6853C12.8049 1.77157 11.1662 1.77157 10.0134 2.6853L3.46203 7.94256C2.86226 8.39702 2.50739 9.09967 2.5 9.84736V18.5618C2.5 20.4607 4.05488 22 5.97291 22H7.89696C8.58235 22 9.13797 21.4499 9.13797 20.7714V20.7714"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="searchBar.php">
+                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11.7669" cy="11.7666" r="8.98856" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></circle>
+                        <path d="M18.0186 18.4851L21.5426 22" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#menubar" onclick="openAccount()">
+                    MENU
+                </a>
+            </li>
+            <li>
+                <?php
+                if (!empty($_SESSION['cart'])) {
+                ?>
+                <a class="cart" href=" #ShoppingBag" onclick="openMyCart()">
+                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.7729 9.30504V6.27304C15.7729 4.18904 14.0839 2.50004 12.0009 2.50004C9.91694 2.49104 8.21994 4.17204 8.21094 6.25604V6.27304V9.30504"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7422 21.0004H7.25778C4.90569 21.0004 3 19.0954 3 16.7454V11.2294C3 8.87937 4.90569 6.97437 7.25778 6.97437H16.7422C19.0943 6.97437 21 8.87937 21 11.2294V16.7454C21 19.0954 19.0943 21.0004 16.7422 21.0004Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                    <span>
+                        (<?php echo $_SESSION['qnty']; ?>)
+                    </span>
+                </a>
+                <?php } else { ?>
+                <a class="cart" href=" #ShoppingBag" onclick="openMyCart()">
+                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M15.7729 9.30504V6.27304C15.7729 4.18904 14.0839 2.50004 12.0009 2.50004C9.91694 2.49104 8.21994 4.17204 8.21094 6.25604V6.27304V9.30504"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.7422 21.0004H7.25778C4.90569 21.0004 3 19.0954 3 16.7454V11.2294C3 8.87937 4.90569 6.97437 7.25778 6.97437H16.7422C19.0943 6.97437 21 8.87937 21 11.2294V16.7454C21 19.0954 19.0943 21.0004 16.7422 21.0004Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                    <span>
+                        (0)
+                    </span>
+                </a>
+                <?php } ?>
+            </li>
+            <li>
+                <a href="my-account.php">
+                    <svg class="icon-25" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.9849 15.3462C8.11731 15.3462 4.81445 15.931 4.81445 18.2729C4.81445 20.6148 8.09636 21.2205 11.9849 21.2205C15.8525 21.2205 19.1545 20.6348 19.1545 18.2938C19.1545 15.9529 15.8735 15.3462 11.9849 15.3462Z"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M11.9849 12.0059C14.523 12.0059 16.5801 9.94779 16.5801 7.40969C16.5801 4.8716 14.523 2.81445 11.9849 2.81445C9.44679 2.81445 7.3887 4.8716 7.3887 7.40969C7.38013 9.93922 9.42394 11.9973 11.9525 12.0059H11.9849Z"
+                            stroke="currentColor" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
 <script>
 // Select the element with the class "sticky-top"
 const element = document.querySelector('.sticky-top');

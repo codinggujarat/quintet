@@ -115,7 +115,7 @@ $(document).ready(function() {
     position: fixed;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     right: 1%;
-    bottom: 10%;
+    bottom: 16%;
     z-index: 999999999999999999999999999999999999999999999999999999999999999999 !important;
     width: 370px;
     background: #fff;
@@ -273,10 +273,10 @@ $(document).ready(function() {
 /* Button Styling */
 .chatbot-toggler {
     position: fixed;
-    bottom: 1%;
+    bottom: 10%;
     right: 1%;
-    background: #000;
-    color: black;
+    background: #fff;
+    color: #000;
     border: none;
     width: 80px;
     height: 40px;
@@ -284,7 +284,7 @@ $(document).ready(function() {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid white;
+    border: 1px solid black;
     font-size: 24px;
     z-index: 999999999999999999999999999999999999999999999 !important;
 }
@@ -292,7 +292,7 @@ $(document).ready(function() {
 .chatbot-toggler span {
     display: none;
     font-size: 18px;
-    color: #fff !important;
+    color: #000 !important;
 }
 
 .chatbot-toggler .material-symbols-rounded {
