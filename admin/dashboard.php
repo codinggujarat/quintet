@@ -125,6 +125,16 @@ JOIN products p ON o.productid = p.id");
     $feedbackData = mysqli_fetch_array($retFeedback);
     $totalFeedback = $feedbackData['total_feedback'];
 
+    // Get first and last date of the current month
+    $currMonth = date('m');
+    $currYear = date('Y');
+    $startOfMonth = "$currYear-$currMonth-01 00:00:00";
+    $endOfMonth = date("Y-m-t 23:59:59", strtotime($startOfMonth));
+
+    // Query to count total orders for the current month
+    $monthlyOrderQuery = mysqli_query($con, "SELECT * FROM Orders WHERE orderDate BETWEEN '$startOfMonth' AND '$endOfMonth'");
+    $totalMonthlyOrders = mysqli_num_rows($monthlyOrderQuery);
+
 ?>
 
 <!DOCTYPE html>
@@ -826,9 +836,9 @@ JOIN products p ON o.productid = p.id");
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-3 mt-3 mb-4 wow animated fadeIn">
-                                <div class="row">
-                                    <div class="col-md-12">
+                            <div class="col-lg-3 ">
+                                <div class="row ">
+                                    <div class="col-md-12 mt-3 mb-4 wow animated fadeIn">
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="d-flex justify-content-between">
@@ -841,7 +851,7 @@ JOIN products p ON o.productid = p.id");
                                                             $result = mysqli_query($con, "SELECT * FROM Orders where orderDate Between '$from' and '$to'");
                                                             $num_rows1 = mysqli_num_rows($result); {
                                                             ?>
-                                                        <span class="text-uppercase">Orders</span>
+                                                        <span class="text-uppercase">Today Orders</span>
                                                         <div class="mt-2">
                                                             <h2 class="counter"><?php echo htmlentities($num_rows1); ?>
                                                             </h2>
@@ -869,6 +879,43 @@ JOIN products p ON o.productid = p.id");
                                                     </div>
                                                 </div>
                                                 <?php } ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt-3 mb-4 wow animated fadeIn">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between">
+                                                    <div>
+                                                        <span class="text-uppercase">monthly Orders</span>
+                                                        <div class="mt-2">
+                                                            <h2 class="counter">
+                                                                <?php echo htmlentities($totalMonthlyOrders); ?>
+                                                            </h2>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <span class="badge bg-info p-2 text-uppercase">MONTH</span>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex justify-content-between mt-2">
+                                                    <div>
+                                                        <span class="text-uppercase">monthly Orders</span>
+                                                    </div>
+                                                    <div>
+                                                        <span><?php echo htmlentities($totalMonthlyOrders); ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-3">
+                                                    <div class="progress bg-soft-info shadow-none w-100"
+                                                        style="height: 6px">
+                                                        <div class="progress-bar bg-info" data-toggle="progress-bar"
+                                                            role="progressbar"
+                                                            aria-valuenow="<?php echo htmlentities($totalMonthlyOrders); ?>"
+                                                            aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

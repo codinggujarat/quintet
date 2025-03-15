@@ -44,12 +44,58 @@ if (strlen($_SESSION['alogin']) == 0) {
 
     <!-- Customizer Css -->
     <link rel="stylesheet" href="assets2.0/css/customizer.min.css" />
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- TinyMCE (Text Editor) -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/3vxwi4cfe8e7tjrhybsa8xgu2eyorwm4od3ul0zxur1wtdc5/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <!-- RTL Css -->
     <link rel="stylesheet" href="assets2.0/css/rtl.min.css" />
     <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
         rel='stylesheet'>
+
+
+    <script>
+    $(document).ready(function() {
+        tinymce.init({
+            selector: '.editor',
+            height: 250,
+            menubar: true,
+            plugins: 'image link lists advlist code table textcolor colorpicker fullscreen',
+            toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor backcolor | bullist numlist | outdent indent | image link table code fullscreen',
+
+            // Font options
+            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+            content_css: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+
+            // Image upload settings
+            images_upload_url: 'upload_image.php', // Create this file for handling image uploads
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            file_picker_callback: function(callback, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function() {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        callback(reader.result, {
+                            alt: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
+            }
+        });
+    });
+    </script>
+
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
@@ -137,6 +183,8 @@ if (strlen($_SESSION['alogin']) == 0) {
 </head>
 
 <body>
+
+
     <?php include('include/sidebar.php'); ?>
     <main class="main-content">
         <div ss="position-relative iq-banner">
@@ -183,9 +231,10 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     value="<?php echo $row['queries']; ?>" required>
                                             </div>
                                             <div class="form-control">
-                                                <input type="text" class=form-control" name="reply"
-                                                    value="<?php echo $row['replies']; ?>" required>
+                                                <textarea name="reply"
+                                                    class="editor"><?php echo $row['replies']; ?></textarea>
                                             </div>
+
                                             <div class="form-control">
                                                 <button type="submit" class="btn btn-dark" name="update">Update</button>
                                                 <a href="chatbot.php" class="btn btn-dark">Back to List</a>
@@ -193,6 +242,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                         </form>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -200,6 +250,42 @@ if (strlen($_SESSION['alogin']) == 0) {
             </div>
         </div>
     </main>
+    <script>
+    $(document).ready(function() {
+        tinymce.init({
+            selector: '.editor',
+            height: 250,
+            menubar: true,
+            plugins: 'image link lists advlist code table textcolor colorpicker fullscreen',
+            toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor backcolor | bullist numlist | outdent indent | image link table code fullscreen',
+
+            // Font options
+            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+            content_css: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+
+            // Image upload settings
+            images_upload_url: 'upload_image.php', // Create this file for handling image uploads
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            file_picker_callback: function(callback, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function() {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        callback(reader.result, {
+                            alt: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
+            }
+        });
+    });
+    </script>
 
 
     <script src="scripts/jquery-1.9.1.min.js" type="text/javascript"></script>

@@ -30,7 +30,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin| Insert Product</title>
+    <title>Manage Chatbot</title>
     <!-- Library / Plugin Css Build -->
     <link rel="stylesheet" href="assets2.0/css/core/libs.min.css" />
 
@@ -46,12 +46,58 @@ if (strlen($_SESSION['alogin']) == 0) {
 
     <!-- Customizer Css -->
     <link rel="stylesheet" href="assets2.0/css/customizer.min.css" />
+    <!-- jQuery -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- TinyMCE (Text Editor) -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/3vxwi4cfe8e7tjrhybsa8xgu2eyorwm4od3ul0zxur1wtdc5/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
     <!-- RTL Css -->
     <link rel="stylesheet" href="assets2.0/css/rtl.min.css" />
     <link type="text/css" href="images/icons/css/font-awesome.css" rel="stylesheet">
     <link type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600'
         rel='stylesheet'>
+
+
+    <script>
+    $(document).ready(function() {
+        tinymce.init({
+            selector: '.editor',
+            height: 250,
+            menubar: true,
+            plugins: 'image link lists advlist code table textcolor colorpicker fullscreen',
+            toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | fontsizeselect forecolor backcolor | bullist numlist | outdent indent | image link table code fullscreen',
+
+            // Font options
+            fontsize_formats: '8pt 10pt 12pt 14pt 18pt 24pt 36pt',
+            content_css: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+
+            // Image upload settings
+            images_upload_url: 'upload_image.php', // Create this file for handling image uploads
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            file_picker_callback: function(callback, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+                input.onchange = function() {
+                    var file = this.files[0];
+                    var reader = new FileReader();
+                    reader.onload = function() {
+                        callback(reader.result, {
+                            alt: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+                input.click();
+            }
+        });
+    });
+    </script>
+
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
@@ -136,30 +182,6 @@ if (strlen($_SESSION['alogin']) == 0) {
         --bs-highlight-bg: #fcf8e3
     }
     </style>
-    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    bkLib.onDomLoaded(nicEditors.allTextAreas);
-    </script>
-
-    <script>
-    function getSubcat(val) {
-        $.ajax({
-            type: "POST",
-            url: "get_subcat.php",
-            data: 'cat_id=' + val,
-            success: function(data) {
-                $("#subcategory").html(data);
-            }
-        });
-    }
-
-    function selectCountry(val) {
-        $("#search-box").val(val);
-        $("#suggesstion-box").hide();
-    }
-    </script>
-
-
 </head>
 
 <body>
@@ -173,7 +195,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                 <div class="row" style=" margin-top: 100px !important;">
                     <div class="col-sm-12">
                         <div class="centerCard">
-                            <div class="card " style="width: 700px;">
+                            <div class="card " style="width: 100%;">
                                 <div class="card-body">
                                     <h3 style="font-family: 'Raleway',sans-serif ;font-weight: 400 !important ; "
                                         class="text-uppercase">
@@ -344,7 +366,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                             <div class="control-group mb-4" style="position: relative;">
                                                 <textarea name="productDescription"
                                                     placeholder="Enter Product Description" rows="6"
-                                                    class="bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
+                                                    class=" editor bg-transparent border-1 rounded-0 w-100 p-lg-2 text-black"
                                                     required style="outline: 0  !important ;border: 1px solid black; ">
                                                 <?php echo htmlentities($row['productDescription']); ?>
                                             </textarea>
@@ -354,7 +376,7 @@ if (strlen($_SESSION['alogin']) == 0) {
 
                                             <div class="control-group mb-4" style="position: relative;">
                                                 <textarea name="ProductCare" placeholder="Enter Product Description"
-                                                    rows="6" class="span8 tip">
+                                                    rows="6" class="span8 tip editor">
                                                 <?php echo htmlentities($row['ProductCare']); ?>
                                             </textarea>
                                                 <label class="imgLable">Product Care</label>
