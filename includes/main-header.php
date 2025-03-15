@@ -659,7 +659,7 @@ body::-webkit-scrollbar {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="allhelpcategory.php">
+                                    <a href="allhelpcategory.php#alltopicscroll">
                                         Help
                                     </a>
                                 </li>

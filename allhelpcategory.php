@@ -159,7 +159,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 </div>
                 <div class="heroImg">
                     <?php
-                    $ret = mysqli_query($con, "select * from products where category=8 AND id=94  LIMIT 1");
+                    $ret = mysqli_query($con, "select * from products where category=8 AND id=110  LIMIT 1");
                     while ($row = mysqli_fetch_array($ret)) {
                         # code...
                     ?>
