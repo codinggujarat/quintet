@@ -874,20 +874,26 @@ JOIN products p ON o.productid = p.id");
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-6">
+                            <div class="row  mt-3 mb-4">
+                                <div class="col-lg-3 col-md-6 wow animated fadeIn mt-3 mb-4">
                                     <div class="card bg-soft-info">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="bg-soft-info rounded p-3">
-                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                                            clip-rule="evenodd" />
+
+                                                    <svg class="icon-20" width="20px" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M17.9028 8.85107L13.4596 12.4641C12.6201 13.1301 11.4389 13.1301 10.5994 12.4641L6.11865 8.85107"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="text-end">
+                                                <div class="text-end text-uppercase">
                                                     <h2 class="counter"> <?php echo $totalSubscribers; ?></h2>
                                                     Newsletter Subscribers:
                                                 </div>
@@ -895,19 +901,29 @@ JOIN products p ON o.productid = p.id");
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-3 col-md-6 wow animated fadeIn mt-3 mb-4">
                                     <div class="card bg-soft-warning">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="bg-soft-warning rounded p-3">
-                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd"
-                                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                                            clip-rule="evenodd" />
+                                                    <svg class="icon-20" width="20px" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M19.0714 19.0699C16.0152 22.1263 11.4898 22.7867 7.78642 21.074C7.23971 20.8539 6.79148 20.676 6.36537 20.676C5.17849 20.683 3.70117 21.8339 2.93336 21.067C2.16555 20.2991 3.31726 18.8206 3.31726 17.6266C3.31726 17.2004 3.14642 16.7602 2.92632 16.2124C1.21283 12.5096 1.87411 7.98269 4.93026 4.92721C8.8316 1.02443 15.17 1.02443 19.0714 4.9262C22.9797 8.83501 22.9727 15.1681 19.0714 19.0699Z"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M15.9393 12.4131H15.9483" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path d="M11.9306 12.4131H11.9396" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path d="M7.92128 12.4131H7.93028" stroke="currentColor"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="text-end">
+                                                <div class="text-end text-uppercase">
                                                     <h2 class="counter"><?php echo $totalMessages; ?></h2>
                                                     Contact <br> Messages:
                                                 </div>
@@ -915,18 +931,26 @@ JOIN products p ON o.productid = p.id");
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <div class="col-lg-3 col-md-6 wow animated fadeIn mt-3 mb-4">
                                     <div class="card bg-soft-danger">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <div class="bg-soft-danger rounded p-3">
-                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
-                                                        viewBox="0 0 20 20" fill="currentColor">
-                                                        <path
-                                                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                                                    <svg class="icon-20" width="20px" viewBox="0 0 24 24" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M13.7476 20.4428H21.0002" stroke="currentColor"
+                                                            stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                            d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                                                            stroke="currentColor" stroke-width="1.5"
+                                                            stroke-linecap="round" stroke-linejoin="round"></path>
+                                                        <path d="M11.021 6.00098L16.4732 10.1881" stroke="currentColor"
+                                                            stroke-width="1.5" stroke-linecap="round"
+                                                            stroke-linejoin="round"></path>
                                                     </svg>
                                                 </div>
-                                                <div class="text-end">
+                                                <div class="text-end text-uppercase">
                                                     <h2 class="counter"> <?php echo $totalFeedback; ?>
                                                     </h2>
                                                     Feedback <br> Messages
@@ -935,7 +959,7 @@ JOIN products p ON o.productid = p.id");
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-6">
+                                <!-- <div class="col-lg-3 col-md-6">
                                     <div class="card bg-soft-primary">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
@@ -947,14 +971,14 @@ JOIN products p ON o.productid = p.id");
                                                             clip-rule="evenodd" />
                                                     </svg>
                                                 </div>
-                                                <div class="text-end">
+                                                <div class="text-end text-uppercase">
                                                     <h2 class="counter">4500</h2>
                                                     Pharmacists
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
