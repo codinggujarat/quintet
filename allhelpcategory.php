@@ -383,13 +383,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 </div>
                                 <div class="small_topicBox">
                                     <ul>
-                                        <li>GIFT OPTIONS</li>
-                                        <li><a href="GiftCard.php">GIFT CARD</a></li>
-                                        <li><a href="giftpackaging.php">GIFT PACKAGING</a></li>
-                                    </ul>
-                                </div>
-                                <div class="small_topicBox">
-                                    <ul>
                                         <li>SHIPPING</li>
                                         <li><a href="shippingmethodsTimesandcosts.php">SHIPPING METHODS, TIMES AND
                                                 COSTS</a></li>
@@ -539,21 +532,7 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-content">
-                            <header>
-                                <span class="title">GIFT OPTIONS</span>
-                                <i class="fa-solid fa-plus"></i>
-                            </header>
-                            <div class="description">
 
-                                <div class="small_topicBox mobileview">
-                                    <ul>
-                                        <li><a href="GiftCard.php">GIFT CARD</a></li>
-                                        <li><a href="giftpackaging.php">GIFT PACKAGING</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                         <div class="accordion-content">
                             <header>
                                 <span class="title">SHIPPING</span>

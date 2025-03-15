@@ -291,8 +291,8 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                                             <?php
-                                                    $shortStatus = substr(htmlentities($row['ostatus']), 0, 10);
-                                                    if ($shortStatus != 'Delivered' && $shortStatus == 'return order') { ?>
+                                                    $shortStatus = htmlentities($row['ostatus']);
+                                                    if ($shortStatus != 'Delivered' && $shortStatus != 'return order'  && $shortStatus != 'cancelled') { ?>
                                             <form method="post"
                                                 action="cancelorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
                                                 <button type="submit" class="Cancelbtn"

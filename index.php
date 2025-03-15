@@ -85,7 +85,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 <body class="cnt-home">
 
 
-
     <!-- ============================================== HEADER ============================================== -->
     <header class="header-style-1">
         <?php include('includes/main-header.php'); ?>
@@ -153,6 +152,10 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     @media (max-width: 500.98px) {
         .swiper-slide a img {
             height: 100vh;
+        }
+
+        #logo {
+            display: block !important;
         }
     }
     </style>
@@ -248,7 +251,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         <!-- Initialize Swiper -->
         <script>
         var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 50,
             pagination: {
                 el: ".swiper-pagination",
                 type: "fraction",
@@ -268,6 +270,20 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
+            },
+            spaceBetween: 10,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    autoplay: false,
+                },
+                768: {
+                    autoplay: false,
+
+                }
             },
         });
         </script>
@@ -314,6 +330,115 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 </ul>
             </div>
         </div>
+        <style>
+        .new-slide {
+            height: 100vh;
+            object-fit: cover;
+            background-position: center;
+        }
+
+        .swiper h1 {
+            text-transform: uppercase;
+            font-weight: lighter;
+            color: #Fff;
+            font-size: 40px;
+        }
+
+        .swiper h1 span {
+            font-weight: bolder !important;
+        }
+        </style>
+        <div class="col-lg-12"
+            style=" display: flex;
+                        align-items: center;
+                     justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:black;padding: 20px;">
+            <div class="swiper mySwiperNew" style="padding: 0px;">
+                <h1>
+                    best seller - <span>MAN</span>
+                </h1>
+                <div class="swiper-wrapper">
+                    <?php
+                    $ret = mysqli_query($con, "SELECT * FROM products WHERE category=10 and subcategory=23  ORDER BY RAND() LIMIT 10 ");
+                    while ($row = mysqli_fetch_array($ret)) {
+                        # code...
+                    ?>
+                    <div class="swiper-slide new-slide ">
+                        <div class="image ">
+                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                    alt="">
+                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12"
+            style=" display: flex;
+                        align-items: center;
+                     justify-content: center;text-align:center;height: 100vh !important; position: sticky !important;width: 100%;background:black;padding: 20px;">
+            <div class="swiper mySwiperTwo" style="padding: 0px;">
+                <h1>
+                    best seller - <span>WOMAN</span>
+                </h1>
+                <div class="swiper-wrapper">
+                    <?php
+                    $ret = mysqli_query($con, "SELECT * FROM products WHERE category=8 and subcategory=24  ORDER BY RAND() LIMIT 10 ");
+                    while ($row = mysqli_fetch_array($ret)) {
+                        # code...
+                    ?>
+                    <div class="swiper-slide new-slide ">
+                        <div class="image ">
+                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                    alt="">
+                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+        <script>
+        var swiper3 = new Swiper(".mySwiperNew", {
+            grabCursor: true,
+            effect: "creative",
+            autoplay: true,
+            creativeEffect: {
+                prev: {
+                    shadow: true,
+                    translate: [0, 0, -400],
+                },
+                next: {
+                    translate: ["100%", 0, 0],
+                },
+            },
+        });
+        var swiper4 = new Swiper(".mySwiperTwo", {
+            grabCursor: true,
+            effect: "creative",
+            autoplay: true,
+            creativeEffect: {
+                prev: {
+                    shadow: true,
+                    translate: ["-120%", 0, -500],
+                },
+                next: {
+                    shadow: true,
+                    translate: ["120%", 0, -500],
+                },
+            },
+        });
+        </script>
     </div>
 
 

@@ -306,14 +306,7 @@ select:valid~label {
         <div class="sidebar-list">
             <!-- Sidebar Menu Start -->
             <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
-                <li class="nav-item static-item">
-                    <a class="nav-link static-item disabled" href="#" tabindex="-1">
-                        <span class="default-icon text-uppercase"
-                            style="color: #000;font-size: 14px;font-weight: 600; ">order's
-                            management</span>
-                        <span class="mini-icon">-</span>
-                    </a>
-                </li>
+
                 <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="dashboard.php">
                         <i class="icon">
@@ -339,6 +332,14 @@ select:valid~label {
                         </i>
 
                         <span class="item-name text-uppercase text-black">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item static-item">
+                    <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                        <span class="default-icon text-uppercase"
+                            style="color: #000;font-size: 14px;font-weight: 600; ">order's
+                            management</span>
+                        <span class="mini-icon">-</span>
                     </a>
                 </li>
                 <li class="nav-item text-black "
@@ -474,7 +475,7 @@ select:valid~label {
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link rounded-5  text-black bg-transparent" href="cancelled-orders.php">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="return-order.php">
                                 <span class="item-name text-uppercase text-black">Return Orders</span>
                                 <?php
                                 $status = 'return order';
@@ -704,6 +705,24 @@ select:valid~label {
                             </svg>
                         </i>
                         <span class="item-name text-uppercase text-black">Manage Contact </span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link rounded-5  text-black bg-transparent" href="newsletter.php">
+                        <i class="icon">
+                            <svg class="color" width="30" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.9028 8.85107L13.4596 12.4641C12.6201 13.1301 11.4389 13.1301 10.5994 12.4641L6.11865 8.85107"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M16.9089 21C19.9502 21.0084 22 18.5095 22 15.4384V8.57001C22 5.49883 19.9502 3 16.9089 3H7.09114C4.04979 3 2 5.49883 2 8.57001V15.4384C2 18.5095 4.04979 21.0084 7.09114 21H16.9089Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Manage Newsletter </span>
                     </a>
                 </li>
 

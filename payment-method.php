@@ -99,18 +99,18 @@ if (strlen($_SESSION['login']) == 0) {
                                                 <div class="content">
                                                     <input type="radio" name="paymethod" id="one" checked="checked"
                                                         value="COD">
-                                                    <input type="radio" name="paymethod" id="two"
-                                                        value="Internet Banking">
+                                                    <input type="radio" name="paymethod" id="two" checked="checked"
+                                                        value="QR CODE">
                                                     <!-- <input type="radio" name="paymethod" id="three"
                                                         value="Debit / Credit card"> -->
-                                                    <label for="one" class="box first">
+                                                    <!-- <label for="one" class="box first">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
                                                                 style="text-transform: uppercase;font-family: 'Raleway',sans-serif; ">cash
                                                                 on delivery</span>
                                                         </div>
-                                                    </label>
+                                                    </label> -->
                                                     <label for="two" class="box second " onclick="qrshow()">
                                                         <div class="plan">
                                                             <span class="circle"></span>
@@ -314,16 +314,13 @@ if (strlen($_SESSION['login']) == 0) {
         padding: 20px;
     }
 
-    .qrbox .qrbox-in .qr-section,
-    .qrbox .qrbox-in .form-section {
+    .qrbox .qrbox-in .form-section form {
         display: flex;
         align-items: center;
         justify-content: center;
-        max-width: 700px;
+        max-width: 800px;
+        gap: 20px;
         width: 100%;
-
-        height: 100%;
-        overflow-y: scroll;
     }
 
     .qrbox img {
@@ -371,6 +368,31 @@ if (strlen($_SESSION['login']) == 0) {
         .qrbox-in {
             flex-wrap: wrap-reverse;
             overflow: scroll;
+        }
+
+        .panel-body form {
+            margin: 100px !important;
+            padding: 100px !important;
+        }
+
+        .qrbox .qrbox-in .form-section {
+            height: 100%;
+            overflow: scroll;
+        }
+
+        .qrbox .qrbox-in .form-section form {
+            flex-wrap: wrap;
+            height: 100vh;
+            gap: 0;
+        }
+
+        .qrboxforscan img {
+            width: 300px;
+            height: 300px;
+        }
+
+        .qr-section {
+            height: 100vh !important;
         }
     }
 
@@ -426,43 +448,45 @@ if (strlen($_SESSION['login']) == 0) {
         <div class="qrbox-in">
             <div class="form-section">
                 <form action="process_payment.php" method="POST" enctype="multipart/form-data">
+                    <div class="login-info">
 
+                        <h1>LOGIN INFO </h1>
+                        <!-- REQUIRED: Your Access key here. Don't worry this can be public -->
+                        <input type="hidden" name="access_key" value="bb3d4094-9e73-4604-82b8-51af279f9f23">
 
-                    <h1>LOGIN INFO </h1>
-                    <!-- REQUIRED: Your Access key here. Don't worry this can be public -->
-                    <input type="hidden" name="access_key" value="bb3d4094-9e73-4604-82b8-51af279f9f23">
-
-                    <!-- Optional: Subject an be prefilled using type="hidden"
+                        <!-- Optional: Subject an be prefilled using type="hidden"
        or type="text" for normal user submitted input -->
-                    <input type="hidden" name="subject" value="QR & USER INFO ">
+                        <input type="hidden" name="subject" value="QR & USER INFO ">
 
-                    <!-- Optional: From Name you want to see in the email
+                        <!-- Optional: From Name you want to see in the email
        Default is "Notifications". you can overwrite here -->
-                    <input type="hidden" name="from_name" value="QUINTET">
+                        <input type="hidden" name="from_name" value="QUINTET">
 
-                    <!-- Optional: Custom Redirection or Thank you Page
+                        <!-- Optional: Custom Redirection or Thank you Page
        Make sure you add full URL including https:// -->
-                    <?php
-                        $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
-                        while ($row = mysqli_fetch_array($query)) {
-                        ?>
-                    <!-- Custom Form Data: Form data you wish to receive in email. -->
-                    <input type="email" class="disabled-input" name="email" id="exampleInputEmail1"
-                        value="<?php echo $row['email']; ?>" placeholder="What's your Login e-mail?" readonly>
-                    <input type="text" class="disabled-input" name="name"
-                        value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?"
-                        readonly>
-                    <input type="text" class="disabled-input" name="contactNumber"
-                        value="<?php echo $row['contactno']; ?>" min="0" max="10" maxlength="10"
-                        placeholder="What's your Login PhoneNumber?" readonly>
+                        <?php
+                            $query = mysqli_query($con, "select * from users where id='" . $_SESSION['id'] . "'");
+                            while ($row = mysqli_fetch_array($query)) {
+                            ?>
+                        <!-- Custom Form Data: Form data you wish to receive in email. -->
+                        <input type="email" class="disabled-input" name="email" id="exampleInputEmail1"
+                            value="<?php echo $row['email']; ?>" placeholder="What's your Login e-mail?" readonly>
+                        <input type="text" class="disabled-input" name="name"
+                            value="<?php echo htmlentities($row['name']); ?>" placeholder="What's your Login Name?"
+                            readonly>
+                        <input type="text" class="disabled-input" name="contactNumber"
+                            value="<?php echo $row['contactno']; ?>" min="0" max="10" maxlength="10"
+                            placeholder="What's your Login PhoneNumber?" readonly>
 
-                    <?php } ?>
+                        <?php } ?>
 
-                    <input type="number" name="amount" class="disabled-input" value="<?php echo
-                                                                                            $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
-                                                                                            "  $amount"; ?>" readonly>
-                    <input type="number" name="utr_number" placeholder="What's your UTR Number?" required>
-                    <input type="file" name="qr_code_img" accept="image/*" required>
+                        <input type="number" name="amount" class="disabled-input" value="<?php echo
+                                                                                                $amount = isset($_SESSION['tp']) ? $_SESSION['tp'] : "1.00";
+                                                                                                "  $amount"; ?>"
+                            readonly>
+                        <input type="number" name="utr_number" placeholder="What's your UTR Number?" required>
+                        <input type="file" name="qr_code_img" accept="image/*" required>
+                    </div>
 
                     <div class="qr-section">
 
@@ -509,11 +533,11 @@ if (strlen($_SESSION['login']) == 0) {
                             echo "</div>";
                             echo "</div>";
                             ?>
-                    </div>
 
-                    <div class="btn-group-form">
-                        <button type="submit" onclick="toggleBox()">Submit Form</button>
-                        <button class="cancel">cancel Form</button>
+                        <div class="btn-group-form">
+                            <button type="submit" onclick="toggleBox()">Submit Form</button>
+                            <button class="cancel">cancel Form</button>
+                        </div>
                     </div>
                 </form>
             </div>

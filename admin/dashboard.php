@@ -58,25 +58,44 @@ from orders;");
     $ret8 = mysqli_query($con, "SELECT CASE WHEN SUM((p.productPrice * o.quantity) - p.shippingCharge - (p.productPrice * o.quantity * 0.18)) >= 1000000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - p.shippingCharge - (p.productPrice * o.quantity * 0.18)) / 1000000, 1), 'M') WHEN SUM((p.productPrice * o.quantity) - p.shippingCharge - (p.productPrice * o.quantity * 0.18)) >= 1000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - p.shippingCharge - (p.productPrice * o.quantity * 0.18)) / 1000, 1), 'K')  ELSE SUM((p.productPrice * o.quantity) - p.shippingCharge - (p.productPrice * o.quantity * 0.18)) END AS formatted_profitTWO FROM orders o JOIN products p ON o.productid = p.id; ");
     $results8 = mysqli_fetch_array($ret8);
     $tProfit = $results8['formatted_profitTWO'];
+    // Fetch total loss amount
+    $ret9 = mysqli_query($con, "SELECT 
+    CASE  
+        WHEN SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) >= 1000000  
+            THEN CONCAT(ROUND(SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) / 1000000, 1), 'M')  
+        WHEN SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) >= 1000  
+            THEN CONCAT(ROUND(SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) / 1000, 1), 'K')  
+        ELSE SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0))  
+    END AS formatted_loss  
+FROM orders o  
+JOIN products p ON o.productid = p.id");
 
-    $ret9 = mysqli_query($con, "SELECT CASE  WHEN SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) >= 1000000  THEN CONCAT(ROUND(SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) / 1000000, 1), 'M') WHEN SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) >= 1000  THEN CONCAT(ROUND(SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) / 1000, 1), 'K') ELSE SUM(GREATEST((p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity)) - (p.productPrice * o.quantity), 0)) END AS formatted_loss FROM orders o JOIN products p ON o.productid = p.id");
     $results9 = mysqli_fetch_array($ret9);
     $tloss = $results9['formatted_loss'];
 
     $ret10 = mysqli_query($con, "SELECT 
-    CASE 
-        WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000000 
-        THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000000, 1), 'M')
-        WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000 
-        THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000, 1), 'K')
-        ELSE SUM(p.productPrice * 0.18 * o.quantity)
-    END AS formatted_total_gst
-FROM orders o
-JOIN products p ON o.productid = p.id");
+            CASE 
+                WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000000 
+                THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000000, 1), 'M')
+                WHEN SUM(p.productPrice * 0.18 * o.quantity) >= 1000 
+                THEN CONCAT(ROUND(SUM(p.productPrice * 0.18 * o.quantity) / 1000, 1), 'K')
+                ELSE SUM(p.productPrice * 0.18 * o.quantity)
+            END AS formatted_total_gst
+        FROM orders o
+        JOIN products p ON o.productid = p.id");
     $results10 = mysqli_fetch_array($ret10);
     $tGrossProfit = $results10['formatted_total_gst'];
 
-    $ret11 = mysqli_query($con, "SELECT  CASE  WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000000, 1), 'M') WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000  THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000, 1), 'K')  ELSE SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) END AS formatted_net_profit FROM orders o JOIN products p ON o.productid = p.id");
+    $ret11 = mysqli_query($con, "SELECT 
+            CASE  
+                WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000000  
+                THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000000, 1), 'M') 
+                WHEN SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) >= 1000  
+                THEN CONCAT(ROUND(SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) / 1000, 1), 'K')  
+                ELSE SUM((p.productPrice * o.quantity) - (p.shippingCharge + (p.productPrice * o.quantity * 0.18) + (p.productPrice * 0.7 * o.quantity))) 
+            END AS formatted_net_profit 
+        FROM orders o 
+        JOIN products p ON o.productid = p.id");
     $results11 = mysqli_fetch_array($ret11);
     $tNetProfit = $results11['formatted_net_profit'];
 
@@ -93,6 +112,18 @@ JOIN products p ON o.productid = p.id");
     $results13 = mysqli_fetch_array($ret13);
     $tProductCost = $results13['formatted_product_cost'];
 
+    $retNewsletter = mysqli_query($con, "SELECT COUNT(*) AS total_subscribers FROM newsletter_subscribers");
+    $newsletterData = mysqli_fetch_array($retNewsletter);
+    $totalSubscribers = $newsletterData['total_subscribers'];
+
+    $retContact = mysqli_query($con, "SELECT COUNT(*) AS total_messages FROM contact_us");
+    $contactData = mysqli_fetch_array($retContact);
+    $totalMessages = $contactData['total_messages'];
+
+    // Fetch total count of feedback messages
+    $retFeedback = mysqli_query($con, "SELECT COUNT(*) AS total_feedback FROM feedback");
+    $feedbackData = mysqli_fetch_array($retFeedback);
+    $totalFeedback = $feedbackData['total_feedback'];
 
 ?>
 
@@ -838,6 +869,88 @@ JOIN products p ON o.productid = p.id");
                                                     </div>
                                                 </div>
                                                 <?php } ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card bg-soft-info">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="bg-soft-info rounded p-3">
+                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="text-end">
+                                                    <h2 class="counter"> <?php echo $totalSubscribers; ?></h2>
+                                                    Newsletter Subscribers:
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card bg-soft-warning">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="bg-soft-warning rounded p-3">
+                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="text-end">
+                                                    <h2 class="counter"><?php echo $totalMessages; ?></h2>
+                                                    Contact <br> Messages:
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card bg-soft-danger">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="bg-soft-danger rounded p-3">
+                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path
+                                                            d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="text-end">
+                                                    <h2 class="counter"> <?php echo $totalFeedback; ?>
+                                                    </h2>
+                                                    Feedback <br> Messages
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="card bg-soft-primary">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="bg-soft-primary rounded p-3">
+                                                    <svg class="icon-20" xmlns="http://www.w3.org/2000/svg" width="20px"
+                                                        viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd"
+                                                            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                                                            clip-rule="evenodd" />
+                                                    </svg>
+                                                </div>
+                                                <div class="text-end">
+                                                    <h2 class="counter">4500</h2>
+                                                    Pharmacists
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

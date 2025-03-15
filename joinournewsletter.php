@@ -19,7 +19,71 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     echo "<script>alert('Product has been added to the cart')</script>";
     echo "<script type='text/javascript'> document.location ='my-cart.php'; </script>";
 }
+// Initialize variables
+$userEmail = "";
+$message = "";
 
+// Handle Form Submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $userEmail = trim($_POST["email"]);
+
+    if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+        $message = "Invalid email format.";
+    } else {
+        // Check if email already exists
+        $stmt = $con->prepare("SELECT * FROM newsletter_subscribers WHERE email = ?");
+        $stmt->bind_param("s", $userEmail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $message = "You are already subscribed!";
+        } else {
+            // Insert into database
+            $stmt = $con->prepare("INSERT INTO newsletter_subscribers (email) VALUES (?)");
+            $stmt->bind_param("s", $userEmail);
+
+            if ($stmt->execute()) {
+                $message = "Subscription successful!";
+
+                // Send confirmation email
+                $to = $userEmail;
+                $subject = "Newsletter Subscription";
+                $emailMessage = "
+                Hello,
+
+We hope you're having a fantastic day! At QUINTET,
+we're always bringing you the best products at unbeatable prices.
+This month, we have some exciting new arrivals
+and exclusive discounts that you don’t want to miss!
+
+✨ What's New?
+
+Fresh styles and trendy products just added!
+Limited-time discounts on top categories.
+Special offers for our loyal customers!
+
+🎁 Special Offer:
+Get an extra 10% OFF on your first order this month! Use code QUINTET10 at checkout.
+
+🛍️ Shop Now & Save Big!
+Visit our website and grab your favorites before they’re gone!
+Shop Now
+
+Stay connected with us for more updates, flash sales, and exclusive perks. Follow
+us on social media and subscribe for more exciting deals!
+
+Happy Shopping!
+The QUINTET Team";
+                $headers = "From: no-reply@yourwebsite.com";
+
+                mail($to, $subject, $emailMessage, $headers);
+            } else {
+                $message = "Subscription failed. Try again.";
+            }
+        }
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -233,77 +297,29 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
         background: #000;
         color: #fff;
     }
+
+    .message {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #fff;
+        text-align: center;
+        border: 1px solid #fff;
+        padding: 10px;
+        width: 100%;
+    }
     </style>
     <div class="wrapperForm">
-        <form action="joinournewsletter.php" method="POST" autocomplete="off">
+        <form method="POST" autocomplete="off">
             <h1>join our newsletter</h1>
-            <?php
-            $userEmail = ""; //first we leave email field blank
-            if (isset($_POST['subscribe'])) { //if subscribe btn clicked
-                $userEmail = $_POST['email']; //getting user entered email
-                if (filter_var($userEmail, FILTER_VALIDATE_EMAIL)) { //validating user email
-                    $subject = "Exciting Deals & New Arrivals at QUINTET!";
-                    $header = "Exclusive Offers Just for You!";
-                    $header .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
-                    $message = "Hello,
-
-We hope you're having a fantastic day! At QUINTET, 
-we're always bringing you the best products at unbeatable prices. 
-This month, we have some exciting new arrivals 
-and exclusive discounts that you don’t want to miss!
-
-✨ What's New?
-
-Fresh styles and trendy products just added!
-Limited-time discounts on top categories.
-Special offers for our loyal customers!
-
-🎁 Special Offer:
-Get an extra 10% OFF on your first order this month! Use code QUINTET10 at checkout.
-
-🛍️ Shop Now & Save Big!
-Visit our website and grab your favorites before they’re gone!
-Shop Now
-
-Stay connected with us for more updates, flash sales, and exclusive perks. Follow 
-us on social media and subscribe for more exciting deals!
-
-Happy Shopping!
-The QUINTET Team";
-                    $sender = "From: quintetonline@gmail.com";
-                    //php function to send mail
-                    if (mail($userEmail, $subject, $message, $sender, $header)) {
-            ?>
-            <!-- show sucess message once email send successfully -->
-            <div class="alert success-alert">
-                <?php echo "Thanks for Subscribing us." ?>
-            </div>
-            <?php
-                        $userEmail = "";
-                    } else {
-                    ?>
-            <!-- show error message if somehow mail can't be sent -->
-            <div class="alert error-alert">
-                <?php echo "Failed while sending your mail!" ?>
-            </div>
-            <?php
-                    }
-                } else {
-                    ?>
-            <!-- show error message if user entered email is not valid -->
-            <div class="alert error-alert">
-                <?php echo "$userEmail is not a valid email address!" ?>
-            </div>
-            <?php
-                }
-            }
-            ?>
+            <?php if (!empty($message)): ?>
+            <p class="message"><?php echo $message; ?></p>
+            <?php endif; ?>
             <div class=" inputbox input-field-login">
-                <input type="text" class="email" name="email" required value="<?php echo $userEmail ?>">
+                <input type="email" class="email" name="email" required value="<?php echo $userEmail ?>">
                 <label>E-mail</label>
             </div>
             <div class=" btn">
-                <button type="submit" name="subscribe">Subscribe</button>
+                <button type="submit">Subscribe</button>
             </div>
         </form>
     </div>
