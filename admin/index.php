@@ -83,6 +83,7 @@ if (isset($_POST['submit'])) {
             background: #f2f3f8 !important;
             width: 100%;
             height: 90vh;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
         }
 
         .module-login,
@@ -90,6 +91,7 @@ if (isset($_POST['submit'])) {
         .module-body,
         .module-head {
             background: white !important;
+
         }
 
         .module-head h1 {
@@ -148,7 +150,7 @@ if (isset($_POST['submit'])) {
         </style>
         <div class="container">
             <div class="row" style="display: flex;align-items: center;justify-content: center;height: 80vh;     ">
-                <div class="module module-login " style="width: 350px; padding: 10px;border-radius: 20px; 
+                <div class="module module-login " style="box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; width: 350px; padding: 10px;border-radius: 20px; 
                    ">
                     <form class="form-vertical" method="post">
                         <div class="module-head">
@@ -178,7 +180,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
-                         <span class="checkbox">
+                        <span class="checkbox">
                             <input type="checkbox" id="checks" class="eye-icon" />
                             <label for="checks">Show Password</label>
                         </span>
@@ -189,7 +191,7 @@ if (isset($_POST['submit'])) {
                                 </div>
                             </div>
                         </div>
-                       
+
                     </form>
                 </div>
             </div>

@@ -103,14 +103,14 @@ if (strlen($_SESSION['login']) == 0) {
                                                         value="QR CODE">
                                                     <!-- <input type="radio" name="paymethod" id="three"
                                                         value="Debit / Credit card"> -->
-                                                    <!-- <label for="one" class="box first">
+                                                    <label for="one" class="box first">
                                                         <div class="plan">
                                                             <span class="circle"></span>
                                                             <span class="yearly"
                                                                 style="text-transform: uppercase;font-family: 'Raleway',sans-serif; ">cash
                                                                 on delivery</span>
                                                         </div>
-                                                    </label> -->
+                                                    </label>
                                                     <label for="two" class="box second " onclick="qrshow()">
                                                         <div class="plan">
                                                             <span class="circle"></span>

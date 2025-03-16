@@ -267,17 +267,21 @@ if (strlen($_SESSION['login']) == 0) {
                                                         <?php echo substr(htmlentities($row['odate']), 0, 10); ?>
                                                     </span>
                                                 </h4>
-                                                <h4 class="cart-product-sub-total">
+                                                <h4 class="cart-product-sub-total ">
                                                     <span>
                                                         Order Status
                                                     </span>
-                                                    <span class="cart-sub-total-price"
-                                                        style=" font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
+                                                    <span class="cart-sub-total-price ostatus"
+                                                        style="color: #fff !important; font-family: sans-serif, ' Poppins' !important; font-size: 12px;">
                                                         <?php echo substr(htmlentities($row['ostatus']), 0, 10); ?>
                                                     </span>
                                                 </h4>
                                             </div>
-
+                                            <style>
+                                            .ostatus {
+                                                background: #000;
+                                            }
+                                            </style>
                                             <div class="mywishlistcardimage">
                                                 <a href="javascript:void(0);"
                                                     onClick="popUpWindow('track-order.php?oid=<?php echo htmlentities($row['orderid']); ?>');"

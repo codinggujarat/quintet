@@ -654,6 +654,11 @@ body::-webkit-scrollbar {
                                     </a>
                                 </li>
                                 <li>
+                                    <a href="feedback.php">
+                                        Feedback
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="ContactUs.php">
                                         Contact Us
                                     </a>

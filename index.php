@@ -276,15 +276,6 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                 el: ".swiper-pagination",
                 clickable: true,
             },
-            breakpoints: {
-                640: {
-                    autoplay: false,
-                },
-                768: {
-                    autoplay: false,
-
-                }
-            },
         });
         </script>
         <!-- ========================================= SECTION – HERO : END ========================================= -->
