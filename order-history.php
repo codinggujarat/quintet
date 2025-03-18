@@ -295,13 +295,18 @@ if (strlen($_SESSION['login']) == 0) {
 
 
                                             <?php
-                                                    $shortStatus = htmlentities($row['ostatus']);
+                                                    $shortStatus = substr(htmlentities($row['ostatus']), 0, 10);
+
                                                     if ($shortStatus != 'Delivered' && $shortStatus != 'return order'  && $shortStatus != 'cancelled') { ?>
                                             <form method="post"
                                                 action="cancelorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
-                                                <button type="submit" class="Cancelbtn"
-                                                    onclick="return confirm('Are you sure you want to cancel this order?');">
-                                                    Cancel Order
+                                                <button class="Cancelbtn">
+                                                    <a type="submit" href="
+                                                    cancelorder.php?oid=<?php echo htmlentities($row['orderid']); ?>"
+                                                        onclick="return confirm('Are you sure you want to cancel this order?');"
+                                                        style="color: #fff;">
+                                                        Cancel Order
+                                                    </a>
                                                 </button>
                                             </form>
                                             <?php } ?>
@@ -311,9 +316,12 @@ if (strlen($_SESSION['login']) == 0) {
                                                     if ($shortStatus == 'Delivered' || $shortStatus == 'return order') { ?>
                                             <form method="post"
                                                 action="returnorder.php?oid=<?php echo htmlentities($row['orderid']); ?>">
-                                                <button type="submit" class="Cancelbtn"
-                                                    onclick="return confirm('Are you sure you want to cancel this order?');">
-                                                    Return Order
+                                                <button class="Cancelbtn">
+                                                    <a type="submit" style="color: #fff;" href="
+                                                    returnorder.php?oid=<?php echo htmlentities($row['orderid']); ?>"
+                                                        onclick="return confirm('Are you sure you want to cancel this order?');">
+                                                        Return Order
+                                                    </a>
                                                 </button>
                                             </form>
                                             <?php } ?>
