@@ -268,7 +268,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                         align-items: center;
                         justify-content: space-between;
                         position: sticky;
-                        top: 5%;
+                        top: 20%;
                         width: 97%;
                         background: transparent;
                         z-index: 9;

@@ -168,9 +168,9 @@ body::-webkit-scrollbar {
 
 
 
-.main-header.sticky .logo-holder .logo img {
+/* .main-header.sticky .logo-holder .logo img {
     width: 340px;
-}
+} */
 
 
 .responsive-search {
