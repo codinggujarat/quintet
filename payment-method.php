@@ -139,13 +139,13 @@ if (strlen($_SESSION['login']) == 0) {
                                                         class="btn btn-primary">
                                                 </div>
                                             </div>
-                                            <script>
+                                            <!-- <script>
                                             function toggleBox() {
                                                 let box = document.getElementById("submit-box");
                                                 box.style.display = (box.style.display === "none" || box.style
                                                     .display === "") ? "block" : "none";
                                             }
-                                            </script>
+                                            </script> -->
                                             <style>
                                             .outer-submit-box {
                                                 position: fixed !important;
@@ -291,21 +291,42 @@ if (strlen($_SESSION['login']) == 0) {
         </div><!-- /.container -->
     </div><!-- /.body-content -->
     <style>
-    .qrbox {
+    .qrboxouter {
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
+        z-index: 0;
         position: fixed;
-        top: 50%;
+        top: -50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+
         height: 100vh;
-        display: none;
+    }
+
+    .qrbox {
+        position: fixed;
+        top: -50%;
+
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 800px;
+        height: 100vh;
+        /* display: none; */
         background: white;
         z-index: 999999;
+        background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)) !important;
         border: 1px solid black;
+
+        transition: 0.5s all linear;
     }
 
 
     .qrbox-in {
+
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -438,12 +459,17 @@ if (strlen($_SESSION['login']) == 0) {
     <script>
     function qrshow() {
         let qrBox = document.querySelector(".qrbox");
+        let qrboxouter = document.querySelector(".qrboxouter");
 
         if (qrBox) {
-            qrBox.style.display = "block";
+            qrBox.style.top = "50%";
+            qrboxouter.style.top = "50%";
         }
     }
     </script>
+    <div class="qrboxouter">
+
+    </div>
     <div class="qrbox">
         <div class="qrbox-in">
             <div class="form-section">
