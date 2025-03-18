@@ -507,7 +507,7 @@ if (isset($_GET['pid']) && $_GET['action'] == "wishlist") {
                                                     <a title="favourites"
                                                         style="   border-radius: 0 !important ; font-size: 12px !important ; "
                                                         href="product-details.php?pid=<?php echo htmlentities($row['id']) ?>&&action=wishlist">
-                                                        <svg fill="#fff" height="10px" width="10px" version="1.1"
+                                                        <svg fill="#000" height="10px" width="10px" version="1.1"
                                                             id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                                                             xmlns:xlink="http://www.w3.org/1999/xlink"
                                                             viewBox="0 0 507.447 507.447" xml:space="preserve">
