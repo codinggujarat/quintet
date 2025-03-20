@@ -3,7 +3,6 @@ session_start();
 error_reporting(0);
 include('includes/config.php');
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $name = mysqli_real_escape_string($con, $_POST['name']);
@@ -18,12 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Insert into database
     $sql = "INSERT INTO paymentInformation (email, name, contactNumber, amount, utr_number, qr_code_img)
-VALUES ('$email', '$name', '$contactNumber', '$amount', '$utr_number', '$qr_code_img')";
+            VALUES ('$email', '$name', '$contactNumber', '$amount', '$utr_number', '$qr_code_img')";
 
     if (mysqli_query($con, $sql)) {
         header("Location: payment-method.php");
-        exit(); // Ensure no further execution
-
+        $_SESSION['show_toggle'] = true;  // Store in session to trigger toggleBox
+        exit();
     } else {
         echo "Error: " . mysqli_error($con);
     }

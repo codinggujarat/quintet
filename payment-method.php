@@ -131,7 +131,7 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <input type="submit" value="submit" name="submit" class="btn btn-primary">
-                                            <div class="outer-submit-box" id="submit-box">
+                                            <div class="outer-submit-box" id="successBox">
                                                 <div class="submit-box">
                                                     <h1>Payment successful!!</h1>
                                                     <h3>Thank you for your purchase.</h3>
@@ -139,13 +139,25 @@ if (strlen($_SESSION['login']) == 0) {
                                                         class="btn btn-primary">
                                                 </div>
                                             </div>
-                                            <!-- <script>
+                                            <script>
                                             function toggleBox() {
-                                                let box = document.getElementById("submit-box");
+                                                let box = document.getElementById("successBox");
                                                 box.style.display = (box.style.display === "none" || box.style
                                                     .display === "") ? "block" : "none";
                                             }
-                                            </script> -->
+                                            <?php
+                                                    if (isset($_SESSION['show_toggle'])) {
+                                                        echo "toggleBox();"; // Call toggleBox() when page loads
+                                                    }
+                                                    ?>
+
+                                            // Remove session variable after 1 minute
+                                            setTimeout(() => {
+                                                fetch('remove_session.php')
+                                                    .then(response => response.text())
+                                                    .then(data => console.log(data)); // Optional: Log response
+                                            }, 60000); // 60000ms = 1 minute
+                                            </script>
                                             <style>
                                             .outer-submit-box {
                                                 position: fixed !important;
