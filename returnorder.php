@@ -72,36 +72,30 @@ function f3() {
         text-transform: uppercase;
         font-family: 'Chillax', sans-serif;
         font-weight: lighter;
+        padding: 20px;
         color: #000 !important;
     }
 
-    .fontkink1 {
-        font-weight: bold;
-    }
-
-    .statusT {
-        font-weight: light;
-        padding: 2px;
-        background-color: #000;
-        color: #fff !important;
-    }
-
-    .fontpink2 {
-        text-align: center;
-        font-weight: bold;
-        border-bottom: 1px solid black;
-        padding-bottom: 10px;
-    }
-
-    .fontpink3 {
-        text-align: center;
-        font-weight: bold;
-        padding-bottom: 10px;
-    }
-
-
     .card {
+        width: 600px;
         background-color: white !important;
+    }
+
+    .card-head h5 {
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        color: #000;
+        font-weight: bold !important;
+        font-size: 20px;
+        text-transform: capitalize;
+    }
+
+    .field-title {
+        color: #000;
+        font-weight: bold !important;
+        font-size: 13px;
+        margin-bottom: 10px;
     }
 
     @media (max-width: 600px) {
@@ -112,109 +106,259 @@ function f3() {
     </style>
 </head>
 
-<body class="bg-white">
-    <!--Nav Start-->
-    <style>
-    .fontkink1,
-    .fontkink {
-        text-transform: uppercase;
-    }
-    </style>
+<body class="bg-black">
+
     <div class="center_Div ">
-        <div class="col-lg-12 col-sm-12 col-md-12 h-100 ">
-            <div class="wrapper " style="margin-top: 90px;">
-                <div class="container mt-5 ">
-                    <form name="updateticket" id="updateticket" method="post" class="mt-5">
-                        <div class="row ">
-
-                            <style>
-                            .row {
-                                padding: 10px;
-                                border: 2px solid black;
-                            }
-                            </style>
-                            <div class="col-lg-6 card">
-                                <table cellpadding="0" cellspacing="0"
-                                    class="bg-white  table table-bordered 	  table-responsive">
-                                    <tr class="bg-black text-white">
-                                        <td colspan="2" class="text-center text-white text-uppercase fs-4">
-                                            return Order ! </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="fontkink1">order Id:</td>
-                                        <td class="fontkink"><?php echo $oid; ?></td>
-                                    </tr>
-                                    <?php
-                                        $st = 'In Transit';
-                                        $rt = mysqli_query($con, "SELECT * FROM orders WHERE id='$oid'");
-                                        while ($num = mysqli_fetch_array($rt)) {
-                                            $currrentSt = $num['orderStatus'];
-                                        }
-                                        if ($st == $currrentSt) { ?>
-                                    <tr>
-                                        <style>
-                                        .bx-calendar-check {
-                                            font-size: 15px !important;
-                                        }
-                                        </style>
-                                        <td colspan="2">
-                                            <button
-                                                class="btn btn-outline-dark bg-white text-black rounded text-uppercase">
-                                                Your order is in transit and cannot be canceled at this stage.
-                                                <i class='bx bx-check-square'></i> </button>
-                                        </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <?php } else {
-                                            ?>
-                                    </tr>
-                                    <tr height="50">
-                                        <td class="fontkink1">Status: </td>
-                                        <td class="fontkink"><span class="fontkink1">
-
-                                                <input type="text" value="return order" name="status" readonly>
-                                            </span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="fontkink1">Remark:</td>
-                                        <td class="fontkink"><span class="fontkink">
-                                                <textarea cols="50" rows="7"
-                                                    placeholder="Write a Reason for canceling an order " name="remark"
-                                                    required="required"></textarea>
-                                            </span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="fontkink"> </td>
-                                        <td class="fontkink">
-                                            <input type="submit" name="submit2" value="update" class="txtbox4" size="40"
-                                                style="cursor: pointer;" />
-                                            &nbsp;&nbsp;
-                                            <!-- <input name="Submit2" type="submit" class="txtbox4"
-                                                value="Close this Window " onClick="return f2();"
-                                                style="cursor: pointer;" /> -->
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-
-                                </table>
+        <div class="wrapper ">
+            <div class="container mt-5 ">
+                <form name="updateticket" id="updateticket" method="post" class="mt-5">
+                    <div class="row ">
+                        <div class="col-lg-12 card">
+                            <div class="card-head">
+                                <h5>return order ! </h5>
                             </div>
+                            <div class="card-body">
+                                <h3 class="field-title"> order ID:
+                                    <?php echo $oid; ?>
+                                </h3>
+                                <?php
+                                    $st = 'In Transit';
+                                    $rt = mysqli_query($con, "SELECT * FROM orders WHERE id='$oid'");
+                                    while ($num = mysqli_fetch_array($rt)) {
+                                        $currrentSt = $num['orderStatus'];
+                                    }
+                                    if ($st == $currrentSt) { ?>
+                                <div class="form-field">
+                                    <h3 class="field-title">
+                                        Your order is in transit and cannot be canceled at this stage.
+                                    </h3>
+                                </div>
+                                <?php } else {
+                                    ?>
+
+                                <div class="form-field">
+                                    <h3 class="field-title">order status:</h3>
+                                    <input type="text" class="black-bg" value="return order" name="status" readonly>
+
+                                </div>
+
+                                <div class="form-field">
+                                    <h3 class="field-title">Select a reason for return order:</h3>
+                                    <input type="radio" id="one" name="remark" required value="Received a damaged item">
+                                    <label for="one" class="box first">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly"
+                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; font-weight: bold !important;">
+
+                                                Received a damaged item</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="two" name="remark" required value="Received the wrong item">
+                                    <label for="two" class="box second ">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly"
+                                                style="text-transform: uppercase; font-family: 'Raleway',sans-serif; font-weight: bold !important;">
+                                                Received the wrong item</span>
+                                        </div>
+                                    </label>
+
+
+                                    <input type="radio" name="remark" required id="three"
+                                        value="Item is defective or not working">
+                                    <label for="three" class="box  third">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly"
+                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; font-weight: bold !important;">
+                                                Item is defective or not working</span>
+                                        </div>
+                                    </label>
+
+                                    <input type="radio" id="forths" name="remark" required
+                                        value="Item is not as described">
+                                    <label for="forths" class="box  forth">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly"
+                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; font-weight: bold !important;">
+                                                Item is not as described</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="fifths" name="remark" required value="Size or fit issue">
+                                    <label for="fifths" class="box  fifth">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly" style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; 
+        font-weight: bold !important;
+                                                ">Size or fit issue</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="sixs" name="remark" required value="Item arrived too late">
+                                    <label for="sixs" class="box  six">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly" style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; 
+        font-weight: bold !important;
+                                                ">Item arrived too late</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="sevens" name="remark" required
+                                        value="Quality is not as expected">
+                                    <label for="sevens" class="box  seven">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly" style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; 
+        font-weight: bold !important;
+                                                ">Quality is not as expected</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="eights" name="remark" required
+                                        value="Missing parts or accessories">
+                                    <label for="eights" class="box  eight">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly" style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; 
+        font-weight: bold !important;
+                                                ">Missing parts or accessories</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="nines" name="remark" required value="Changed my mind">
+                                    <label for="nines" class="box  nine">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly" style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; 
+        font-weight: bold !important;
+                                                ">Changed my mind</span>
+                                        </div>
+                                    </label>
+                                    <input type="radio" id="tens" name="remark" required value="Other">
+                                    <label for="tens" class="box ten">
+                                        <div class="plan">
+                                            <span class="circle"></span>
+                                            <span class="yearly"
+                                                style="text-transform: uppercase;font-family: 'Raleway',sans-serif;color:black; font-weight: bold !important;">other</span>
+                                        </div>
+                                    </label>
+
+                                </div>
+
+                                <div class="form-field">
+                                    <input type="submit" name="submit2" value="return" class="txtbox4" size="40"
+                                        style="cursor: pointer;" />
+                                </div>
+                                <?php } ?>
+                            </div>
+
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+
+
+
+    .card label.box {
+        background: white;
+        margin-top: 12px;
+        padding: 4px 6px;
+        display: flex;
+        border-radius: 5px;
+        border: 2px solid lightgray;
+        color: #000;
+        font-weight: bold !important;
+        font-size: 13px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    #one:checked~label.first,
+    #two:checked~label.second,
+    #three:checked~label.third,
+    #forths:checked~label.forth,
+    #fifths:checked~label.fifth,
+    #sixs:checked~label.six,
+    #sevens:checked~label.seven,
+    #eights:checked~label.eight,
+    #nines:checked~label.nine,
+    #tens:checked~label.ten {
+        border-color: black;
+
+        background: whitesmoke;
+    }
+
+    .card label.box:hover {
+        background: whitesmoke;
+    }
+
+    .card label.box .circle {
+        height: 10px;
+        width: 10px;
+        background: #ccc;
+        border: 5px solid transparent;
+        display: inline-block;
+        margin-right: 15px;
+        border-radius: 50%;
+        transition: all 0.25s ease;
+        box-shadow: inset -4px -4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #one:checked~label.first .circle,
+    #two:checked~label.second .circle,
+    #three:checked~label.third .circle,
+    #forths:checked~label.forth .circle,
+    #fifths:checked~label.fifth .circle,
+    #sixs:checked~label.six .circle,
+    #sevens:checked~label.seven .circle,
+    #eights:checked~label.eight .circle,
+    #nines:checked~label.nine .circle,
+    #tens:checked~label.ten .circle {
+        border-color: black;
+        background: #fff;
+    }
+
+
+
+    .card label.box .plan {
+        color: #000;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        font-family: 'Chillax', sans-serif;
+        font-weight: bold !important;
+
+    }
+
+    .card input[type="radio"] {
+        display: none;
+    }
+    </style>
 
     <style>
+    .form-field .black-bg {
+        background: #000;
+        width: 100%;
+        color: #fff;
+        text-transform: uppercase !important;
+    }
+
+    .form-field {
+        width: 100%;
+        margin-top: 10px;
+    }
+
     .txtbox4 {
         background-color: #000;
         color: #fff;
         text-transform: uppercase !important;
         padding: 10px;
+        width: 100%;
         font-size: 15px;
     }
 
@@ -234,6 +378,14 @@ function f3() {
         text-transform: capitalize !important;
         color: #000;
         padding: 10px;
+        font-size: 13px;
+        font-weight: bold !important;
+        font-family: 'Chillax', sans-serif;
+
+    }
+
+    label {
+        width: 100%;
     }
     </style>
     <!-- Library Bundle Script -->
