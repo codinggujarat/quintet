@@ -131,14 +131,14 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <input type="submit" value="submit" name="submit" class="btn btn-primary">
-                                            <div class="outer-submit-box" id="submit-box">
+                                            <!-- <div class="outer-submit-box" id="submit-box">
                                                 <div class="submit-box">
                                                     <h1>Payment successful!!</h1>
                                                     <h3>Thank you for your purchase.</h3>
                                                     <input type="submit" value="submit" name="submit"
                                                         class="btn btn-primary">
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- <script>
                                             function toggleBox() {
                                                 let box = document.getElementById("submit-box");

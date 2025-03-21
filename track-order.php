@@ -52,6 +52,7 @@ function f3() {
         position: absolute;
         left: 50%;
         top: 50%;
+        margin: 20px;
         transform: translate(-50%, -50%);
         height: 100% !important;
         text-transform: uppercase;
@@ -97,44 +98,41 @@ function f3() {
     </style>
 </head>
 
-<body>
+<body class="bg-black">
     <div class="center_Div bg-white">
-        <div class="col-lg-12 col-sm-12 col-md-12 h-100 bg-white">
-            <div class="card orderDiv bg-white">
-                <div class="card-header d-flex justify-content-between">
-                    <div class="header-title">
-                        <h3 class="card-title fw-normal">Update Order !
-                            <?php echo $oid; ?>
-                        </h3>
-                    </div>
+        <div class="card ">
+            <div class="card-header d-flex justify-content-between">
+                <div class="header-title">
+                    <h3 class="card-title fw-normal">Update Order !
+                        <?php echo $oid; ?>
+                    </h3>
                 </div>
-                <div class="card-body">
-                    <div class="iq-timeline0 m-0 d-flex align-items-center justify-content-between position-relative">
-                        <ul class="list-inline p-0 m-0">
-                            <?php
-                            $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
-                            while ($row = mysqli_fetch_array($ret)) {
-                            ?>
-                            <li>
+            </div>
+            <div class="card-body">
+                <div class="iq-timeline0 m-0 d-flex align-items-center justify-content-between position-relative">
+                    <ul class="list-inline p-0 m-0">
+                        <?php
+                        $ret = mysqli_query($con, "SELECT * FROM ordertrackhistory WHERE orderId='$oid'");
+                        while ($row = mysqli_fetch_array($ret)) {
+                        ?>
+                        <li>
 
-                                <div class="timeline-dots timeline-dot1 border-dark text-dark">
-                                </div>
-                                <h6 class="float-left mb-1 fw-bold bg-black text-white p-2">
-                                    <?php echo $row['status']; ?>
-                                </h6>
-                                <small class="float-right mt-1 fw-bold"><?php echo $row['postingDate']; ?></small>
-                                <div class="d-inline-block w-100 fw-bold">
-                                    <p><?php echo $row['remark']; ?>
-                                    </p>
-                                </div>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
+                            <div class="timeline-dots timeline-dot1 border-dark text-dark">
+                            </div>
+                            <h6 class="float-left mb-1 fw-bold bg-black text-white p-2">
+                                <?php echo $row['status']; ?>
+                            </h6>
+                            <small class="float-right mt-1 fw-bold"><?php echo $row['postingDate']; ?></small>
+                            <div class="d-inline-block w-100 fw-bold">
+                                <p><?php echo $row['remark']; ?>
+                                </p>
+                            </div>
+                        </li>
+                        <?php } ?>
+                    </ul>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 
