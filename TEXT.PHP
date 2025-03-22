@@ -32,6 +32,26 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <link rel="stylesheet" href="style.css">
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="admin/assets2.0/css/core/libs.min.css" />
+
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/hope-ui.min.css?v=2.0.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/custom.min.css?v=2.0.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/dark.min.css" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/customizer.min.css" />
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="admin/assets2.0/css/rtl.min.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
@@ -137,67 +157,142 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 </head>
 
 <body>
-    <div class="container">
-        <div class="content">
-            <input type="radio" name="slider" checked id="home">
-            <input type="radio" name="slider" id="blog">
-            <input type="radio" name="slider" id="help">
-            <div class="list">
-                <label for="home" class="home">
-                    WOMAN </label>
-                <label for="blog" class="blog">
-                    MAN </label>
-                <label for="help" class="help">
-                    KIDS </label>
+
+    <?php
+    include('db_connection.php'); // Include your database connection
+    ?>
+
+    <div class="bd-example">
+        <nav>
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <?php
+                $sql = mysqli_query($con, "SELECT id, categoryName FROM category");
+                while ($row = mysqli_fetch_array($sql)) {
+                ?>
+                <button class="nav-link" data-category-id="<?php echo $row['id']; ?>">
+                    <?php echo htmlentities($row['categoryName']); ?>
+                </button>
+                <?php } ?>
             </div>
-            <div class="text-content">
-                <div class="home text">
-                    <ul class="responsive_Nav_Link_desktop">
-                        <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8");
+        </nav>
+        <div class="tab-content" id="subcategory-container">
+            <?php
+            $defaultCategoryId = 8;
+            $query = mysqli_query($con, "SELECT subcategory FROM subcategory WHERE categoryid='$defaultCategoryId'");
+            while ($row = mysqli_fetch_array($query)) {
+                echo "<div>" . htmlentities($row['subcategory']) . "</div>";
+            }
+            ?>
+        </div>
+    </div>
 
-                        while ($row = mysqli_fetch_array($sql)) {
-                        ?>
-                        <li style="margin-top: 15px;">
-                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
-                                <?php echo $row['subcategory']; ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class="blog text">
-                    <ul class="responsive_Nav_Link_desktop">
-                        <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=10");
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let buttons = document.querySelectorAll(".nav-link");
+        buttons.forEach(button => {
+            button.addEventListener("click", function() {
+                let categoryId = this.getAttribute("data-category-id");
 
-                        while ($row = mysqli_fetch_array($sql)) {
-                        ?>
-                        <li style="margin-top: 15px;">
-                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
-                                <?php echo $row['subcategory']; ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class="help text">
-                    <ul class="responsive_Nav_Link_desktop">
-                        <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=29");
+                fetch("fetch_subcategories.php?categoryid=" + categoryId)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("subcategory-container").innerHTML = data;
+                    });
+            });
+        });
+    });
+    </script>
 
-                        while ($row = mysqli_fetch_array($sql)) {
-                        ?>
-                        <li style="margin-top: 15px;">
-                            <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
-                                style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
-                                <?php echo $row['subcategory']; ?>
-                            </a>
-                        </li>
-                        <?php } ?>
-                    </ul>
-                </div>
+    <!-- Library Bundle Script -->
+    <script src="admin/assets2.0/js/core/libs.min.js"></script>
+
+    <!-- External Library Bundle Script -->
+    <script src="admin/assets2.0/js/core/external.min.js"></script>
+
+    <!-- Widgetchart Script -->
+    <script src="admin/assets2.0/js/charts/widgetcharts.js"></script>
+
+    <!-- mapchart Script -->
+    <script src="admin/assets2.0/js/charts/vectore-chart.js"></script>
+    <script src="admin/assets2.0/js/charts/dashboard.js"></script>
+
+    <!-- fslightbox Script -->
+    <script src="admin/assets2.0/js/plugins/fslightbox.js"></script>
+
+    <!-- Settings Script -->
+    <script src="admin/assets2.0/js/plugins/setting.js"></script>
+
+    <!-- Slider-tab Script -->
+    <script src="admin/assets2.0/js/plugins/slider-tabs.js"></script>
+
+    <!-- Form Wizard Script -->
+    <script src="admin/assets2.0/js/plugins/form-wizard.js"></script>
+
+    <!-- AOS Animation Plugin-->
+
+    <!-- App Script -->
+    <script src="admin/assets2.0/js/hope-ui.js" defer></script>
+    <!-- <div class="container"> -->
+    <div class="content">
+        <input type="radio" name="slider" checked id="home">
+        <input type="radio" name="slider" id="blog">
+        <input type="radio" name="slider" id="help">
+        <div class="list">
+            <label for="home" class="home">
+                WOMAN </label>
+            <label for="blog" class="blog">
+                MAN </label>
+            <label for="help" class="help">
+                KIDS </label>
+        </div>
+        <div class="text-content">
+            <div class="home text">
+                <ul class="responsive_Nav_Link_desktop">
+                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=8");
+
+                    while ($row = mysqli_fetch_array($sql)) {
+                    ?>
+                    <li style="margin-top: 15px;">
+                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                            <?php echo $row['subcategory']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="blog text">
+                <ul class="responsive_Nav_Link_desktop">
+                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=10");
+
+                    while ($row = mysqli_fetch_array($sql)) {
+                    ?>
+                    <li style="margin-top: 15px;">
+                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                            <?php echo $row['subcategory']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="help text">
+                <ul class="responsive_Nav_Link_desktop">
+                    <?php $sql = mysqli_query($con, "select id,subcategory  from subcategory where categoryid=29");
+
+                    while ($row = mysqli_fetch_array($sql)) {
+                    ?>
+                    <li style="margin-top: 15px;">
+                        <a href="sub-category.php?scid=<?php echo $row['id']; ?>"
+                            style="width: 100%; text-align: left !important; display: flex !important;align-items: start !important; justify-content: start !important;   ">
+                            <?php echo $row['subcategory']; ?>
+                        </a>
+                    </li>
+                    <?php } ?>
+                </ul>
             </div>
         </div>
+    </div>
     </div>
     <script>
     function openmenuBar() {

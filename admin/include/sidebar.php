@@ -741,6 +741,64 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Reviews </span>
                     </a>
                 </li>
+                <li class="nav-item text-black "
+                    style="background: transparent !important ;color: black !important ;box-shadow: none !important ;   ">
+                    <a class="nav-link text-black" data-bs-toggle="collapse" href="#horizontal-menu2" role="button"
+                        aria-expanded="false" aria-controls="horizontal-menu2"
+                        style="background: transparent !important ; color: black !important ;box-shadow: none !important ;  ">
+                        <i class="icon text-black">
+                            <svg width="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.33 16.5928H4.0293" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M13.1406 6.90042H19.4413" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M8.72629 6.84625C8.72629 5.5506 7.66813 4.5 6.36314 4.5C5.05816 4.5 4 5.5506 4 6.84625C4 8.14191 5.05816 9.19251 6.36314 9.19251C7.66813 9.19251 8.72629 8.14191 8.72629 6.84625Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M20.0002 16.5538C20.0002 15.2581 18.9429 14.2075 17.6379 14.2075C16.3321 14.2075 15.2739 15.2581 15.2739 16.5538C15.2739 17.8494 16.3321 18.9 17.6379 18.9C18.9429 18.9 20.0002 17.8494 20.0002 16.5538Z"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </i>
+                        <span class="item-name text-uppercase text-black">Report</span>
+                        <i class="right-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7" />
+                            </svg>
+                        </i>
+                    </a>
+                    <ul class="sub-nav collapse" id="horizontal-menu2" data-bs-parent="#sidebar-menu">
+                        <li class="nav-item ">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="review.php">
+                                <i class="icon">
+                                    <svg class="color" width="30" xmlns="http://www.w3.org/2000/svg" width="25px"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </i>
+                                <span class="item-name text-uppercase text-black">sales Report </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="review.php">
+                                <i class="icon">
+                                    <svg class="color" width="30" width="20px" viewBox="0 0 24 24">
+                                        <path fill="currentColor"
+                                            d="M21.4 11.6L12.4 2.6C12 2.2 11.5 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.5 2.2 12 2.6 12.4L11.6 21.4C12 21.8 12.5 22 13 22C13.5 22 14 21.8 14.4 21.4L21.4 14.4C21.8 14 22 13.5 22 13C22 12.5 21.8 12 21.4 11.6M13 20L4 11V4H11L20 13M6.5 5C7.3 5 8 5.7 8 6.5S7.3 8 6.5 8 5 7.3 5 6.5 5.7 5 6.5 5M10.1 8.9L11.5 7.5L17 13L15.6 14.4L10.1 8.9M7.6 11.4L9 10L13 14L11.6 15.4L7.6 11.4Z" />
+                                    </svg>
+                                </i>
+                                <span class="item-name text-uppercase text-black">Manage Stock </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
                 <li class="nav-item ">
                     <a class="nav-link rounded-5  text-black bg-transparent" href="user-logs.php">
                         <i class="icon">
