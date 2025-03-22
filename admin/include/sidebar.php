@@ -741,6 +741,13 @@ select:valid~label {
                         <span class="item-name text-uppercase text-black">Manage Reviews </span>
                     </a>
                 </li>
+                <li class="nav-item static-item">
+                    <a class="nav-link static-item disabled" href="#" tabindex="-1">
+                        <span class="default-icon text-uppercase"
+                            style="color: #000;font-size: 14px;font-weight: 600; ">REPORT & Stock analysis</span>
+                        <span class="mini-icon">-</span>
+                    </a>
+                </li>
                 <li class="nav-item text-black "
                     style="background: transparent !important ;color: black !important ;box-shadow: none !important ;   ">
                     <a class="nav-link text-black" data-bs-toggle="collapse" href="#horizontal-menu2" role="button"
