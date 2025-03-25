@@ -131,21 +131,21 @@ if (strlen($_SESSION['login']) == 0) {
                                                 </div>
                                             </div>
                                             <input type="submit" value="submit" name="submit" class="btn btn-primary">
-                                            <!-- <div class="outer-submit-box" id="submit-box">
+                                            <div class="outer-submit-box" id="submit-box">
                                                 <div class="submit-box">
                                                     <h1>Payment successful!!</h1>
                                                     <h3>Thank you for your purchase.</h3>
                                                     <input type="submit" value="submit" name="submit"
                                                         class="btn btn-primary">
                                                 </div>
-                                            </div> -->
-                                            <!-- <script>
+                                            </div>
+                                            <script>
                                             function toggleBox() {
                                                 let box = document.getElementById("submit-box");
                                                 box.style.display = (box.style.display === "none" || box.style
                                                     .display === "") ? "block" : "none";
                                             }
-                                            </script> -->
+                                            </script>
                                             <style>
                                             .outer-submit-box {
                                                 position: fixed !important;
@@ -574,7 +574,6 @@ if (strlen($_SESSION['login']) == 0) {
     cancel.addEventListener('click', () => {
         let qrBox = document.querySelector(".qrbox");
         qrBox.style.display = "none";
-
     })
     </script>
     <?php echo include('includes/brands-slider.php'); ?>
