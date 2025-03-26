@@ -383,6 +383,12 @@ if (strlen($_SESSION['login']) == 0) {
     .btn-group-form .cancel {
         background-color: black !important;
         color: #fff !important;
+        border: 1px solid black;
+        outline: 0;
+        box-shadow: 0;
+        padding: 10px 15px;
+        text-transform: uppercase;
+
     }
 
     @media only screen and (max-width: 600px) {
@@ -562,7 +568,7 @@ if (strlen($_SESSION['login']) == 0) {
 
                         <div class="btn-group-form">
                             <button type="submit" onclick="toggleBox()">Submit Form</button>
-                            <button class="cancel">cancel Form</button>
+                            <a href="#close" class="cancel" type="submit">cancel Form</a>
                         </div>
                     </div>
                 </form>
@@ -573,7 +579,9 @@ if (strlen($_SESSION['login']) == 0) {
     let cancel = document.querySelector(".cancel");
     cancel.addEventListener('click', () => {
         let qrBox = document.querySelector(".qrbox");
-        qrBox.style.display = "none";
+        qrBox.style.top = "-50%";
+        let qrboxouter = document.querySelector(".qrboxouter");
+        qrboxouter.style.top = "-50%";
     })
     </script>
     <?php echo include('includes/brands-slider.php'); ?>
