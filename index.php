@@ -79,6 +79,9 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
     <!--Model Viewer  -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <link
+        href="https://api.fontshare.com/v2/css?f[]=general-sans@300,600&f[]=stardom@400&f[]=boska@500,700,900&f[]=chillax@200,300,400,500&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -93,71 +96,71 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
     </header>
     <style>
-    .col-lg-12 {
-        width: 100%;
-    }
-
-    .body-content {
-
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-
-
-    .swiper {
-        width: 100%;
-        height: 100vh;
-    }
-
-    .swiper-slide a {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .swiper-slide a img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .swiper-v {
-        background: #eee;
-    }
-
-    .swiper-pagination::before,
-    .swiper-pagination::after {
-        background: #000;
-        color: #000;
-
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: #000;
-
-    }
-
-    @media (max-width: 1100.98px) {
-        .swiper-slide a {
-            display: block;
+        .col-lg-12 {
+            width: 100%;
         }
-    }
 
-    @media (max-width: 500.98px) {
-        .swiper-slide a img {
+        .body-content {
+
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+
+
+        .swiper {
+            width: 100%;
             height: 100vh;
         }
 
-        #logo {
-            display: block !important;
+        .swiper-slide a {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    }
+
+        .swiper-slide a img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-v {
+            background: #eee;
+        }
+
+        .swiper-pagination::before,
+        .swiper-pagination::after {
+            background: #000;
+            color: #000;
+
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #000;
+
+        }
+
+        @media (max-width: 1100.98px) {
+            .swiper-slide a {
+                display: block;
+            }
+        }
+
+        @media (max-width: 500.98px) {
+            .swiper-slide a img {
+                height: 100vh;
+            }
+
+            #logo {
+                display: block !important;
+            }
+        }
     </style>
     <!-- ============================================== HEADER : END ============================================== -->
 
@@ -173,16 +176,16 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
-                            <div class="swiper-slide slide">
-                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                </a>
-                            </div>
+                                <div class="swiper-slide slide">
+                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                    </a>
+                                </div>
                             <?php } ?>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -199,16 +202,16 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
-                            <div class="swiper-slide slide">
-                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                </a>
-                            </div>
+                                <div class="swiper-slide slide">
+                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                    </a>
+                                </div>
                             <?php } ?>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -224,16 +227,16 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                             while ($row = mysqli_fetch_array($ret)) {
                                 $images[] = 'admin/productimages/' . htmlentities($row['id']) . '/' . htmlentities($row['productImage1']);
                             ?>
-                            <div class="swiper-slide slide">
-                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                    <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
-                                        width=" 100%" height="100%" alt="">
-                                </a>
-                            </div>
+                                <div class="swiper-slide slide">
+                                    <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                        <img src="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage2']); ?>"
+                                            width=" 100%" height="100%" alt="">
+                                    </a>
+                                </div>
                             <?php } ?>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -250,57 +253,57 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
         <!-- Initialize Swiper -->
         <script>
-        var swiper = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                type: "fraction",
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
-        var swiper2 = new Swiper(".mySwiper2", {
-            direction: "vertical",
-            spaceBetween: 50,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            spaceBetween: 10,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "fraction",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+            var swiper2 = new Swiper(".mySwiper2", {
+                direction: "vertical",
+                spaceBetween: 50,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                spaceBetween: 10,
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
         </script>
         <!-- ========================================= SECTION – HERO : END ========================================= -->
         <!-- ============================================== INFO BOXES ============================================== -->
         <style>
-        .social_media_newsletter ul li {
-            margin-left: 20px;
-            text-transform: uppercase;
-        }
+            .social_media_newsletter ul li {
+                margin-left: 20px;
+                text-transform: uppercase;
+            }
 
 
-        .social_media_newsletter ul {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
+            .social_media_newsletter ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
 
-        .social_media_newsletter a {
-            color: #000 !important;
-        }
+            .social_media_newsletter a {
+                color: #000 !important;
+            }
 
-        .social_media_newsletter a h3 {
-            font-size: 14px;
-        }
+            .social_media_newsletter a h3 {
+                font-size: 14px;
+            }
         </style>
         <div class="col-lg-12"
             style=" display: flex;
@@ -322,30 +325,35 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
             </div>
         </div>
         <style>
-        .new-slide {
-            height: 100vh;
-            object-fit: cover;
-            background-position: center;
-        }
+            .new-slide {
+                height: 100vh;
+                object-fit: cover;
+                background-position: center;
+            }
 
-        .swiper h1 {
-            text-transform: uppercase;
-            font-weight: lighter;
-            color: #Fff;
-            font-size: 40px;
-        }
+            .swiper h1 {
+                text-transform: lowercase;
+                color: #Fff;
 
-        .swiper h1 span {
-            font-weight: bolder !important;
-        }
+                font-size: 40px;
+                margin-top: 20px !important;
+                font-family: 'Chillax', sans-serif;
+                font-size: clamp(2rem, 10vw, 10rem);
+                font-weight: normal;
+
+            }
+
+            .swiper h1 span {
+                font-weight: normal;
+            }
         </style>
         <div class="col-lg-12"
             style=" display: flex;
                         align-items: center;
                      justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:black;padding: 20px;">
-            <div class="swiper mySwiperNew" style="padding: 0px;">
+            <div class="swiper mySwiperNew" style="height:100%;padding-top:100px; padding-bottom:100px !important;">
                 <h1>
-                    best seller - <span>MAN</span>
+                    best seller - <span>man</span>
                 </h1>
                 <div class="swiper-wrapper">
                     <?php
@@ -353,29 +361,29 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     while ($row = mysqli_fetch_array($ret)) {
                         # code...
                     ?>
-                    <div class="swiper-slide new-slide ">
-                        <div class="image ">
-                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    alt="">
-                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                    alt="">
-                            </a>
+                        <div class="swiper-slide new-slide ">
+                            <div class="image ">
+                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        alt="">
+                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        alt="">
+                                </a>
+                            </div>
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
             </div>
         </div>
-        <div class="col-lg-12"
+        <div class="col-lg-12 mb-5 mt-5"
             style=" display: flex;
                         align-items: center;
-                     justify-content: center;text-align:center;height: 100vh !important; position: sticky !important;width: 100%;background:black;padding: 20px;">
-            <div class="swiper mySwiperTwo" style="padding: 0px;">
+                     justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:black;">
+            <div class="swiper mySwiperTwo" style="height:100%;padding-top:0px; padding-bottom:0px !important;">
                 <h1>
-                    best seller - <span>WOMAN</span>
+                    best seller - <span>woman</span>
                 </h1>
                 <div class="swiper-wrapper">
                     <?php
@@ -383,90 +391,195 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
                     while ($row = mysqli_fetch_array($ret)) {
                         # code...
                     ?>
-                    <div class="swiper-slide new-slide ">
-                        <div class="image ">
-                            <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
-                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
-                                    alt="">
-                                <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                    data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
-                                    alt="">
-                            </a>
+                        <div class="swiper-slide new-slide ">
+                            <div class="image ">
+                                <a href="product-details.php?pid=<?php echo htmlentities($row['id']); ?>">
+                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImage1']); ?>"
+                                        alt="">
+                                    <img src=" admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        data-echo="admin/productimages/<?php echo htmlentities($row['id']); ?>/<?php echo htmlentities($row['productImageSix']); ?>"
+                                        alt="">
+                                </a>
+                            </div>
                         </div>
-                    </div>
                     <?php } ?>
                 </div>
             </div>
         </div>
+        <style>
+            video {
+                width: 100%;
+                object-fit: cover;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                padding-top: 100px;
+                padding-bottom: 100px !important;
+            }
+
+            .box-center {
+                position: absolute;
+                top: 55%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.59)); */
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .center {
+                font-family: 'Chillax', sans-serif;
+                color: #fff;
+                font-size: clamp(2rem, 10vw, 20rem);
+                font-weight: normal;
+                text-align: center;
+                width: 100%;
+
+            }
+
+            .title-ad {
+                text-align: center;
+                height: 100px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .title-ad h1 {
+                margin-top: 20px !important;
+                font-family: 'Chillax', sans-serif;
+                font-size: clamp(2rem, 10vw, 10rem);
+
+                color: #000;
+            }
+        </style>
+        <div class="col-lg-12"
+            style="margin:0;
+            padding:0;
+                position: relative;
+                        align-items: center; margin:0;
+                     justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:white;">
+
+            <div class="title-ad">
+                <h1 style="background-color: #fff;margin:0;">
+                    fashion collection - man </h1>
+            </div>
+            <video autoplay loop muted>
+                <source src="assets/video/MANS-ADS.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="box-center">
+                <h1 class="center">casual</h1>
+            </div>
+        </div>
+        <div class="col-lg-12"
+            style="margin:0;
+            padding:0;
+                position: relative;
+                        align-items: center; margin:0;
+                     justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:white;">
+            <div class="title-ad">
+                <h1 style="background-color: #fff;margin:0;">
+                    fashion collection - woman </h1>
+            </div>
+            <video autoplay loop muted>
+                <source src="assets/video/WOMANS-AD.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="box-center">
+                <h1 class="center">casual</h1>
+            </div>
+        </div>
+        <div class="col-lg-12"
+            style="margin:0;
+            padding:0;
+                position: relative;
+                        align-items: center; margin:0;
+                     justify-content: center;text-align:center;height: 100% !important; position: sticky !important;width: 100%;background:white;">
+            <div class="title-ad">
+                <h1 style="background-color: #fff;margin:0;">
+                    fashion collection - kids </h1>
+            </div>
+            <video autoplay loop muted>
+                <source src="assets/video/KIDS-AD.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="box-center">
+                <h1 class="center">kids</h1>
+            </div>
+        </div>
         <script>
-        var swiper3 = new Swiper(".mySwiperNew", {
-            grabCursor: true,
-            effect: "creative",
-            autoplay: true,
-            creativeEffect: {
-                prev: {
-                    shadow: true,
-                    translate: [0, 0, -400],
+            var swiper3 = new Swiper(".mySwiperNew", {
+                grabCursor: true,
+                effect: "creative",
+                autoplay: true,
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: [0, 0, -400],
+                    },
+                    next: {
+                        translate: ["100%", 0, 0],
+                    },
                 },
-                next: {
-                    translate: ["100%", 0, 0],
+            });
+            var swiper4 = new Swiper(".mySwiperTwo", {
+                grabCursor: true,
+                effect: "creative",
+                autoplay: true,
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-120%", 0, -500],
+                    },
+                    next: {
+                        shadow: true,
+                        translate: ["120%", 0, -500],
+                    },
                 },
-            },
-        });
-        var swiper4 = new Swiper(".mySwiperTwo", {
-            grabCursor: true,
-            effect: "creative",
-            autoplay: true,
-            creativeEffect: {
-                prev: {
-                    shadow: true,
-                    translate: ["-120%", 0, -500],
-                },
-                next: {
-                    shadow: true,
-                    translate: ["120%", 0, -500],
-                },
-            },
-        });
+            });
         </script>
     </div>
 
 
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Check if fullscreen session is stored
-        if (sessionStorage.getItem("fullscreen") === "true") {
-            enterFullscreen();
-        }
-
-        document.getElementById("fullscreenBtn").addEventListener("click", function() {
-            enterFullscreen();
-            sessionStorage.setItem("fullscreen", "true"); // Store fullscreen session
-        });
-
-        // Function to enter fullscreen
-        function enterFullscreen() {
-            let elem = document.documentElement;
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) { // Firefox
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari & Opera
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) { // IE/Edge
-                elem.msRequestFullscreen();
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if fullscreen session is stored
+            if (sessionStorage.getItem("fullscreen") === "true") {
+                enterFullscreen();
             }
-        }
 
-        // Event listener for fullscreen exit
-        document.addEventListener("fullscreenchange", function() {
-            if (!document.fullscreenElement) {
-                sessionStorage.removeItem("fullscreen"); // Remove session if fullscreen exits
+            document.getElementById("fullscreenBtn").addEventListener("click", function() {
+                enterFullscreen();
+                sessionStorage.setItem("fullscreen", "true"); // Store fullscreen session
+            });
+
+            // Function to enter fullscreen
+            function enterFullscreen() {
+                let elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen();
+                } else if (elem.mozRequestFullScreen) { // Firefox
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari & Opera
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE/Edge
+                    elem.msRequestFullscreen();
+                }
             }
+
+            // Event listener for fullscreen exit
+            document.addEventListener("fullscreenchange", function() {
+                if (!document.fullscreenElement) {
+                    sessionStorage.removeItem("fullscreen"); // Remove session if fullscreen exits
+                }
+            });
         });
-    });
     </script>
 
 
@@ -475,19 +588,19 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
     <script src="switchstylesheet/switchstylesheet.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $(".changecolor").switchstylesheet({
-            seperator: "color"
+        $(document).ready(function() {
+            $(".changecolor").switchstylesheet({
+                seperator: "color"
+            });
+            $('.show-theme-options').click(function() {
+                $(this).parent().toggleClass('open');
+                return false;
+            });
         });
-        $('.show-theme-options').click(function() {
-            $(this).parent().toggleClass('open');
-            return false;
-        });
-    });
 
-    $(window).bind("load", function() {
-        $('.show-theme-options').delay(2000).trigger('click');
-    });
+        $(window).bind("load", function() {
+            $('.show-theme-options').delay(2000).trigger('click');
+        });
     </script>
     <!-- For demo purposes – can be removed on production : End -->
 
@@ -497,65 +610,65 @@ if (isset($_GET['action']) && $_GET['action'] == "add") {
 
 
     <script>
-    const images = <?php echo json_encode($images); ?>; // Make sure paths are correct
-    console.log(images); // Debug image paths
+        const images = <?php echo json_encode($images); ?>; // Make sure paths are correct
+        console.log(images); // Debug image paths
 
-    let currentImageIndex = 0;
-    const logo = document.getElementById('logo');
+        let currentImageIndex = 0;
+        const logo = document.getElementById('logo');
 
-    function getImageBrightness(imageSrc, callback) {
-        const img = new Image();
-        img.crossOrigin = "Anonymous";
-        img.src = imageSrc;
+        function getImageBrightness(imageSrc, callback) {
+            const img = new Image();
+            img.crossOrigin = "Anonymous";
+            img.src = imageSrc;
 
-        img.onload = function() {
-            const canvas = document.createElement("canvas");
-            const context = canvas.getContext("2d");
+            img.onload = function() {
+                const canvas = document.createElement("canvas");
+                const context = canvas.getContext("2d");
 
-            canvas.width = img.width;
-            canvas.height = img.height;
-            context.drawImage(img, 0, 0, img.width, img.height);
+                canvas.width = img.width;
+                canvas.height = img.height;
+                context.drawImage(img, 0, 0, img.width, img.height);
 
-            const imageData = context.getImageData(0, 0, img.width, img.height);
-            let totalBrightness = 0;
-            const pixelData = imageData.data;
+                const imageData = context.getImageData(0, 0, img.width, img.height);
+                let totalBrightness = 0;
+                const pixelData = imageData.data;
 
-            for (let i = 0; i < pixelData.length; i += 4) {
-                const r = pixelData[i];
-                const g = pixelData[i + 1];
-                const b = pixelData[i + 2];
-                const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-                totalBrightness += brightness;
-            }
+                for (let i = 0; i < pixelData.length; i += 4) {
+                    const r = pixelData[i];
+                    const g = pixelData[i + 1];
+                    const b = pixelData[i + 2];
+                    const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+                    totalBrightness += brightness;
+                }
 
-            const averageBrightness = totalBrightness / (pixelData.length / 4);
-            console.log('Average brightness:', averageBrightness); // Debugging
-            callback(averageBrightness);
-        };
-    }
+                const averageBrightness = totalBrightness / (pixelData.length / 4);
+                console.log('Average brightness:', averageBrightness); // Debugging
+                callback(averageBrightness);
+            };
+        }
 
-    function changeLogoColor(imageSrc) {
-        getImageBrightness(imageSrc, function(brightness) {
-            if (brightness < 128) {
-                logo.style.filter = "invert(1)";
-            } else {
-                logo.style.filter = "invert(0)";
-            }
-        });
-    }
+        function changeLogoColor(imageSrc) {
+            getImageBrightness(imageSrc, function(brightness) {
+                if (brightness < 128) {
+                    logo.style.filter = "invert(1)";
+                } else {
+                    logo.style.filter = "invert(0)";
+                }
+            });
+        }
 
-    function changeBackground() {
-        const currentImage = images[currentImageIndex];
-        document.body.style.backgroundImage = `url(${currentImage})`;
+        function changeBackground() {
+            const currentImage = images[currentImageIndex];
+            document.body.style.backgroundImage = `url(${currentImage})`;
 
-        // Change logo color based on brightness
-        changeLogoColor(currentImage);
+            // Change logo color based on brightness
+            changeLogoColor(currentImage);
 
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
 
-    setInterval(changeBackground, 2500);
-    changeBackground();
+        setInterval(changeBackground, 2500);
+        changeBackground();
     </script>
     <?php
     include('includes/bot.php');
