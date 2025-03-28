@@ -73,7 +73,7 @@ if (strlen($_SESSION['alogin']) == 0) {
             content_css: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
 
             // Image upload settings
-            images_upload_url: 'upload_image.php', // Create this file for handling image uploads
+            images_upload_url: 'chatbot-update.php', // Create this file for handling image uploads
             automatic_uploads: true,
             file_picker_types: 'image',
             file_picker_callback: function(callback, value, meta) {

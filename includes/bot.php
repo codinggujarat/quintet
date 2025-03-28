@@ -55,8 +55,8 @@
 $(document).ready(function() {
     $("#send-btn").on("click", function() {
         $value = $("#data").val();
-        $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>' + $value +
-            '</p></div></div>';
+        $msg = '<div class="user-inbox inbox"><div class="msg-header">' + $value +
+            '</div></div>';
         $(".botform").append($msg);
         $("#data").val('');
 
@@ -191,6 +191,17 @@ $(document).ready(function() {
     padding: 8px 10px;
     text-transform: uppercase;
 
+}
+
+.botwrapper .botform .inbox .msg-header a {
+    color: #fff !important;
+}
+
+.botwrapper .botform .inbox .msg-header img {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
 }
 
 
