@@ -11,6 +11,14 @@ if (strlen($_SESSION['login']) == 0) {
         unset($_SESSION['cart']);
         header('location:order-history.php');
     }
+
+    // Check if the payment was successful
+    $payment_success = isset($_SESSION['payment_success']) ? $_SESSION['payment_success'] : false;
+    unset($_SESSION['payment_success']); // Remove session variable after displaying message
+
+    // Retrieve the selected payment method from the session (default to COD)
+    $selected_payment_method = isset($_SESSION['selected_payment_method']) ? $_SESSION['selected_payment_method'] : "COD";
+
 ?>
 
 <!DOCTYPE html>
@@ -97,10 +105,19 @@ if (strlen($_SESSION['login']) == 0) {
                                             style="width:500px; padding: 50px;   ">
                                             <div class="card">
                                                 <div class="content">
+                                                    <?php if ($payment_success): ?>
+                                                    <div
+                                                        style="text-transform: uppercase; color: white;text-align:center; font-weight: bold; border: 2px solid white; padding: 10px;">
+                                                        Payment successful! You have Successfully uploaded your QR
+                                                        Code Info..
+                                                    </div>
+                                                    <?php endif; ?>
+
                                                     <input type="radio" name="paymethod" id="one" checked="checked"
                                                         value="COD">
                                                     <input type="radio" name="paymethod" id="two" checked="checked"
-                                                        value="QR CODE">
+                                                        value="QR CODE"
+                                                        <?= ($selected_payment_method == "QR CODE") ? "checked" : "" ?>>
                                                     <!-- <input type="radio" name="paymethod" id="three"
                                                         value="Debit / Credit card"> -->
                                                     <label for="one" class="box first">

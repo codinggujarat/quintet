@@ -18,7 +18,8 @@ if (strlen($_SESSION['alogin']) == 0) {
         $productscharge = $_POST['productShippingcharge'];
         $productavailability = $_POST['productAvailability'];
         $productcolor = $_POST['productColor'];
-        $sql = mysqli_query($con, "update  products set category='$category',subCategory='$subcat',productcare='$productcare',productSizes='$productSizes',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productColor='$productcolor',productPriceBeforeDiscount='$productpricebd' where id='$pid' ");
+        $sizeChart  = $_POST['sizeChart'];
+        $sql = mysqli_query($con, "update  products set category='$category',subCategory='$subcat',productcare='$productcare',productSizes='$productSizes',productName='$productname',productCompany='$productcompany',productPrice='$productprice',productDescription='$productdescription',shippingCharge='$productscharge',productAvailability='$productavailability',productColor='$productcolor',productPriceBeforeDiscount='$productpricebd',sizeChart='$sizeChart' where id='$pid' ");
         $_SESSION['msg'] = "Product Updated Successfully !!";
     }
 
@@ -493,6 +494,15 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     </span></a>
                                                 <label class="imgLable">Product
                                                     Image Six</label>
+                                            </div>
+
+                                            <div class="control-group input-field-login mb-4">
+                                                <textarea name="sizeChart" placeholder="Enter Size Chart" rows="12"
+                                                    class="span8 tip editor">
+                                                <?php echo htmlentities($row['sizeChart']); ?>
+
+                                            </textarea>
+                                                <label>size Chart</label>
                                             </div>
                                             <?php } ?>
                                             <div class="control-group mb-4" style="position: relative;">

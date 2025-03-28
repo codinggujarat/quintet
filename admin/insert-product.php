@@ -24,6 +24,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         $productimageFour = $_FILES["productimageFour"]["name"];
         $productimageFive = $_FILES["productimageFive"]["name"];
         $productimageSix = $_FILES["productimageSix"]["name"];
+        $sizeChart  = $_POST['sizeChart'];
         //for getting product id
         $query = mysqli_query($con, "select max(id) as pid from products");
         $result = mysqli_fetch_array($query);
@@ -39,7 +40,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         move_uploaded_file($_FILES["productimageFour"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageFour"]["name"]);
         move_uploaded_file($_FILES["productimageFive"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageFive"]["name"]);
         move_uploaded_file($_FILES["productimageSix"]["tmp_name"], "productimages/$productid/" . $_FILES["productimageSix"]["name"]);
-        $sql = mysqli_query($con, "insert into products(category,subCategory,ProductCare,productSizes,productName,productCompany,productPrice,productDescription,shippingCharge,productAvailability,productColor,productImage1,productImage2,productImage3,productImageFour,productImageFive,productImageSix,productPriceBeforeDiscount) values('$category','$subcat','$productname','$productcompany','$productcare','$productSizes','$productprice','$productdescription','$productscharge','$productavailability','productcolor','$productimage1','$productimage2','$productimage3','$productimageFour','$productimageFive','$productimageSix','$productpricebd')");
+        $sql = mysqli_query($con, "insert into products(category,subCategory,ProductCare,productSizes,productName,productCompany,productPrice,productDescription,shippingCharge,productAvailability,productColor,productImage1,productImage2,productImage3,productImageFour,productImageFive,productImageSix,productPriceBeforeDiscount,sizeChart) values('$category','$subcat','$productname','$productcompany','$productcare','$productSizes','$productprice','$productdescription','$productscharge','$productavailability','productcolor','$productimage1','$productimage2','$productimage3','$productimageFour','$productimageFive','$productimageSix','$productpricebd','$sizeChart')");
         $_SESSION['msg'] = "Product Inserted Successfully !!";
     }
 
@@ -450,6 +451,12 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     required>
                                                 <label class="imgLable">Product
                                                     Image Six</label>
+                                            </div>
+                                            <div class="control-group input-field-login mb-4">
+                                                <textarea name="sizeChart" placeholder="Enter Size Chart" rows="6"
+                                                    class="span8 tip editor">
+                                            </textarea>
+                                                <label>size Chart</label>
                                             </div>
 
                                             <div class="control-group input-field-login mb-4">

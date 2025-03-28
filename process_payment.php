@@ -37,6 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$email', '$name', '$contactNumber', '$amount', '$utr_number', '$qr_code_img')";
 
         if (mysqli_query($con, $sql)) {
+            session_start(); // Ensure session is started
+            $_SESSION['payment_success'] = true; // Set success session variable
+            $_SESSION['selected_payment_method'] = "QR CODE"; // Store selected payment method
+
+
             header("Location: payment-method.php");
             exit(); // Ensure no further execution
         } else {

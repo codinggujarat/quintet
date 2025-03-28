@@ -851,6 +851,10 @@
                                 </div>
                                 <div class="  col-md-12 desktopDiscription "
                                     style="width:100% !important;background:#ffffff;margin-top: 20px;">
+                                    <button class="open-btnChart">Size Chart</h1>
+                                </div>
+                                <div class="  col-md-12 desktopDiscription "
+                                    style="width:100% !important;background:#ffffff;">
                                     <button class="open-btn">Composition, care & origin</h1>
                                 </div>
                                 <div class="  col-md-12 desktopDiscription "
@@ -861,6 +865,7 @@
 
                                 <style>
                                 .open-btn,
+                                .open-btnChart,
                                 .open-btnReturn {
                                     border: 0 solid black;
                                     outline: 0;
@@ -877,6 +882,7 @@
                                 }
 
                                 .ouertCare,
+                                .ouertChart,
                                 .ouertCareReturn {
                                     position: fixed;
                                     top: 0;
@@ -918,9 +924,40 @@
 
                                 }
 
+                                .inncrChart {
+                                    position: fixed;
+                                    top: 0;
+                                    right: -100%;
+                                    max-width: 800px;
+                                    width: 100%;
+                                    height: 100vh;
+                                    background-color: white;
+                                    z-index: 999999999999999999999999990 !important;
+                                    padding: 20px;
+                                    overflow-y: scroll;
+                                    transition: 0.5s all linear;
+
+                                }
+
                                 .inncrCare img {
                                     width: 100%;
 
+                                }
+
+                                .inncrChart img {
+                                    width: 100%;
+
+                                }
+
+                                .inncrChart table {
+                                    width: 100% !important;
+                                    height: 70vh !important;
+                                }
+
+                                .inncrChart tr td:first-child,
+                                .inncrChart tr th:first-child {
+                                    background-color: #000 !important;
+                                    color: #fff !important;
                                 }
 
                                 .inncrCareReturn img {
@@ -929,6 +966,7 @@
                                 }
 
                                 .inncrCare .bx-x,
+                                .inncrChart .bx-x,
                                 .inncrCareReturn .bx-x {
                                     font-size: 30px;
                                     position: absolute;
@@ -939,6 +977,8 @@
 
                                 .ouertCare.active,
                                 .inncrCare.active,
+                                .ouertChart.active,
+                                .inncrChart.active,
                                 .ouertCareReturn.active,
                                 .inncrCareReturn.active {
                                     right: 0;
@@ -1011,7 +1051,17 @@
                                         </h6>
                                     </div>
                                 </div>
-
+                                <div class=" ouertChart ">
+                                </div>
+                                <div class=" inncrChart">
+                                    <i class='bx bx-x close-btnChart'></i>
+                                    <div class="product-tab " style="background:#fff;border: 0 !important ; ">
+                                        <p class="text "
+                                            style="font-family: 'Poppins', sans-serif !important;font-weight: 400 !important;text-transform:uppercase;font-size: 12px  !important ; font-weight: 400 !important ;padding:10px;font-family: 'Raleway' , sans-serif ; color:black;">
+                                            <?php echo $row['sizeChart']; ?>
+                                        </p>
+                                    </div>
+                                </div>
                                 <script>
                                 const inncrCare = document.querySelector(".inncrCare");
                                 const ouertCare = document.querySelector(".ouertCare");
@@ -1026,6 +1076,22 @@
                                 closeBtn.addEventListener("click", () => {
                                     inncrCare.classList.remove("active");
                                     ouertCare.classList.remove("active");
+                                });
+                                </script>
+                                <script>
+                                const inncrChart = document.querySelector(".inncrChart");
+                                const ouertChart = document.querySelector(".ouertChart");
+                                const openBtnChart = document.querySelector(".open-btnChart");
+                                const closeBtnChart = document.querySelector(".close-btnChart");
+
+                                openBtnChart.addEventListener("click", () => {
+                                    inncrChart.classList.add("active");
+                                    ouertChart.classList.add("active");
+                                });
+
+                                closeBtnChart.addEventListener("click", () => {
+                                    inncrChart.classList.remove("active");
+                                    ouertChart.classList.remove("active");
                                 });
                                 </script>
                                 <script>
