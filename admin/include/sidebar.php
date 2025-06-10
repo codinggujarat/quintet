@@ -780,7 +780,7 @@ select:valid~label {
                     </a>
                     <ul class="sub-nav collapse" id="horizontal-menu2" data-bs-parent="#sidebar-menu">
                         <li class="nav-item ">
-                            <a class="nav-link rounded-5  text-black bg-transparent" href="review.php">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="monthly_sales_report.php">
                                 <i class="icon">
                                     <svg class="color" width="30" xmlns="http://www.w3.org/2000/svg" width="25px"
                                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -792,7 +792,7 @@ select:valid~label {
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link rounded-5  text-black bg-transparent" href="review.php">
+                            <a class="nav-link rounded-5  text-black bg-transparent" href="stock_report.php">
                                 <i class="icon">
                                     <svg class="color" width="30" width="20px" viewBox="0 0 24 24">
                                         <path fill="currentColor"

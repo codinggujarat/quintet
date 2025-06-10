@@ -168,6 +168,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                     <tr>
                                                         <th>Order ID</th>
                                                         <th>Order Date</th>
+                                                        <th>order Status</th>
                                                         <th>Product ID</th>
                                                         <th>Product Name</th>
                                                         <th>Product Company</th>
@@ -186,6 +187,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                 users.name AS user_name, 
                 orders.id AS order_id, 
                 orders.orderDate, 
+                orders.orderStatus, 
                 products.id AS product_id, 
                 products.productName, 
                 products.productCompany, 
@@ -205,6 +207,7 @@ products.productImage1
                 <tr>
                     <th>Order ID</th>
                     <th>Order Date</th>
+                    <th >order Status</th>
                     <th>Product ID</th>
                     <th>Product Name</th>
                     <th>Product Company</th>
@@ -217,6 +220,7 @@ products.productImage1
                                                                 <tr>
                     <td>{$row['order_id']}</td>
                     <td>{$row['orderDate']}</td>
+                    <td  >{$row['orderStatus']}</td>
                     <td>{$row['product_id']}</td>
                     <td>{$row['productName']}</td>
                     <td>{$row['productCompany']}</td>

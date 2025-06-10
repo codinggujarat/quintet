@@ -5,7 +5,22 @@ if (strlen($_SESSION['alogin']) == 0) {
     header('location:index.php');
 } else {
 }
+// Handle accept/reject
+if (isset($_GET['action']) && isset($_GET['id'])) {
+    $id = intval($_GET['id']);
+    $action = $_GET['action'];
 
+    if ($action == 'accept') {
+        $status = 'Accepted';
+    } elseif ($action == 'reject') {
+        $status = 'Rejected';
+    }
+
+    $query = "UPDATE paymentinformation SET paymentStatus = '$status' WHERE id = $id";
+    mysqli_query($con, $query);
+    header("Location: payments.php"); // Redirect to refresh
+    exit;
+}
 ?>
 
 
@@ -164,6 +179,7 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                         <th>Amount</th>
                                                         <th>UTR Number</th>
                                                         <th>QR Code</th>
+                                                        <th>paymentStatus </th>
                                                         <th>Payment Date</th>
                                                     </tr>
                                                 </thead>
@@ -187,6 +203,19 @@ if (strlen($_SESSION['alogin']) == 0) {
                                                                 alt='QR Code'></td>
 
 
+                                                        <td class="paymentStatus">
+                                                            <?php if ($row['paymentStatus'] == 'Pending') { ?>
+                                                            <a href="?action=accept&id=<?= $row['id'] ?>"
+                                                                class="button accept">Accept</a>
+                                                            <a href="?action=reject&id=<?= $row['id'] ?>"
+                                                                class="button reject">Reject</a>
+                                                            <?php } else { ?>
+                                                            <span class="<?= strtolower($row['paymentStatus']) ?>">
+                                                                <?= htmlspecialchars($row['paymentStatus']) ?>
+                                                            </span>
+                                                            <?php } ?>
+                                                        </td>
+
                                                         <td><?php echo htmlspecialchars($row['paymentDate']); ?></td>
                                                     </tr>
                                                     <?php $cnt = $cnt + 1;
@@ -204,6 +233,40 @@ if (strlen($_SESSION['alogin']) == 0) {
     </main>
 
     <style>
+    .paymentStatus a {
+        border: 1px solid black;
+        display: block;
+        text-align: center;
+        padding: 5px;
+        margin-top: 5px;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #000;
+    }
+
+    .accepted {
+        border: 1px solid black;
+        display: block;
+        text-align: center;
+        padding: 5px;
+        margin-top: 5px;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: green;
+    }
+
+    .rejected {
+        border: 1px solid black;
+        display: block;
+        text-align: center;
+        padding: 5px;
+        margin-top: 5px;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: red;
+    }
+
+
     .qrimg {
         width: 100px;
         height: 100%;

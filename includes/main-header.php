@@ -899,37 +899,42 @@ body::-webkit-scrollbar {
 
 <style>
 .main-header-mobile {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: white;
-    height: 70px;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: white !important;
+    height: 70px !important;
     z-index: 9999999999999999999999999999999999999999999999999999 !important;
-    display: none;
+    display: none !important;
 }
 
 .main-header-nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-    padding: 20px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    padding: 20px !important;
+}
+
+
+.main-header-nav ul li a {
+    font-size: 10px !important;
 }
 
 .main-header-nav ul li .cart {
-    display: flex;
-    align-items: center;
-    font-size: 20px;
+    display: flex !important;
+    align-items: center !important;
+    font-size: 10px !important;
 }
 
 @media only screen and (max-width: 500px) {
     .main-header-mobile {
-        display: block;
+        display: block !important;
     }
 
     .main-header {
-        display: none;
+        display: none !important;
 
     }
 }
@@ -1001,7 +1006,7 @@ body::-webkit-scrollbar {
             </li>
             <li>
                 <a href="my-account.php">
-                    <svg class="icon-25" width="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M11.9849 15.3462C8.11731 15.3462 4.81445 15.931 4.81445 18.2729C4.81445 20.6148 8.09636 21.2205 11.9849 21.2205C15.8525 21.2205 19.1545 20.6348 19.1545 18.2938C19.1545 15.9529 15.8735 15.3462 11.9849 15.3462Z"
                             stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">

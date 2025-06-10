@@ -104,7 +104,7 @@ if (strlen($_SESSION['login']) == 0) {
                                     </h4>
                                 </div>
                                 <div class=" mywishlistcards">
-                                    <?php $query = mysqli_query($con, "select products.productImageSix as pimg6,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity  as qty, orders.orderStatus as ostatus,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on  orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null");
+                                    <?php $query = mysqli_query($con, "select products.productImageSix as pimg6,products.productName as pname,products.id as proid,orders.productId as opid,orders.quantity  as qty, orders.orderStatus as ostatus,products.productPrice as pprice,products.shippingCharge as shippingcharge,orders.paymentMethod as paym,orders.orderDate as odate,orders.id as orderid from orders join products on  orders.productId=products.id where orders.userId='" . $_SESSION['id'] . "' and orders.paymentMethod is not null ORDER BY orderDate DESC");
                                         $cnt = 1;
 
                                         while ($row = mysqli_fetch_array($query)) {
